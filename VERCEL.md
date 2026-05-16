@@ -1,32 +1,35 @@
-# Checklist: conectar Vercel ao repositório
+# Checklist: Vercel ↔ repositório `tpiola/thiagopiola`
 
-Use este guia no [dashboard da Vercel](https://vercel.com) **após** o merge do código Next.js na branch `main`.
+## Status (verificado)
 
-## Antes de conectar o Git
+| Item                      | Status                                         |
+| ------------------------- | ---------------------------------------------- |
+| Repositório Git           | `tpiola/thiagopiola`                           |
+| Branch de produção        | `main`                                         |
+| Projeto Vercel            | `v0-thiagopiola` (time **thiagoso**)           |
+| Domínios                  | `thiagopiola.com.br`, `www.thiagopiola.com.br` |
+| Framework                 | Next.js (Turbopack)                            |
+| Deploy automático em push | Ativo                                          |
 
-- [ ] Confirmar que `npm run build` passa no repositório `tpiola/thiagopiola`
-- [ ] (Opcional) Pausar deploys de produção no projeto atual até o primeiro deploy com código completo
+Último deploy de produção referencia o commit `cf83583` na `main`.
 
-## Conectar o repositório
+## Revisão manual (opcional)
 
-1. Abra o projeto Vercel que serve **thiagopiola.com.br** e **www.thiagopiola.com.br**
-2. **Settings → Git** → Connect Git Repository → `tpiola/thiagopiola`
-3. **Production Branch:** `main`
-4. **Framework Preset:** Next.js
-5. **Root Directory:** `.` (raiz)
-6. **Build Command:** `npm run build` (padrão)
-7. **Install Command:** `npm install` (padrão)
+- [ ] Abrir https://www.thiagopiola.com.br após cada alteração importante
+- [ ] Validar âncoras: `#competencias`, `#tecnologia`, `#trajetoria`, `#contato`
+- [ ] Testar telefone/e-mail e links de redes sociais
+- [ ] Conferir favicon e metadados (title, description, Open Graph)
 
-## Domínios
+## Configuração de referência
 
-- [ ] `thiagopiola.com.br` apontando para este projeto
-- [ ] `www.thiagopiola.com.br` apontando para este projeto (redirect www → apex ou vice-versa, conforme preferência atual)
+Se precisar reconectar ou criar outro projeto:
 
-## Após o primeiro deploy
-
-- [ ] Abrir https://www.thiagopiola.com.br e validar seções: Competências, Tecnologia, Trajetória, Contato
-- [ ] Testar link WhatsApp e formulários de contato
-- [ ] Verificar favicon e metadados (title, description) nas ferramentas de preview social
+1. [Vercel Dashboard](https://vercel.com) → projeto do domínio
+2. **Settings → Git** → `tpiola/thiagopiola`, branch `main`
+3. **Framework Preset:** Next.js
+4. **Root Directory:** `.`
+5. **Build Command:** `npm run build`
+6. **Install Command:** `npm install`
 
 ## Fluxo contínuo
 

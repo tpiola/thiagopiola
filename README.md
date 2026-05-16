@@ -20,7 +20,11 @@ Todas as alteraç?es s?o feitas **neste repositório** (GitHub). N?o é necessário 
 2. `git push` na branch `main` (ou merge de PR)
 3. A Vercel faz o deploy automaticamente
 
-Consulte [VERCEL.md](./VERCEL.md) para conectar ou revisar a integraç?o Git ? Vercel.
+Consulte [VERCEL.md](./VERCEL.md) para revisar a integraç?o Git ? Vercel.
+
+## Origem do código
+
+O app foi sincronizado com o site em produç?o (recriaç?o a partir do HTML publicado e do projeto Vercel `v0-thiagopiola`). Snippet B2B auxiliar em `scripts/ai_studio_b2b_section.sh` (n?o integrado ao site).
 
 ## Desenvolvimento
 
