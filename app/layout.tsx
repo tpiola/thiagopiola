@@ -1,43 +1,58 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const inter = Inter({
+const geistSans = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist-sans",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
+  title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
   description:
-    "Farmacêutico CRF/SP 58.519 · Engenheiro de IA · Especialista em Vendas, Treinamento e Automação. Especialista em farmácia, IA e automação. Franca, SP.",
+    "Farmacêutico CRF/SP com Engenharia de IA. Vendas, gestão, treinamento, automação, sites e aplicativos — preparado para saúde e tecnologia.",
   authors: [{ name: "Thiago Biasoli G. Piola" }],
   keywords: [
     "farmacêutico",
-    "engenheiro de ia",
+    "engenharia de ia",
     "automação",
     "vendas",
-    "treinamento",
-    "franca sp",
+    "gestão",
     "thiago piola",
+    "franca sp",
   ],
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
-    description: "Farmácia · Engenharia de IA · Automação · Vendas · Treinamento",
+    title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
+    description:
+      "Base farmacêutica + IA aplicada. Saúde, negócios e tecnologia com método e resultado.",
     siteName: "Thiago Piola",
     type: "website",
     locale: "pt_BR",
   },
   twitter: {
-    card: "summary",
-    title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
-    description: "Farmácia · Engenharia de IA · Automação · Vendas · Treinamento",
+    card: "summary_large_image",
+    title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
+    description: "Saúde, negócios e tecnologia — com método e resultado.",
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+  ],
 };
 
 export default function RootLayout({
@@ -46,8 +61,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={inter.variable}>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased grain`}>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
