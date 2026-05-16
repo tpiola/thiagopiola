@@ -1,53 +1,47 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: 'Thiago Piola | Farmaceutico & Engenheiro de IA',
-  description: 'Farmaceutico com formacao em Engenharia de Inteligencia Artificial. Especialista em conectar saude, vendas, treinamento, automacao e solucoes digitais para criar resultados reais.',
-  keywords: ['farmaceutico', 'inteligencia artificial', 'IA', 'automacao', 'saude', 'tecnologia', 'n8n', 'desenvolvimento'],
-  authors: [{ name: 'Thiago Biasoli Garcia Piola' }],
-  creator: 'Thiago Piola',
+  title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
+  description: "Farmacêutico CRF-SP 58.519 · Engenheiro de IA · Especialista em Vendas, Treinamento e Automação. Baseado em Franca, SP.",
+  keywords: ["farmacêutico", "engenheiro de ia", "automação", "vendas", "treinamento", "franca sp", "thiago piola"],
+  authors: [{ name: "Thiago Biasoli G. Piola" }],
   openGraph: {
-    title: 'Thiago Piola | Farmaceutico & Engenheiro de IA',
-    description: 'Especialista em conectar saude, vendas, treinamento, automacao e solucoes digitais.',
-    type: 'website',
-    locale: 'pt_BR',
+    type: "website",
+    title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
+    description: "Farmacêutico · Engenheiro de IA · Vendas · Treinamento · Automação",
+    siteName: "Thiago Piola",
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Thiago Piola | Farmaceutico & Engenheiro de IA',
-    description: 'Especialista em conectar saude, vendas, treinamento, automacao e solucoes digitais.',
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: { index: true, follow: true },
   },
-}
-
-export const viewport: Viewport = {
-  themeColor: '#2563eb',
-  width: 'device-width',
-  initialScale: 1,
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth bg-slate-50">
-      <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
+    <html lang="pt-BR" className={inter.variable}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
-  )
+  );
 }
