@@ -1,30 +1,30 @@
 # thiagopiola
 
-PortfÛlio profissional de **Thiago Biasoli G. Piola** ? Farmac?utico (CRF-SP 58.519), Engenheiro de IA, especialista em vendas, treinamento e automaÁ?o.
+Portf√≥lio profissional de **Thiago Biasoli G. Piola** ‚Äî Farmac√™utico (CRF-SP 58.519), Engenheiro de IA, especialista em vendas, treinamento e automa√ß√£o.
 
-Site em produÁ?o: [www.thiagopiola.com.br](https://www.thiagopiola.com.br)
+Site em produ√ß√£o: [www.thiagopiola.com.br](https://www.thiagopiola.com.br)
 
 ## Stack
 
 - [Next.js](https://nextjs.org) (App Router)
 - [Tailwind CSS](https://tailwindcss.com)
 - [Framer Motion](https://www.framer.com/motion/)
-- [Lucide](https://lucide.dev) + Ìcones de marca customizados
+- [Lucide](https://lucide.dev) + √≠cones de marca customizados
 - Deploy: [Vercel](https://vercel.com)
 
-## Fluxo de publicaÁ?o
+## Fluxo de publica√ß√£o
 
-Todas as alteraÁ?es s?o feitas **neste repositÛrio** (GitHub). N?o È necess·rio clonar no computador local.
+Todas as altera√ß√µes s√£o feitas **neste reposit√≥rio** (GitHub). N√£o √© necess√°rio clonar no computador local.
 
-1. Editar cÛdigo (Cursor Cloud Agent ou interface do GitHub)
+1. Editar c√≥digo (Cursor Cloud Agent ou interface do GitHub)
 2. `git push` na branch `main` (ou merge de PR)
 3. A Vercel faz o deploy automaticamente
 
-Consulte [VERCEL.md](./VERCEL.md) para revisar a integraÁ?o Git ? Vercel.
+Consulte [VERCEL.md](./VERCEL.md) para revisar a integra√ß√£o Git ‚Üí Vercel.
 
-## Origem do cÛdigo
+## Origem do c√≥digo
 
-O app foi sincronizado com o site em produÁ?o (recriaÁ?o a partir do HTML publicado e do projeto Vercel `v0-thiagopiola`). Snippet B2B auxiliar em `scripts/ai_studio_b2b_section.sh` (n?o integrado ao site).
+O app foi sincronizado com o site em produ√ß√£o (recria√ß√£o a partir do HTML publicado e do projeto Vercel `v0-thiagopiola`). Snippet B2B auxiliar em `scripts/ai_studio_b2b_section.sh` (n√£o integrado ao site).
 
 ## Desenvolvimento
 
@@ -44,13 +44,13 @@ npx prettier -w .
 ## Estrutura
 
 ```
-app/           # layout, p·gina principal, estilos globais
-components/    # seÁ?es do site (Hero, Compet?ncias, etc.)
-lib/           # utilit·rios (cn)
-public/        # favicon e assets est·ticos
+app/           # layout, p√°gina principal, estilos globais
+components/    # se√ß√µes do site (Hero, Compet√™ncias, etc.)
+lib/           # utilit√°rios (cn)
+public/        # favicon e assets est√°ticos
 scripts/       # snippets auxiliares
 ```
 
-## LicenÁa
+## Licen√ßa
 
-MIT ? ver [LICENSE](./LICENSE).
+MIT ‚Äî ver [LICENSE](./LICENSE).
