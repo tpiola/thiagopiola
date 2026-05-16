@@ -74,7 +74,8 @@ export function Competencias() {
             Resultado <span className="text-blue-600">acima da média.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-gray-500">
-            Décadas de prática clínica encontrando engenharia de ponta. Uma combinação rara.
+            Experiência sólida em farmácia — do atendimento à gestão — integrada a IA, automação e
+            liderança de equipes.
           </p>
         </AnimateIn>
 

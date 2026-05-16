@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, XTwitterIcon } from "./SocialIcons";
 import { AnimateIn } from "./AnimateIn";
-import { PharmacyIcon } from "./PharmacyIcon";
+import { Logo } from "./Logo";
 
 const socialLinks = [
   {
@@ -43,7 +43,7 @@ export function Hero() {
           />
         </video>
         <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-gray-950/70 via-gray-950/50 to-gray-950"
+          className="absolute inset-0 bg-gradient-to-b from-gray-950/75 via-gray-950/55 to-gray-950"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
@@ -61,16 +61,13 @@ export function Hero() {
 
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(37,99,235,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-      <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-5 pb-24 pt-32 text-center md:px-8">
+      <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-5 pb-24 pt-36 text-center md:px-8">
         <AnimateIn>
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white/60 backdrop-blur">
-            <PharmacyIcon className="h-3.5 w-3.5" />
-            CRF-SP 58.519 · Franca, SP
-          </div>
+          <Logo iconClassName="h-20 w-20 md:h-24 md:w-24" variant="icon" className="mx-auto mb-8" />
         </AnimateIn>
 
-        <AnimateIn delay={0.1}>
-          <h1 className="text-4xl font-black leading-[1.0] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+        <AnimateIn delay={0.08}>
+          <h1 className="text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             <span
               style={{
                 background: "linear-gradient(135deg, #ffffff 0%, #93c5fd 40%, #3b82f6 100%)",
@@ -84,15 +81,22 @@ export function Hero() {
           </h1>
         </AnimateIn>
 
-        <AnimateIn delay={0.2}>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/55 md:text-xl">
-            Farmacêutico · Engenheiro de IA · Vendas · Treinamento · Automação
+        <AnimateIn delay={0.14}>
+          <p className="mt-4 text-sm font-semibold tracking-[0.2em] text-emerald-400/95 uppercase md:text-base">
+            Farmacêutico CRF/SP 58.519
           </p>
         </AnimateIn>
 
-        <AnimateIn delay={0.3}>
+        <AnimateIn delay={0.2}>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/60 md:text-xl">
+            Farmácia clínica e gestão · Engenharia de IA · Automação inteligente · Vendas e
+            treinamento com ética profissional
+          </p>
+        </AnimateIn>
+
+        <AnimateIn delay={0.28}>
           <motion.div
-            className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-white/40"
+            className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-white/45"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
@@ -103,14 +107,14 @@ export function Hero() {
             </span>
             <a
               href="tel:5516992333344"
-              className="flex items-center gap-1.5 transition-colors hover:text-white/70"
+              className="flex items-center gap-1.5 transition-colors hover:text-white/75"
             >
               <Phone className="h-3.5 w-3.5 text-blue-400" aria-hidden />
               (16) 99233-3344
             </a>
             <a
               href="mailto:contato@thiagopiola.com.br"
-              className="flex items-center gap-1.5 transition-colors hover:text-white/70"
+              className="flex items-center gap-1.5 transition-colors hover:text-white/75"
             >
               <Mail className="h-3.5 w-3.5 text-blue-400" aria-hidden />
               contato@thiagopiola.com.br
@@ -118,7 +122,7 @@ export function Hero() {
           </motion.div>
         </AnimateIn>
 
-        <AnimateIn delay={0.4}>
+        <AnimateIn delay={0.36}>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
             <a
               href="https://wa.me/5516992333344"
@@ -131,7 +135,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#competencias"
+              href="#farmacia"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-[12px] font-bold uppercase tracking-[0.15em] text-white/80 backdrop-blur transition-all hover:border-white/30 hover:bg-white/10 hover:text-white"
             >
               Conhecer mais
@@ -139,8 +143,8 @@ export function Hero() {
           </div>
         </AnimateIn>
 
-        <AnimateIn delay={0.5}>
-          <div className="mt-8 flex justify-center gap-2">
+        <AnimateIn delay={0.44}>
+          <motion.div className="mt-8 flex justify-center gap-2">
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <a
                 key={href}
@@ -153,7 +157,7 @@ export function Hero() {
                 <Icon className="h-4 w-4" />
               </a>
             ))}
-          </div>
+          </motion.div>
         </AnimateIn>
 
         <motion.div

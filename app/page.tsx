@@ -1,4 +1,5 @@
 import { Competencias } from "@/components/Competencias";
+import { FarmaciaComunicacao } from "@/components/FarmaciaComunicacao";
 import { FarmaciaFuturo } from "@/components/FarmaciaFuturo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -13,6 +14,7 @@ export default function Home() {
       <ScrollProgress />
       <Header />
       <Hero />
+      <FarmaciaComunicacao />
       <Competencias />
       <FarmaciaFuturo />
       <Tecnologia />

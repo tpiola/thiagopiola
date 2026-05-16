@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, XTwitterIcon } from "./SocialIcons";
-import { PharmacyIcon } from "./PharmacyIcon";
+import { Logo } from "./Logo";
 
 const socialLinks = [
   {
@@ -41,21 +41,10 @@ export function Footer() {
       >
         <motion.div className="grid gap-10 lg:grid-cols-3">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <motion.div
-                className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-lg shadow-blue-500/25"
-                whileHover={{ scale: 1.05 }}
-              >
-                <PharmacyIcon className="h-5 w-5" />
-              </motion.div>
-              <div>
-                <p className="text-xs font-black tracking-[0.1em] text-gray-900">THIAGO PIOLA</p>
-                <p className="text-[10px] font-semibold text-blue-600">CRF-SP 58.519</p>
-              </div>
-            </div>
+            <Logo variant="full" showCredential iconClassName="h-10 w-10" theme="light" />
             <p className="mt-4 text-sm leading-relaxed text-gray-500">
-              Farmacêutico com formação em Engenharia de IA. Conectando saúde, vendas e tecnologia
-              para gerar resultados reais.
+              Farmacêutico CRF/SP com atuação em farmácia, engenharia de IA e automação. Conectando
+              cuidado ao paciente, gestão e tecnologia para resultados consistentes.
             </p>
             <div className="mt-5 flex gap-2">
               {socialLinks.map(({ href, label, icon: Icon }) => (
@@ -135,7 +124,7 @@ export function Footer() {
 
         <div className="mt-14 border-t border-gray-100 pt-7">
           <p className="text-center text-[11px] text-gray-400">
-            © {year} THIAGO BIASOLI G. PIOLA · CRF-SP 58.519
+            © {year} THIAGO BIASOLI G. PIOLA · Farmacêutico CRF/SP 58.519
           </p>
         </div>
       </motion.div>

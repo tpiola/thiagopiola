@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
   description:
-    "Farmacêutico CRF-SP 58.519 · Engenheiro de IA · Especialista em Vendas, Treinamento e Automação. Baseado em Franca, SP.",
+    "Farmacêutico CRF/SP 58.519 · Engenheiro de IA · Especialista em Vendas, Treinamento e Automação. Especialista em farmácia, IA e automação. Franca, SP.",
   authors: [{ name: "Thiago Biasoli G. Piola" }],
   keywords: [
     "farmacêutico",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
-    description: "Farmacêutico · Engenheiro de IA · Vendas · Treinamento · Automação",
+    description: "Farmácia · Engenharia de IA · Automação · Vendas · Treinamento",
     siteName: "Thiago Piola",
     type: "website",
     locale: "pt_BR",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Thiago Biasoli G. Piola | Farmacêutico & Engenheiro de IA",
-    description: "Farmacêutico · Engenheiro de IA · Vendas · Treinamento · Automação",
+    description: "Farmácia · Engenharia de IA · Automação · Vendas · Treinamento",
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],

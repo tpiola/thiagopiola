@@ -39,7 +39,7 @@ export function FarmaciaFuturo() {
                 style={{ originX: 0 }}
               />
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-400/70">
-                CRF-SP 58.519
+                Farmacêutico CRF/SP 58.519
               </span>
             </div>
           </AnimateIn>
