@@ -11,7 +11,7 @@
 | Framework                 | Next.js (Turbopack)                            |
 | Deploy automático em push | Ativo                                          |
 
-Último deploy de produção referencia o commit `cf83583` na `main`.
+Último deploy de produção referencia o commit `0d99bca` na `main`.
 
 ## Revisão manual (opcional)
 
