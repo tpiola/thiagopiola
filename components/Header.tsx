@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { nav, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
@@ -47,12 +47,12 @@ export function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            href="/curriculo-thiago-piola.pdf"
-            download
-            className="hidden items-center gap-1.5 rounded-lg border border-border bg-surface-elevated px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-wider text-foreground transition-all hover:border-accent/40 hover:text-accent md:inline-flex"
+            href={site.whatsappWithMessage}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-1.5 rounded-lg border border-[#0066CC]/40 bg-[#0066CC]/10 px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-wider text-[#0066CC] transition-all hover:bg-[#0066CC]/20 md:inline-flex"
           >
-            <Download className="h-3.5 w-3.5" />
-            CV PDF
+            Contato
           </a>
           <button
             type="button"
@@ -81,18 +81,10 @@ export function Header() {
             </a>
           ))}
           <a
-            href="/curriculo-thiago-piola.pdf"
-            download
-            className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border px-4 py-3 text-sm font-medium text-foreground"
-          >
-            <Download className="h-4 w-4" />
-            Baixar Currículo PDF
-          </a>
-          <a
-            href={site.whatsapp}
+            href={site.whatsappWithMessage}
             target="_blank"
             rel="noreferrer"
-            className="mt-2 block rounded-lg bg-foreground px-4 py-3 text-center text-sm font-medium text-[var(--surface)]"
+            className="mt-2 block rounded-lg bg-[#0066CC] px-4 py-3 text-center text-sm font-medium text-white"
           >
             WhatsApp
           </a>

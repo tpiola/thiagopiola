@@ -1,8 +1,9 @@
 "use client";
 
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
 import { nav, site, socialLinks } from "@/lib/content";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, XTwitterIcon } from "./SocialIcons";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, WhatsAppIcon, XTwitterIcon } from "./SocialIcons";
 
 const iconMap = {
   LinkedIn: LinkedinIcon,
@@ -19,7 +20,6 @@ export function Footer() {
       {/* ── Editorial display — the "signature" ── */}
       <div className="border-b border-border">
         <div className="mx-auto max-w-7xl px-5 pb-6 pt-16 sm:px-8 md:px-12 lg:px-16">
-          {/* Giant name as design element */}
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
             {site.credential}
           </p>
@@ -40,12 +40,24 @@ export function Footer() {
           {/* Bio */}
           <div className="lg:col-span-4">
             <p className="max-w-xs text-sm leading-relaxed text-muted">
-              Farmacêutico executivo e engenheiro de IA. Atuação em saúde, indústria e tecnologia —
-              com foco em resultado real e método comprovado.
+              Farmacêutico executivo e engenheiro de IA. Formação de equipes de alta performance,
+              vendas consultivas e automação inteligente — com foco em resultado real.
             </p>
 
-            {/* Social links — prominent */}
-            <div className="mt-8 flex flex-wrap gap-3">
+            {/* Founder mention */}
+            <a
+              href={site.reidasVendas}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex items-center gap-2 rounded-lg border border-border bg-surface-elevated px-3 py-2 text-xs font-medium text-muted transition-all hover:border-accent/40 hover:text-accent"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0066CC]" />
+              Founder · Rei das Vendas
+              <ArrowUpRight className="h-3 w-3 opacity-50" />
+            </a>
+
+            {/* Social links — icon only */}
+            <div className="mt-8 flex flex-wrap gap-4">
               {socialLinks.map(({ href, label }) => {
                 const Icon = iconMap[label as keyof typeof iconMap];
                 return (
@@ -54,11 +66,10 @@ export function Footer() {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center gap-2 rounded-lg border border-border bg-surface-elevated px-3 py-2 text-xs font-medium text-muted transition-all hover:border-accent/40 hover:text-accent"
                     aria-label={label}
+                    className="text-muted transition-all hover:scale-110 hover:text-foreground"
                   >
-                    <Icon className="h-[14px] w-[14px]" />
-                    {label}
+                    <Icon className="h-5 w-5" />
                   </a>
                 );
               })}
@@ -89,13 +100,15 @@ export function Footer() {
             <ul className="mt-4 space-y-4">
               <li>
                 <a
-                  href={site.phoneHref}
+                  href={site.whatsappWithMessage}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex gap-3 text-sm text-foreground transition-colors hover:text-accent"
                 >
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-muted" />
+                  <WhatsAppIcon className="mt-0.5 h-4 w-4 shrink-0 text-[#25D366]" />
                   <span>
                     {site.phone}
-                    <span className="block text-xs text-muted">Telefone &amp; WhatsApp</span>
+                    <span className="block text-xs text-muted">WhatsApp</span>
                   </span>
                 </a>
               </li>
@@ -116,7 +129,7 @@ export function Footer() {
 
             {/* Footer CTA */}
             <a
-              href={site.whatsapp}
+              href={site.whatsappWithMessage}
               target="_blank"
               rel="noreferrer"
               className="mt-8 inline-flex items-center gap-2 rounded-xl bg-foreground px-5 py-3 text-sm font-semibold text-[var(--surface)] transition-opacity hover:opacity-85 active:scale-[0.98]"
@@ -126,12 +139,39 @@ export function Footer() {
             </a>
           </div>
         </div>
+
+        {/* QR Code section */}
+        <div className="mt-16 flex flex-col items-center gap-4 border-t border-border pt-12">
+          <p className="font-mono text-[10px] uppercase tracking-wider text-muted">
+            Escaneie para conversar no WhatsApp
+          </p>
+          <div className="rounded-2xl border border-border bg-white p-4">
+            <QRCodeSVG
+              value={site.whatsappWithMessage}
+              size={128}
+              level="M"
+              bgColor="#ffffff"
+              fgColor="#07090f"
+            />
+          </div>
+          <p className="text-xs text-muted">{site.phone}</p>
+        </div>
       </div>
 
       {/* ── Bottom bar ── */}
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8 md:px-12 lg:px-16">
-          <p>© {year} {site.name}</p>
+          <p>
+            Criado por:{" "}
+            <a
+              href={site.reidasVendas}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-accent"
+            >
+              © {year} Rei das Vendas
+            </a>
+          </p>
           <p className="font-mono uppercase tracking-wider">{site.credential}</p>
         </div>
       </div>

@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, type Variants } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { hero, site, socialLinks } from "@/lib/content";
 import { FloatingIcons } from "./FloatingIcons";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, XTwitterIcon } from "./SocialIcons";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, WhatsAppIcon, XTwitterIcon } from "./SocialIcons";
 
 const iconMap = {
   LinkedIn: LinkedinIcon,
@@ -29,7 +29,6 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollY } = useScroll();
-  /* Parallax: bg slides down, content fades up on scroll */
   const bgY = useTransform(scrollY, [0, 700], [0, reduce ? 0 : 110]);
   const contentY = useTransform(scrollY, [0, 500], [0, reduce ? 0 : -55]);
   const contentOpacity = useTransform(scrollY, [0, 380], [1, reduce ? 1 : 0]);
@@ -37,12 +36,7 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="relative min-h-[100dvh] overflow-hidden bg-[#07090f]">
       {/* ── Parallax video / gradient background ──────────────── */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        style={{ y: bgY }}
-        aria-hidden
-      >
-        {/* Drop /public/videos/hero-loop.mp4 to activate */}
+      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }} aria-hidden>
         <video
           autoPlay muted loop playsInline
           className="h-full w-full object-cover opacity-[0.16]"
@@ -63,20 +57,16 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* ── Accent glow (bottom-left) ─────────────────────────── */}
+      {/* ── Accent glow ─────────────────────────────────────── */}
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 5% 65%,rgba(0,102,204,0.12),transparent)",
-        }}
+        style={{ background: "radial-gradient(ellipse 60% 50% at 5% 65%,rgba(0,102,204,0.12),transparent)" }}
         aria-hidden
       />
 
-      {/* ── Floating 3D icons ─────────────────────────────────── */}
       <FloatingIcons />
 
-      {/* ── Main content (parallax scroll) ────────────────────── */}
+      {/* ── Main content ────────────────────────────────────── */}
       <motion.div
         className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center px-5 pb-20 pt-28 sm:px-8 md:px-12 lg:px-16"
         style={{ y: contentY, opacity: contentOpacity }}
@@ -94,10 +84,18 @@ export function Hero() {
             {site.credential}&nbsp;&nbsp;·&nbsp;&nbsp;{site.location}
           </motion.p>
 
-          {/* Headline — pattern interrupt */}
+          {/* Full name */}
+          <motion.p
+            variants={reduce ? undefined : fadeUp}
+            className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40 sm:text-xs"
+          >
+            Thiago Biasoli Garcia Piola
+          </motion.p>
+
+          {/* Headline */}
           <motion.h1
             variants={reduce ? undefined : fadeUp}
-            className="mt-5 text-[clamp(3rem,9.5vw,7.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white"
+            className="mt-4 text-[clamp(3rem,9.5vw,7.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white"
           >
             {hero.headline.split("\n").map((line, i) => (
               <span key={i} className={i === 1 ? "block text-white/28" : "block"}>
@@ -106,7 +104,7 @@ export function Hero() {
             ))}
           </motion.h1>
 
-          {/* Sub — accent blue, short and specific */}
+          {/* Sub */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
             className="mt-6 text-[clamp(0.95rem,2.2vw,1.2rem)] font-semibold text-[#0066CC]"
@@ -114,7 +112,7 @@ export function Hero() {
             {hero.sub}
           </motion.p>
 
-          {/* Lead — presupposition + scarcity */}
+          {/* Lead */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
             className="mt-3 max-w-[44ch] text-[clamp(0.875rem,1.8vw,1rem)] leading-relaxed text-white/45"
@@ -122,21 +120,26 @@ export function Hero() {
             {hero.lead}
           </motion.p>
 
-          {/* CTAs */}
+          {/* Founder badge */}
+          <motion.div variants={reduce ? undefined : fadeUp} className="mt-4">
+            <a
+              href={site.reidasVendas}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/40 transition-all hover:border-white/22 hover:text-white/70"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0066CC]" />
+              Founder · Rei das Vendas
+            </a>
+          </motion.div>
+
+          {/* CTA */}
           <motion.div
             variants={reduce ? undefined : fadeUp}
             className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <a
-              href="/curriculo-thiago-piola.pdf"
-              download
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/14 bg-white/7 px-7 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/26 hover:bg-white/11 active:scale-[0.97]"
-            >
-              <Download className="h-4 w-4 opacity-55" />
-              {hero.ctaPrimary}
-            </a>
-            <a
-              href={site.whatsapp}
+              href={site.whatsappWithMessage}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0066CC] px-7 py-4 text-sm font-semibold text-white transition-all hover:bg-[#0055BB] active:scale-[0.97]"
@@ -151,7 +154,7 @@ export function Hero() {
             variants={reduce ? undefined : fadeUp}
             className="mt-14 flex flex-wrap items-center gap-6 border-t border-white/7 pt-8"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-5">
               {socialLinks.map(({ href, label }) => {
                 const Icon = iconMap[label as keyof typeof iconMap];
                 return (
@@ -161,25 +164,34 @@ export function Hero() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={label}
-                    className="text-white/22 transition-colors hover:text-white/75"
+                    className="text-white/50 transition-colors hover:text-white/90"
                   >
-                    <Icon className="h-[17px] w-[17px]" />
+                    <Icon className="h-[18px] w-[18px]" />
                   </a>
                 );
               })}
             </div>
             <span className="hidden h-3.5 w-px bg-white/10 sm:block" aria-hidden />
-            <a href={site.phoneHref} className="text-sm text-white/28 hover:text-white/65 transition-colors">
+            <a
+              href={site.whatsappWithMessage}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 text-sm text-white/38 transition-colors hover:text-white/75"
+            >
+              <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
               {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} className="hidden text-sm text-white/28 hover:text-white/65 transition-colors md:inline">
+            <a
+              href={`mailto:${site.email}`}
+              className="hidden items-center gap-2 text-sm text-white/38 transition-colors hover:text-white/75 md:flex"
+            >
+              <Mail className="h-4 w-4 text-white/40" />
               {site.email}
             </a>
           </motion.div>
         </motion.div>
 
         {/* Photo placeholder — desktop right column */}
-        {/* Replace with <Image src="/images/thiago-piola.jpg" fill priority quality={95} className="object-cover object-top" /> */}
         <div
           className="pointer-events-none absolute bottom-0 right-0 hidden h-[90%] w-[34%] lg:block"
           aria-hidden

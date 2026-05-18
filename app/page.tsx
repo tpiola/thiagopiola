@@ -1,6 +1,8 @@
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { BentoGrid } from "@/components/BentoGrid";
 import { Competencias } from "@/components/Competencias";
+import { ContactForm } from "@/components/ContactForm";
+import { CookieConsent } from "@/components/CookieConsent";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
@@ -10,6 +12,7 @@ import { Tecnologia } from "@/components/Tecnologia";
 import { TextReveal } from "@/components/TextReveal";
 import { Trajetoria } from "@/components/Trajetoria";
 import { VideoSection } from "@/components/VideoSection";
+import { WhatsAppFAB } from "@/components/WhatsAppFAB";
 import { site, textReveal } from "@/lib/content";
 
 export default function Home() {
@@ -18,13 +21,13 @@ export default function Home() {
       <ScrollProgress />
       <Header />
 
-      {/* ① Hero — video + pattern interrupt headline */}
+      {/* ① Hero — video + pattern interrupt */}
       <Hero />
 
-      {/* ② Stats — 3 brutal numbers */}
+      {/* ② Stats — números reais */}
       <StatsStrip />
 
-      {/* ③ What I do — bento grid */}
+      {/* ③ Proposta — bento grid */}
       <BentoGrid />
 
       {/* ④ NLP word-by-word reveal */}
@@ -37,7 +40,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ⑤ Mid video — manifesto + CTA (curiosity gap) */}
+      {/* ⑤ Mid video — curiosity gap */}
       <VideoSection
         src="/videos/mid-loop.mp4"
         className="min-h-[58vh] border-b border-white/8"
@@ -48,7 +51,7 @@ export default function Home() {
             <span className="block text-white/30">A única pergunta é: quando vai agir?</span>
           </h2>
           <a
-            href={site.whatsapp}
+            href={site.whatsappWithMessage}
             target="_blank"
             rel="noreferrer"
             className="mt-10 inline-flex items-center gap-2 rounded-xl bg-[#0066CC] px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#0055BB] active:scale-[0.98]"
@@ -59,16 +62,16 @@ export default function Home() {
         </div>
       </VideoSection>
 
-      {/* ⑥ Proof — competências */}
+      {/* ⑥ Competências */}
       <Competencias />
 
       {/* ⑦ Stack técnica */}
       <Tecnologia />
 
-      {/* ⑧ Track record */}
+      {/* ⑧ Trajetória */}
       <Trajetoria />
 
-      {/* ⑨ End video — CTA final (scarcity + curiosity) */}
+      {/* ⑨ End video — scarcity + urgência */}
       <VideoSection
         src="/videos/cta-loop.mp4"
         className="min-h-[52vh] border-b border-white/8"
@@ -76,36 +79,36 @@ export default function Home() {
       >
         <div className="mx-auto w-full max-w-4xl px-5 py-20 sm:px-8 md:px-12 md:py-28 lg:px-16">
           <h2 className="max-w-2xl text-[clamp(2.2rem,6vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white">
-            Uma conversa muda tudo.
-            <span className="block text-white/30">Ou não muda nada.</span>
+            Esse perfil não vai estar disponível para sempre.
+            <span className="block text-white/30">Profissionais assim escolhem onde vão fazer diferença.</span>
           </h2>
-          <p className="mt-5 max-w-sm text-base leading-relaxed text-white/45">
-            Só há uma forma de descobrir.
+          <p className="mt-5 max-w-md text-base leading-relaxed text-white/45">
+            Se você chegou até aqui, provavelmente já sabe o que precisa.
+            Uma mensagem. Sem compromisso. Com possibilidade real.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="/curriculo-thiago-piola.pdf"
-              download
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/18 bg-white/8 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/28 hover:bg-white/12 active:scale-[0.98]"
-            >
-              <Download className="h-4 w-4 opacity-60" />
-              Baixar Currículo
-            </a>
-            <a
-              href={site.whatsapp}
+              href={site.whatsappWithMessage}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0066CC] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0055BB] active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0066CC] px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#0055BB] active:scale-[0.98]"
             >
-              WhatsApp
+              Quero conversar agora
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
       </VideoSection>
 
-      {/* ⑩ Footer — editorial + todas as redes */}
+      {/* ⑩ Formulário de contato */}
+      <ContactForm />
+
+      {/* ⑪ Footer */}
       <Footer />
+
+      {/* Floating elements */}
+      <WhatsAppFAB />
+      <CookieConsent />
     </main>
   );
 }

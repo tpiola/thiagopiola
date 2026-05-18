@@ -138,10 +138,10 @@ function BentoCard({
   className?: string;
 }) {
   const reduce = useReducedMotion();
-  const isAI = card.tag.includes("01");
+  const isAI = card.tag === "Engenharia de IA";
   const isEff = "metrics" in card && card.metrics;
-  const isMgmt = card.tag.includes("03");
-  const isSales = card.tag.includes("04");
+  const isMgmt = card.tag === "Liderança";
+  const isSales = card.tag === "Vendas";
 
   return (
     <motion.div

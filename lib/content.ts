@@ -1,7 +1,7 @@
 /** Conteúdo — copy otimizado para RH de alto ticket no setor farmacêutico */
 
 export const site = {
-  name: "Thiago Biasoli G. Piola",
+  name: "Thiago Biasoli Garcia Piola",
   shortName: "Thiago Piola",
   credential: "Farmacêutico CRF/SP 58.519",
   location: "Brasil",
@@ -9,6 +9,9 @@ export const site = {
   phoneHref: "tel:5516992333344",
   email: "contato@thiagopiola.com.br",
   whatsapp: "https://wa.me/5516992333344",
+  whatsappWithMessage:
+    "https://wa.me/5516992333344?text=Vi%20seu%20site%2C%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20conversar.",
+  reidasVendas: "https://www.reidasvendas.com.br",
 } as const;
 
 export const nav = [
@@ -21,17 +24,39 @@ export const nav = [
 
 export const hero = {
   headline: "Dois perfis raros.\nUma pessoa.",
-  sub: "Farmácia clínica. Engenharia de IA. Zero equivalente.",
-  lead: "Esse profissional não existe em mais ninguém no mercado. Você está lendo o perfil certo.",
-  ctaPrimary: "Baixar Currículo",
+  sub: "Farmaceutico Generalista. Engenharia de IA. Gestão Estratégica.",
+  lead: "Formação de equipes, resultados em vendas e Inteligência Artificial — no mesmo profissional.",
   ctaSecondary: "Falar agora",
 } as const;
 
-export const stats = [
-  { value: "15+", label: "anos de operação farmacêutica" },
-  { value: "0", label: "equivalentes no mercado" },
-  { value: "2", label: "especialidades num único profissional" },
-] as const;
+export type StatItem = {
+  value: string;
+  label: string;
+  animate?: boolean;
+  target?: number;
+  suffix?: string;
+};
+
+export const stats: StatItem[] = [
+  {
+    value: "15+",
+    label: "anos de operação farmacêutica",
+    animate: true,
+    target: 15,
+    suffix: "+",
+  },
+  {
+    value: "500+",
+    label: "profissionais treinados em drogaria e vendas de alta performance",
+    animate: true,
+    target: 500,
+    suffix: "+",
+  },
+  {
+    value: "Competência Comprovada",
+    label: "dois domínios de excelência integrados num único profissional",
+  },
+];
 
 /** NLP: visualização → confirmação → urgência */
 export const textReveal = {
@@ -41,7 +66,7 @@ export const textReveal = {
 
 export const bento = {
   title: "Quatro frentes. Um profissional.",
-  lead: "Enquanto outros escolhem entre saúde e tecnologia, Thiago entrega as duas — com histórico comprovado.",
+  lead: "Ética no trabalho, cultura de excelência e resultado comprovado. Thiago não apenas entrega — ele forma os profissionais que replicam o mesmo padrão em cada equipe que lidera.",
   cards: [
     {
       tag: "Engenharia de IA",
@@ -62,7 +87,7 @@ export const bento = {
     {
       tag: "Liderança",
       title: "Times de alta performance",
-      desc: "Playbooks, mentorias e acompanhamento de resultados em equipes comerciais e técnicas.",
+      desc: "Playbooks, mentorias e formação de equipes com a mesma cultura de ética, comprometimento e resultado.",
       size: "small",
     },
     {
@@ -75,8 +100,8 @@ export const bento = {
 } as const;
 
 export const competencias = {
-  title: "O diferencial que as vagas de alto ticket exigem.",
-  lead: "Regulação farmacêutica, liderança comercial e engenharia de IA numa única pessoa. Exatamente o que indústrias e healthtechs buscam.",
+  title: "Um perfil que você provavelmente não vai encontrar de novo.",
+  lead: "No Brasil, poucos profissionais somam: operação farmacêutica na ponta, gestão e formação de equipes, especialização em vendas de alta performance e Engenharia de IA. Muitos podem prometer. Os números garantem o que você está lendo.",
   skills: [
     { title: "Engenharia de IA", desc: "Agentes, LLMs e arquiteturas de produto em contexto regulado." },
     { title: "Responsabilidade técnica", desc: "Compliance, ANVISA e operações de alto volume." },
@@ -87,7 +112,7 @@ export const competencias = {
   ],
   metrics: [
     { value: "15+", label: "Anos de experiência" },
-    { value: "2", label: "Domínios integrados" },
+    { value: "500+", label: "Profissionais treinados" },
     { value: "Zero", label: "Substituto no mercado" },
   ],
 } as const;
@@ -106,10 +131,8 @@ export const tecnologia = {
 } as const;
 
 export const trajetoria = {
-  /** Hero's journey headline */
-  title: "A jornada que criou esse perfil.",
-  lead: "Cada posição foi uma escolha deliberada. Não uma coincidência.",
-  /** Milestone intro — the transformation moment */
+  title: "Experiência + Inteligência Artificial = Escala sem limite",
+  lead: "Cada posição foi deliberada. A IA foi o catalisador.",
   pivotLabel: "O ponto de virada",
   pivotText: "Pós-graduação em Engenharia de IA — onde 15 anos de farmácia encontraram sistemas do futuro.",
   career: [
@@ -119,6 +142,13 @@ export const trajetoria = {
       role: "Farmacêutico Responsável Técnico",
       desc: "A maior rede farmacêutica do Brasil. Alto padrão, alta exigência — vendas, liderança e compliance em escala.",
       tag: "Presente",
+    },
+    {
+      company: "Rei das Vendas",
+      period: "2024–Atual",
+      role: "Founder",
+      desc: "Plataforma de treinamento, vendas e alta performance para o mercado farmacêutico e comercial.",
+      tag: "Empreendimento",
     },
     {
       company: "Drogaria Americana",
