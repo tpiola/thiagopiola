@@ -5,23 +5,34 @@ import { motion, useReducedMotion, useScroll, useTransform, type Variants } from
 import { ArrowRight, Mail } from "lucide-react";
 import { hero, site, socialLinks } from "@/lib/content";
 import { FloatingIcons } from "./FloatingIcons";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, WhatsAppIcon, XTwitterIcon } from "./SocialIcons";
+import {
+  BlueSkyIcon, FacebookIcon, GitHubIcon, GoogleIcon,
+  InstagramIcon, LinkedinIcon, NotionIcon, RedditIcon,
+  TelegramIcon, TikTokIcon, WhatsAppIcon, XTwitterIcon,
+} from "./SocialIcons";
 
 const iconMap = {
-  LinkedIn: LinkedinIcon,
-  Instagram: InstagramIcon,
+  Bluesky: BlueSkyIcon,
   Facebook: FacebookIcon,
+  GitHub: GitHubIcon,
+  Google: GoogleIcon,
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedinIcon,
+  Notion: NotionIcon,
+  Reddit: RedditIcon,
+  Telegram: TelegramIcon,
+  TikTok: TikTokIcon,
   X: XTwitterIcon,
 } as const;
 
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 };
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 36 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: "easeOut" } },
 };
 
 export function Hero() {
@@ -29,44 +40,43 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollY } = useScroll();
-  const bgY = useTransform(scrollY, [0, 700], [0, reduce ? 0 : 110]);
-  const contentY = useTransform(scrollY, [0, 500], [0, reduce ? 0 : -55]);
-  const contentOpacity = useTransform(scrollY, [0, 380], [1, reduce ? 1 : 0]);
+  const bgY = useTransform(scrollY, [0, 700], [0, reduce ? 0 : 100]);
+  const contentY = useTransform(scrollY, [0, 500], [0, reduce ? 0 : -50]);
+  const contentOpacity = useTransform(scrollY, [0, 360], [1, reduce ? 1 : 0]);
 
   return (
     <section ref={sectionRef} className="relative min-h-[100dvh] overflow-hidden bg-[#07090f]">
-      {/* ── Parallax video / gradient background ──────────────── */}
+      {/* ── Parallax background ──────────────── */}
       <motion.div className="absolute inset-0 z-0" style={{ y: bgY }} aria-hidden>
-        <video
-          autoPlay muted loop playsInline
+        <video autoPlay muted loop playsInline
           className="h-full w-full object-cover opacity-[0.16]"
           src="/videos/hero-loop.mp4"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#07090f]/90 via-[#07090f]/55 to-[#07090f]" />
       </motion.div>
 
-      {/* ── Grid texture ─────────────────────────────────────── */}
+      {/* ── Grid texture ─────────────────────── */}
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px)",
           backgroundSize: "80px 80px",
           maskImage: "radial-gradient(ellipse 100% 60% at 50% 0%,black 20%,transparent 78%)",
         }}
         aria-hidden
       />
 
-      {/* ── Accent glow ─────────────────────────────────────── */}
+      {/* ── Accent glow ──────────────────────── */}
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
-        style={{ background: "radial-gradient(ellipse 60% 50% at 5% 65%,rgba(0,102,204,0.12),transparent)" }}
+        style={{ background: "radial-gradient(ellipse 60% 50% at 5% 65%,rgba(0,102,204,0.1),transparent)" }}
         aria-hidden
       />
 
       <FloatingIcons />
 
-      {/* ── Main content ────────────────────────────────────── */}
+      {/* ── Main content ─────────────────────── */}
       <motion.div
         className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center px-5 pb-20 pt-28 sm:px-8 md:px-12 lg:px-16"
         style={{ y: contentY, opacity: contentOpacity }}
@@ -79,26 +89,18 @@ export function Hero() {
           {/* Eyebrow */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
-            className="font-mono text-[10px] uppercase tracking-[0.26em] text-white/28 sm:text-[11px]"
+            className="font-mono text-[10px] uppercase tracking-[0.26em] text-white/30 sm:text-[11px]"
           >
             {site.credential}&nbsp;&nbsp;·&nbsp;&nbsp;{site.location}
           </motion.p>
 
-          {/* Full name */}
-          <motion.p
-            variants={reduce ? undefined : fadeUp}
-            className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40 sm:text-xs"
-          >
-            Thiago Biasoli Garcia Piola
-          </motion.p>
-
-          {/* Headline */}
+          {/* Name — primary headline */}
           <motion.h1
             variants={reduce ? undefined : fadeUp}
-            className="mt-4 text-[clamp(3rem,9.5vw,7.5rem)] font-black leading-[0.88] tracking-[-0.04em] text-white"
+            className="mt-5 text-[clamp(2.6rem,6.5vw,5.2rem)] font-black leading-[0.9] tracking-[-0.04em] text-white"
           >
             {hero.headline.split("\n").map((line, i) => (
-              <span key={i} className={i === 1 ? "block text-white/28" : "block"}>
+              <span key={i} className={i === 1 ? "block text-white/70" : "block"}>
                 {line}
               </span>
             ))}
@@ -107,7 +109,7 @@ export function Hero() {
           {/* Sub */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
-            className="mt-6 text-[clamp(0.95rem,2.2vw,1.2rem)] font-semibold text-[#0066CC]"
+            className="mt-6 font-mono text-[clamp(0.7rem,1.4vw,0.85rem)] uppercase tracking-[0.18em] text-[#0066CC]"
           >
             {hero.sub}
           </motion.p>
@@ -115,18 +117,18 @@ export function Hero() {
           {/* Lead */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
-            className="mt-3 max-w-[44ch] text-[clamp(0.875rem,1.8vw,1rem)] leading-relaxed text-white/45"
+            className="mt-4 max-w-[40ch] text-[clamp(0.9rem,1.8vw,1.05rem)] leading-relaxed text-white/45"
           >
             {hero.lead}
           </motion.p>
 
           {/* Founder badge */}
-          <motion.div variants={reduce ? undefined : fadeUp} className="mt-4">
+          <motion.div variants={reduce ? undefined : fadeUp} className="mt-5">
             <a
               href={site.reidasVendas}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/40 transition-all hover:border-white/22 hover:text-white/70"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider text-white/35 transition-all hover:border-white/20 hover:text-white/65"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#0066CC]" />
               Founder · Rei das Vendas
@@ -152,56 +154,57 @@ export function Hero() {
           {/* Social + contact strip */}
           <motion.div
             variants={reduce ? undefined : fadeUp}
-            className="mt-14 flex flex-wrap items-center gap-6 border-t border-white/7 pt-8"
+            className="mt-14 flex flex-wrap items-center gap-5 border-t border-white/7 pt-8"
           >
-            <div className="flex items-center gap-5">
+            {/* Social icons — animated */}
+            <div className="flex flex-wrap items-center gap-4">
               {socialLinks.map(({ href, label }) => {
                 const Icon = iconMap[label as keyof typeof iconMap];
                 return (
-                  <a
+                  <motion.a
                     key={href}
                     href={href}
                     target="_blank"
                     rel="noreferrer"
                     aria-label={label}
-                    className="text-white/50 transition-colors hover:text-white/90"
+                    whileHover={{ scale: 1.25, y: -3 }}
+                    whileTap={{ scale: 0.85 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="text-white/40 transition-colors hover:text-white/85"
                   >
-                    <Icon className="h-[18px] w-[18px]" />
-                  </a>
+                    <Icon className="h-[17px] w-[17px]" />
+                  </motion.a>
                 );
               })}
             </div>
+
             <span className="hidden h-3.5 w-px bg-white/10 sm:block" aria-hidden />
+
+            {/* Contact */}
             <a
               href={site.whatsappWithMessage}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-sm text-white/38 transition-colors hover:text-white/75"
+              className="flex items-center gap-2 text-sm text-white/35 transition-colors hover:text-white/70"
             >
               <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
               {site.phone}
             </a>
             <a
               href={`mailto:${site.email}`}
-              className="hidden items-center gap-2 text-sm text-white/38 transition-colors hover:text-white/75 md:flex"
+              className="hidden items-center gap-2 text-sm text-white/35 transition-colors hover:text-white/70 md:flex"
             >
-              <Mail className="h-4 w-4 text-white/40" />
+              <Mail className="h-4 w-4 text-white/35" />
               {site.email}
             </a>
           </motion.div>
         </motion.div>
 
-        {/* Photo placeholder — desktop right column */}
-        <div
-          className="pointer-events-none absolute bottom-0 right-0 hidden h-[90%] w-[34%] lg:block"
-          aria-hidden
-        >
+        {/* Photo placeholder */}
+        <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[90%] w-[34%] lg:block" aria-hidden>
           <div
             className="absolute inset-0 z-[1]"
-            style={{
-              background:
-                "linear-gradient(to right,#07090f 0%,transparent 42%),linear-gradient(to top,#07090f 0%,transparent 22%)",
-            }}
+            style={{ background: "linear-gradient(to right,#07090f 0%,transparent 42%),linear-gradient(to top,#07090f 0%,transparent 22%)" }}
           />
         </div>
       </motion.div>

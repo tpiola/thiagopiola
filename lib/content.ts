@@ -1,4 +1,4 @@
-/** Conteúdo — copy otimizado para RH de alto ticket no setor farmacêutico */
+/** Conteúdo — funil de vendas para RH de alto ticket */
 
 export const site = {
   name: "Thiago Biasoli Garcia Piola",
@@ -23,9 +23,9 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  headline: "Dois perfis raros.\nUma pessoa.",
-  sub: "Farmaceutico Generalista. Engenharia de IA. Gestão Estratégica.",
-  lead: "Formação de equipes, resultados em vendas e Inteligência Artificial — no mesmo profissional.",
+  headline: "Thiago Biasoli\nGarcia Piola.",
+  sub: "Farmacêutico · Engenheiro de IA · Gestor Estratégico",
+  lead: "15 anos na ponta da farmácia. Formação de equipes. Resultados em vendas. E agora, Inteligência Artificial.",
   ctaSecondary: "Falar agora",
 } as const;
 
@@ -38,40 +38,25 @@ export type StatItem = {
 };
 
 export const stats: StatItem[] = [
-  {
-    value: "15+",
-    label: "anos de operação farmacêutica",
-    animate: true,
-    target: 15,
-    suffix: "+",
-  },
-  {
-    value: "500+",
-    label: "profissionais treinados em drogaria e vendas de alta performance",
-    animate: true,
-    target: 500,
-    suffix: "+",
-  },
-  {
-    value: "Competência Comprovada",
-    label: "dois domínios de excelência integrados num único profissional",
-  },
+  { value: "15+", label: "anos de operação farmacêutica", animate: true, target: 15, suffix: "+" },
+  { value: "500+", label: "profissionais treinados em drogaria e vendas de alta performance", animate: true, target: 500, suffix: "+" },
+  { value: "Competência Comprovada", label: "dois domínios de excelência num único profissional" },
 ];
 
-/** NLP: visualização → confirmação → urgência */
+/** NLP word-by-word reveal */
 export const textReveal = {
   paragraph:
-    "Imagine ter alguém que domina compliance farmacêutico, lidera equipes comerciais com método e ainda constrói os sistemas de IA que automatizam a operação. Esse profissional existe. Está disponível. E você está lendo o perfil dele agora.",
+    "Compliance. Liderança. IA aplicada. O raro profissional que entrega os três — com histórico comprovado.",
 } as const;
 
 export const bento = {
   title: "Quatro frentes. Um profissional.",
-  lead: "Ética no trabalho, cultura de excelência e resultado comprovado. Thiago não apenas entrega — ele forma os profissionais que replicam o mesmo padrão em cada equipe que lidera.",
+  lead: "Resultado. Ética. Formação. Não apenas entrega — transforma equipes inteiras.",
   cards: [
     {
       tag: "Engenharia de IA",
       title: "Sistemas inteligentes por quem opera o negócio",
-      desc: "Agentes de IA, automações n8n, aplicações Next.js e integrações ponta a ponta. Código que entende o contexto farmacêutico.",
+      desc: "Agentes de IA, automações n8n e integrações ponta a ponta. Código que entende o contexto farmacêutico.",
       size: "large",
     },
     {
@@ -87,25 +72,25 @@ export const bento = {
     {
       tag: "Liderança",
       title: "Times de alta performance",
-      desc: "Playbooks, mentorias e formação de equipes com a mesma cultura de ética, comprometimento e resultado.",
+      desc: "Formação, mentorias e cultura de excelência. Ética em cada equipe liderada.",
       size: "small",
     },
     {
       tag: "Vendas",
       title: "Relacionamento executivo e conversão",
-      desc: "Vendas consultivas em saúde. Escuta ativa, negociação complexa e entrega consistente de metas.",
+      desc: "Vendas consultivas em saúde. Negociação complexa e entrega consistente de metas.",
       size: "large",
     },
   ],
 } as const;
 
 export const competencias = {
-  title: "Um perfil que você provavelmente não vai encontrar de novo.",
-  lead: "No Brasil, poucos profissionais somam: operação farmacêutica na ponta, gestão e formação de equipes, especialização em vendas de alta performance e Engenharia de IA. Muitos podem prometer. Os números garantem o que você está lendo.",
+  title: "Um perfil que você não vai encontrar de novo.",
+  lead: "Farmácia clínica, gestão de equipes, vendas de alta performance e Engenharia de IA. Tudo junto. No Brasil, é raro. Aqui, é comprovado.",
   skills: [
-    { title: "Engenharia de IA", desc: "Agentes, LLMs e arquiteturas de produto em contexto regulado." },
+    { title: "Engenharia de IA", desc: "Agentes, LLMs e automações em contexto regulado." },
     { title: "Responsabilidade técnica", desc: "Compliance, ANVISA e operações de alto volume." },
-    { title: "Gestão comercial", desc: "Liderança de times, metas e desenvolvimento de pessoas." },
+    { title: "Gestão comercial", desc: "Liderança de times, metas e formação de pessoas." },
     { title: "Automação n8n", desc: "Fluxos inteligentes e integração de sistemas críticos." },
     { title: "Vendas B2B", desc: "Negociação de alto valor e relacionamento executivo." },
     { title: "Produto digital", desc: "Sites, apps e sistemas para saúde e indústria." },
@@ -118,11 +103,11 @@ export const competencias = {
 } as const;
 
 export const tecnologia = {
-  title: "Stack técnico usado em produção.",
-  lead: "Não teoria. Entregas reais com resultado mensurável.",
+  title: "Stack em produção.",
+  lead: "Não teoria. Entregas reais.",
   items: [
-    { title: "Agentes & LLMs", desc: "Claude, GPT, Gemini — assistentes sob medida para saúde e indústria" },
-    { title: "Automação n8n", desc: "Orquestração de fluxos e processos críticos automatizados" },
+    { title: "Agentes & LLMs", desc: "Claude, GPT, Gemini — sob medida para saúde e indústria" },
+    { title: "Automação n8n", desc: "Orquestração de fluxos e processos críticos" },
     { title: "Next.js & React", desc: "Aplicações de alta performance e portais institucionais" },
     { title: "Dados & dashboards", desc: "Métricas para decisão em ambientes regulados" },
     { title: "CRM & integrações", desc: "Pipelines conectados do contato à conversão" },
@@ -131,7 +116,7 @@ export const tecnologia = {
 } as const;
 
 export const trajetoria = {
-  title: "Experiência + Inteligência Artificial = Escala sem limite",
+  title: "Experiência + IA = Escala sem limite",
   lead: "Cada posição foi deliberada. A IA foi o catalisador.",
   pivotLabel: "O ponto de virada",
   pivotText: "Pós-graduação em Engenharia de IA — onde 15 anos de farmácia encontraram sistemas do futuro.",
@@ -140,14 +125,14 @@ export const trajetoria = {
       company: "Droga Raia",
       period: "Atual",
       role: "Farmacêutico Responsável Técnico",
-      desc: "A maior rede farmacêutica do Brasil. Alto padrão, alta exigência — vendas, liderança e compliance em escala.",
+      desc: "A maior rede farmacêutica do Brasil. Vendas, liderança e compliance em escala.",
       tag: "Presente",
     },
     {
       company: "Rei das Vendas",
       period: "2024–Atual",
       role: "Founder",
-      desc: "Plataforma de treinamento, vendas e alta performance para o mercado farmacêutico e comercial.",
+      desc: "Plataforma de treinamento e vendas de alta performance para o mercado farmacêutico.",
       tag: "Empreendimento",
     },
     {
@@ -168,7 +153,7 @@ export const trajetoria = {
       company: "Hospital Unimed",
       period: "2008–2011",
       role: "Aux. de Farmácia Hospitalar",
-      desc: "Farmácia hospitalar crítica. Onde atenção aos detalhes virou hábito de vida.",
+      desc: "Farmácia hospitalar crítica. Atenção aos detalhes como hábito de vida.",
       tag: "O começo",
     },
   ],
@@ -181,9 +166,20 @@ export const trajetoria = {
   ],
 } as const;
 
+export const footerBio =
+  "Farmacêutico generalista, estrategista e engenheiro de IA. Atuação em saúde, drogaria, farmácia hospitalar e tecnologia — com foco em resultado real, com métodos Sprint e Scrum.";
+
+/** Sorted alphabetically by label */
 export const socialLinks = [
-  { href: "https://www.linkedin.com/in/thiago-piola/", label: "LinkedIn" },
-  { href: "https://www.instagram.com/thiagopiolaoficial/", label: "Instagram" },
+  { href: "https://bsky.app/profile/thiagopiola.bsky.social", label: "Bluesky" },
   { href: "https://www.facebook.com/thiagopiolaoficial/", label: "Facebook" },
+  { href: "https://github.com/tpiola", label: "GitHub" },
+  { href: "https://me.developers.google.com/u/105476544026751993130", label: "Google" },
+  { href: "https://www.instagram.com/thiagopiolaoficial/", label: "Instagram" },
+  { href: "https://www.linkedin.com/in/thiago-piola/", label: "LinkedIn" },
+  { href: "https://thiagopiola.notion.site/", label: "Notion" },
+  { href: "https://www.reddit.com/user/Mental_Individual641/", label: "Reddit" },
+  { href: "https://t.me/m/pGzbdmS2ZWRh", label: "Telegram" },
+  { href: "https://www.tiktok.com/@tpiola", label: "TikTok" },
   { href: "https://x.com/ThiagoPiola07", label: "X" },
 ] as const;

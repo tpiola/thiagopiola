@@ -107,6 +107,12 @@ a {
 }
 .dark .grain::before { opacity: 0.04; }
 
+/* ─── Performance: GPU-accelerate animated elements ─ */
+[class*="float-"],
+.grain::before {
+  will-change: transform;
+}
+
 /* ─── Floating icon animations ───────────────────── */
 @keyframes float-a {
   0%, 100% { transform: translateY(0px) rotate(0deg); }

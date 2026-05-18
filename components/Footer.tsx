@@ -1,14 +1,26 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
-import { nav, site, socialLinks } from "@/lib/content";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, WhatsAppIcon, XTwitterIcon } from "./SocialIcons";
+import { footerBio, nav, site, socialLinks } from "@/lib/content";
+import {
+  BlueSkyIcon, FacebookIcon, GitHubIcon, GoogleIcon,
+  InstagramIcon, LinkedinIcon, NotionIcon, RedditIcon,
+  TelegramIcon, TikTokIcon, WhatsAppIcon, XTwitterIcon,
+} from "./SocialIcons";
 
 const iconMap = {
-  LinkedIn: LinkedinIcon,
-  Instagram: InstagramIcon,
+  Bluesky: BlueSkyIcon,
   Facebook: FacebookIcon,
+  GitHub: GitHubIcon,
+  Google: GoogleIcon,
+  Instagram: InstagramIcon,
+  LinkedIn: LinkedinIcon,
+  Notion: NotionIcon,
+  Reddit: RedditIcon,
+  Telegram: TelegramIcon,
+  TikTok: TikTokIcon,
   X: XTwitterIcon,
 } as const;
 
@@ -17,7 +29,7 @@ export function Footer() {
 
   return (
     <footer id="contato" className="overflow-hidden bg-surface">
-      {/* ── Editorial display — the "signature" ── */}
+      {/* ── Editorial display ── */}
       <div className="border-b border-border">
         <div className="mx-auto max-w-7xl px-5 pb-6 pt-16 sm:px-8 md:px-12 lg:px-16">
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
@@ -39,12 +51,9 @@ export function Footer() {
 
           {/* Bio */}
           <div className="lg:col-span-4">
-            <p className="max-w-xs text-sm leading-relaxed text-muted">
-              Farmacêutico executivo e engenheiro de IA. Formação de equipes de alta performance,
-              vendas consultivas e automação inteligente — com foco em resultado real.
-            </p>
+            <p className="max-w-xs text-sm leading-relaxed text-muted">{footerBio}</p>
 
-            {/* Founder mention */}
+            {/* Founder */}
             <a
               href={site.reidasVendas}
               target="_blank"
@@ -56,21 +65,24 @@ export function Footer() {
               <ArrowUpRight className="h-3 w-3 opacity-50" />
             </a>
 
-            {/* Social links — icon only */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            {/* Social icons — animated, icon only */}
+            <div className="mt-8 flex flex-wrap gap-5">
               {socialLinks.map(({ href, label }) => {
                 const Icon = iconMap[label as keyof typeof iconMap];
                 return (
-                  <a
+                  <motion.a
                     key={href}
                     href={href}
                     target="_blank"
                     rel="noreferrer"
                     aria-label={label}
-                    className="text-muted transition-all hover:scale-110 hover:text-foreground"
+                    whileHover={{ scale: 1.25, y: -3 }}
+                    whileTap={{ scale: 0.85 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="text-muted transition-colors hover:text-foreground"
                   >
-                    <Icon className="h-5 w-5" />
-                  </a>
+                    <Icon className="h-[18px] w-[18px]" />
+                  </motion.a>
                 );
               })}
             </div>
@@ -127,7 +139,6 @@ export function Footer() {
               </li>
             </ul>
 
-            {/* Footer CTA */}
             <a
               href={site.whatsappWithMessage}
               target="_blank"
@@ -140,12 +151,12 @@ export function Footer() {
           </div>
         </div>
 
-        {/* QR Code section */}
+        {/* QR Code */}
         <div className="mt-16 flex flex-col items-center gap-4 border-t border-border pt-12">
           <p className="font-mono text-[10px] uppercase tracking-wider text-muted">
-            Escaneie para conversar no WhatsApp
+            WhatsApp direto — escaneie o QR code
           </p>
-          <div className="rounded-2xl border border-border bg-white p-4">
+          <div className="rounded-2xl border border-border bg-white p-4 shadow-sm">
             <QRCodeSVG
               value={site.whatsappWithMessage}
               size={128}

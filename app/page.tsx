@@ -47,8 +47,8 @@ export default function Home() {
       >
         <div className="mx-auto w-full max-w-4xl px-5 py-20 sm:px-8 md:px-12 md:py-32 lg:px-16">
           <h2 className="max-w-3xl text-[clamp(2rem,5.5vw,4rem)] font-black leading-[0.93] tracking-[-0.04em] text-white">
-            Sua empresa já sabe o que precisa de um profissional assim.
-            <span className="block text-white/30">A única pergunta é: quando vai agir?</span>
+            Sua empresa já sabe o que precisa.
+            <span className="block text-white/30">A questão é: quando vai agir?</span>
           </h2>
           <a
             href={site.whatsappWithMessage}
@@ -79,11 +79,10 @@ export default function Home() {
       >
         <div className="mx-auto w-full max-w-4xl px-5 py-20 sm:px-8 md:px-12 md:py-28 lg:px-16">
           <h2 className="max-w-2xl text-[clamp(2.2rem,6vw,4.5rem)] font-black leading-[0.9] tracking-[-0.04em] text-white">
-            Esse perfil não vai estar disponível para sempre.
-            <span className="block text-white/30">Profissionais assim escolhem onde vão fazer diferença.</span>
+            Esse perfil não fica disponível por muito tempo.
+            <span className="block text-white/30">Profissionais assim escolhem onde atuam.</span>
           </h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-white/45">
-            Se você chegou até aqui, provavelmente já sabe o que precisa.
+          <p className="mt-5 max-w-sm text-base leading-relaxed text-white/45">
             Uma mensagem. Sem compromisso. Com possibilidade real.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

@@ -16,13 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
+  title: "Thiago Piola | Farmacêutico Generalista & Engenheiro de IA",
   description:
-    "Farmacêutico CRF/SP com Pós-graduação em Engenharia de IA. 15 anos de operação farmacêutica + sistemas de IA, automação e produto digital. Disponível para indústria, healthtech e grandes redes.",
-  authors: [{ name: "Thiago Biasoli G. Piola" }],
+    "Farmacêutico generalista CRF/SP 58.519 com Pós-graduação em Engenharia de IA. 15 anos de operação farmacêutica, formação de equipes, vendas de alta performance e automação inteligente.",
+  authors: [{ name: "Thiago Biasoli Garcia Piola" }],
   keywords: [
-    "farmacêutico executivo",
-    "engenharia de inteligencia artificial",
+    "farmacêutico generalista",
+    "engenheiro de inteligencia artificial",
     "automação farmacêutica",
     "farmacêutico responsável técnico",
     "thiago piola",
@@ -30,13 +30,16 @@ export const metadata: Metadata = {
     "healthtech",
     "n8n automação",
     "agentes de ia",
+    "gestão estratégica",
+    "sprint scrum farmácia",
+    "rei das vendas",
   ],
   metadataBase: new URL("https://www.thiagopiola.com.br"),
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
+    title: "Thiago Piola | Farmacêutico Generalista & Engenheiro de IA",
     description:
-      "Perfil raro: farmácia clínica + engenharia de IA. Disponível para indústria, healthtech e operações de alto padrão.",
+      "Farmácia clínica + Engenharia de IA + Gestão Estratégica. Formação de equipes, vendas de alta performance e automação inteligente.",
     siteName: "Thiago Piola",
     type: "profile",
     locale: "pt_BR",
@@ -45,7 +48,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
-    description: "15 anos de farmácia + IA aplicada. Disponível para posições executivas.",
+    description: "15 anos de farmácia + IA aplicada + formação de equipes de alta performance.",
     images: ["/images/og-cover.jpg"],
   },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
@@ -58,12 +61,12 @@ export const viewport: Viewport = {
   ],
 };
 
-/** JSON-LD — Person schema for SEO and n8n automation ingestion */
+/** JSON-LD — Person schema para SEO e ingestão de automações */
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Thiago Biasoli G. Piola",
-  jobTitle: "Farmacêutico Responsável Técnico & Engenheiro de IA",
+  name: "Thiago Biasoli Garcia Piola",
+  jobTitle: "Farmacêutico Generalista, Estrategista & Engenheiro de IA",
   url: "https://www.thiagopiola.com.br",
   email: "contato@thiagopiola.com.br",
   telephone: "+5516992333344",
@@ -73,13 +76,20 @@ const jsonLd = {
     "https://www.instagram.com/thiagopiolaoficial/",
     "https://www.facebook.com/thiagopiolaoficial/",
     "https://x.com/ThiagoPiola07",
+    "https://github.com/tpiola",
+    "https://bsky.app/profile/thiagopiola.bsky.social",
+    "https://www.tiktok.com/@tpiola",
+    "https://www.reidasvendas.com.br",
   ],
   knowsAbout: [
     "Farmácia Clínica",
+    "Farmácia Hospitalar",
     "Responsabilidade Técnica",
     "Engenharia de Inteligência Artificial",
     "Automação com n8n",
     "Gestão Comercial",
+    "Vendas de Alta Performance",
+    "Metodologia Sprint e Scrum",
     "Desenvolvimento de Produto Digital",
   ],
   alumniOf: [
@@ -92,6 +102,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
