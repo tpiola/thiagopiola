@@ -10,7 +10,7 @@ type LogoProps = {
   showCredential?: boolean;
 };
 
-/** Taça de Higeia — identidade farmacêutica corporativa */
+/** Taça de Higeia — logo oficial (PNG transparente) */
 export function Logo({
   className,
   iconClassName = "h-11 w-11",
@@ -19,12 +19,13 @@ export function Logo({
 }: LogoProps) {
   const emblem = (
     <Image
-      src="/logo-hygieia.svg"
-      alt=""
-      width={48}
-      height={56}
-      className={cn("h-full w-auto object-contain", iconClassName)}
+      src="/images/logo.png"
+      alt="Taça de Higeia — Thiago Piola"
+      width={120}
+      height={140}
+      className={cn("h-full w-auto object-contain drop-shadow-sm", iconClassName)}
       priority
+      sizes="(max-width: 768px) 64px, 80px"
     />
   );
 
