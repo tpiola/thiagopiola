@@ -47,7 +47,7 @@ export function Header() {
           <a
             href={site.whatsapp}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="hidden rounded-lg bg-foreground px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-wider text-[var(--surface)] transition-opacity hover:opacity-90 md:inline-block"
           >
             Contato
@@ -81,7 +81,7 @@ export function Header() {
           <a
             href={site.whatsapp}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="mt-2 block rounded-lg bg-foreground px-4 py-3 text-center text-sm font-medium text-[var(--surface)]"
           >
             WhatsApp

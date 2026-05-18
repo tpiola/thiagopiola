@@ -1,47 +1,21 @@
 "use client";
 
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import { nav, site, socialLinks } from "@/lib/content";
+import { footerTagline, nav, site } from "@/lib/content";
 import { Logo } from "./Logo";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, XTwitterIcon } from "./SocialIcons";
-
-const iconMap = {
-  LinkedIn: LinkedinIcon,
-  Instagram: InstagramIcon,
-  Facebook: FacebookIcon,
-  X: XTwitterIcon,
-} as const;
+import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="contato" className="bg-surface py-20 md:py-24">
+    <footer id="contato" className="border-t border-border bg-surface py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Logo variant="full" showCredential iconClassName="h-10 w-10" />
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">
-              Farmacêutico e engenheiro de IA. Atuação em saúde, negócios e tecnologia — com foco em
-              resultado e método.
-            </p>
-            <div className="mt-8 flex gap-2">
-              {socialLinks.map(({ href, label }) => {
-                const Icon = iconMap[label as keyof typeof iconMap];
-                return (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted transition-colors hover:border-accent/40 hover:text-accent"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                );
-              })}
-            </div>
+            <Logo variant="full" showCredential iconClassName="h-11 w-11" />
+            <p className="mt-6 max-w-md text-sm leading-relaxed text-muted">{footerTagline}</p>
+            <SocialLinks className="mt-8" />
           </div>
 
           <div className="lg:col-span-3">
@@ -51,7 +25,7 @@ export function Footer() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="group inline-flex items-center gap-1 text-sm text-foreground hover:text-accent"
+                    className="group inline-flex items-center gap-1 text-sm text-foreground hover:text-[var(--brand)]"
                   >
                     {item.label}
                     <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
@@ -67,7 +41,7 @@ export function Footer() {
               <li>
                 <a
                   href={site.phoneHref}
-                  className="flex gap-3 text-sm text-foreground hover:text-accent"
+                  className="flex gap-3 text-sm text-foreground hover:text-[var(--brand)]"
                 >
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-muted" />
                   <span>
@@ -79,7 +53,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="flex gap-3 text-sm text-foreground hover:text-accent"
+                  className="flex gap-3 text-sm text-foreground hover:text-[var(--brand)]"
                 >
                   <Mail className="mt-0.5 h-4 w-4 shrink-0 text-muted" />
                   {site.email}
@@ -93,11 +67,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-2 border-t border-border pt-8 text-xs text-muted md:flex-row md:items-center md:justify-between">
-          <p>
-            © {year} {site.name}
-          </p>
-          <p className="font-mono uppercase tracking-wider">{site.credential}</p>
+        <div className="mt-12 border-t border-border pt-6 text-xs text-muted">
+          © {year} {site.name}
         </div>
       </div>
     </footer>

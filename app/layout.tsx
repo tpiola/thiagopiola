@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { JsonLd } from "@/components/JsonLd";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { site } from "@/lib/content";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,44 +17,64 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const description =
+  "Thiago Piola — Farmacêutico generalista, estrategista e engenheiro de IA. Automação, healthtech e resultado real com Sprint e Scrum. Franca, SP.";
+
 export const metadata: Metadata = {
-  title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
-  description:
-    "Farmacêutico CRF/SP com Engenharia de IA. Vendas, gestão, treinamento, automação, sites e aplicativos — preparado para saúde e tecnologia.",
-  authors: [{ name: "Thiago Biasoli G. Piola" }],
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Thiago Piola | Farmacêutico, IA e Automação",
+    template: "%s | Thiago Piola",
+  },
+  description,
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
   keywords: [
     "farmacêutico",
-    "engenharia de ia",
-    "automação",
-    "vendas",
-    "gestão",
+    "engenheiro de inteligência artificial",
+    "automação farmácia",
+    "healthtech",
+    "indústria farmacêutica",
     "thiago piola",
     "franca sp",
+    "CRF-SP",
   ],
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  alternates: { canonical: site.url },
   openGraph: {
-    title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
-    description:
-      "Base farmacêutica + IA aplicada. Saúde, negócios e tecnologia com método e resultado.",
-    siteName: "Thiago Piola",
-    type: "website",
+    type: "profile",
     locale: "pt_BR",
+    url: site.url,
+    siteName: site.shortName,
+    title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
+    description,
+    countryName: "Brasil",
   },
   twitter: {
     card: "summary_large_image",
     title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
-    description: "Saúde, negócios e tecnologia — com método e resultado.",
+    description,
+    creator: "@ThiagoPiola07",
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/logo-hygieia.svg" }],
+  },
+  other: {
+    "geo.region": "BR-SP",
+    "geo.placename": "Franca",
+    "geo.position": "-20.5386;-47.4008",
+    ICBM: "-20.5386, -47.4008",
   },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+    { media: "(prefers-color-scheme: light)", color: "#f8f9fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#070b12" },
   ],
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -62,6 +84,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <JsonLd />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased grain`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>

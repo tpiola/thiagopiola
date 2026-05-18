@@ -19,7 +19,7 @@ export function Tecnologia() {
         <ul className="mt-14 divide-y divide-border rounded-2xl border border-border bg-surface">
           {tecnologia.items.map((item, i) => (
             <AnimateIn key={item.title} delay={i * 0.04}>
-              <li className="flex flex-col gap-1 px-6 py-5 transition-colors hover:bg-accent-muted/50 sm:flex-row sm:items-center sm:justify-between md:px-8 md:py-6">
+              <li className="flex flex-col gap-1 px-6 py-5 transition-colors hover:bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] sm:flex-row sm:items-center sm:justify-between md:px-8 md:py-6">
                 <div className="flex items-baseline gap-4">
                   <span className="font-mono text-[10px] text-muted">
                     {String(i + 1).padStart(2, "0")}

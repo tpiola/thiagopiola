@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -9,28 +10,22 @@ type LogoProps = {
   showCredential?: boolean;
 };
 
-/** Monograma TP — marca limpa, sem clichê de template */
+/** Taça de Higeia — identidade farmacêutica corporativa */
 export function Logo({
   className,
-  iconClassName = "h-10 w-10",
+  iconClassName = "h-11 w-11",
   variant = "icon",
   showCredential = false,
 }: LogoProps) {
   const emblem = (
-    <svg
-      viewBox="0 0 40 40"
-      className="h-full w-full"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <rect width="40" height="40" rx="10" className="fill-foreground" />
-      <path
-        d="M12 28V12h4.2l5.8 9.2V12H26v16h-4.2l-5.8-9.4V28H12z"
-        className="fill-[var(--surface)]"
-      />
-      <circle cx="30" cy="10" r="3" className="fill-accent" />
-    </svg>
+    <Image
+      src="/logo-hygieia.svg"
+      alt=""
+      width={48}
+      height={56}
+      className={cn("h-full w-auto object-contain", iconClassName)}
+      priority
+    />
   );
 
   if (variant === "icon") {
