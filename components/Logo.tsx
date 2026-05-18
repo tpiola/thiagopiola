@@ -18,15 +18,18 @@ export function Logo({
   showCredential = false,
 }: LogoProps) {
   const emblem = (
-    <Image
-      src="/images/logo.png"
-      alt="Taça de Higeia — Thiago Piola"
-      width={120}
-      height={140}
-      className={cn("h-full w-auto object-contain drop-shadow-sm", iconClassName)}
-      priority
-      sizes="(max-width: 768px) 64px, 80px"
-    />
+    <picture className="contents">
+      <source srcSet="/images/logo.webp" type="image/webp" />
+      <Image
+        src="/images/logo.png"
+        alt="Taça de Higeia — Thiago Piola"
+        width={120}
+        height={140}
+        className={cn("h-full w-auto object-contain drop-shadow-sm", iconClassName)}
+        priority
+        sizes="(max-width: 768px) 64px, 80px"
+      />
+    </picture>
   );
 
   if (variant === "icon") {

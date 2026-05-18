@@ -49,6 +49,14 @@ export const metadata: Metadata = {
     title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
     description,
     countryName: "Brasil",
+    images: [
+      {
+        url: "/images/logo.webp",
+        width: 1200,
+        height: 1200,
+        alt: "Thiago Piola — Taça de Higeia",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -58,7 +66,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/logo-hygieia.svg" }],
+    apple: [{ url: "/images/logo.png", type: "image/png" }],
   },
   other: {
     "geo.region": "BR-SP",

@@ -1,4 +1,4 @@
-import { site } from "@/lib/content";
+import { site, socialLinks } from "@/lib/content";
 
 export function JsonLd() {
   const schema = {
@@ -19,12 +19,7 @@ export function JsonLd() {
           addressRegion: site.geo.region,
           addressCountry: site.geo.country,
         },
-        sameAs: [
-          "https://bsky.app/profile/thiagopiola.bsky.social",
-          "https://github.com/tpiola",
-          "https://thiagopiola.notion.site/",
-          "https://www.tiktok.com/@tpiola",
-        ],
+        sameAs: socialLinks.map((link) => link.href),
       },
       {
         "@type": "WebSite",
