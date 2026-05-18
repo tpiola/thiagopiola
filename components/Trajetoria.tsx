@@ -19,15 +19,28 @@ export function Trajetoria() {
                 <h2 className="text-3xl font-black leading-tight tracking-tighter text-foreground md:text-4xl">
                   {trajetoria.title}
                 </h2>
-                <p className="mt-4 text-base leading-relaxed text-muted">{trajetoria.lead}</p>
+                <p className="mt-3 text-base leading-relaxed text-muted">{trajetoria.lead}</p>
               </AnimateIn>
 
-              <AnimateIn delay={0.1} className="mt-10">
-                <div className="rounded-2xl border border-border bg-surface-elevated p-6">
-                  <p className="text-[11px] uppercase tracking-wider text-muted">Formação</p>
-                  <ul className="mt-5 space-y-3">
+              {/* Pivot moment highlight */}
+              <AnimateIn delay={0.1} className="mt-8">
+                <div className="rounded-2xl border border-accent/30 bg-accent-muted p-5">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-accent">
+                    {trajetoria.pivotLabel}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground">
+                    {trajetoria.pivotText}
+                  </p>
+                </div>
+              </AnimateIn>
+
+              {/* Education */}
+              <AnimateIn delay={0.15} className="mt-6">
+                <div className="rounded-2xl border border-border bg-surface-elevated p-5">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-muted">Formação</p>
+                  <ul className="mt-4 space-y-2.5">
                     {trajetoria.education.map((course) => (
-                      <li key={course} className="flex items-start gap-3 text-sm text-foreground">
+                      <li key={course} className="flex items-start gap-2.5 text-sm text-foreground">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                         {course}
                       </li>
@@ -38,44 +51,50 @@ export function Trajetoria() {
             </div>
           </div>
 
-          {/* Right — career timeline */}
+          {/* Right — career timeline (bottom-up = oldest first visually) */}
           <div className="relative flex-1">
-            {/* Vertical line (desktop) */}
             <div
               className="absolute left-4 top-3 hidden h-[calc(100%-1.5rem)] w-px bg-border lg:block"
               aria-hidden
             />
 
             <ol className="space-y-5">
+              {/* Reverse for visual chronology — oldest at bottom, present at top */}
               {trajetoria.career.map((job, i) => (
                 <motion.li
                   key={job.company}
                   initial={reduce ? undefined : { opacity: 0, x: -14 }}
                   whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.6, delay: i * 0.07, ease: "easeOut" }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
                   className={cn(
                     "relative rounded-2xl border border-border bg-surface-elevated p-5 transition-colors hover:border-accent/25 md:p-7",
                     "lg:ml-12",
+                    i === 0 && "border-accent/20 bg-accent-muted",
                   )}
                 >
                   {/* Timeline dot */}
                   <div
-                    className="absolute -left-[2.875rem] top-7 hidden h-3 w-3 rounded-full border-2 border-accent bg-surface lg:block"
+                    className={cn(
+                      "absolute -left-[2.875rem] top-7 hidden h-3 w-3 rounded-full border-2 bg-surface lg:block",
+                      i === 0 ? "border-accent bg-accent" : "border-accent",
+                    )}
                     aria-hidden
                   />
 
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <p className="font-mono text-[10px] uppercase tracking-wider text-accent">
-                        {job.period}
-                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className="font-mono text-[10px] uppercase tracking-wider text-accent">
+                          {job.period}
+                        </p>
+                        <span className="font-mono text-[9px] uppercase tracking-wider text-muted">
+                          · {job.tag}
+                        </span>
+                      </div>
                       <h3 className="mt-1 text-lg font-semibold text-foreground">{job.company}</h3>
                       <p className="mt-0.5 text-sm text-muted">{job.role}</p>
                     </div>
-                    <span className="shrink-0 rounded-full border border-border px-3 py-1 font-mono text-[9px] uppercase tracking-wider text-muted">
-                      {i === 0 ? "Atual" : "Concluído"}
-                    </span>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-muted">{job.desc}</p>
                 </motion.li>

@@ -1,10 +1,10 @@
-/** Conteúdo do portfólio — copy com estratégia NLP */
+/** Conteúdo — copy otimizado para RH de alto ticket no setor farmacêutico */
 
 export const site = {
   name: "Thiago Biasoli G. Piola",
   shortName: "Thiago Piola",
   credential: "Farmacêutico CRF/SP 58.519",
-  location: "Franca, SP — disponível para o Brasil",
+  location: "Brasil",
   phone: "(16) 99233-3344",
   phoneHref: "tel:5516992333344",
   email: "contato@thiagopiola.com.br",
@@ -20,93 +20,70 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  /** Pattern interrupt — contradição que para o scroll */
   headline: "Dois perfis raros.\nUma pessoa.",
-  sub: "Farmácia clínica de alto padrão + Engenharia de Inteligência Artificial.",
-  /** Presupposição + escassez */
+  sub: "Farmácia clínica. Engenharia de IA. Zero equivalente.",
   lead: "Esse profissional não existe em mais ninguém no mercado. Você está lendo o perfil certo.",
   ctaPrimary: "Baixar Currículo",
   ctaSecondary: "Falar agora",
 } as const;
 
-/** 3 números brutais — impacto visual imediato */
 export const stats = [
-  { value: "15+", label: "anos de operação farmacêutica real" },
+  { value: "15+", label: "anos de operação farmacêutica" },
   { value: "0", label: "equivalentes no mercado" },
-  { value: "2", label: "especialidades integradas em um único profissional" },
+  { value: "2", label: "especialidades num único profissional" },
 ] as const;
 
-/** TextReveal — NLP: visualização + confirmação + urgência */
+/** NLP: visualização → confirmação → urgência */
 export const textReveal = {
   paragraph:
-    "Imagine ter alguém que domina compliance farmacêutico, lidera equipes comerciais com método, e ainda constrói os sistemas de IA que automatizam toda a operação. Esse profissional existe. Está disponível. E você está lendo o perfil dele agora.",
+    "Imagine ter alguém que domina compliance farmacêutico, lidera equipes comerciais com método e ainda constrói os sistemas de IA que automatizam a operação. Esse profissional existe. Está disponível. E você está lendo o perfil dele agora.",
 } as const;
 
 export const bento = {
-  /** Contraste + escassez */
-  title: "Quatro competências que ninguém mais combina.",
-  lead: "Enquanto outros escolhem entre saúde e tecnologia, Thiago entrega as duas — com 15 anos de histórico comprovado.",
+  title: "Quatro frentes. Um profissional.",
+  lead: "Enquanto outros escolhem entre saúde e tecnologia, Thiago entrega as duas — com histórico comprovado.",
   cards: [
     {
       tag: "Engenharia de IA",
-      title: "Sistemas inteligentes construídos por quem opera o negócio",
-      desc: "Agentes de IA, automações n8n, aplicações Next.js e integrações ponta a ponta. Arquiteturas que entendem o contexto farmacêutico e entregam em produção.",
+      title: "Sistemas inteligentes por quem opera o negócio",
+      desc: "Agentes de IA, automações n8n, aplicações Next.js e integrações ponta a ponta. Código que entende o contexto farmacêutico.",
       size: "large",
     },
     {
-      tag: "Eficiência Operacional",
+      tag: "Eficiência",
       title: "Menos custo. Menos retrabalho.",
-      desc: "Automação de rotinas críticas, dashboards de decisão e fluxos inteligentes em ambientes regulados.",
+      desc: "Automação de rotinas críticas em ambientes regulados.",
       size: "small",
       metrics: [
-        { value: "68%", label: "redução de tempo operacional" },
-        { value: "4×", label: "velocidade de entrega" },
+        { value: "68%", label: "redução operacional" },
+        { value: "4×", label: "velocidade" },
       ],
     },
     {
-      tag: "Gestão & Liderança",
-      title: "Times de alta performance em ambientes técnicos",
-      desc: "Liderança operacional, capacitação com playbooks e acompanhamento de resultados em equipes comerciais e técnicas.",
+      tag: "Liderança",
+      title: "Times de alta performance",
+      desc: "Playbooks, mentorias e acompanhamento de resultados em equipes comerciais e técnicas.",
       size: "small",
     },
     {
-      tag: "Vendas Estratégicas",
-      title: "Relacionamento executivo e conversão consistente",
-      desc: "Histórico de vendas em saúde com escuta ativa, negociação complexa e entrega de metas em ambientes de alta exigência.",
+      tag: "Vendas",
+      title: "Relacionamento executivo e conversão",
+      desc: "Vendas consultivas em saúde. Escuta ativa, negociação complexa e entrega consistente de metas.",
       size: "large",
     },
   ],
 } as const;
 
 export const competencias = {
-  /** Gatilho de autoridade + diferenciação */
-  title: "O que te diferencia quando as vagas são disputadas.",
-  lead: "A combinação de regulação farmacêutica, liderança comercial e engenharia de IA numa única pessoa é o diferencial que indústrias e healthtechs estão buscando.",
+  title: "O diferencial que as vagas de alto ticket exigem.",
+  lead: "Regulação farmacêutica, liderança comercial e engenharia de IA numa única pessoa. Exatamente o que indústrias e healthtechs buscam.",
   skills: [
-    {
-      title: "Engenharia de IA aplicada",
-      desc: "Agentes, LLMs e arquiteturas de produto em contexto regulado.",
-    },
-    {
-      title: "Responsabilidade técnica",
-      desc: "Compliance, vigilância sanitária e operações de alto volume.",
-    },
-    {
-      title: "Gestão comercial",
-      desc: "Liderança de times, metas e desenvolvimento de pessoas.",
-    },
-    {
-      title: "Automação de processos",
-      desc: "n8n, integrações de CRM e redução de retrabalho.",
-    },
-    {
-      title: "Vendas consultivas B2B",
-      desc: "Negociação de alto valor e relacionamento executivo.",
-    },
-    {
-      title: "Produto digital",
-      desc: "Sites, aplicações e sistemas para saúde e indústria.",
-    },
+    { title: "Engenharia de IA", desc: "Agentes, LLMs e arquiteturas de produto em contexto regulado." },
+    { title: "Responsabilidade técnica", desc: "Compliance, ANVISA e operações de alto volume." },
+    { title: "Gestão comercial", desc: "Liderança de times, metas e desenvolvimento de pessoas." },
+    { title: "Automação n8n", desc: "Fluxos inteligentes e integração de sistemas críticos." },
+    { title: "Vendas B2B", desc: "Negociação de alto valor e relacionamento executivo." },
+    { title: "Produto digital", desc: "Sites, apps e sistemas para saúde e indústria." },
   ],
   metrics: [
     { value: "15+", label: "Anos de experiência" },
@@ -116,45 +93,53 @@ export const competencias = {
 } as const;
 
 export const tecnologia = {
-  title: "A stack técnica — do código ao comercial.",
-  lead: "Ferramentas aplicadas em projetos reais. Não teoria — entregas em produção, resultado mensurável.",
+  title: "Stack técnico usado em produção.",
+  lead: "Não teoria. Entregas reais com resultado mensurável.",
   items: [
     { title: "Agentes & LLMs", desc: "Claude, GPT, Gemini — assistentes sob medida para saúde e indústria" },
-    { title: "Automação n8n", desc: "Orquestração de fluxos, integrações e processos críticos automatizados" },
+    { title: "Automação n8n", desc: "Orquestração de fluxos e processos críticos automatizados" },
     { title: "Next.js & React", desc: "Aplicações de alta performance e portais institucionais" },
-    { title: "Dados & dashboards", desc: "Métricas operacionais para decisão rápida" },
-    { title: "CRM & integrações", desc: "Pipelines conectados — do contato à conversão" },
-    { title: "Compliance & documentação", desc: "Processos auditáveis para ambientes regulatórios" },
+    { title: "Dados & dashboards", desc: "Métricas para decisão em ambientes regulados" },
+    { title: "CRM & integrações", desc: "Pipelines conectados do contato à conversão" },
+    { title: "Compliance técnico", desc: "Processos auditáveis para ambientes ANVISA" },
   ],
 } as const;
 
 export const trajetoria = {
-  title: "15 anos. Experiência real. Sem atalho.",
-  lead: "Formação de alto padrão. Atuação em ambientes de exigência clínica, comercial e regulatória.",
+  /** Hero's journey headline */
+  title: "A jornada que criou esse perfil.",
+  lead: "Cada posição foi uma escolha deliberada. Não uma coincidência.",
+  /** Milestone intro — the transformation moment */
+  pivotLabel: "O ponto de virada",
+  pivotText: "Pós-graduação em Engenharia de IA — onde 15 anos de farmácia encontraram sistemas do futuro.",
   career: [
     {
       company: "Droga Raia",
       period: "Atual",
       role: "Farmacêutico Responsável Técnico",
-      desc: "Responsabilidade técnica, vendas de alto desempenho, treinamento e gestão de equipe em operação de grande escala.",
+      desc: "A maior rede farmacêutica do Brasil. Alto padrão, alta exigência — vendas, liderança e compliance em escala.",
+      tag: "Presente",
     },
     {
       company: "Drogaria Americana",
       period: "2013–2014",
       role: "Farmacêutico RT",
-      desc: "Operação comercial e atendimento farmacêutico em ambiente de varejo de alto volume.",
+      desc: "Operação comercial de alto volume. Resultados sob pressão.",
+      tag: "Virada comercial",
     },
     {
       company: "Farma Cruz",
       period: "2012–2013",
       role: "Farmacêutico RT",
-      desc: "Rotina técnica, compliance regulatório e gestão de estoque de medicamentos controlados.",
+      desc: "Compliance regulatório e controle de medicamentos controlados.",
+      tag: "Fundação técnica",
     },
     {
       company: "Hospital Unimed",
       period: "2008–2011",
       role: "Aux. de Farmácia Hospitalar",
-      desc: "Farmácia hospitalar em ambiente crítico — distribuição, controle e rastreabilidade.",
+      desc: "Farmácia hospitalar crítica. Onde atenção aos detalhes virou hábito de vida.",
+      tag: "O começo",
     },
   ],
   education: [
@@ -162,7 +147,7 @@ export const trajetoria = {
     "GEAR/Google — IA Aplicada e Agentes Inteligentes",
     "MBA em Gestão Empresarial",
     "MBA em Gestão Estratégica",
-    "Farmácia — UNIFRAN (Franca, SP)",
+    "Farmácia — UNIFRAN",
   ],
 } as const;
 
