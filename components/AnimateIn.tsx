@@ -1,30 +1,20 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { Reveal, type RevealVariant } from "./motion/Reveal";
 
 type AnimateInProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  variant?: RevealVariant;
 };
 
-export function AnimateIn({ children, className, delay = 0 }: AnimateInProps) {
-  const reduce = useReducedMotion();
-
-  if (reduce) {
-    return <div className={className}>{children}</div>;
-  }
-
+/** Alias legado — delega para Reveal premium */
+export function AnimateIn({ children, className, delay = 0, variant = "up" }: AnimateInProps) {
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <Reveal className={className} delay={delay} variant={variant}>
       {children}
-    </motion.div>
+    </Reveal>
   );
 }
