@@ -14,12 +14,12 @@ const iconMap = {
 
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
 };
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.78, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.85, ease: "easeOut" } },
 };
 
 export function Hero() {
@@ -27,46 +27,39 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-black">
-      {/* ── Video background ────────────────────────────────────────
-          Drop /public/videos/hero-loop.mp4 to activate.
-          Without the file the gradient below renders instead.
-      ──────────────────────────────────────────────────────────── */}
+      {/* ── Video bg ── drop /public/videos/hero-loop.mp4 to activate */}
       <div className="absolute inset-0 z-0" aria-hidden>
         <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="h-full w-full object-cover opacity-[0.22]"
+          autoPlay muted loop playsInline
+          className="h-full w-full object-cover opacity-[0.18]"
           src="/videos/hero-loop.mp4"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black" />
       </div>
 
-      {/* ── Grid texture overlay ────────────────────────────────── */}
+      {/* Subtle grid */}
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
-          maskImage:
-            "radial-gradient(ellipse 90% 60% at 50% 0%, black 20%, transparent 75%)",
+            "linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px)",
+          backgroundSize: "80px 80px",
+          maskImage: "radial-gradient(ellipse 100% 55% at 50% 0%,black 25%,transparent 80%)",
         }}
         aria-hidden
       />
 
-      {/* ── Accent glow ─────────────────────────────────────────── */}
+      {/* Blue glow */}
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 15% 55%, rgba(0,102,204,0.15), transparent)",
+            "radial-gradient(ellipse 55% 45% at 10% 60%,rgba(0,102,204,0.13),transparent)",
         }}
         aria-hidden
       />
 
-      {/* ── Main content ────────────────────────────────────────── */}
+      {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center px-5 pb-20 pt-28 sm:px-8 md:px-12 lg:px-16">
         <motion.div
           variants={reduce ? undefined : container}
@@ -76,24 +69,35 @@ export function Hero() {
           {/* Eyebrow */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
-            className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/35 sm:text-[11px]"
+            className="font-mono text-[10px] uppercase tracking-[0.26em] text-white/30 sm:text-[11px]"
           >
             {site.credential}&nbsp;&nbsp;·&nbsp;&nbsp;{site.location}
           </motion.p>
 
-          {/* Headline — responsive fluid sizing */}
+          {/* Headline — the pattern interrupt */}
           <motion.h1
             variants={reduce ? undefined : fadeUp}
-            className="mt-5 max-w-[16ch] text-[clamp(2.4rem,8vw,6.2rem)] font-black leading-[0.92] tracking-[-0.03em] text-white"
+            className="mt-5 text-[clamp(3rem,9vw,7rem)] font-black leading-[0.88] tracking-[-0.04em] text-white"
           >
-            O farmacêutico que também engenheira{" "}
-            <span className="text-white/35">Inteligência Artificial.</span>
+            {hero.headline.split("\n").map((line, i) => (
+              <span key={i} className={i === 1 ? "block text-white/30" : "block"}>
+                {line}
+              </span>
+            ))}
           </motion.h1>
 
-          {/* Lead */}
+          {/* Sub — high contrast with accent */}
           <motion.p
             variants={reduce ? undefined : fadeUp}
-            className="mt-7 max-w-lg text-[clamp(0.9rem,2.5vw,1.1rem)] leading-relaxed text-white/55"
+            className="mt-6 text-[clamp(1rem,2.5vw,1.25rem)] font-semibold text-[#0066CC]"
+          >
+            {hero.sub}
+          </motion.p>
+
+          {/* Lead — NLP scarcity presupposition */}
+          <motion.p
+            variants={reduce ? undefined : fadeUp}
+            className="mt-4 max-w-md text-[clamp(0.875rem,2vw,1rem)] leading-relaxed text-white/50"
           >
             {hero.lead}
           </motion.p>
@@ -101,45 +105,34 @@ export function Hero() {
           {/* CTAs */}
           <motion.div
             variants={reduce ? undefined : fadeUp}
-            className="mt-9 flex flex-col gap-3 xs:flex-row xs:items-center sm:flex-row"
+            className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <a
               href="/curriculo-thiago-piola.pdf"
               download
-              className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/8 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white/25 hover:bg-white/12 active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/8 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/28 hover:bg-white/12 active:scale-[0.98]"
             >
-              <Download className="h-4 w-4 opacity-70" />
+              <Download className="h-4 w-4 opacity-60" />
               {hero.ctaPrimary}
             </a>
             <a
               href={site.whatsapp}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0066CC] px-6 py-3.5 text-sm font-medium text-white transition-all hover:bg-[#0055BB] active:scale-[0.98]"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0066CC] px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-[#0055BB] active:scale-[0.98]"
             >
               {hero.ctaSecondary}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </motion.div>
 
-          {/* Bottom bar */}
+          {/* Social + contact bar */}
           <motion.div
             variants={reduce ? undefined : fadeUp}
-            className="mt-14 flex flex-wrap items-center gap-5 border-t border-white/8 pt-8"
+            className="mt-14 flex flex-wrap items-center gap-6 border-t border-white/8 pt-8"
           >
-            <a
-              href={site.phoneHref}
-              className="text-sm text-white/30 transition-colors hover:text-white/70"
-            >
-              {site.phone}
-            </a>
-            <a
-              href={`mailto:${site.email}`}
-              className="hidden text-sm text-white/30 transition-colors hover:text-white/70 sm:inline"
-            >
-              {site.email}
-            </a>
-            <div className="flex gap-3">
+            {/* Social icons */}
+            <div className="flex items-center gap-4">
               {socialLinks.map(({ href, label }) => {
                 const Icon = iconMap[label as keyof typeof iconMap];
                 return (
@@ -149,28 +142,42 @@ export function Hero() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={label}
-                    className="text-white/30 transition-colors hover:text-white/70"
+                    className="text-white/25 transition-colors hover:text-white/80"
                   >
                     <Icon className="h-[18px] w-[18px]" />
                   </a>
                 );
               })}
             </div>
+
+            <span className="hidden h-4 w-px bg-white/10 sm:block" aria-hidden />
+
+            <a
+              href={site.phoneHref}
+              className="text-sm text-white/30 transition-colors hover:text-white/70"
+            >
+              {site.phone}
+            </a>
+            <a
+              href={`mailto:${site.email}`}
+              className="hidden text-sm text-white/30 transition-colors hover:text-white/70 md:inline"
+            >
+              {site.email}
+            </a>
           </motion.div>
         </motion.div>
 
-        {/* ── Photo placeholder (right side, desktop only) ─────────
-            Replace with <Image> pointing to /public/images/thiago-piola.jpg
-        ──────────────────────────────────────────────────────────── */}
+        {/* Photo placeholder — desktop right column */}
+        {/* Replace with <Image src="/images/thiago-piola.jpg" fill className="object-cover object-top" /> */}
         <div
-          className="pointer-events-none absolute bottom-0 right-0 hidden h-[90%] w-[36%] lg:block"
+          className="pointer-events-none absolute bottom-0 right-0 hidden h-[88%] w-[34%] lg:block"
           aria-hidden
         >
           <div
             className="absolute inset-0 z-[1]"
             style={{
               background:
-                "linear-gradient(to right, black 0%, transparent 40%), linear-gradient(to top, black 0%, transparent 25%)",
+                "linear-gradient(to right,black 0%,transparent 40%),linear-gradient(to top,black 0%,transparent 22%)",
             }}
           />
         </div>
