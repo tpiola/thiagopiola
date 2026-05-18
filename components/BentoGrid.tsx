@@ -2,158 +2,80 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { bento } from "@/lib/content";
-import { SectionLabel } from "./SectionLabel";
 import { cn } from "@/lib/utils";
 
-/* ─── Browser Mockup Window ─────────────────────────────────── */
-function BrowserMockup({
-  children,
-  className,
-  url = "app.thiagopiola.com.br",
-}: {
-  children: React.ReactNode;
-  className?: string;
-  url?: string;
-}) {
+/* ─── Mac-style window chrome ───────────────────────────────── */
+function WindowChrome({ url = "app.thiagopiola.com.br" }: { url?: string }) {
   return (
-    <div className={cn("overflow-hidden rounded-2xl border border-white/10 bg-black/50", className)}>
-      <div className="flex items-center gap-1.5 border-b border-white/8 px-4 py-2.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/70" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/70" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/70" />
-        <div className="mx-auto flex h-5 items-center justify-center rounded-full bg-white/6 px-4 font-mono text-[10px] text-white/25">
-          {url}
-        </div>
+    <div className="flex items-center gap-1.5 border-b border-white/8 px-4 py-2.5">
+      <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/60" />
+      <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/60" />
+      <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/60" />
+      <div className="mx-auto flex h-5 max-w-[180px] items-center justify-center overflow-hidden rounded-full bg-white/5 px-4 font-mono text-[10px] text-white/20">
+        {url}
       </div>
-      {children}
     </div>
   );
 }
 
-/* ─── Code Snippet Block ────────────────────────────────────── */
-const agentCode = [
-  { t: "import", c: "#CC99CD" },
-  { t: " { AgentExecutor } ", c: "#F8F8F2" },
-  { t: "from", c: "#CC99CD" },
-  { t: " 'langchain/agents'", c: "#A8FF60" },
-  { t: ";", c: "#F8F8F2" },
-];
+/* ─── AI code mockup ─────────────────────────────────────────── */
+function CodeMockup() {
+  const lines = [
+    { text: "// AI Agent — Farmácia + Engenharia", color: "#6B7280" },
+    { text: "", color: "" },
+    { text: "const agent = await AgentExecutor.create({", color: "#E5E7EB" },
+    { text: "  model:   claude.latest,", color: "#9CA3AF" },
+    { text: "  tools:   [pharmacyTools, crmSync],", color: "#9CA3AF" },
+    { text: "  domain:  'pharmaceutical',", color: "#60A5FA" },
+    { text: "  memory:  true,", color: "#34D399" },
+    { text: "});", color: "#E5E7EB" },
+    { text: "", color: "" },
+    { text: "await agent.deploy({ env: 'production' });", color: "#A78BFA" },
+  ];
 
-const codeLines: Array<{ tokens: Array<{ t: string; c: string }>; indent?: number }> = [
-  {
-    tokens: [
-      { t: "const", c: "#CC99CD" },
-      { t: " agent", c: "#F8F8F2" },
-      { t: " =", c: "#F92672" },
-      { t: " await", c: "#CC99CD" },
-      { t: " AgentExecutor", c: "#66D9EF" },
-      { t: ".", c: "#F8F8F2" },
-      { t: "create", c: "#A6E22E" },
-      { t: "({", c: "#F8F8F2" },
-    ],
-  },
-  {
-    indent: 2,
-    tokens: [
-      { t: "tools", c: "#F8F8F2" },
-      { t: ":", c: "#F92672" },
-      { t: " [pharmacyTools,", c: "#F8F8F2" },
-      { t: " crmSync", c: "#A6E22E" },
-      { t: "],", c: "#F8F8F2" },
-    ],
-  },
-  {
-    indent: 2,
-    tokens: [
-      { t: "model", c: "#F8F8F2" },
-      { t: ":", c: "#F92672" },
-      { t: " claude", c: "#66D9EF" },
-      { t: ".", c: "#F8F8F2" },
-      { t: "latest", c: "#F8F8F2" },
-      { t: ",", c: "#F8F8F2" },
-    ],
-  },
-  {
-    indent: 2,
-    tokens: [
-      { t: "memory", c: "#F8F8F2" },
-      { t: ":", c: "#F92672" },
-      { t: " true", c: "#AE81FF" },
-      { t: ",", c: "#F8F8F2" },
-    ],
-  },
-  { tokens: [{ t: "});", c: "#F8F8F2" }] },
-  { tokens: [{ t: "", c: "" }] },
-  {
-    tokens: [
-      { t: "// Deploy to production", c: "#75715E" },
-    ],
-  },
-  {
-    tokens: [
-      { t: "await", c: "#CC99CD" },
-      { t: " agent", c: "#F8F8F2" },
-      { t: ".", c: "#F8F8F2" },
-      { t: "deploy", c: "#A6E22E" },
-      { t: "({ env:", c: "#F8F8F2" },
-      { t: " 'prod'", c: "#A8FF60" },
-      { t: " });", c: "#F8F8F2" },
-    ],
-  },
-];
-
-function CodeBlock() {
   return (
-    <BrowserMockup url="agent.deploy.ts">
-      <div className="p-4 md:p-5">
-        <div className="mb-3 flex gap-2 font-mono text-[10px]">
-          <span className="rounded bg-[#0066CC]/20 px-2 py-0.5 text-[#0066CC]">TypeScript</span>
-          <span className="rounded bg-white/5 px-2 py-0.5 text-white/30">n8n</span>
-          <span className="rounded bg-white/5 px-2 py-0.5 text-white/30">LangChain</span>
+    <div className="mt-5 overflow-hidden rounded-xl border border-white/8 bg-black/60">
+      <WindowChrome url="agent.deploy.ts" />
+      <div className="p-4">
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {["TypeScript", "n8n", "LangChain"].map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-white/8 px-2 py-0.5 font-mono text-[9px] text-white/35"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
-        <pre className="font-mono text-[11px] leading-[1.8]">
-          <div className="flex gap-3">
-            {agentCode.map((token, i) => (
-              <span key={i} style={{ color: token.c }}>
-                {token.t}
+        <pre className="overflow-x-auto font-mono text-[11px] leading-[1.75]">
+          {lines.map((line, i) => (
+            <div key={i} className="flex gap-3 whitespace-pre">
+              <span className="w-4 shrink-0 select-none text-right text-[9px] text-white/15">
+                {i + 1}
               </span>
-            ))}
-          </div>
-          {codeLines.map((line, li) => (
-            <div key={li} className="flex">
-              <span className="mr-4 w-4 select-none text-right text-white/20">
-                {li + 2}
-              </span>
-              <span style={{ paddingLeft: `${(line.indent ?? 0) * 0.5}rem` }}>
-                {line.tokens.map((token, ti) => (
-                  <span key={ti} style={{ color: token.c }}>
-                    {token.t}
-                  </span>
-                ))}
-              </span>
+              <span style={{ color: line.color || "transparent" }}>{line.text || " "}</span>
             </div>
           ))}
         </pre>
       </div>
-    </BrowserMockup>
+    </div>
   );
 }
 
-/* ─── Metrics Block ─────────────────────────────────────────── */
-function MetricsBlock({
+/* ─── Metrics bar chart ──────────────────────────────────────── */
+function MetricsViz({
   metrics,
 }: {
   metrics: ReadonlyArray<{ value: string; label: string }>;
 }) {
   return (
-    <div className="mt-auto grid grid-cols-2 gap-3 pt-4">
+    <div className="mt-auto grid grid-cols-2 gap-3 pt-5">
       {metrics.map((m) => (
-        <div
-          key={m.label}
-          className="rounded-xl border border-white/8 bg-white/5 p-3 text-center"
-        >
-          <p className="text-2xl font-black tracking-tighter text-white">{m.value}</p>
-          <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-white/40">
+        <div key={m.label} className="rounded-xl border border-white/8 bg-white/4 p-4 text-center">
+          <p className="text-[1.75rem] font-black leading-none tracking-tighter text-white">
+            {m.value}
+          </p>
+          <p className="mt-1.5 font-mono text-[9px] uppercase tracking-wider text-white/35">
             {m.label}
           </p>
         </div>
@@ -162,7 +84,50 @@ function MetricsBlock({
   );
 }
 
-/* ─── Individual Card ───────────────────────────────────────── */
+/* ─── Pipeline funnel ────────────────────────────────────────── */
+function PipelineViz() {
+  const stages = [
+    { label: "Prospecção", pct: 100 },
+    { label: "Qualificação", pct: 78 },
+    { label: "Proposta", pct: 54 },
+    { label: "Fechamento", pct: 36 },
+  ];
+  return (
+    <div className="mt-auto space-y-2 pt-5">
+      {stages.map((s) => (
+        <div key={s.label} className="flex items-center gap-3">
+          <span className="w-20 shrink-0 font-mono text-[9px] uppercase tracking-wider text-white/30">
+            {s.label}
+          </span>
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/8">
+            <div
+              className="h-full rounded-full bg-[#0066CC]"
+              style={{ width: `${s.pct}%` }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ─── Performance bars ───────────────────────────────────────── */
+function PerfBars() {
+  const bars = [58, 72, 45, 88, 63];
+  return (
+    <div className="mt-auto flex items-end gap-1.5 pt-5">
+      {bars.map((h, i) => (
+        <div
+          key={i}
+          className="flex-1 rounded-sm bg-[#0066CC]/50 transition-all"
+          style={{ height: `${h * 0.55}px` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Card ───────────────────────────────────────────────────── */
 function BentoCard({
   card,
   index,
@@ -173,109 +138,75 @@ function BentoCard({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  const isAI = card.tag.includes("01");
+  const isEff = "metrics" in card && card.metrics;
+  const isMgmt = card.tag.includes("03");
+  const isSales = card.tag.includes("04");
 
   return (
     <motion.div
-      initial={reduce ? undefined : { opacity: 0, y: 24 }}
+      initial={reduce ? undefined : { opacity: 0, y: 20 }}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={reduce ? undefined : { y: -3, transition: { duration: 0.25 } }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.07, ease: "easeOut" }}
+      whileHover={reduce ? undefined : { y: -4, transition: { duration: 0.2 } }}
       className={cn(
-        "group flex flex-col overflow-hidden rounded-3xl border border-border bg-surface-elevated p-6 md:p-8",
+        "group flex flex-col overflow-hidden rounded-3xl border border-border bg-surface-elevated p-6 md:p-7",
+        "dark:bg-[#0d0d0d] dark:border-white/8",
         className,
       )}
     >
       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">{card.tag}</p>
-      <h3 className="mt-3 text-xl font-semibold leading-tight tracking-tight text-foreground md:text-2xl">
+      <h3 className="mt-3 text-xl font-black leading-tight tracking-tight text-foreground md:text-2xl">
         {card.title}
       </h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted">{card.desc}</p>
+      <p className="mt-2.5 text-sm leading-relaxed text-muted">{card.desc}</p>
 
-      {/* Large AI card gets a code mockup */}
-      {card.tag.includes("01") && (
-        <div className="mt-6 dark:block hidden">
-          <CodeBlock />
+      {/* AI card — code mockup (dark-only, hidden on light) */}
+      {isAI && (
+        <div className="hidden dark:block">
+          <CodeMockup />
         </div>
       )}
 
-      {/* Efficiency card gets metrics */}
-      {"metrics" in card && card.metrics && (
-        <MetricsBlock metrics={card.metrics} />
-      )}
+      {/* Efficiency — metrics */}
+      {isEff && <MetricsViz metrics={(card as { metrics: ReadonlyArray<{ value: string; label: string }> }).metrics} />}
 
-      {/* Management card — visual placeholder for org chart */}
-      {card.tag.includes("03") && (
-        <div className="mt-auto pt-4">
-          <div className="flex items-end gap-2 opacity-40">
-            {[60, 80, 45, 90, 55].map((h, i) => (
-              <div
-                key={i}
-                className="flex-1 rounded-sm bg-accent/60 transition-all group-hover:opacity-80"
-                style={{ height: `${h * 0.6}px` }}
-              />
-            ))}
-          </div>
-          <p className="mt-2 font-mono text-[9px] uppercase tracking-wider text-muted">
-            Ciclos de performance — equipe
-          </p>
-        </div>
-      )}
+      {/* Management — performance bars */}
+      {isMgmt && <PerfBars />}
 
-      {/* Sales card — pipeline visual */}
-      {card.tag.includes("04") && (
-        <div className="mt-auto pt-4">
-          <div className="space-y-1.5">
-            {[
-              { label: "Prospecção", w: "w-full", opacity: "opacity-60" },
-              { label: "Qualificação", w: "w-4/5", opacity: "opacity-70" },
-              { label: "Proposta", w: "w-3/5", opacity: "opacity-80" },
-              { label: "Fechamento", w: "w-2/5", opacity: "opacity-100" },
-            ].map((stage) => (
-              <div key={stage.label} className="flex items-center gap-3">
-                <span className="w-20 shrink-0 font-mono text-[9px] uppercase tracking-wider text-muted">
-                  {stage.label}
-                </span>
-                <div className={cn("h-1.5 rounded-full bg-accent", stage.w, stage.opacity)} />
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Sales — pipeline funnel */}
+      {isSales && <PipelineViz />}
     </motion.div>
   );
 }
 
-/* ─── Section ───────────────────────────────────────────────── */
+/* ─── Section ────────────────────────────────────────────────── */
 export function BentoGrid() {
   const reduce = useReducedMotion();
   const [card0, card1, card2, card3] = bento.cards;
 
   return (
     <section id="proposta" className="border-b border-border py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 md:px-12 lg:px-16">
         {/* Header */}
         <motion.div
-          initial={reduce ? undefined : { opacity: 0, y: 20 }}
+          initial={reduce ? undefined : { opacity: 0, y: 18 }}
           whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
           className="mb-14 max-w-2xl"
         >
-          <SectionLabel index="01">Proposta</SectionLabel>
-          <h2 className="mt-4 text-3xl font-black leading-tight tracking-tighter text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-black leading-tight tracking-tighter text-foreground md:text-4xl lg:text-5xl">
             {bento.title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">{bento.lead}</p>
         </motion.div>
 
-        {/* Grid — asymmetric bento layout */}
+        {/* Asymmetric grid: 2+1 on row 1, 1+2 on row 2 */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {/* Row 1: AI Engineering (2/3) + Efficiency (1/3) */}
           <BentoCard card={card0} index={0} className="lg:col-span-2" />
           <BentoCard card={card1} index={1} />
-
-          {/* Row 2: Management (1/3) + Sales (2/3) */}
           <BentoCard card={card2} index={2} />
           <BentoCard card={card3} index={3} className="lg:col-span-2" />
         </div>

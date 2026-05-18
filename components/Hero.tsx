@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import { hero, site, socialLinks } from "@/lib/content";
 import { FacebookIcon, InstagramIcon, LinkedinIcon, XTwitterIcon } from "./SocialIcons";
@@ -12,16 +12,14 @@ const iconMap = {
   X: XTwitterIcon,
 } as const;
 
-import type { Variants } from "framer-motion";
-
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.12 } },
 };
 
-const item: Variants = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.78, ease: "easeOut" } },
 };
 
 export function Hero() {
@@ -29,45 +27,47 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-black">
-      {/* ─── Video background ─────────────────────────────── */}
-      {/* Drop hero-loop.mp4 into /public/videos/ to activate */}
+      {/* ── Video background ────────────────────────────────────────
+          Drop /public/videos/hero-loop.mp4 to activate.
+          Without the file the gradient below renders instead.
+      ──────────────────────────────────────────────────────────── */}
       <div className="absolute inset-0 z-0" aria-hidden>
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="h-full w-full object-cover opacity-25"
+          className="h-full w-full object-cover opacity-[0.22]"
           src="/videos/hero-loop.mp4"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black" />
       </div>
 
-      {/* ─── Grid texture ─────────────────────────────────── */}
+      {/* ── Grid texture overlay ────────────────────────────────── */}
       <div
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
           backgroundSize: "72px 72px",
           maskImage:
-            "radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 80%)",
+            "radial-gradient(ellipse 90% 60% at 50% 0%, black 20%, transparent 75%)",
         }}
         aria-hidden
       />
 
-      {/* ─── Accent glow ──────────────────────────────────── */}
+      {/* ── Accent glow ─────────────────────────────────────────── */}
       <div
-        className="pointer-events-none absolute inset-0 z-[1] opacity-30"
+        className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse 70% 40% at 20% 50%, rgba(0,102,204,0.18), transparent)",
+            "radial-gradient(ellipse 60% 40% at 15% 55%, rgba(0,102,204,0.15), transparent)",
         }}
         aria-hidden
       />
 
-      {/* ─── Content ──────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center px-6 pb-24 pt-32 md:px-12 lg:px-16">
+      {/* ── Main content ────────────────────────────────────────── */}
+      <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-7xl flex-col justify-center px-5 pb-20 pt-28 sm:px-8 md:px-12 lg:px-16">
         <motion.div
           variants={reduce ? undefined : container}
           initial={reduce ? undefined : "hidden"}
@@ -75,40 +75,38 @@ export function Hero() {
         >
           {/* Eyebrow */}
           <motion.p
-            variants={reduce ? undefined : item}
-            className="font-mono text-[11px] uppercase tracking-[0.24em] text-white/35"
+            variants={reduce ? undefined : fadeUp}
+            className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/35 sm:text-[11px]"
           >
-            {site.credential}&nbsp;·&nbsp;{site.location}
+            {site.credential}&nbsp;&nbsp;·&nbsp;&nbsp;{site.location}
           </motion.p>
 
-          {/* Headline */}
+          {/* Headline — responsive fluid sizing */}
           <motion.h1
-            variants={reduce ? undefined : item}
-            className="mt-5 max-w-5xl text-[clamp(2.6rem,7vw,6rem)] font-black leading-[0.93] tracking-tighter text-white"
+            variants={reduce ? undefined : fadeUp}
+            className="mt-5 max-w-[16ch] text-[clamp(2.4rem,8vw,6.2rem)] font-black leading-[0.92] tracking-[-0.03em] text-white"
           >
-            Farmácia e Engenharia de IA
-            <span className="block text-white/35">
-              combinadas para acelerar resultados.
-            </span>
+            O farmacêutico que também engenheira{" "}
+            <span className="text-white/35">Inteligência Artificial.</span>
           </motion.h1>
 
           {/* Lead */}
           <motion.p
-            variants={reduce ? undefined : item}
-            className="mt-8 max-w-xl text-base leading-relaxed text-white/55 md:text-[17px]"
+            variants={reduce ? undefined : fadeUp}
+            className="mt-7 max-w-lg text-[clamp(0.9rem,2.5vw,1.1rem)] leading-relaxed text-white/55"
           >
             {hero.lead}
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            variants={reduce ? undefined : item}
-            className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
+            variants={reduce ? undefined : fadeUp}
+            className="mt-9 flex flex-col gap-3 xs:flex-row xs:items-center sm:flex-row"
           >
             <a
               href="/curriculo-thiago-piola.pdf"
               download
-              className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/8 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white/25 hover:bg-white/12"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/8 px-6 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white/25 hover:bg-white/12 active:scale-[0.98]"
             >
               <Download className="h-4 w-4 opacity-70" />
               {hero.ctaPrimary}
@@ -117,7 +115,7 @@ export function Hero() {
               href={site.whatsapp}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0066CC] px-6 py-3.5 text-sm font-medium text-white transition-all hover:bg-[#0055BB]"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0066CC] px-6 py-3.5 text-sm font-medium text-white transition-all hover:bg-[#0055BB] active:scale-[0.98]"
             >
               {hero.ctaSecondary}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -126,13 +124,19 @@ export function Hero() {
 
           {/* Bottom bar */}
           <motion.div
-            variants={reduce ? undefined : item}
-            className="mt-14 flex flex-wrap items-center gap-6 border-t border-white/8 pt-8 text-sm text-white/30"
+            variants={reduce ? undefined : fadeUp}
+            className="mt-14 flex flex-wrap items-center gap-5 border-t border-white/8 pt-8"
           >
-            <a href={site.phoneHref} className="transition-colors hover:text-white/70">
+            <a
+              href={site.phoneHref}
+              className="text-sm text-white/30 transition-colors hover:text-white/70"
+            >
               {site.phone}
             </a>
-            <a href={`mailto:${site.email}`} className="transition-colors hover:text-white/70">
+            <a
+              href={`mailto:${site.email}`}
+              className="hidden text-sm text-white/30 transition-colors hover:text-white/70 sm:inline"
+            >
               {site.email}
             </a>
             <div className="flex gap-3">
@@ -145,9 +149,9 @@ export function Hero() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={label}
-                    className="transition-colors hover:text-white/70"
+                    className="text-white/30 transition-colors hover:text-white/70"
                   >
-                    <Icon className="h-4 w-4" />
+                    <Icon className="h-[18px] w-[18px]" />
                   </a>
                 );
               })}
@@ -155,17 +159,18 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ─── Photo placeholder ────────────────────────────── */}
-        {/* Replace this div with <Image> pointing to /public/images/thiago-piola.jpg */}
+        {/* ── Photo placeholder (right side, desktop only) ─────────
+            Replace with <Image> pointing to /public/images/thiago-piola.jpg
+        ──────────────────────────────────────────────────────────── */}
         <div
-          className="pointer-events-none absolute bottom-0 right-0 hidden h-[88%] w-[38%] lg:block"
+          className="pointer-events-none absolute bottom-0 right-0 hidden h-[90%] w-[36%] lg:block"
           aria-hidden
         >
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 z-[1]"
             style={{
               background:
-                "linear-gradient(to right, black 0%, transparent 35%), linear-gradient(to top, black 0%, transparent 30%)",
+                "linear-gradient(to right, black 0%, transparent 40%), linear-gradient(to top, black 0%, transparent 25%)",
             }}
           />
         </div>
