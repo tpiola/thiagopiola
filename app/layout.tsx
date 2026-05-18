@@ -18,22 +18,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
   description:
-    "Farmacêutico CRF/SP com Engenharia de IA. Vendas, gestão, treinamento, automação, sites e aplicativos — preparado para saúde e tecnologia.",
+    "Farmacêutico CRF/SP com Pós-graduação em Engenharia de IA. Perfil executivo raro — 15 anos de operação farmacêutica combinados com desenvolvimento de agentes, automação e produtos digitais.",
   authors: [{ name: "Thiago Biasoli G. Piola" }],
   keywords: [
-    "farmacêutico",
+    "farmacêutico executivo",
     "engenharia de ia",
-    "automação",
-    "vendas",
-    "gestão",
+    "automação farmacêutica",
+    "agentes de ia",
+    "gestor farmacêutico",
     "thiago piola",
-    "franca sp",
+    "indústria farmacêutica",
+    "healthtech",
   ],
   robots: { index: true, follow: true },
   openGraph: {
     title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
     description:
-      "Base farmacêutica + IA aplicada. Saúde, negócios e tecnologia com método e resultado.",
+      "Perfil executivo raro: farmácia clínica + engenharia de IA. Disponível para indústria, healthtech e grandes operações.",
     siteName: "Thiago Piola",
     type: "website",
     locale: "pt_BR",
@@ -41,7 +42,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
-    description: "Saúde, negócios e tecnologia — com método e resultado.",
+    description:
+      "15 anos de farmácia + IA aplicada. Liderança técnica para indústrias e healthtechs.",
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
@@ -50,8 +52,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
 };
 

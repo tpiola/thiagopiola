@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { nav, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
@@ -21,11 +21,13 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-[80] transition-[background,border,backdrop-filter] duration-300",
-        scrolled ? "border-b border-border bg-surface/80 backdrop-blur-xl" : "bg-transparent",
+        "fixed inset-x-0 top-0 z-[80] transition-[background,border-color,backdrop-filter] duration-300",
+        scrolled
+          ? "border-b border-border bg-surface/85 backdrop-blur-xl"
+          : "bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 md:px-12 lg:px-16">
         <a href="#" aria-label={`${site.shortName} — início`}>
           <Logo variant="full" showCredential iconClassName="h-9 w-9" />
         </a>
@@ -45,12 +47,12 @@ export function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            href={site.whatsapp}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden rounded-lg bg-foreground px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-wider text-[var(--surface)] transition-opacity hover:opacity-90 md:inline-block"
+            href="/curriculo-thiago-piola.pdf"
+            download
+            className="hidden items-center gap-1.5 rounded-lg border border-border bg-surface-elevated px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-wider text-foreground transition-all hover:border-accent/40 hover:text-accent md:inline-flex"
           >
-            Contato
+            <Download className="h-3.5 w-3.5" />
+            CV PDF
           </a>
           <button
             type="button"
@@ -65,7 +67,7 @@ export function Header() {
 
       {menuOpen && (
         <nav
-          className="border-t border-border bg-surface-elevated px-5 py-4 md:hidden"
+          className="border-t border-border bg-surface-elevated px-6 py-4 md:hidden"
           aria-label="Menu mobile"
         >
           {nav.map((link) => (
@@ -78,6 +80,14 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          <a
+            href="/curriculo-thiago-piola.pdf"
+            download
+            className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-border px-4 py-3 text-sm font-medium text-foreground"
+          >
+            <Download className="h-4 w-4" />
+            Baixar Currículo PDF
+          </a>
           <a
             href={site.whatsapp}
             target="_blank"
