@@ -29,7 +29,7 @@ export function Competencias() {
           <p className="mt-5 text-base text-muted leading-relaxed">{competencias.lead}</p>
         </Reveal>
 
-        {/* Skills Grid — borderless, spacing-based layout */}
+        {/* Skills Grid */}
         <Stagger
           className="mt-14 grid gap-3 sm:grid-cols-2"
           stagger={0.07}
@@ -38,7 +38,7 @@ export function Competencias() {
             <StaggerItem key={skill.title}>
               <motion.div
                 className="group relative overflow-hidden border border-border bg-surface-elevated p-6 md:p-7 transition-all duration-400"
-                whileHover={reduce ? undefined : { y: -2, borderColor: 'color-mix(in srgb, var(--brand) 30%, transparent)' }}
+                whileHover={reduce ? undefined : { y: -2 }}
               >
                 {/* Left accent bar */}
                 <div
@@ -80,8 +80,7 @@ export function Competencias() {
                 >
                   <CountUp
                     value={m.value}
-                    className="text-[2.5rem] font-bold tracking-tight"
-                    style={{ color: 'var(--brand)' }}
+                    className="text-[2.5rem] font-bold tracking-tight text-[var(--brand)]"
                   />
                   <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
                     {m.label}
