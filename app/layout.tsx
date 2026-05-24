@@ -20,26 +20,34 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Thiago Piola — Farmacêutico generalista, estrategista e engenheiro de IA. Automação, healthtech e resultado real com Sprint e Scrum. Franca, SP.";
+  "Thiago Biasoli Garcia Piola — Farmacêutico CRF/SP, especialista em IA aplicada, tecnologia, vendas, treinamentos e automação para facilitar resultados em saúde, varejo farmacêutico e projetos digitais. Franca, SP.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Thiago Piola | Farmacêutico, IA e Automação",
-    template: "%s | Thiago Piola",
+    default: "Thiago Biasoli Garcia Piola | Farmacêutico, IA, Vendas e Tecnologia",
+    template: "%s | Thiago Biasoli Garcia Piola",
   },
   description,
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
+  category: "Professional Services",
   keywords: [
-    "farmacêutico",
+    "Thiago Biasoli Garcia Piola",
+    "Thiago Piola",
+    "farmacêutico em Franca SP",
+    "farmacêutico CRF SP 58519",
+    "farmacêutico inteligência artificial",
     "engenheiro de inteligência artificial",
-    "automação farmácia",
+    "IA aplicada em farmácia",
+    "automação farmacêutica",
     "healthtech",
-    "indústria farmacêutica",
-    "thiago piola",
-    "franca sp",
-    "CRF-SP",
+    "vendas farmacêuticas",
+    "treinamento de equipes de farmácia",
+    "facilitador de resultados",
+    "tecnologia para saúde",
+    "SEO GEO Google",
+    "Franca SP",
   ],
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   alternates: { canonical: site.url },
@@ -48,7 +56,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: site.url,
     siteName: site.shortName,
-    title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
+    title: "Thiago Biasoli Garcia Piola | Farmacêutico, IA e Resultados",
     description,
     countryName: "Brasil",
     images: [
@@ -56,13 +64,13 @@ export const metadata: Metadata = {
         url: "/images/og-card.webp",
         width: 1200,
         height: 630,
-        alt: "Thiago Piola — Farmacêutico e Engenheiro de IA",
+        alt: "Thiago Biasoli Garcia Piola — Farmacêutico, IA, tecnologia e resultados",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
+    title: "Thiago Biasoli Garcia Piola | Farmacêutico, IA e Resultados",
     description,
     creator: "@ThiagoPiola07",
     images: ["/images/og-card.webp"],
@@ -74,8 +82,11 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "BR-SP",
     "geo.placename": "Franca",
-    "geo.position": "-20.5386;-47.4008",
-    ICBM: "-20.5386, -47.4008",
+    "geo.position": `${site.geo.latitude};${site.geo.longitude}`,
+    ICBM: `${site.geo.latitude}, ${site.geo.longitude}`,
+    "business:contact_data:locality": site.geo.locality,
+    "business:contact_data:region": site.geo.region,
+    "business:contact_data:country_name": "Brasil",
   },
 };
 
