@@ -16,22 +16,15 @@ export function TrustBar() {
           <ul className="grid gap-4 sm:grid-cols-3">
             {trustBar.map((item) => (
               <li key={item.label}>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-3 rounded-xl border border-border bg-surface p-4 transition-colors hover:border-[var(--brand)]/35"
-                  >
-                    <TrustIcon />
-                    <TrustCopy label={item.label} detail={item.detail} linked />
-                  </a>
-                ) : (
-                  <div className="flex items-start gap-3 rounded-xl border border-border bg-surface p-4">
-                    <TrustIcon />
-                    <TrustCopy label={item.label} detail={item.detail} />
-                  </div>
-                )}
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-3 rounded-xl border border-border bg-surface p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--brand)]/35 hover:shadow-sm"
+                >
+                  <TrustIcon />
+                  <TrustCopy label={item.label} detail={item.detail} />
+                </a>
               </li>
             ))}
           </ul>
@@ -52,14 +45,12 @@ function TrustIcon() {
   );
 }
 
-function TrustCopy({ label, detail, linked }: { label: string; detail: string; linked?: boolean }) {
+function TrustCopy({ label, detail }: { label: string; detail: string }) {
   return (
     <div className="min-w-0">
       <p className="flex items-center gap-1 text-sm font-semibold text-foreground">
         {label}
-        {linked && (
-          <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-70" />
-        )}
+        <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-70" />
       </p>
       <p className="mt-0.5 text-xs text-muted">{detail}</p>
     </div>
