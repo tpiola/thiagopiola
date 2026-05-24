@@ -30,9 +30,9 @@ export function Hero() {
 
       <motion.div
         style={reduce ? undefined : { opacity: heroOpacity, y: heroY }}
-        className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-20 pt-24 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-28"
+        className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-4 pb-20 pt-24 sm:px-5 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-28"
       >
-        <div className="flex flex-col justify-center">
+        <div className="flex min-w-0 flex-col justify-center">
           <motion.div
             initial={reduce ? false : { opacity: 0, scale: 0.85, filter: "blur(16px)" }}
             animate={reduce ? undefined : { opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -77,8 +77,8 @@ export function Hero() {
           <TextReveal
             key={locale}
             as="h1"
-            text="Thiago Biasoli Garcia Piola"
-            className="text-[clamp(2.35rem,6.7vw,5.05rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-foreground xl:whitespace-nowrap"
+            text={copy.title}
+            className="max-w-full whitespace-nowrap text-[clamp(1.32rem,7.05vw,5.05rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-foreground"
           />
 
           <Reveal delay={0.18} variant="up">
