@@ -6,6 +6,7 @@ import {
   BlueskyIcon,
   GitHubIcon,
   GoogleDevelopersIcon,
+  LinkedinIcon,
   NotionIcon,
   RedditIcon,
   TelegramIcon,
@@ -16,6 +17,7 @@ const iconMap = {
   Bluesky: BlueskyIcon,
   GitHub: GitHubIcon,
   "Google Developers": GoogleDevelopersIcon,
+  LinkedIn: LinkedinIcon,
   Notion: NotionIcon,
   Reddit: RedditIcon,
   Telegram: TelegramIcon,
@@ -47,12 +49,16 @@ function LinkGrid({
               rel="noopener noreferrer"
               aria-label={linkLabel}
               className={cn(
-                "flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted",
-                "transition-all duration-300 hover:border-[var(--brand)]/40 hover:text-[var(--brand)]",
+                "group relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg border border-border text-muted",
+                "transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--brand)]/40 hover:text-[var(--brand)]",
                 "active:scale-95",
               )}
             >
-              <Icon className="h-3.5 w-3.5" />
+              <span
+                className="absolute inset-x-2 -bottom-3 h-5 rounded-full bg-[var(--brand)]/10 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100"
+                aria-hidden
+              />
+              <Icon className="relative z-10 h-3.5 w-3.5" />
             </a>
           );
         })}
