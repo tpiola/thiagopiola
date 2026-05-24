@@ -1,7 +1,7 @@
 /** Conteúdo centralizado do portfólio */
 
 export const site = {
-  name: "Thiago Biasoli G. Piola",
+  name: "Thiago Biasoli Garcia Piola",
   shortName: "Thiago Piola",
   credential: "Farmacêutico CRF/SP 58.519",
   location: "Franca, SP, Brasil",
@@ -9,6 +9,8 @@ export const site = {
     locality: "Franca",
     region: "SP",
     country: "BR",
+    latitude: -20.5386,
+    longitude: -47.4008,
   },
   phone: "(16) 99233-3344",
   phoneHref: "tel:5516992333344",
@@ -22,7 +24,7 @@ export const site = {
 } as const;
 
 export const footerTagline =
-  "Farmacêutico generalista, estrategista e engenheiro de IA. Atuação em saúde, drogaria, farmácia hospitalar e tecnologia — com foco em resultado real, com métodos Sprint e Scrum.";
+  "Farmacêutico generalista, RT, especialista em vendas, treinamentos e IA aplicada. Conecta saúde, tecnologia e automação para facilitar resultados reais em operações, equipes e produtos digitais.";
 
 /** Ordem alfabética obrigatória — rodapé */
 export const socialLinks = [
@@ -32,6 +34,7 @@ export const socialLinks = [
     href: "https://me.developers.google.com/u/105476544026751993130",
     label: "Google Developers",
   },
+  { href: site.linkedin, label: "LinkedIn" },
   { href: "https://thiagopiola.notion.site/", label: "Notion" },
   { href: "https://www.reddit.com/user/Mental_Individual641/", label: "Reddit" },
   { href: "https://t.me/m/pGzbdmS2ZWRh", label: "Telegram" },
@@ -40,7 +43,7 @@ export const socialLinks = [
 
 /** Redes profissionais — exibidas com destaque */
 export const socialLinksProfessional = socialLinks.filter((l) =>
-  ["GitHub", "Google Developers", "Notion"].includes(l.label),
+  ["GitHub", "Google Developers", "LinkedIn", "Notion"].includes(l.label),
 );
 
 /** Redes comunidade — secundárias no rodapé */
@@ -58,9 +61,9 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  title: "Thiago Piola",
-  subtitle: "Farmacêutico generalista · Gestor de automações · Engenheiro de IA",
-  lead: "15+ anos em saúde · RT em rede nacional · IA e automação em produção — do balcão ao produto digital publicado.",
+  title: site.name,
+  subtitle: "Farmacêutico RT · IA aplicada · Vendas, treinamentos e automação",
+  lead: "15+ anos em saúde, operação farmacêutica e facilitação de resultados — unindo CRF/SP, inteligência artificial, tecnologia e método comercial para transformar processos em crescimento real.",
   ctaWhatsapp: "WhatsApp",
   ctaEmail: "E-mail",
   ctaLinkedin: "LinkedIn",
@@ -69,104 +72,104 @@ export const hero = {
 export const trustBar = [
   {
     label: "CRF/SP 58.519",
-    detail: "Registro ativo",
+    detail: "Farmacêutico RT com registro ativo",
     href: site.crfConsultaUrl,
   },
   {
-    label: "Droga Raia",
-    detail: "Farmacêutico RT · atual",
-    href: undefined,
+    label: "Saúde + IA aplicada",
+    detail: "Automação, agentes e tecnologia em produção",
+    href: "https://me.developers.google.com/u/105476544026751993130",
   },
   {
-    label: "Pós IA + Google GEAR",
-    detail: "Engenharia de IA aplicada",
-    href: "https://me.developers.google.com/u/105476544026751993130",
+    label: "Vendas & treinamento",
+    detail: "Facilitador de resultado para equipes e operação",
+    href: site.linkedin,
   },
 ] as const;
 
 export const farmaciaIndustria = {
-  title: "Indústria farmacêutica & saúde",
+  title: "Farmácia, indústria & inteligência aplicada",
   chips: [
-    "Compliance & ANVISA / RDC",
-    "Farmácia clínica e hospitalar",
-    "Operação em rede (varejo)",
-    "Digitalização e IA em saúde",
+    "CRF/SP · RT · compliance",
+    "Farmácia clínica, hospitalar e varejo",
+    "Vendas consultivas e treinamento",
+    "IA, automação e healthtech",
   ],
 } as const;
 
 export const autoridade = {
-  title: "Quatro frentes. Um profissional.",
-  lead: "Perfil raro para RH e líderes que buscam execução em saúde e tecnologia.",
+  title: "Farmácia, IA e resultado no mesmo profissional.",
+  lead: "Autoridade prática para RH, líderes e empresas que precisam de alguém capaz de traduzir saúde, tecnologia, vendas e treinamento em execução mensurável.",
   pilares: [
     {
-      title: "Farmacêutico generalista / estrategista",
-      desc: "Drogaria, hospitalar, indústria, compliance e decisão técnica com visão de negócio.",
+      title: "Farmacêutico RT e estrategista",
+      desc: "Registro CRF/SP, rotina técnica, compliance, atendimento e leitura de operação em ambientes regulados.",
     },
     {
-      title: "Gestor de automações",
-      desc: "Fluxos n8n, integrações e operação enxuta — menos retrabalho, mais escala.",
+      title: "Inteligência artificial aplicada",
+      desc: "Agentes, LLMs, automações e produtos digitais usados para reduzir atrito e acelerar decisão.",
     },
     {
-      title: "Engenheiro de Inteligência Artificial",
-      desc: "Agentes, LLMs e arquitetura aplicada com método Sprint e Scrum.",
+      title: "Vendas e treinamento de equipes",
+      desc: "Facilitação comercial, capacitação prática e conversão com ética, clareza e método.",
     },
     {
-      title: "Desenvolvedor de soluções digitais",
-      desc: "Sites, apps e sistemas que convertem visitante em oportunidade.",
+      title: "Tecnologia que facilita resultados",
+      desc: "Processos, dados, CRM e experiências digitais que conectam estratégia, operação e crescimento.",
     },
   ],
 } as const;
 
 export const competencias = {
-  title: "Vitrine de competências",
-  lead: "Alto impacto para recrutadores e decisores — pouco ruído, alta densidade de valor.",
+  title: "Competências de alto impacto",
+  lead: "Uma combinação rara: autoridade farmacêutica, visão comercial, didática de treinamento e engenharia de IA aplicada.",
   skills: [
     {
-      title: "Liderança & vendas",
-      desc: "Times, treinamento e conversão com ética CRF/SP.",
+      title: "Farmácia & compliance",
+      desc: "CRF/SP, RT, rotina técnica, farmácia clínica, varejo e ambientes regulados.",
     },
     {
-      title: "IA aplicada",
-      desc: "Copilots, qualificação e decisão assistida.",
+      title: "IA aplicada & automação",
+      desc: "Agentes, LLMs, n8n, fluxos de decisão e processos digitais escaláveis.",
     },
     {
-      title: "Automação & dados",
-      desc: "CRM, dashboards e processos 24/7.",
+      title: "Vendas & treinamento",
+      desc: "Capacitação de equipe, conversão consultiva e facilitação de performance.",
     },
     {
-      title: "Produto digital",
-      desc: "Next.js, integrações e entrega mensurável.",
+      title: "Tecnologia & resultado",
+      desc: "Next.js, CRM, dados, SEO/GEO e entrega mensurável para stakeholders.",
     },
   ],
   metrics: [
-    { value: "15+", label: "Anos de experiência" },
-    { value: "CRF/SP", label: "Registro ativo" },
-    { value: "360°", label: "Saúde + tech" },
+    { value: "15+", label: "Anos em saúde" },
+    { value: "CRF/SP", label: "Autoridade técnica" },
+    { value: "360°", label: "Farmácia + IA + vendas" },
   ],
 } as const;
 
 export const projetos = {
   title: "Projetos em produção",
-  lead: "Entregas reais com stack mensurável — prova de execução para RH e stakeholders.",
+  lead: "Entregas reais com stack mensurável — prova de execução para RH, líderes comerciais e stakeholders de tecnologia.",
   items: [
     {
       title: "Portfólio thiagopiola.com.br",
-      problem: "Presença digital executiva para RH farmacêutico e tech.",
-      result: "Site estático Next.js, SEO/GEO, Core Web Vitals otimizado.",
-      stack: ["Next.js", "Framer Motion", "Vercel"],
+      problem: "Presença digital executiva para autoridade farmacêutica, IA aplicada e tecnologia.",
+      result: "Site Next.js com SEO/GEO, schema estruturado, performance e narrativa de conversão.",
+      stack: ["Next.js", "SEO/GEO", "Vercel"],
       href: "https://www.thiagopiola.com.br",
     },
     {
       title: "Automação de qualificação B2B",
-      problem: "Leads sem triagem consistente entre canais.",
-      result: "Fluxos n8n + CRM com resposta assistida por LLM.",
+      problem: "Leads sem triagem consistente entre canais e baixa velocidade de resposta.",
+      result: "Fluxos n8n + CRM com resposta assistida por LLM e visão de funil.",
       stack: ["n8n", "LLM", "CRM"],
       href: "https://thiagopiola.notion.site/",
     },
     {
       title: "Agentes inteligentes (GEAR/Google)",
-      problem: "Operação repetitiva em atendimento e conteúdo.",
-      result: "Arquitetura de agentes com método Sprint/Scrum.",
+      problem: "Operação repetitiva em atendimento, treinamento e conteúdo.",
+      result: "Arquitetura de agentes com método Sprint/Scrum para facilitar resultados.",
       stack: ["Google AI", "Agentes", "Scrum"],
       href: "https://me.developers.google.com/u/105476544026751993130",
     },
@@ -175,20 +178,20 @@ export const projetos = {
 
 export const tecnologia = {
   title: "Stack de entrega",
-  lead: "Ferramentas usadas em projetos reais — performance e clareza para stakeholders.",
+  lead: "Ferramentas usadas em projetos reais — automação, IA, dados, presença digital e performance comercial.",
   items: [
-    { title: "Agentes & LLMs", desc: "Atendimento e qualificação inteligente" },
-    { title: "n8n & integrações", desc: "Orquestração sem atrito operacional" },
-    { title: "Next.js / React", desc: "Sites e apps em alta definição" },
-    { title: "Dados & CRM", desc: "Métricas para decisão rápida" },
-    { title: "Sprint & Scrum", desc: "Entrega previsível e resultado real" },
-    { title: "SEO & GEO", desc: "Visibilidade local e global" },
+    { title: "Agentes & LLMs", desc: "Atendimento, treinamento e qualificação inteligente" },
+    { title: "n8n & integrações", desc: "Orquestração para reduzir retrabalho operacional" },
+    { title: "Next.js / React", desc: "Sites e apps de alta definição com performance" },
+    { title: "Dados & CRM", desc: "Métricas para decisão rápida e acompanhamento de funil" },
+    { title: "Sprint & Scrum", desc: "Facilitação, cadência e entrega previsível" },
+    { title: "SEO & GEO", desc: "Autoridade local, busca Google e presença por localização" },
   ],
 } as const;
 
 export const trajetoria = {
   title: "Trajetória",
-  lead: "Experiência verificável em ambientes de alta exigência.",
+  lead: "Experiência verificável em ambientes de alta exigência, com saúde, vendas, treinamento e tecnologia aplicada.",
   career: [
     {
       company: "Droga Raia",
@@ -239,7 +242,7 @@ export const trajetoria = {
 
 /** Resumo EN para RH internacional */
 export const heroEn = {
-  title: "Thiago Piola",
-  subtitle: "Pharmacist · Automation lead · AI engineer",
-  lead: "15+ years in healthcare · National retail pharmacy RT · Production AI & automation — from pharmacy floor to shipped digital products.",
+  title: site.name,
+  subtitle: "Pharmacist · Applied AI · Sales, training and automation",
+  lead: "15+ years in healthcare, pharmacy operations and result facilitation — connecting professional pharmacy authority, AI, technology and commercial execution.",
 } as const;
