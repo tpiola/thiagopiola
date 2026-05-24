@@ -7,10 +7,11 @@ type TextRevealProps = {
   text: string;
   className?: string;
   as?: "h1" | "h2" | "p";
+  noWrap?: boolean;
 };
 
 /** Revelação palavra a palavra — tipografia premium */
-export function TextReveal({ text, className, as = "h1" }: TextRevealProps) {
+export function TextReveal({ text, className, as = "h1", noWrap = false }: TextRevealProps) {
   const reduce = useReducedMotion();
   const Tag = as;
   const words = text.split(" ");
@@ -23,7 +24,7 @@ export function TextReveal({ text, className, as = "h1" }: TextRevealProps) {
     <Tag className={className} aria-label={text}>
       <span className="sr-only">{text}</span>
       <motion.span
-        className="inline-flex flex-wrap gap-x-[0.28em]"
+        className={`inline-flex gap-x-[0.28em] ${noWrap ? "flex-nowrap whitespace-nowrap" : "flex-wrap"}`}
         aria-hidden
         initial="hidden"
         animate="visible"
