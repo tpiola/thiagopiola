@@ -78,8 +78,7 @@ export function Hero() {
             key={locale}
             as="h1"
             text="Thiago Biasoli Garcia Piola"
-            noWrap
-            className="text-[clamp(1.75rem,6vw,4.75rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-foreground whitespace-nowrap"
+            className="text-[clamp(2.35rem,6.7vw,5.05rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-foreground xl:whitespace-nowrap"
           />
 
           <Reveal delay={0.18} variant="up">
