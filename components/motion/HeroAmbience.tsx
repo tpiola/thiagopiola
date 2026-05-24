@@ -88,8 +88,7 @@ export function HeroAmbience() {
           backgroundImage:
             "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
-          maskImage:
-            "radial-gradient(ellipse 90% 65% at 50% 25%, black, transparent)",
+          maskImage: "radial-gradient(ellipse 90% 65% at 50% 25%, black, transparent)",
         }}
         animate={{ backgroundPosition: ["0px 0px", "56px 56px"] }}
         transition={{ duration: 28, repeat: Infinity, ease: "linear" }}

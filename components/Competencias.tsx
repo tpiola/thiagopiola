@@ -11,11 +11,14 @@ export function Competencias() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="competencias" className="relative border-b border-border py-24 md:py-36 overflow-hidden">
+    <section
+      id="competencias"
+      className="relative border-b border-border py-24 md:py-36 overflow-hidden"
+    >
       {/* BG accent */}
       <div
         className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.03]"
-        style={{ background: 'radial-gradient(circle, var(--brand-light), transparent 70%)' }}
+        style={{ background: "radial-gradient(circle, var(--brand-light), transparent 70%)" }}
         aria-hidden
       />
 
@@ -30,10 +33,7 @@ export function Competencias() {
         </Reveal>
 
         {/* Skills Grid */}
-        <Stagger
-          className="mt-14 grid gap-3 sm:grid-cols-2"
-          stagger={0.07}
-        >
+        <Stagger className="mt-14 grid gap-3 sm:grid-cols-2" stagger={0.07}>
           {competencias.skills.map((skill, i) => (
             <StaggerItem key={skill.title}>
               <motion.div
@@ -43,7 +43,10 @@ export function Competencias() {
                 {/* Left accent bar */}
                 <div
                   className="absolute left-0 top-0 bottom-0 w-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: 'linear-gradient(to bottom, transparent, var(--brand), transparent)' }}
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, transparent, var(--brand), transparent)",
+                  }}
                 />
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -54,10 +57,10 @@ export function Competencias() {
                   </div>
                   <span
                     className="flex-shrink-0 text-xs font-black tabular-nums opacity-15"
-                    style={{ color: 'var(--brand)' }}
+                    style={{ color: "var(--brand)" }}
                     aria-hidden
                   >
-                    {String(i + 1).padStart(2, '0')}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
               </motion.div>

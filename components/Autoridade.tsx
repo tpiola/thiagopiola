@@ -2,11 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { autoridade } from "@/lib/content";
-import { LuxuryCard } from "./motion/LuxuryCard";
 import { Reveal } from "./motion/Reveal";
 import { Stagger, StaggerItem } from "./motion/Stagger";
 import { SectionLabel } from "./SectionLabel";
-import { easeLuxury } from "@/lib/motion";
+import { FarmaciaIndustria } from "./FarmaciaIndustria";
 
 const ICONS = ["⚕️", "⚙️", "🤖", "💻"];
 
@@ -14,11 +13,14 @@ export function Autoridade() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="autoridade" className="relative border-b border-border bg-surface-elevated py-24 md:py-36 overflow-hidden">
+    <section
+      id="autoridade"
+      className="relative border-b border-border bg-surface-elevated py-24 md:py-36 overflow-hidden"
+    >
       {/* Background accent */}
       <div
         className="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.04]"
-        style={{ background: 'radial-gradient(circle, var(--brand), transparent 70%)' }}
+        style={{ background: "radial-gradient(circle, var(--brand), transparent 70%)" }}
         aria-hidden
       />
 
@@ -31,6 +33,7 @@ export function Autoridade() {
           </h2>
           <div className="mt-4 divider-brand w-24" />
           <p className="mt-5 text-base text-muted md:text-lg leading-relaxed">{autoridade.lead}</p>
+          <FarmaciaIndustria />
         </Reveal>
 
         {/* Cards grid with number accents */}
@@ -44,15 +47,17 @@ export function Autoridade() {
                 {/* Number watermark */}
                 <span
                   className="absolute -right-2 -top-3 text-[5rem] font-black leading-none tracking-tighter select-none pointer-events-none"
-                  style={{ color: 'var(--brand)', opacity: 0.04 }}
+                  style={{ color: "var(--brand)", opacity: 0.04 }}
                   aria-hidden
                 >
-                  {String(i + 1).padStart(2, '0')}
+                  {String(i + 1).padStart(2, "0")}
                 </span>
                 {/* Bottom accent */}
                 <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                 {/* Icon */}
-                <span className="mb-4 block text-xl" aria-hidden>{ICONS[i]}</span>
+                <span className="mb-4 block text-xl" aria-hidden>
+                  {ICONS[i]}
+                </span>
                 <h3 className="text-lg font-bold text-foreground">{p.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{p.desc}</p>
               </motion.div>
@@ -63,12 +68,19 @@ export function Autoridade() {
         {/* Bottom callout */}
         <Reveal delay={0.2} variant="up" className="mt-12">
           <div className="glass-dark rounded-xl px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'color-mix(in srgb, var(--brand) 12%, transparent)' }}>
-              <span className="text-sm font-bold" style={{ color: 'var(--brand)' }}>✦</span>
+            <div
+              className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+              style={{ background: "color-mix(in srgb, var(--brand) 12%, transparent)" }}
+            >
+              <span className="text-sm font-bold" style={{ color: "var(--brand)" }}>
+                ✦
+              </span>
             </div>
             <p className="text-sm text-muted leading-relaxed">
-              Perfil raro para RH e líderes que buscam execução real em{' '}
-              <strong className="font-semibold" style={{ color: 'var(--foreground)' }}>saúde e tecnologia</strong>{' '}
+              Perfil raro para RH e líderes que buscam execução real em{" "}
+              <strong className="font-semibold" style={{ color: "var(--foreground)" }}>
+                saúde e tecnologia
+              </strong>{" "}
               — do registro ao produto publicado.
             </p>
           </div>

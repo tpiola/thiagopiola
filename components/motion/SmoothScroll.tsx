@@ -8,18 +8,20 @@ type SmoothScrollProps = {
   children: React.ReactNode;
 };
 
-/** Scroll suave estilo editorial — respeita prefers-reduced-motion */
+/** Scroll suave — desativado em mobile e prefers-reduced-motion (performance) */
 export function SmoothScroll({ children }: SmoothScrollProps) {
   const reduce = useReducedMotion();
 
   useEffect(() => {
     if (reduce) return;
 
+    const prefersCoarse = window.matchMedia("(pointer: coarse)").matches;
+    if (prefersCoarse) return;
+
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.6,
     });
 
     const onAnchorClick = (e: MouseEvent) => {

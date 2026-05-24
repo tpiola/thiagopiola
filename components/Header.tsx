@@ -4,9 +4,11 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { nav, site } from "@/lib/content";
+import { trackCta } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
+import { LinkedinIcon } from "./SocialIcons";
 
 export function Header() {
   const reduce = useReducedMotion();
@@ -29,9 +31,7 @@ export function Header() {
           : "bg-transparent",
       )}
       initial={false}
-      animate={{
-        height: scrolled ? 60 : 64,
-      }}
+      animate={{ height: scrolled ? 60 : 64 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="mx-auto flex h-full max-h-16 min-h-[60px] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
@@ -39,12 +39,12 @@ export function Header() {
           <Logo variant="full" showCredential iconClassName="h-9 w-9" />
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
           {nav.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="group relative rounded-md px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-foreground"
+              className="group relative rounded-md px-2.5 py-2 font-mono text-[10px] uppercase tracking-wider text-muted transition-colors hover:text-foreground xl:px-3"
             >
               {link.label}
               <span className="absolute inset-x-3 bottom-1.5 h-px origin-left scale-x-0 bg-[var(--brand)] transition-transform duration-300 group-hover:scale-x-100" />
@@ -55,18 +55,31 @@ export function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <motion.a
+            href={site.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-1.5 rounded-lg border border-[var(--brand)]/30 bg-[color-mix(in_srgb,var(--brand)_8%,transparent)] px-3 py-2 font-mono text-[10px] font-medium uppercase tracking-wider text-[var(--brand)] md:inline-flex"
+            whileHover={reduce ? undefined : { scale: 1.03 }}
+            whileTap={reduce ? undefined : { scale: 0.98 }}
+            onClick={() => trackCta("cta_linkedin_click")}
+          >
+            <LinkedinIcon className="h-3.5 w-3.5" />
+            LinkedIn
+          </motion.a>
+          <motion.a
             href={site.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-lg bg-foreground px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-wider text-[var(--surface)] md:inline-block"
+            className="hidden rounded-lg bg-foreground px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-wider text-[var(--surface)] lg:inline-block"
             whileHover={reduce ? undefined : { scale: 1.03 }}
             whileTap={reduce ? undefined : { scale: 0.98 }}
+            onClick={() => trackCta("cta_whatsapp_click")}
           >
             Contato
           </motion.a>
           <button
             type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground md:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             onClick={() => setMenuOpen(!menuOpen)}
           >
@@ -76,7 +89,7 @@ export function Header() {
       </div>
 
       <motion.nav
-        className="border-t border-border bg-surface-elevated px-5 py-4 md:hidden"
+        className="border-t border-border bg-surface-elevated px-5 py-4 lg:hidden"
         aria-label="Menu mobile"
         initial={false}
         animate={menuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
@@ -94,10 +107,20 @@ export function Header() {
           </a>
         ))}
         <a
+          href={site.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 block rounded-lg border border-[var(--brand)]/30 px-4 py-3 text-center text-sm font-medium text-[var(--brand)]"
+          onClick={() => trackCta("cta_linkedin_click")}
+        >
+          LinkedIn
+        </a>
+        <a
           href={site.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-2 block rounded-lg bg-foreground px-4 py-3 text-center text-sm font-medium text-[var(--surface)]"
+          onClick={() => trackCta("cta_whatsapp_click")}
         >
           WhatsApp
         </a>

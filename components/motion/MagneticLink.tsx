@@ -10,10 +10,18 @@ type MagneticLinkProps = {
   href: string;
   target?: string;
   rel?: string;
+  onClick?: () => void;
 };
 
 /** CTA com micro-interação magnética no hover (desktop) */
-export function MagneticLink({ children, className, href, target, rel }: MagneticLinkProps) {
+export function MagneticLink({
+  children,
+  className,
+  href,
+  target,
+  rel,
+  onClick,
+}: MagneticLinkProps) {
   const reduce = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -43,6 +51,7 @@ export function MagneticLink({ children, className, href, target, rel }: Magneti
       style={reduce ? undefined : { x: springX, y: springY }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
+      onClick={onClick}
       whileTap={reduce ? undefined : { scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 28 }}
     >

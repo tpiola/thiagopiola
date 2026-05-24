@@ -1,151 +1,98 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Mail, MessageCircle, ArrowRight } from "lucide-react";
 import { duration, easeLuxury } from "@/lib/motion";
-import { hero, site } from "@/lib/content";
+import { hero, heroEn, site } from "@/lib/content";
+import { cn } from "@/lib/utils";
+import { trackCta } from "@/lib/analytics";
 import { HeroAmbience } from "./motion/HeroAmbience";
 import { MagneticLink } from "./motion/MagneticLink";
 import { Reveal } from "./motion/Reveal";
 import { TextReveal } from "./motion/TextReveal";
 import { Logo } from "./Logo";
+import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
-
-/* ─── Scroll Progress Bar ─── */
-function ScrollProgressBar() {
-  const { scrollYProgress } = useScroll();
-  return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 h-[2px] origin-left z-[100]"
-      style={{
-        scaleX: scrollYProgress,
-        background: 'linear-gradient(90deg, var(--brand), var(--brand-light))',
-      }}
-    />
-  );
-}
-
-/* ─── Floating particles ─── */
-function FloatingParticles() {
-  const reduce = useReducedMotion();
-  if (reduce) return null;
-  const particles = Array.from({ length: 6 }, (_, i) => ({
-    id: i,
-    x: [15, 25, 35, 85, 75, 65][i],
-    y: [20, 70, 45, 30, 75, 55][i],
-    size: [3, 2, 4, 2, 3, 2][i],
-    delay: i * 1.5,
-    duration: 8 + i * 2,
-  }));
-
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full"
-          style={{
-            left: `${p.x}%`,
-            top: `${p.y}%`,
-            width: p.size,
-            height: p.size,
-            background: 'var(--brand-light)',
-            opacity: 0.25,
-          }}
-          animate={{
-            y: [-10, 10, -10],
-            x: [-5, 5, -5],
-            opacity: [0.15, 0.35, 0.15],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: p.delay,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-/* ─── Stats block ─── */
-function StatItem({ value, label, delay }: { value: string; label: string; delay: number }) {
-  return (
-    <motion.div
-      className="stat-block"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: duration.base, ease: easeLuxury }}
-    >
-      <div className="stat-value">{value}</div>
-      <div className="stat-label">{label}</div>
-    </motion.div>
-  );
-}
+import { LinkedinIcon } from "./SocialIcons";
 
 export function Hero() {
+  const [locale, setLocale] = useState<"pt" | "en">("pt");
+  const copy = locale === "pt" ? hero : heroEn;
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
   const heroY = useTransform(scrollY, [0, 500], [0, 60]);
 
   return (
-    <>
-      <ScrollProgressBar />
-      <section className="relative min-h-[100dvh] overflow-hidden border-b border-border">
-        <HeroAmbience />
-        <FloatingParticles />
+    <section className="relative min-h-[100dvh] overflow-hidden border-b border-border">
+      <HeroAmbience />
 
-        {/* Grid lines */}
-        <div
-          className="pointer-events-none absolute inset-0 grid-lines opacity-[0.025]"
-          aria-hidden
-        />
-
-        <motion.div
-          style={reduce ? undefined : { opacity: heroOpacity, y: heroY }}
-          className="relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col justify-center px-5 pb-20 pt-24 md:px-8 md:pt-28"
-        >
-          {/* Logo with entrance */}
+      <motion.div
+        style={reduce ? undefined : { opacity: heroOpacity, y: heroY }}
+        className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-20 pt-24 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-28"
+      >
+        <div className="flex flex-col justify-center">
           <motion.div
             initial={reduce ? false : { opacity: 0, scale: 0.85, filter: "blur(16px)" }}
             animate={reduce ? undefined : { opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: duration.slow, ease: easeLuxury }}
           >
-            <Logo variant="icon" iconClassName="h-16 w-16 md:h-20 md:w-20" className="mb-8" />
+            <Logo
+              variant="icon"
+              iconClassName="h-14 w-14 md:h-16 md:w-16"
+              className="mb-6 lg:hidden"
+            />
           </motion.div>
 
-          {/* Badge */}
           <Reveal delay={0.04} variant="fade">
-            <div className="badge mb-4 w-fit">
-              <span className="dot-pulse" />
-              <span>{site.credential} · {site.location}</span>
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              <div className="badge w-fit">
+                <span className="dot-pulse" />
+                <span>
+                  {site.credential} · {site.location}
+                </span>
+              </div>
+              <div className="inline-flex rounded-lg border border-border p-0.5">
+                {(["pt", "en"] as const).map((code) => (
+                  <button
+                    key={code}
+                    type="button"
+                    className={cn(
+                      "rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors",
+                      locale === code
+                        ? "bg-[var(--brand)] text-white"
+                        : "text-muted hover:text-foreground",
+                    )}
+                    onClick={() => setLocale(code)}
+                    aria-pressed={locale === code}
+                  >
+                    {code}
+                  </button>
+                ))}
+              </div>
             </div>
           </Reveal>
 
-          {/* Headline with word reveal */}
           <TextReveal
+            key={locale}
             as="h1"
-            text={hero.title}
-            className="mt-3 text-[clamp(3rem,9vw,6rem)] font-semibold leading-[1.0] tracking-[-0.04em] text-foreground"
+            text={copy.title}
+            className="text-[clamp(2.75rem,8vw,5.5rem)] font-semibold leading-[1.02] tracking-[-0.04em] text-foreground"
           />
 
-          {/* Subtitle */}
           <Reveal delay={0.18} variant="up">
             <p className="mt-5 max-w-3xl text-lg font-semibold text-gradient-brand md:text-xl">
-              {hero.subtitle}
+              {copy.subtitle}
             </p>
           </Reveal>
 
-          {/* Lead text */}
           <Reveal delay={0.25} variant="up">
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted md:text-[17px]">
-              {hero.lead}
+              {copy.lead}
             </p>
           </Reveal>
 
-          {/* CTA Buttons */}
           <Reveal delay={0.32} variant="scale">
             <motion.div
               className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
@@ -154,18 +101,33 @@ export function Hero() {
               transition={{ delay: 0.42, duration: duration.base, ease: easeLuxury }}
             >
               <MagneticLink
-                href={site.whatsapp}
+                href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary group"
+                onClick={() => trackCta("cta_linkedin_click")}
+              >
+                <LinkedinIcon className="h-4 w-4" aria-hidden />
+                {hero.ctaLinkedin}
+                <ArrowRight
+                  className="h-3.5 w-3.5 opacity-60 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 -translate-x-1"
+                  aria-hidden
+                />
+              </MagneticLink>
+              <MagneticLink
+                href={site.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary group"
+                onClick={() => trackCta("cta_whatsapp_click")}
               >
                 <MessageCircle className="h-4 w-4" aria-hidden />
                 {hero.ctaWhatsapp}
-                <ArrowRight className="h-3.5 w-3.5 opacity-60 -translate-x-1 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" aria-hidden />
               </MagneticLink>
               <MagneticLink
                 href={`mailto:${site.email}`}
                 className="btn-secondary"
+                onClick={() => trackCta("cta_email_click")}
               >
                 <Mail className="h-4 w-4" aria-hidden />
                 {hero.ctaEmail}
@@ -173,44 +135,31 @@ export function Hero() {
             </motion.div>
           </Reveal>
 
-          {/* Social links */}
           <Reveal delay={0.38} variant="fade">
             <SocialLinks className="mt-10" />
           </Reveal>
+        </div>
 
-          {/* Stats row */}
-          <motion.div
-            className="mt-14 flex flex-wrap gap-x-8 gap-y-4"
-            initial={reduce ? false : { opacity: 0 }}
-            animate={reduce ? undefined : { opacity: 1 }}
-            transition={{ delay: 0.65, duration: 0.8 }}
-          >
-            <StatItem value="CRF/SP" label="Registro ativo" delay={0.7} />
-            <div className="hidden sm:block w-px bg-border" />
-            <StatItem value="Saúde + Tech" label="Dupla atuação" delay={0.78} />
-            <div className="hidden sm:block w-px bg-border" />
-            <StatItem value="n8n · AI" label="Stack principal" delay={0.86} />
-          </motion.div>
+        <div className="hidden lg:block">
+          <ProfilePortrait />
+        </div>
 
-          {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:flex flex-col items-center gap-2 lg:left-[40%]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+          aria-hidden
+        >
           <motion.div
-            className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:flex flex-col items-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-            aria-hidden
+            className="flex h-9 w-5 items-start justify-center rounded-full border border-border p-1.5"
+            animate={{ y: [0, 7, 0] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <motion.div
-              className="flex h-9 w-5 items-start justify-center rounded-full border border-border p-1.5"
-              animate={{ y: [0, 7, 0] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <span className="h-1.5 w-0.5 rounded-full bg-muted" />
-            </motion.div>
-            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted/50">scroll</span>
+            <span className="h-1.5 w-0.5 rounded-full bg-muted" />
           </motion.div>
         </motion.div>
-      </section>
-    </>
+      </motion.div>
+    </section>
   );
 }

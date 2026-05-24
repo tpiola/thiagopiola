@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
+import { SkipLink } from "@/components/SkipLink";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { site } from "@/lib/content";
 import "./globals.css";
@@ -51,10 +53,10 @@ export const metadata: Metadata = {
     countryName: "Brasil",
     images: [
       {
-        url: "/images/logo.webp",
+        url: "/images/og-card.webp",
         width: 1200,
-        height: 1200,
-        alt: "Thiago Piola — Taça de Higeia",
+        height: 630,
+        alt: "Thiago Piola — Farmacêutico e Engenheiro de IA",
       },
     ],
   },
@@ -63,6 +65,7 @@ export const metadata: Metadata = {
     title: "Thiago Piola | Farmacêutico & Engenheiro de IA",
     description,
     creator: "@ThiagoPiola07",
+    images: ["/images/og-card.webp"],
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
@@ -96,7 +99,11 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased grain`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <SkipLink />
+        <ThemeProvider>
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

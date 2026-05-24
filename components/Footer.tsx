@@ -2,25 +2,33 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { Download } from "lucide-react";
 import { footerTagline, nav, site } from "@/lib/content";
+import { trackCta } from "@/lib/analytics";
 import { Logo } from "./Logo";
-import { SocialLinks } from "./SocialLinks";
+import { SocialLinksGrouped } from "./SocialLinksGrouped";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="contato" className="relative border-t border-border bg-surface-elevated py-16 md:py-24 overflow-hidden">
+    <footer
+      id="contato"
+      className="relative border-t border-border bg-surface-elevated py-16 md:py-24 overflow-hidden"
+    >
       {/* Subtle top gradient accent */}
       <div
         className="pointer-events-none absolute top-0 left-0 right-0 h-[1px]"
-        style={{ background: 'linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand) 25%, transparent) 30%, color-mix(in srgb, var(--brand) 40%, transparent) 50%, color-mix(in srgb, var(--brand) 25%, transparent) 70%, transparent)' }}
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, color-mix(in srgb, var(--brand) 25%, transparent) 30%, color-mix(in srgb, var(--brand) 40%, transparent) 50%, color-mix(in srgb, var(--brand) 25%, transparent) 70%, transparent)",
+        }}
         aria-hidden
       />
       {/* BG ambient */}
       <div
         className="pointer-events-none absolute bottom-0 right-0 w-[600px] h-[300px] rounded-full opacity-[0.03]"
-        style={{ background: 'radial-gradient(circle, var(--brand), transparent 70%)' }}
+        style={{ background: "radial-gradient(circle, var(--brand), transparent 70%)" }}
         aria-hidden
       />
 
@@ -30,18 +38,31 @@ export function Footer() {
           <div className="lg:col-span-5">
             <Logo variant="full" showCredential iconClassName="h-11 w-11" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">{footerTagline}</p>
-            <SocialLinks className="mt-8" />
+            <SocialLinksGrouped className="mt-8" />
+
+            <a
+              href={site.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg border border-[var(--brand)]/30 bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] px-5 py-3 text-sm font-semibold text-[var(--brand)] transition-colors hover:border-[var(--brand)]/50"
+              onClick={() => trackCta("cta_cv_download")}
+            >
+              <Download className="h-4 w-4" aria-hidden />
+              {site.cvLabel}
+            </a>
 
             {/* Founder of badge */}
             <div className="mt-8 inline-flex items-center gap-2.5 border border-border px-4 py-2.5 rounded-lg glass-dark">
-              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted">Founder</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+                Founder
+              </span>
               <div className="w-px h-3 bg-border" />
               <a
                 href="https://www.reidasvendas.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors"
-                style={{ color: 'var(--brand)' }}
+                style={{ color: "var(--brand)" }}
               >
                 reidasvendas.com.br
                 <ArrowUpRight className="w-3 h-3 opacity-60" />
@@ -83,9 +104,11 @@ export function Footer() {
                   href={site.phoneHref}
                   className="group flex gap-3 text-sm text-foreground hover:text-[var(--brand)] transition-colors duration-200"
                 >
-                  <div className="mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-200"
-                    style={{ background: 'color-mix(in srgb, var(--brand) 8%, transparent)' }}>
-                    <Phone className="h-3.5 w-3.5" style={{ color: 'var(--brand)' }} />
+                  <div
+                    className="mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-200"
+                    style={{ background: "color-mix(in srgb, var(--brand) 8%, transparent)" }}
+                  >
+                    <Phone className="h-3.5 w-3.5" style={{ color: "var(--brand)" }} />
                   </div>
                   <span>
                     {site.phone}
@@ -98,17 +121,21 @@ export function Footer() {
                   href={`mailto:${site.email}`}
                   className="group flex items-center gap-3 text-sm text-foreground hover:text-[var(--brand)] transition-colors duration-200"
                 >
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'color-mix(in srgb, var(--brand) 8%, transparent)' }}>
-                    <Mail className="h-3.5 w-3.5" style={{ color: 'var(--brand)' }} />
+                  <div
+                    className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: "color-mix(in srgb, var(--brand) 8%, transparent)" }}
+                  >
+                    <Mail className="h-3.5 w-3.5" style={{ color: "var(--brand)" }} />
                   </div>
                   {site.email}
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-muted">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'color-mix(in srgb, var(--brand) 8%, transparent)' }}>
-                  <MapPin className="h-3.5 w-3.5" style={{ color: 'var(--brand)' }} />
+                <div
+                  className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: "color-mix(in srgb, var(--brand) 8%, transparent)" }}
+                >
+                  <MapPin className="h-3.5 w-3.5" style={{ color: "var(--brand)" }} />
                 </div>
                 {site.location}
               </li>
@@ -116,13 +143,15 @@ export function Footer() {
 
             {/* Site reference */}
             <div className="mt-8 p-4 border border-border rounded-lg glass-dark">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted mb-2">Site</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted mb-2">
+                Site
+              </p>
               <a
                 href="https://www.thiagopiola.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm font-semibold transition-colors"
-                style={{ color: 'var(--brand)' }}
+                style={{ color: "var(--brand)" }}
               >
                 www.thiagopiola.com.br
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
