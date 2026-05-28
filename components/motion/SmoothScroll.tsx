@@ -19,7 +19,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
     if (prefersCoarse) return;
 
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 0.8,
       easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
       smoothWheel: true,
     });

@@ -44,12 +44,12 @@ export function TextReveal({ text, className, as = "h1" }: TextRevealProps) {
             <motion.span
               className="inline-block"
               variants={{
-                hidden: { y: "110%", opacity: 0, filter: "blur(8px)" },
+                hidden: { y: "40%", opacity: 0, filter: "blur(4px)" },
                 visible: {
                   y: 0,
                   opacity: 1,
                   filter: "blur(0px)",
-                  transition: { duration: duration.slow, ease: easeLuxury },
+                  transition: { duration: duration.base, ease: easeLuxury },
                 },
               }}
             >

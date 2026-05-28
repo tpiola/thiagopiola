@@ -46,7 +46,7 @@ export function StaggerItem({ children, className }: StaggerItemProps) {
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 28, filter: "blur(8px)" },
+        hidden: { opacity: 0, y: 12, filter: "blur(3px)" },
         visible: {
           opacity: 1,
           y: 0,

@@ -16,10 +16,10 @@ type RevealProps = {
 
 const hiddenByVariant: Record<RevealVariant, Variants["hidden"]> = {
   fade: { opacity: 0 },
-  up: { opacity: 0, y: 36, filter: "blur(10px)" },
-  scale: { opacity: 0, scale: 0.94, filter: "blur(6px)" },
-  left: { opacity: 0, x: -28, filter: "blur(8px)" },
-  right: { opacity: 0, x: 28, filter: "blur(8px)" },
+  up: { opacity: 0, y: 16, filter: "blur(4px)" },
+  scale: { opacity: 0, scale: 0.97, filter: "blur(3px)" },
+  left: { opacity: 0, x: -12, filter: "blur(3px)" },
+  right: { opacity: 0, x: 12, filter: "blur(3px)" },
 };
 
 function buildVariants(variant: RevealVariant): Variants {
