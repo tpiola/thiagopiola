@@ -10,7 +10,7 @@ type LogoProps = {
   showCredential?: boolean;
 };
 
-/** Taça de Higeia — logo oficial (PNG transparente) */
+/** Taca de Higeia oficial: sempre preserva proporcao e fundo transparente. */
 export function Logo({
   className,
   iconClassName = "h-11 w-11",
@@ -18,33 +18,31 @@ export function Logo({
   showCredential = false,
 }: LogoProps) {
   const emblem = (
-    <picture className="contents">
-      <source srcSet="/images/logo.webp" type="image/webp" />
+    <span className={cn("relative block aspect-[15/16] shrink-0", iconClassName)}>
       <Image
-        src="/images/logo.png"
-        alt="Taça de Higeia — Thiago Piola"
-        width={120}
-        height={140}
-        className={cn("h-full w-auto object-contain drop-shadow-sm", iconClassName)}
+        src="/images/logo.webp"
+        alt="Taca de Higeia - Thiago Piola"
+        fill
+        className="object-contain drop-shadow-sm"
         priority
-        sizes="(max-width: 768px) 64px, 80px"
+        sizes="(max-width: 768px) 56px, 72px"
       />
-    </picture>
+    </span>
   );
 
   if (variant === "icon") {
-    return <div className={cn("relative shrink-0", iconClassName, className)}>{emblem}</div>;
+    return <span className={cn("inline-flex shrink-0 items-center", className)}>{emblem}</span>;
   }
 
   return (
-    <div className={cn("flex items-center gap-3", className)}>
-      <div className={cn("relative shrink-0", iconClassName)}>{emblem}</div>
-      <div className="flex flex-col leading-tight">
-        <span className="text-[11px] font-semibold tracking-[0.14em] text-foreground">
+    <span className={cn("inline-flex items-center gap-3", className)}>
+      {emblem}
+      <span className="flex min-w-0 flex-col leading-tight">
+        <span className="whitespace-nowrap text-[11px] font-semibold tracking-[0.14em] text-foreground">
           THIAGO PIOLA
         </span>
         {showCredential && <span className="text-[10px] text-muted">CRF/SP 58.519</span>}
-      </div>
-    </div>
+      </span>
+    </span>
   );
 }
