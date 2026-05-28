@@ -3,23 +3,25 @@
 import { socialLinks } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import {
-  BlueskyIcon,
   GitHubIcon,
   GoogleDevelopersIcon,
+  LinkedinIcon,
   NotionIcon,
   RedditIcon,
   TelegramIcon,
   TikTokIcon,
+  XIcon,
 } from "./SocialIcons";
 
 const iconMap = {
-  Bluesky: BlueskyIcon,
   GitHub: GitHubIcon,
   "Google Developers": GoogleDevelopersIcon,
+  LinkedIn: LinkedinIcon,
   Notion: NotionIcon,
   Reddit: RedditIcon,
   Telegram: TelegramIcon,
   TikTok: TikTokIcon,
+  X: XIcon,
 } as const;
 
 type SocialLinksProps = {
