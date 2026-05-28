@@ -3,23 +3,25 @@
 import { socialLinksCommunity, socialLinksProfessional } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import {
-  BlueskyIcon,
   GitHubIcon,
   GoogleDevelopersIcon,
+  LinkedinIcon,
   NotionIcon,
   RedditIcon,
   TelegramIcon,
   TikTokIcon,
+  XIcon,
 } from "./SocialIcons";
 
 const iconMap = {
-  Bluesky: BlueskyIcon,
   GitHub: GitHubIcon,
   "Google Developers": GoogleDevelopersIcon,
+  LinkedIn: LinkedinIcon,
   Notion: NotionIcon,
   Reddit: RedditIcon,
   Telegram: TelegramIcon,
   TikTok: TikTokIcon,
+  X: XIcon,
 } as const;
 
 type SocialLinksGroupedProps = {
@@ -30,7 +32,7 @@ function LinkGrid({
   links,
   label,
 }: {
-  links: readonly { href: string; label: string }[];
+  links: readonly { href: string; label: keyof typeof iconMap }[];
   label: string;
 }) {
   return (
@@ -38,7 +40,7 @@ function LinkGrid({
       <p className="font-mono text-[10px] uppercase tracking-wider text-muted">{label}</p>
       <div className="mt-2 flex flex-wrap gap-2">
         {links.map(({ href, label: linkLabel }) => {
-          const Icon = iconMap[linkLabel as keyof typeof iconMap];
+          const Icon = iconMap[linkLabel];
           return (
             <a
               key={href}
