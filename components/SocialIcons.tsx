@@ -8,10 +8,10 @@ export function LinkedinIcon({ className }: IconProps) {
   );
 }
 
-export function BlueskyIcon({ className }: IconProps) {
+export function XIcon({ className }: IconProps) {
   return (
-    <svg viewBox="0 0 360 320" className={className} fill="currentColor" aria-hidden>
-      <path d="M180 142c-16.3-31.7-60.7-90.8-102-120C38 2 0 20 0 60c0 10 0 60 0 60s14 96 74 128c0 0 4 0 10-2 6-2 10-4 10-4S140 232 180 142zM180 142c16.3-31.7 60.7-90.8 102-120 40-20 78-2 78 38 0 10 0 60 0 60s-14 96-74 128c0 0-4 0-10-2-6-2-10-4-10-4S220 232 180 142z" />
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932Zm-1.292 19.491h2.039L6.486 3.24H4.298l13.311 17.404Z" />
     </svg>
   );
 }
@@ -27,7 +27,7 @@ export function GitHubIcon({ className }: IconProps) {
 export function GoogleDevelopersIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
-      <path d="M12 11.055 2.68 5.505A5.97 5.97 0 0 1 12 3.001a5.97 5.97 0 0 1 9.32 2.504 12 11.055zm0 1.89-9.99-5.542A6.002 6.002 0 0 0 2 8c0 3.314 2.686 6 6 6 1.08 0 2.096-.286 2.97-.786L12 14.109z" />
+      <path d="M12 11.055 2.68 5.505A5.97 5.97 0 0 1 12 3.001a5.97 5.97 0 0 1 9.32 2.504L12 11.055zm0 1.89-9.99-5.542A6.002 6.002 0 0 0 2 8c0 3.314 2.686 6 6 6 1.08 0 2.096-.286 2.97-.786L12 14.109z" />
     </svg>
   );
 }
