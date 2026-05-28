@@ -68,11 +68,8 @@ export const metadata: Metadata = {
     images: ["/images/og-card.webp"],
   },
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/images/logo.webp", type: "image/webp", sizes: "any" },
-    ],
-    shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/images/logo.webp", type: "image/webp", sizes: "any" }],
+    shortcut: [{ url: "/images/logo.webp", type: "image/webp" }],
     apple: [{ url: "/images/logo.webp", type: "image/webp" }],
   },
   other: {
