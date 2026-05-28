@@ -68,8 +68,12 @@ export const metadata: Metadata = {
     images: ["/images/og-card.webp"],
   },
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/images/logo.png", type: "image/png" }],
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/logo.webp", type: "image/webp", sizes: "any" },
+    ],
+    shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/images/logo.webp", type: "image/webp" }],
   },
   other: {
     "geo.region": "BR-SP",
