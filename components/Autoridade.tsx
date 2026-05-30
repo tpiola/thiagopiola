@@ -32,7 +32,7 @@ export function Autoridade() {
           </p>
         </Reveal>
 
-        <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
+        <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
           {autoridade.pilares.map((pilar, i) => (
             <StaggerItem key={i}>
               <motion.div
