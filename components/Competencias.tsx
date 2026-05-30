@@ -12,87 +12,71 @@ export function Competencias() {
 
   return (
     <section
-      id="competencias"
+      id="metodo"
       className="relative border-b border-border py-24 md:py-36 overflow-hidden"
     >
-      {/* BG accent */}
-      <div
-        className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.03]"
-        style={{ background: "radial-gradient(circle, var(--brand-light), transparent 70%)" }}
-        aria-hidden
-      />
-
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
-        <Reveal className="max-w-2xl" variant="right">
-          <SectionLabel index="02">Competências</SectionLabel>
-          <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground">
-            {competencias.title}
-          </h2>
-          <div className="mt-4 divider-brand w-24" />
-          <p className="mt-5 text-base text-muted leading-relaxed">{competencias.lead}</p>
-        </Reveal>
+        <div className="grid gap-16 lg:grid-cols-[1fr_320px] lg:gap-24">
+          <div>
+            <Reveal variant="left">
+              <SectionLabel index="02">Método</SectionLabel>
+              <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground">
+                {competencias.title}
+              </h2>
+              <div className="mt-4 divider-brand w-24" />
+              <p className="mt-5 text-base text-muted md:text-lg leading-relaxed max-w-2xl">
+                {competencias.lead}
+              </p>
+            </Reveal>
 
-        {/* Skills Grid */}
-        <Stagger className="mt-14 grid gap-3 sm:grid-cols-2" stagger={0.07}>
-          {competencias.skills.map((skill, i) => (
-            <StaggerItem key={skill.title}>
-              <motion.div
-                className="group relative overflow-hidden border border-border bg-surface-elevated p-6 md:p-7 transition-all duration-400"
-                whileHover={reduce ? undefined : { y: -2 }}
-              >
-                {/* Left accent bar */}
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, transparent, var(--brand), transparent)",
-                  }}
-                />
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-base font-bold text-foreground group-hover:text-[var(--brand)] transition-colors duration-300">
-                      {skill.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{skill.desc}</p>
-                  </div>
-                  <span
-                    className="flex-shrink-0 text-xs font-black tabular-nums opacity-15"
-                    style={{ color: "var(--brand)" }}
-                    aria-hidden
+            <Stagger className="mt-10 grid gap-4 sm:grid-cols-2" staggerDelay={0.08}>
+              {competencias.skills.map((skill, i) => (
+                <StaggerItem key={i}>
+                  <motion.div
+                    className="card-elevated rounded-xl p-5"
+                    whileHover={reduce ? undefined : { y: -2 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </Stagger>
-
-        {/* Metrics */}
-        <Reveal delay={0.12} variant="scale">
-          <div className="mt-10 overflow-hidden border border-border bg-surface-elevated">
-            <div className="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
-              {competencias.metrics.map((m, i) => (
-                <motion.div
-                  key={m.label}
-                  className="group relative p-7 md:p-8 text-center sm:text-left transition-colors duration-300 hover:bg-[color-mix(in_srgb,var(--brand)_4%,var(--surface-elevated))]"
-                  initial={reduce ? false : { opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
-                >
-                  <CountUp
-                    value={m.value}
-                    className="text-[2.5rem] font-bold tracking-tight text-[var(--brand)]"
-                  />
-                  <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
-                    {m.label}
-                  </p>
-                </motion.div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-[var(--brand)]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="flex-1 h-px bg-border" />
+                    </div>
+                    <h3 className="font-semibold text-sm text-foreground">{skill.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted">{skill.desc}</p>
+                  </motion.div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
-        </Reveal>
+
+          <div className="flex flex-col gap-6 lg:pt-28">
+            {competencias.metrics.map((metric, i) => (
+              <Reveal key={i} delay={i * 0.12} variant="right">
+                <div className="stat-block">
+                  <div className="stat-value">
+                    {/\d/.test(metric.value)
+                      ? <CountUp value={metric.value} />
+                      : metric.value}
+                  </div>
+                  <div className="stat-label mt-1">{metric.label}</div>
+                </div>
+              </Reveal>
+            ))}
+
+            <Reveal delay={0.4} variant="fade">
+              <div className="mt-4 rounded-xl border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] p-5">
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)] mb-2">
+                  Stack tecnológico
+                </p>
+                <p className="text-xs text-muted leading-relaxed">
+                  Claude AI · Google Gemini · n8n · Next.js · Vercel · CRM · Google GEAR
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </div>
     </section>
   );
