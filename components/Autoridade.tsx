@@ -5,83 +5,66 @@ import { autoridade } from "@/lib/content";
 import { Reveal } from "./motion/Reveal";
 import { Stagger, StaggerItem } from "./motion/Stagger";
 import { SectionLabel } from "./SectionLabel";
-import { FarmaciaIndustria } from "./FarmaciaIndustria";
-
-const ICONS = ["⚕️", "⚙️", "🤖", "💻"];
 
 export function Autoridade() {
   const reduce = useReducedMotion();
 
   return (
     <section
-      id="autoridade"
+      id="impacto"
       className="relative border-b border-border bg-surface-elevated py-24 md:py-36 overflow-hidden"
     >
-      {/* Background accent */}
       <div
-        className="pointer-events-none absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.04]"
+        className="pointer-events-none absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.04]"
         style={{ background: "radial-gradient(circle, var(--brand), transparent 70%)" }}
         aria-hidden
       />
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
-        {/* Header */}
-        <Reveal className="max-w-2xl" variant="left">
-          <SectionLabel index="01">Autoridade</SectionLabel>
+        <Reveal className="max-w-3xl" variant="left">
+          <SectionLabel index="01">Impacto</SectionLabel>
           <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground">
             {autoridade.title}
           </h2>
           <div className="mt-4 divider-brand w-24" />
-          <p className="mt-5 text-base text-muted md:text-lg leading-relaxed">{autoridade.lead}</p>
-          <FarmaciaIndustria />
+          <p className="mt-5 text-base text-muted md:text-lg leading-relaxed max-w-2xl">
+            {autoridade.lead}
+          </p>
         </Reveal>
 
-        {/* Cards grid with number accents */}
-        <Stagger className="mt-14 grid gap-4 sm:grid-cols-2" stagger={0.09}>
-          {autoridade.pilares.map((p, i) => (
-            <StaggerItem key={p.title}>
+        <Stagger className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
+          {autoridade.pilares.map((pilar, i) => (
+            <StaggerItem key={i}>
               <motion.div
-                className="group relative overflow-hidden border border-border bg-surface-elevated p-6 md:p-8 transition-all duration-400"
-                whileHover={reduce ? undefined : { y: -3 }}
+                className="card-elevated flex flex-col gap-4 rounded-2xl p-6 h-full"
+                whileHover={reduce ? undefined : { y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.1)" }}
+                transition={{ duration: 0.3 }}
               >
-                {/* Number watermark */}
-                <span
-                  className="absolute -right-2 -top-3 text-[5rem] font-black leading-none tracking-tighter select-none pointer-events-none"
-                  style={{ color: "var(--brand)", opacity: 0.04 }}
-                  aria-hidden
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                {/* Bottom accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--brand)] to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-                {/* Icon */}
-                <span className="mb-4 block text-xl" aria-hidden>
-                  {ICONS[i]}
-                </span>
-                <h3 className="text-lg font-bold text-foreground">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{p.desc}</p>
+                <div className="flex items-start justify-between">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[color-mix(in_srgb,var(--brand)_10%,transparent)] text-lg">
+                    {pilar.emoji}
+                  </span>
+                  <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-muted/50">
+                    {pilar.number}
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold leading-snug text-foreground">
+                    {pilar.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {pilar.desc}
+                  </p>
+                </div>
               </motion.div>
             </StaggerItem>
           ))}
         </Stagger>
 
-        {/* Bottom callout */}
-        <Reveal delay={0.2} variant="up" className="mt-12">
-          <div className="glass-dark rounded-xl px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div
-              className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "color-mix(in srgb, var(--brand) 12%, transparent)" }}
-            >
-              <span className="text-sm font-bold" style={{ color: "var(--brand)" }}>
-                ✦
-              </span>
-            </div>
-            <p className="text-sm text-muted leading-relaxed">
-              Perfil raro para RH e líderes que buscam execução real em{" "}
-              <strong className="font-semibold" style={{ color: "var(--foreground)" }}>
-                saúde e tecnologia
-              </strong>{" "}
-              — do registro ao produto publicado.
+        <Reveal delay={0.3} variant="up">
+          <div className="mt-14 rounded-2xl border border-[var(--brand)]/15 bg-[color-mix(in_srgb,var(--brand)_4%,transparent)] px-8 py-6">
+            <p className="text-sm font-semibold text-foreground md:text-base">
+              ✦ Perfil raro para líderes que precisam de resultado real em saúde e tecnologia — do registro ao produto publicado.
             </p>
           </div>
         </Reveal>
