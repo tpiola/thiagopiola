@@ -29,7 +29,7 @@ export function Competencias() {
               </p>
             </Reveal>
 
-            <Stagger className="mt-10 grid gap-4 sm:grid-cols-2" staggerDelay={0.08}>
+            <Stagger className="mt-10 grid gap-4 sm:grid-cols-2" stagger={0.08}>
               {competencias.skills.map((skill, i) => (
                 <StaggerItem key={i}>
                   <motion.div
