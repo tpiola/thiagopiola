@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1a30"/>
+      <stop offset="50%" stop-color="#0c2340"/>
+      <stop offset="100%" stop-color="#0f2d50"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#2a6bb0" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#2a6bb0" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#2a6bb0" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  
+  <!-- Subtle grid pattern -->
+  <g stroke="rgba(255,255,255,0.02)" stroke-width="0.5">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+  
+  <!-- Logo - Baça de Higéia -->
+  <g transform="translate(150, 115) scale(1.2)" fill="none" stroke="#e8edf5">
+    <!-- Bowl -->
+    <path d="M 70 155 C 70 127, 92 105, 120 105 C 148 105, 170 127, 170 155 C 170 183, 148 205, 120 205 C 92 205, 70 183, 70 155 Z" stroke-width="7"/>
+    <ellipse cx="120" cy="155" rx="50" ry="12" stroke-width="6"/>
+    <rect x="114" y="205" width="12" height="28" rx="3" fill="#e8edf5"/>
+    <path d="M 95 233 C 95 228, 106 224, 120 224 C 134 224, 145 228, 145 233 C 145 238, 134 242, 120 242 C 106 242, 95 238, 95 233 Z" fill="#e8edf5"/>
+    
+    <!-- Serpent -->
+    <path d="M 70 155 C 40 145, 40 100, 70 90 C 100 80, 118 105, 105 135" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 170 155 C 200 145, 200 100, 170 90 C 140 80, 122 105, 135 135" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 90 95 C 80 75, 95 50, 120 50" stroke-width="6" stroke-linecap="round"/>
+    <path d="M 150 95 C 160 75, 145 50, 120 50" stroke-width="6" stroke-linecap="round"/>
+    
+    <!-- Head -->
+    <path d="M 95 60 C 89 50, 93 38, 103 36 C 113 34, 123 40, 123 50 C 123 58, 117 70, 107 70 C 101 70, 97 67, 97 62" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="102" cy="56" r="2.5" fill="#e8edf5"/>
+    <path d="M 92 52 C 88 50, 85 47, 87 44" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Text content -->
+  <g transform="translate(450, 200)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#e8edf5" letter-spacing="2">
+      THIAGO BIASOLI GARCIA PIOLA
+    </text>
+    <text x="0" y="45" font-family="system-ui, sans-serif" font-size="16" font-weight="400" fill="#7eb3e8" letter-spacing="4">
+      CRF/SP 58.519
+    </text>
+    
+    <line x1="0" y1="70" x2="200" y2="70" stroke="#2a6bb0" stroke-width="2" opacity="0.5"/>
+    
+    <text x="0" y="105" font-family="system-ui, sans-serif" font-size="36" font-weight="600" fill="#ffffff" letter-spacing="1">
+      Farmacêutico · IA · Automação
+    </text>
+    <text x="0" y="145" font-family="system-ui, sans-serif" font-size="18" font-weight="400" fill="#9aa8b8" letter-spacing="0.5">
+      Treinamento de equipes · Agentes inteligentes · Healthtech
+    </text>
+    <text x="0" y="175" font-family="system-ui, sans-serif" font-size="14" font-weight="400" fill="#5b7a9a">
+      Franca, SP · Brasil
+    </text>
+  </g>
+</svg>

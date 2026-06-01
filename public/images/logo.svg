@@ -1,32 +1,242 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
-  <!-- Taça de Higéia - Bowl of Hygieia (clean vector) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="serpentBody" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="0.6"/>
+      <stop offset="30%" stop-color="currentColor" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="currentColor" stop-opacity="1"/>
+      <stop offset="70%" stop-color="currentColor" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0.7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ═══════════ BOWL (Taça) ═══════════ -->
   
-  <!-- Bowl / Chalice -->
-  <path d="M70 155c0-28 22-50 50-50s50 22 50 50-22 50-50 50-50-22-50-50z" stroke="currentColor" stroke-width="7" fill="none"/>
-  <ellipse cx="120" cy="155" rx="50" ry="12" stroke="currentColor" stroke-width="6" fill="none"/>
-  
+  <!-- Bowl body - the main cup shape -->
+  <path d="
+    M 170 290
+    C 170 250, 195 220, 230 210
+    C 245 206, 252 200, 256 195
+    L 256 200
+    C 260 195, 267 200, 282 210
+    C 317 220, 342 250, 342 290
+    C 342 340, 290 370, 256 370
+    C 222 370, 170 340, 170 290
+    Z
+  " stroke="currentColor" stroke-width="10" fill="none" stroke-linejoin="round"/>
+
+  <!-- Bowl rim ellipse -->
+  <ellipse cx="256" cy="290" rx="86" ry="18" stroke="currentColor" stroke-width="8" fill="none"/>
+
+  <!-- Bowl inner highlight -->
+  <path d="
+    M 200 290
+    C 200 260, 220 240, 240 235
+    C 245 233, 250 230, 256 228
+  " stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.3"/>
+
   <!-- Bowl stem -->
-  <rect x="114" y="205" width="12" height="28" rx="3" fill="currentColor"/>
-  
+  <rect x="246" y="370" width="20" height="50" rx="4" fill="currentColor"/>
+
+  <!-- Stem detail lines -->
+  <line x1="256" y1="375" x2="256" y2="415" stroke="var(--surface, #fff)" stroke-width="1.5" opacity="0.15"/>
+
   <!-- Bowl base -->
-  <path d="M95 233c0-5 11-9 25-9s25 4 25 9-11 9-25 9-25-4-25-9z" fill="currentColor"/>
+  <path d="
+    M 210 420
+    L 210 418
+    C 210 410, 230 405, 256 405
+    C 282 405, 302 410, 302 418
+    L 302 420
+    Z
+  " fill="currentColor"/>
+
+  <!-- Base bottom -->
+  <ellipse cx="256" cy="420" rx="46" ry="8" stroke="currentColor" stroke-width="6" fill="none"/>
+
+
+  <!-- ═══════════ SERPENT ═══════════ -->
+
+  <!-- Serpent - left side going up from bowl -->
+  <path d="
+    M 176 275
+    C 140 260, 130 220, 148 185
+    C 160 162, 182 150, 200 140
+    C 215 132, 228 125, 235 115
+  " stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Serpent body taper - left side thinner at top -->
+  <path d="
+    M 176 275
+    C 140 260, 130 220, 148 185
+    C 160 162, 182 150, 200 140
+    C 215 132, 228 125, 235 115
+  " stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Serpent - right side going up from bowl -->
+  <path d="
+    M 336 275
+    C 372 260, 382 220, 364 185
+    C 352 162, 330 150, 312 140
+    C 297 132, 284 125, 277 115
+  " stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Serpent body taper - right side -->
+  <path d="
+    M 336 275
+    C 372 260, 382 220, 364 185
+    C 352 162, 330 150, 312 140
+    C 297 132, 284 125, 277 115
+  " stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Serpent horizontal body connection above bowl -->
+  <path d="
+    M 240 115
+    C 245 108, 256 105, 256 105
+    C 256 105, 267 108, 272 115
+  " stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="round"/>
   
-  <!-- Serpent - left side going up -->
-  <path d="M70 155c-30-10-30-55 0-65s48 15 35 45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Serpent horizontal body inner -->
+  <path d="
+    M 240 115
+    C 245 108, 256 105, 256 105
+    C 256 105, 267 108, 272 115
+  " stroke="var(--surface, #fff)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.15"/>
+
+  <!-- Serpent - upper winding left -->
+  <path d="
+    M 235 115
+    C 210 95, 195 75, 200 55
+    C 205 40, 218 32, 232 35
+  " stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/>
   
-  <!-- Serpent - right side going up -->
-  <path d="M170 155c30-10 30-55 0-65s-48 15-35 45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="
+    M 235 115
+    C 210 95, 195 75, 200 55
+    C 205 40, 218 32, 232 35
+  " stroke="currentColor" stroke-width="4.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Serpent - upper winding right -->
+  <path d="
+    M 277 115
+    C 302 95, 317 75, 312 55
+    C 307 40, 294 32, 280 35
+  " stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/>
   
-  <!-- Serpent - upper body winding -->
-  <path d="M90 95c-10-20 5-45 30-45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
-  <path d="M150 95c10-20-5-45-30-45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="
+    M 277 115
+    C 302 95, 317 75, 312 55
+    C 307 40, 294 32, 280 35
+  " stroke="currentColor" stroke-width="4.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Serpent - top connection -->
+  <path d="
+    M 232 35
+    C 242 28, 270 28, 280 35
+  " stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+
+  <!-- ═══════════ SERPENT HEAD ═══════════ -->
   
-  <!-- Serpent head facing left, looking toward bowl -->
-  <path d="M95 60c-6-10-2-22 8-24s20 4 20 14-6 20-16 20c-6 0-10-3-10-8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Head - left-facing, looking down toward bowl -->
+  <g>
+    <!-- Head shape -->
+    <path d="
+      M 232 35
+      C 225 30, 216 28, 208 30
+      C 195 33, 185 42, 185 52
+      C 185 60, 190 66, 200 68
+      C 208 70, 218 66, 224 60
+    " stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/>
+    
+    <!-- Head fill -->
+    <path d="
+      M 232 35
+      C 225 30, 216 28, 208 30
+      C 195 33, 185 42, 185 52
+      C 185 60, 190 66, 200 68
+      C 208 70, 218 66, 224 60
+      C 220 55, 220 40, 232 35
+    " fill="currentColor" opacity="0.15"/>
+
+    <!-- Head inner detail -->
+    <path d="
+      M 232 35
+      C 225 30, 216 28, 208 30
+      C 195 33, 185 42, 185 52
+      C 185 60, 190 66, 200 68
+      C 208 70, 218 66, 224 60
+    " stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.3"/>
+
+    <!-- Eye -->
+    <circle cx="205" cy="45" r="4" fill="currentColor"/>
+    <circle cx="205" cy="45" r="1.5" fill="var(--surface, #fff)" opacity="0.4"/>
+
+    <!-- Nostril -->
+    <circle cx="192" cy="50" r="1.5" fill="currentColor" opacity="0.6"/>
+
+    <!-- Tongue -->
+    <path d="
+      M 187 58
+      C 180 62, 175 65, 172 62
+    " stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+    
+    <path d="
+      M 187 58
+      C 182 64, 178 67, 176 65
+    " stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Scale pattern on head -->
+    <path d="M 210 38 C 212 42, 210 46, 208 48" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+    <path d="M 215 40 C 217 44, 215 48, 213 50" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+  </g>
+
+  <!-- Serpent right head (mirror, smaller - could be the tail end or second head) -->
+  <g opacity="0.6">
+    <!-- Tail tip curving right -->
+    <path d="
+      M 280 35
+      C 290 30, 300 30, 308 35
+      C 315 40, 318 50, 314 55
+      C 310 58, 304 56, 300 52
+    " stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+    
+    <!-- Tail taper -->
+    <path d="
+      M 308 35
+      C 315 40, 318 50, 314 55
+      C 310 58, 304 56, 300 52
+    " stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- ═══════════ SCALE PATTERNS ═══════════ -->
   
-  <!-- Serpent eye -->
-  <circle cx="100" cy="56" r="2.5" fill="currentColor"/>
+  <!-- Scales on left body -->
+  <g stroke="currentColor" stroke-width="1" fill="none" opacity="0.2">
+    <path d="M 170 250 C 165 248, 165 244, 170 242"/>
+    <path d="M 162 235 C 157 233, 157 229, 162 227"/>
+    <path d="M 155 220 C 150 218, 150 214, 155 212"/>
+    <path d="M 150 205 C 145 203, 145 199, 150 197"/>
+    <path d="M 155 190 C 150 188, 150 184, 155 182"/>
+    <path d="M 165 175 C 160 173, 160 169, 165 167"/>
+    <path d="M 178 160 C 173 158, 173 154, 178 152"/>
+    <path d="M 192 148 C 187 146, 187 142, 192 140"/>
+  </g>
+
+  <!-- Scales on right body -->
+  <g stroke="currentColor" stroke-width="1" fill="none" opacity="0.2">
+    <path d="M 342 250 C 347 248, 347 244, 342 242"/>
+    <path d="M 350 235 C 355 233, 355 229, 350 227"/>
+    <path d="M 357 220 C 362 218, 362 214, 357 212"/>
+    <path d="M 362 205 C 367 203, 367 199, 362 197"/>
+    <path d="M 357 190 C 362 188, 362 184, 357 182"/>
+    <path d="M 347 175 C 352 173, 352 169, 347 167"/>
+    <path d="M 334 160 C 339 158, 339 154, 334 152"/>
+    <path d="M 320 148 C 325 146, 325 142, 320 140"/>
+  </g>
+
+  <!-- ═══════════ SUBTLE GLOW ═══════════ -->
   
-  <!-- Serpent tongue -->
-  <path d="M90 52c-4-2-7-5-5-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Soft glow behind the bowl -->
+  <ellipse cx="256" cy="300" rx="60" ry="40" fill="currentColor" opacity="0.04"/>
+
 </svg>
