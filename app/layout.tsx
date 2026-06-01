@@ -51,6 +51,8 @@ export const metadata: Metadata = {
     "n8n automação",
     "Google GEAR",
     "agentes IA",
+    "taça de higéia",
+    "bowl of hygieia",
   ],
   robots: {
     index: true,
@@ -87,7 +89,7 @@ export const metadata: Metadata = {
         url: "/images/og-card.webp",
         width: 1200,
         height: 630,
-        alt: "Thiago Biasoli Garcia Piola — Farmacêutico, Treinamento e Engenheiro de IA",
+        alt: "Thiago Biasoli Garcia Piola — Farmacêutico, Treinamento e Engenheiro de IA — Taça de Higéia",
         type: "image/webp",
       },
     ],
@@ -100,9 +102,15 @@ export const metadata: Metadata = {
     images: ["/images/og-card.webp"],
   },
   icons: {
-    icon: [{ url: "/images/logo.webp", type: "image/webp", sizes: "any" }],
-    shortcut: [{ url: "/images/logo.webp", type: "image/webp" }],
-    apple: [{ url: "/images/logo.webp", type: "image/webp" }],
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "48x48" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/favicon.svg", sizes: "any", type: "image/svg+xml" },
+    ],
   },
   verification: {
     google: undefined,
@@ -114,11 +122,8 @@ export const metadata: Metadata = {
     "geo.placename": "Franca",
     "geo.position": "-20.5386;-47.4008",
     ICBM: "-20.5386, -47.4008",
-    "profile:first_name": "Thiago",
-    "profile:last_name": "Piola",
-    "profile:username": "ThiagoPiola07",
-    "article:author": "Thiago Biasoli Garcia Piola",
   },
+  manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
@@ -126,30 +131,23 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#f5f6f8" },
     { media: "(prefers-color-scheme: dark)", color: "#06090f" },
   ],
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
-        <JsonLd />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <meta name="theme-color" content="#0c2340" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Thiago Piola" />
-        <meta name="application-name" content="Thiago Biasoli Garcia Piola" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"}document.documentElement.classList.add(t)}catch(e){}})()
+            `.trim(),
+          }}
+        />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased grain`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-surface font-sans text-foreground antialiased`}
+      >
         <SkipLink />
         <ThemeProvider>
           {children}

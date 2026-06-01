@@ -1,0 +1,17 @@
+{
+  "name": "Thiago Piola | Farmacêutico, IA e Automação",
+  "short_name": "Thiago Piola",
+  "description": "Farmacêutico CRF/SP 58.519 especialista em treinamento de equipes, automação de processos e IA aplicada ao setor farmacêutico.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#0c2340",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

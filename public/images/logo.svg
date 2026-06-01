@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <!-- Taça de Higéia - Bowl of Hygieia (clean vector) -->
+  
+  <!-- Bowl / Chalice -->
+  <path d="M70 155c0-28 22-50 50-50s50 22 50 50-22 50-50 50-50-22-50-50z" stroke="currentColor" stroke-width="7" fill="none"/>
+  <ellipse cx="120" cy="155" rx="50" ry="12" stroke="currentColor" stroke-width="6" fill="none"/>
+  
+  <!-- Bowl stem -->
+  <rect x="114" y="205" width="12" height="28" rx="3" fill="currentColor"/>
+  
+  <!-- Bowl base -->
+  <path d="M95 233c0-5 11-9 25-9s25 4 25 9-11 9-25 9-25-4-25-9z" fill="currentColor"/>
+  
+  <!-- Serpent - left side going up -->
+  <path d="M70 155c-30-10-30-55 0-65s48 15 35 45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Serpent - right side going up -->
+  <path d="M170 155c30-10 30-55 0-65s-48 15-35 45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Serpent - upper body winding -->
+  <path d="M90 95c-10-20 5-45 30-45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M150 95c10-20-5-45-30-45" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Serpent head facing left, looking toward bowl -->
+  <path d="M95 60c-6-10-2-22 8-24s20 4 20 14-6 20-16 20c-6 0-10-3-10-8" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Serpent eye -->
+  <circle cx="100" cy="56" r="2.5" fill="currentColor"/>
+  
+  <!-- Serpent tongue -->
+  <path d="M90 52c-4-2-7-5-5-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>
