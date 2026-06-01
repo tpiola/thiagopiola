@@ -2,35 +2,50 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastMod = new Date();
+  const base = site.url;
 
-  const entries: MetadataRoute.Sitemap = [
+  return [
     {
-      url: site.url,
-      lastModified: lastMod,
-      changeFrequency: "weekly",
-      priority: 1,
+      url: base,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1.0,
     },
-  ];
-
-  // Section anchors on the single-page site
-  const sections = [
-    "autoridade",
-    "competencias",
-    "projetos",
-    "tecnologia",
-    "trajetoria",
-    "contato",
-  ];
-
-  for (const section of sections) {
-    entries.push({
-      url: `${site.url}/#${section}`,
-      lastModified: lastMod,
+    {
+      url: `${base}/#impacto`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${base}/#metodo`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/#resultados`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/#stack`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-    });
-  }
-
-  return entries;
+    },
+    {
+      url: `${base}/#trajetoria`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/#contato`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+  ];
 }

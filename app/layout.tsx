@@ -113,7 +113,7 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: undefined,
+    google: "SEU_CODIGO_GOOGLE_VERIFICATION_AQUI",
   },
   category: "healthcare technology",
   classification: "Business, Technology, Healthcare",
