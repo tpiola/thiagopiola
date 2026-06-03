@@ -84,7 +84,7 @@ export const trustBar = [
   {
             label: "Droga Raia — Franca, SP",
             detail: "Farmacêutico RT de filial — operação atual",
-            href: undefined,
+            href: undefined,    },
   {
         label: "Pós IA + Google GEAR",
         detail: "Engenharia de IA aplicada",
