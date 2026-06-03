@@ -82,10 +82,9 @@ export const trustBar = [
         href: "https://www.crfsp.org.br",
   },
   {
-        label: "Droga Raia",
-        detail: "Farmacêutico RT — operação atual",
-        href: undefined,
-  },
+            label: "Droga Raia — Franca, SP",
+            detail: "Farmacêutico RT de filial — operação atual",
+            href: undefined,
   {
         label: "Pós IA + Google GEAR",
         detail: "Engenharia de IA aplicada",
@@ -218,12 +217,12 @@ export const trajetoria = {
     lead: "Experiência verificável em ambientes de alta exigência.",
     career: [
       {
-              company: "Droga Raia",
+                    company: "Droga Raia — Filial Franca, SP",
               period: "Atual",
-              role: "Farmacêutico RT",
+                    role: "Farmacêutico Responsável Técnico de Filial",
               desc: "RT, vendas, treinamento e gestão",
               impacts: [
-                        "Responsável técnico em operação de alta rotatividade",
+                                  "Farmacêutico Responsável Técnico pela filial de Franca, SP",
                         "Treinamento de equipe e conversão com compliance CRF/SP",
                       ],
       },
