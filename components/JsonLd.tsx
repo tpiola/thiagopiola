@@ -43,8 +43,9 @@ export function JsonLd() {
         worksFor: [
           {
             "@type": "Organization",
-            name: "Droga Raia",
+                        name: "Droga Raia — Filial Franca, SP",
             url: "https://www.drogaraia.com.br",
+                        description: "Farmacêutico Responsável Técnico pela filial de Franca, SP.",
           },
           {
             "@type": "Organization",
