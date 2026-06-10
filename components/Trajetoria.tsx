@@ -26,7 +26,7 @@ export function Trajetoria() {
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="mb-16 max-w-2xl" variant="up">
           <SectionLabel index="05">Trajetória</SectionLabel>
-          <h2 className="text-heading-xl mt-4 font-semibold tracking-tight text-foreground">
+          <h2 className="text-heading-xl mt-4 font-semibold tracking-tight text-foreground text-gradient-brand">
             {trajetoria.title}
           </h2>
           <div className="divider-brand mt-4 w-24" />

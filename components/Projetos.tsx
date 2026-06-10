@@ -13,7 +13,7 @@ export function Projetos() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="max-w-3xl" variant="left">
           <SectionLabel index="03">Resultados</SectionLabel>
-          <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground text-gradient-brand">
             {projetos.title}
           </h2>
           <div className="mt-4 divider-brand w-24" />
@@ -67,7 +67,7 @@ export function Projetos() {
                 <a href={item.href} target="_blank" rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand)] transition-all hover:gap-2.5 duration-200">
                   Ver projeto
-                  <ArrowUpRight className="h-3.5 w-3.5" />
+                  <ArrowUpRight className="h-3.5 w-3.5 arrow-bounce" />
                 </a>
               </LuxuryCard>
             </StaggerItem>

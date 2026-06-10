@@ -23,7 +23,7 @@ export function Tecnologia() {
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="max-w-3xl" variant="left">
           <SectionLabel index="04">Stack</SectionLabel>
-          <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground">
+          <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground text-gradient-brand">
             {tecnologia.title}
           </h2>
           <div className="mt-4 divider-brand w-24" />

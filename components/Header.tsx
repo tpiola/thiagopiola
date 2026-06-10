@@ -72,31 +72,55 @@ export function Header() {
         </div>
       </div>
 
-      <motion.nav
-        className="border-t border-border bg-surface-elevated px-5 py-4 lg:hidden"
-        aria-label="Menu mobile"
-        initial={false}
-        animate={menuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        style={{ overflow: "hidden", pointerEvents: menuOpen ? "auto" : "none" }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}>
-        {nav.map((link) => (
-          <a key={link.href} href={link.href}
-            className="block rounded-lg px-3 py-3 text-sm font-medium text-foreground hover:text-[var(--brand)] transition-colors"
-            onClick={() => setMenuOpen(false)}>
-            {link.label}
+      {menuOpen && (
+        <motion.div
+          className="fixed inset-0 z-[90] flex flex-col items-center justify-center gap-6"
+          style={{
+            backgroundColor: "color-mix(in srgb, var(--surface) 95%, transparent)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+          }}
+          aria-label="Menu mobile"
+          initial={reduce ? undefined : { opacity: 0, scale: 0.95 }}
+          animate={reduce ? undefined : { opacity: 1, scale: 1 }}
+          exit={reduce ? undefined : { opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <button
+            type="button"
+            className="absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-lg text-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)]"
+            aria-label="Fechar menu"
+            onClick={() => setMenuOpen(false)}
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {nav.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-2xl font-bold text-foreground transition-colors hover:text-[var(--brand)]"
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+
+          <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-8 py-4 text-lg font-bold text-white shadow-lg shadow-[var(--brand)]/30"
+            onClick={() => {
+              trackCta("cta_whatsapp_click");
+              setMenuOpen(false);
+            }}
+          >
+            <Zap className="h-5 w-5" />
+            Quero resultado agora
           </a>
-        ))}
-        <a href={site.whatsapp} target="_blank" rel="noopener noreferrer"
-          className="mt-3 block rounded-lg bg-[var(--brand)] px-4 py-3 text-center text-sm font-bold text-white"
-          onClick={() => trackCta("cta_whatsapp_click")}>
-          Quero resultado agora
-        </a>
-        <a href={site.linkedin} target="_blank" rel="noopener noreferrer"
-          className="mt-2 block rounded-lg border border-[var(--brand)]/30 px-4 py-3 text-center text-sm font-medium text-[var(--brand)]"
-          onClick={() => trackCta("cta_linkedin_click")}>
-          LinkedIn
-        </a>
-      </motion.nav>
+        </motion.div>
+      )}
     </motion.header>
   );
 }

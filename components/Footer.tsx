@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer
       id="contato"
-      className="relative border-t border-border bg-surface-elevated py-16 md:py-24 overflow-hidden"
+      className="relative border-t border-border bg-surface-elevated py-16 md:py-24 overflow-hidden footer-gradient-border shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
     >
       {/* Brand accent line */}
       <div
@@ -115,7 +115,7 @@ export function Footer() {
               </li>
               <li>
                 <a href={`mailto:${site.email}`}
-                  className="group flex items-center gap-3 text-sm text-foreground hover:text-[var(--brand)] transition-colors duration-200">
+                  className="group flex items-center gap-3 text-sm text-foreground hover:text-[var(--brand)] hover:scale-[1.03] hover:[text-shadow:0_0_8px_var(--brand)] transition-all duration-200">
                   <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "color-mix(in srgb, var(--brand) 8%, transparent)" }}>
                     <Mail className="h-3.5 w-3.5" style={{ color: "var(--brand)" }} />
                   </div>

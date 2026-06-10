@@ -474,3 +474,85 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* === GLASSMORPHISM === */
+.glass {
+  background: color-mix(in srgb, var(--surface-elevated) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+.glass-heavy {
+  background: color-mix(in srgb, var(--surface-elevated) 50%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid color-mix(in srgb, var(--border) 150%, transparent);
+}
+
+/* === 3D TILT CARD === */
+.tilt-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.tilt-card-inner {
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* === TYPEWRITER === */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink-cursor 0.8s step-end infinite;
+  margin-left: 2px;
+  color: var(--brand);
+  font-weight: 300;
+}
+
+/* === FLOATING PARTICLES === */
+@keyframes float-particle {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 0.1; }
+  90% { opacity: 0.1; }
+  100% { transform: translateY(-100vh) translateX(20px) scale(0.5); opacity: 0; }
+}
+
+/* === PULSE GLOW === */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px color-mix(in srgb, var(--brand) 30%, transparent); }
+  50% { box-shadow: 0 0 28px color-mix(in srgb, var(--brand) 50%, transparent); }
+}
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* === ARROW BOUNCE === */
+.arrow-bounce {
+  transition: transform 0.25s ease;
+}
+.group:hover .arrow-bounce {
+  transform: translateX(4px);
+}
+
+/* === GRADIENT TEXT ACCENT === */
+.text-gradient-accent {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === GRADIENT BORDER FOOTER === */
+.footer-gradient-border {
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent 0%, var(--brand) 50%, transparent 100%) 1;
+}
+
+/* === REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  .pulse-glow { animation: none; }
+  .arrow-bounce { transition: none; }
+}

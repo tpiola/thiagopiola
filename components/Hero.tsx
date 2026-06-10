@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Mail, MessageCircle, ArrowRight, TrendingUp } from "lucide-react";
 import { duration, easeLuxury } from "@/lib/motion";
@@ -13,6 +13,40 @@ import { Reveal } from "./motion/Reveal";
 import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
+
+/** Typewriter effect — digita o texto caractere por caractere após um delay */
+function TypewriterText({ text, className }: { text: string; className?: string }) {
+  const [displayed, setDisplayed] = useState("");
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (reduce) {
+      setDisplayed(text);
+      return;
+    }
+
+    // Espera a animação de entrada do Reveal (delay 0.22 + animação ~0.5s)
+    const startTimeout = setTimeout(() => {
+      let i = 0;
+      const interval = setInterval(() => {
+        i++;
+        setDisplayed(text.slice(0, i));
+        if (i >= text.length) clearInterval(interval);
+      }, 40);
+    }, 720); // 0.22s * 1000 + ~500ms de animação
+
+    return () => clearTimeout(startTimeout);
+  }, [text, reduce]);
+
+  return (
+    <p className={className}>
+      {displayed}
+      {!reduce && displayed.length < text.length && (
+        <span className="typewriter-cursor" />
+      )}
+    </p>
+  );
+}
 
 export function Hero() {
   const [locale, setLocale] = useState<"pt" | "en">("pt");
@@ -65,9 +99,10 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.22} variant="up">
-            <p className="mt-6 max-w-xl text-lg font-semibold leading-snug text-foreground md:text-xl">
-              {copy.subtitle}
-            </p>
+            <TypewriterText
+              text={copy.subtitle}
+              className="mt-6 max-w-xl text-lg font-semibold leading-snug text-foreground md:text-xl"
+            />
           </Reveal>
 
           <Reveal delay={0.28} variant="up">

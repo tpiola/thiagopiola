@@ -20,7 +20,7 @@ export function Competencias() {
           <div>
             <Reveal variant="left">
               <SectionLabel index="02">Método</SectionLabel>
-              <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground">
+              <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground text-gradient-brand">
                 {competencias.title}
               </h2>
               <div className="mt-4 divider-brand w-24" />

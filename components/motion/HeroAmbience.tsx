@@ -1,6 +1,103 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+
+/** Partículas flutuantes com canvas — sutis e perfomáticas */
+function FloatingParticles() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || reduce) return;
+
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) return;
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReduced) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationId: number;
+
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.clientWidth * dpr;
+      canvas.height = canvas.clientHeight * dpr;
+      ctx.scale(dpr, dpr);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const brand = getComputedStyle(document.documentElement)
+      .getPropertyValue("--brand")
+      .trim();
+
+    type Particle = {
+      x: number;
+      y: number;
+      size: number;
+      speedY: number;
+      speedX: number;
+      opacity: number;
+    };
+
+    const particles: Particle[] = Array.from({ length: 20 }, () => ({
+      x: Math.random() * canvas.clientWidth,
+      y: Math.random() * canvas.clientHeight,
+      size: 2 + Math.random() * 2, // 2–4px
+      speedY: 0.15 + Math.random() * 0.25, // sobe lentamente
+      speedX: (Math.random() - 0.5) * 0.15,
+      opacity: 0.1 + Math.random() * 0.05, // 0.1–0.15
+    }));
+
+    const draw = () => {
+      ctx!.clearRect(0, 0, canvas!.clientWidth, canvas!.clientHeight);
+
+      for (const p of particles) {
+        ctx!.beginPath();
+        ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx!.fillStyle = brand || "var(--brand)";
+        ctx!.globalAlpha = p.opacity;
+        ctx!.fill();
+
+        p.y -= p.speedY;
+        p.x += p.speedX;
+
+        // Reset when off-screen top
+        if (p.y < -p.size) {
+          p.y = canvas!.clientHeight + p.size;
+          p.x = Math.random() * canvas!.clientWidth;
+        }
+        // Wrap horizontally
+        if (p.x < -p.size) p.x = canvas!.clientWidth + p.size;
+        if (p.x > canvas!.clientWidth + p.size) p.x = -p.size;
+      }
+
+      animationId = requestAnimationFrame(draw);
+    };
+
+    animationId = requestAnimationFrame(draw);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", resize);
+    };
+  }, [reduce]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 h-full w-full"
+      aria-hidden
+    />
+  );
+}
 
 /** Orbes e grade ambiental premium com parallax suave — versão Black Label */
 export function HeroAmbience() {
@@ -93,6 +190,9 @@ export function HeroAmbience() {
         animate={{ backgroundPosition: ["0px 0px", "56px 56px"] }}
         transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
       />
+
+      {/* Floating particles canvas */}
+      <FloatingParticles />
 
       {/* Subtle vignette */}
       <div
