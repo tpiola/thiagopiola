@@ -556,3 +556,221 @@ body {
   .pulse-glow { animation: none; }
   .arrow-bounce { transition: none; }
 }
+
+/* ═══════════════════════════════════════════
+   SCROLL-DRIVEN ANIMATIONS 2026
+   Pure CSS — no JS, no libraries
+   animation-timeline: scroll() / view()
+   ═══════════════════════════════════════════ */
+
+/* ─── Scroll Progress Bar (CSS native) ─── */
+@keyframes scroll-progress-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.scroll-progress-native {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-light));
+  transform-origin: left;
+  z-index: 100;
+  /* scroll-driven: animates from 0 to 1 as root scroller moves */
+  animation: scroll-progress-grow linear;
+  animation-timeline: scroll(root);
+}
+
+/* ─── Reveal on scroll (CSS native) ─── */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes reveal-down {
+  from {
+    opacity: 0;
+    transform: translateY(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes reveal-blur {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Reveal up — elements fade+slide up as they enter viewport */
+  .reveal-up {
+    animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  /* Reveal down */
+  .reveal-down {
+    animation: reveal-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  /* Reveal scale — subtle scale-in */
+  .reveal-scale {
+    animation: reveal-scale 0.7s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  /* Reveal blur — blur-in + slide */
+  .reveal-blur {
+    animation: reveal-blur 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  /* Stagger children: each child activates earlier */
+  .reveal-stagger > * {
+    animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+
+  /* ─── Parallax scroll effects ─── */
+  @keyframes parallax-slow {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-60px); }
+  }
+  @keyframes parallax-fast {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-120px); }
+  }
+  @keyframes parallax-opacity {
+    from { opacity: 0.2; }
+    to   { opacity: 1; }
+  }
+
+  .parallax-slow {
+    animation: parallax-slow linear, parallax-opacity linear;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+  .parallax-fast {
+    animation: parallax-fast linear, parallax-opacity linear;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  /* ─── Sticky scroll crossfade ─── */
+  /*
+    Use on sticky-positioned sections:
+    As the element enters view, it fades up;
+    as it leaves view (top), it fades out.
+  */
+  @keyframes sticky-reveal {
+    entry 0%  { opacity: 0; transform: translateY(20px); }
+    entry 100%{ opacity: 1; transform: translateY(0); }
+    exit 0%   { opacity: 1; transform: translateY(0); }
+    exit 100% { opacity: 0; transform: translateY(-20px); }
+  }
+  .sticky-scroll {
+    animation: sticky-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  /* ─── Fade in/out on scroll ─── */
+  @keyframes scroll-fade {
+    entry 0%  { opacity: 0; }
+    entry 80% { opacity: 1; }
+    exit 20%  { opacity: 1; }
+    exit 100% { opacity: 0; }
+  }
+  .scroll-fade {
+    animation: scroll-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  /* ─── Slide in from sides ─── */
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-60px); }
+    to  { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(60px); }
+    to  { opacity: 1; transform: translateX(0); }
+  }
+  .slide-in-left {
+    animation: slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 100%;
+  }
+  .slide-in-right {
+    animation: slide-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 100%;
+  }
+
+  /* ─── Image zoom on scroll ─── */
+  @keyframes zoom-parallax {
+    from { transform: scale(1.1); }
+    to   { transform: scale(1); }
+  }
+  .zoom-parallax {
+    animation: zoom-parallax linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+    will-change: transform;
+  }
+}
+
+/* ─── Reduced motion: disable all CSS scroll-driven animations ─── */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-native,
+  .reveal-up,
+  .reveal-down,
+  .reveal-scale,
+  .reveal-blur,
+  .reveal-stagger > *,
+  .parallax-slow,
+  .parallax-fast,
+  .sticky-scroll,
+  .scroll-fade,
+  .slide-in-left,
+  .slide-in-right,
+  .zoom-parallax {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .scroll-progress-native {
+    /* show static bar at full width when reduced motion */
+    transform: scaleX(1);
+  }
+}
