@@ -499,6 +499,42 @@ body {
   transform-style: preserve-3d;
 }
 
+/* === SCROLL 3D SHOWCASE === */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+.animate-scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+.arrow-bounce {
+  transition: transform 0.2s ease;
+}
+.group:hover .arrow-bounce {
+  transform: translate(2px, -2px);
+}
+
+/* 3D scene */
+.scene-3d {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+/* Card hover 3D lift */
+.card-3d-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.card-3d-lift:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Brand text color helper */
+.text-brand {
+  color: var(--brand);
+}
+
 /* === TYPEWRITER === */
 @keyframes blink-cursor {
   0%, 100% { opacity: 1; }
