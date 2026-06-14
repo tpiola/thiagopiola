@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@/components/Analytics";
+import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -151,6 +152,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SkipLink />
         <ThemeProvider>
           {children}
+          <CookieConsent />
           <Analytics />
         </ThemeProvider>
       </body>

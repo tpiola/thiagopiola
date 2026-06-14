@@ -146,9 +146,19 @@ export function Footer() {
           <p className="text-[11px] text-muted">
             © {year} {site.name} — Todos os direitos reservados.
           </p>
-          <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-muted/50">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Disponível para projetos
+          <div className="flex items-center gap-4 text-[10px] text-muted/60">
+            <span>
+              Criado por{" "}
+              <a
+                href={site.reidasvendas}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[var(--brand)] hover:underline"
+              >
+                Rei das Vendas
+              </a>
+            </span>
+            <span className="w-1 h-1 rounded-full bg-green-400 animate-pulse" />
           </div>
         </div>
       </div>

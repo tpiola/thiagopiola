@@ -28,7 +28,7 @@ export const site = {
 } as const;
 
 export const footerTagline =
-    "Farmacêutico, estrategista e engenheiro de IA. Especialista em treinamento de equipes, automação de processos e aplicação de inteligência artificial para aumentar receita, reduzir riscos e transformar operações farmacêuticas.";
+    "Farmacêutico, estrategista e engenheiro de IA. Especialista em treinamento de equipes, automação e inteligência artificial para aumentar receita e transformar operações farmacêuticas.";
 
 /** Ordem alfabética obrigatória — rodapé */
 export const socialLinks = [
@@ -68,8 +68,8 @@ export const hero = {
     title: "Thiago Biasoli\nGarcia Piola",
     titleLine1: "Thiago Biasoli",
     titleLine2: "Garcia Piola",
-    subtitle: "Sua operação farmacêutica está deixando dinheiro na mesa — e você provavelmente já sabe disso.",
-    lead: "Treinamento de equipes de alta performance · Automação inteligente de processos · IA aplicada para aumentar receita e eliminar perdas. Farmacêutico CRF/SP 58.519 com 15+ anos de operação real.",
+    subtitle: "Sua operação farmacêutica está deixando dinheiro na mesa.",
+    lead: "Treinamento de alta performance · Automação inteligente · IA que gera receita. Farmacêutico CRF/SP 58.519 com 15+ anos de operação real.",
     ctaWhatsapp: "Quero resultados",
     ctaEmail: "E-mail",
     ctaLinkedin: "LinkedIn",
@@ -106,7 +106,7 @@ export const autoridade = {
     sectionId: "impacto",
     sectionLabel: "01 / Impacto",
     title: "Resultados que mudam operações.",
-    lead: "Chega de treinamentos que não geram mudança. De automações que ficam no papel. De IA que só o TI entende. Aqui, cada ação tem dono, prazo e resultado mensurável.",
+    lead: "Chega de treinamentos que não geram mudança. De automações que ficam no papel. Cada ação tem dono, prazo e resultado mensurável.",
     pilares: [
       {
               number: "01",
@@ -139,7 +139,7 @@ export const competencias = {
     sectionId: "metodo",
     sectionLabel: "02 / Método",
     title: "Como transformo operações em resultados.",
-    lead: "Método direto, sem consultoria genérica. Diagnóstico real, execução real, resultado mensurável.",
+    lead: "Diagnóstico real, execução real, resultado mensurável.",
     skills: [
       {
               title: "Treinamento & liderança de equipes",
@@ -169,7 +169,7 @@ export const projetos = {
     sectionId: "resultados",
     sectionLabel: "03 / Resultados",
     title: "Entregas em produção.",
-    lead: "Projetos reais, com stack verificável — prova de execução para quem decide baseado em evidência.",
+    lead: "Projetos reais com stack verificável — prova de execução.",
     items: [
       {
               title: "Automação de qualificação B2B",
@@ -199,7 +199,7 @@ export const tecnologia = {
     sectionId: "stack",
     sectionLabel: "04 / Stack",
     title: "Ferramentas que entregam resultado.",
-    lead: "Stack usado em produção real — sem promessa de vitrine, com evidência de entrega.",
+    lead: "Stack usado em produção real — sem promessa de vitrine.",
     items: [
       { title: "Agentes & LLMs", desc: "Atendimento e qualificação inteligente em escala" },
       { title: "n8n & integrações", desc: "Orquestração sem atrito operacional" },
@@ -271,6 +271,6 @@ export const heroEn = {
     title: "Thiago Biasoli\nGarcia Piola",
     titleLine1: "Thiago Biasoli",
     titleLine2: "Garcia Piola",
-    subtitle: "Your pharmacy operation is leaving money on the table — and you probably already know it.",
-    lead: "High-performance team training · Intelligent process automation · AI applied to increase revenue and eliminate losses. Pharmacist CRF/SP 58.519 with 15+ years of real operations.",
+    subtitle: "Your pharmacy operation is leaving money on the table.",
+    lead: "High-performance team training · Intelligent automation · AI that drives revenue. Pharmacist CRF/SP 58.519 with 15+ years of real operations.",
 } as const;
