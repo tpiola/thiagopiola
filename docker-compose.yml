@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  thiagopiola:
+    build: .
+    image: thiagopiola:latest
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.thiagopiola.rule=Host(`thiagopiola.com.br`) || Host(`www.thiagopiola.com.br`)"
+      - "traefik.http.routers.thiagopiola.entrypoints=websecure"
+      - "traefik.http.routers.thiagopiola.tls.certresolver=letsencrypt"
+      - "traefik.http.services.thiagopiola.loadbalancer.server.port=3000"
