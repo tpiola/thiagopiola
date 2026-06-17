@@ -31,6 +31,7 @@ export function Logo({
           variant === "icon" ? "max-h-16" : "max-h-16",
         )}
         priority
+        unoptimized
         sizes="(max-width: 768px) 160px, 200px"
         style={{
           width: variant === "icon" ? "auto" : "auto",
