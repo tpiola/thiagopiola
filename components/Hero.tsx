@@ -15,40 +15,6 @@ import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
 import Link from "next/link";
 
-/** Typewriter effect — digita o texto caractere por caractere após um delay */
-function TypewriterText({ text, className }: { text: string; className?: string }) {
-  const [displayed, setDisplayed] = useState("");
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    if (reduce) {
-      setDisplayed(text);
-      return;
-    }
-
-    // Espera a animação de entrada do Reveal (delay 0.22 + animação ~0.5s)
-    const startTimeout = setTimeout(() => {
-      let i = 0;
-      const interval = setInterval(() => {
-        i++;
-        setDisplayed(text.slice(0, i));
-        if (i >= text.length) clearInterval(interval);
-      }, 40);
-    }, 720); // 0.22s * 1000 + ~500ms de animação
-
-    return () => clearTimeout(startTimeout);
-  }, [text, reduce]);
-
-  return (
-    <p className={className}>
-      {displayed}
-      {!reduce && displayed.length < text.length && (
-        <span className="typewriter-cursor" />
-      )}
-    </p>
-  );
-}
-
 export function Hero() {
   const [locale, setLocale] = useState<"pt" | "en">("pt");
   const copy = locale === "pt" ? hero : heroEn;
@@ -99,23 +65,33 @@ export function Hero() {
             </h1>
           </Reveal>
 
-          <Reveal delay={0.22} variant="up">
-            <p className="mt-6 max-w-2xl text-lg font-bold leading-tight text-foreground md:text-xl tracking-tight">
-              {copy.subtitle}
-            </p>
+          <Reveal delay={0.24} variant="up">
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <span className="text-lg font-bold tracking-tight text-foreground md:text-xl">
+                {copy.subtitleBefore}
+              </span>
+              <motion.svg
+                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-[var(--brand)] shrink-0"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+                aria-hidden
+              >
+                <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="currentColor" opacity="0.15" />
+                <path d="M12 6L18 12L12 18L6 12L12 6Z" fill="currentColor" />
+              </motion.svg>
+              <span className="text-lg font-bold tracking-tight text-foreground md:text-xl">
+                {copy.subtitleAfter}
+              </span>
+            </div>
           </Reveal>
 
-          <Reveal delay={0.28} variant="up">
-            <div className="mt-4 max-w-2xl space-y-4">
-              {copy.lead.split('\n\n').filter(Boolean).map((paragraph, i) => (
-                <p key={i} className={cn(
-                  "text-base leading-relaxed md:text-[17px]",
-                  i === 1 ? "font-semibold text-foreground" : "text-muted"
-                )}>
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+          <Reveal delay={0.3} variant="up">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-[17px]">
+              {copy.lead}
+            </p>
           </Reveal>
 
           <Reveal delay={0.33} variant="fade">
@@ -145,10 +121,6 @@ export function Hero() {
                 className="btn-secondary group" onClick={() => trackCta("cta_linkedin_click")}>
                 <LinkedinIcon className="h-4 w-4" aria-hidden />
                 {hero.ctaLinkedin}
-              </MagneticLink>
-              <MagneticLink href={`mailto:${site.email}`} className="btn-secondary" onClick={() => trackCta("cta_email_click")}>
-                <Mail className="h-4 w-4" aria-hidden />
-                {hero.ctaEmail}
               </MagneticLink>
               <Link href={site.industriaUrl}
                 className="btn-secondary group font-semibold">
