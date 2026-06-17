@@ -10,7 +10,7 @@ type LogoProps = {
   showCredential?: boolean;
 };
 
-/** Logo principal do site — imagem fornecida pelo usuário */
+/** Logo com blend-mode para integrar perfeitamente ao fundo do site */
 export function Logo({
   className,
   iconClassName,
@@ -19,31 +19,36 @@ export function Logo({
 }: LogoProps) {
   const logoSrc = "/images/logo-principal.jpg";
 
+  const logoImage = (
+    <div className="relative flex items-center justify-center blend-container">
+      <Image
+        src={logoSrc}
+        alt="Thiago Piola — Farmacêutico CRF/SP 58.519"
+        width={1536}
+        height={1024}
+        className={cn(
+          "h-auto w-auto object-contain blend-logo",
+          variant === "icon" ? "max-h-10" : "max-h-10",
+        )}
+        priority
+        style={{
+          maxWidth: variant === "icon" ? "120px" : "120px",
+        }}
+      />
+    </div>
+  );
+
   if (variant === "icon") {
     return (
       <span className={cn("inline-flex shrink-0 items-center", className)}>
-        <Image
-          src={logoSrc}
-          alt="Thiago Piola — Farmacêutico CRF/SP 58.519"
-          width={120}
-          height={80}
-          className="h-auto w-auto max-h-10 object-contain"
-          priority
-        />
+        {logoImage}
       </span>
     );
   }
 
   return (
     <span className={cn("inline-flex items-center gap-3", className)}>
-      <Image
-        src={logoSrc}
-        alt="Thiago Piola — Farmacêutico CRF/SP 58.519"
-        width={120}
-        height={80}
-        className="h-auto w-auto max-h-10 object-contain"
-        priority
-      />
+      {logoImage}
       <span className="flex min-w-0 flex-col leading-tight">
         <span className="whitespace-nowrap text-[11px] font-semibold tracking-[0.14em] text-foreground">
           THIAGO PIOLA

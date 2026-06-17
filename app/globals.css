@@ -810,3 +810,18 @@ body {
     transform: scaleX(1);
   }
 }
+
+/* ─── Logo blend ─── */
+.blend-logo {
+  mix-blend-mode: multiply;
+  -webkit-mix-blend-mode: multiply;
+}
+
+.dark .blend-logo {
+  mix-blend-mode: screen;
+  -webkit-mix-blend-mode: screen;
+}
+
+.blend-container {
+  isolation: isolate;
+}
