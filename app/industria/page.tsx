@@ -5,11 +5,11 @@ import { IndustriaDossier } from "./IndustriaDossier";
 export const metadata: Metadata = {
   title: "Dossiê Indústria Farmacêutica",
   description:
-    "Perfil completo de Thiago Biasoli Garcia Piola — Farmacêutico CRF/SP 58.519, candidato a Representante / Consultor de Vendas na Indústria Farmacêutica. 15+ anos de operação em PDV, liderança de equipe, sell-out e compliance ANVISA.",
+    "Perfil profissional completo de Thiago Biasoli Garcia Piola — Farmacêutico CRF/SP 58.519 com atuação em vendas, treinamento e indústria farmacêutica. 15+ anos de experiência em farmácia, liderança de equipe, compliance ANVISA e inteligência comercial.",
   openGraph: {
-    title: "Thiago Piola — Dossiê para Indústria Farmacêutica",
+    title: "Thiago Piola — Atuação em Vendas, Treinamento e Indústria Farmacêutica",
     description:
-      "Perfil completo com experiência, competências e resultados. Candidato a Representante / Consultor de Vendas / Propagandista.",
+      "Perfil profissional com experiência, competências e resultados. Farmacêutico CRF/SP 58.519 com foco em vendas, treinamento de equipes e desenvolvimento de negócios.",
     url: `${site.url}/industria`,
   },
 };

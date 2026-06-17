@@ -12,22 +12,21 @@ import { site } from "@/lib/content";
 import Link from "next/link";
 
 const KEYWORDS = [
-  "Representante Farmacêutico",
-  "Consultor de Vendas",
-  "Propagandista",
-  "Key Account / KAM",
-  "Força de Vendas",
-  "Sell-out",
-  "PDV",
-  "Gestão de Território",
-  "Gestão de Carteira",
-  "Trade Marketing",
-  "Indicadores Comerciais",
-  "Prescritores",
-  "Compliance ANVISA",
-  "CRM",
-  "Omnichannel",
-  "Treinamento de Equipe",
+  "Vendas Consultivas",
+  "Treinamento e Desenvolvimento",
+  "Gestão de Equipes",
+  "Desenvolvimento de Negócios",
+  "Relacionamento com Clientes",
+  "Estratégia Comercial",
+  "Expansão de Mercado",
+  "Compliance e Regulatório",
+  "Resultados e Metas",
+  "Performance Comercial",
+  "CRM e Inteligência de Dados",
+  "Produto Farmacêutico",
+  "Prescrição e Indicação",
+  "Inovação e IA Aplicada",
+  "Comunicação Científica",
 ];
 
 const EXPERIENCIA = [
@@ -36,12 +35,12 @@ const EXPERIENCIA = [
     periodo: "Atual — [N] anos",
     cargo: "Farmacêutico Responsável Técnico de Filial",
     local: "Franca, SP",
-    resumo: "Liderança de equipe (~13 pessoas), gestão de indicadores comerciais e compliance regulatório em loja referência da maior rede de farmácias do Brasil.",
+    resumo: "Liderança de equipe (~13 profissionais), gestão de indicadores comerciais e compliance regulatório em loja referência da maior rede de farmácias do Brasil.",
     resultados: [
-      "Lidero equipe de ~13 profissionais em loja referência da rede, respondendo por indicadores de sell-out, ruptura, giro e margem em [N] categorias.",
-      "Treinei equipe para indicação ativa com método próprio, elevando conversão em [X%] e ticket médio em [Y%].",
-      "Mantenho conformidade CRF/SP e ANVISA sem autos de infração por [N] anos consecutivos.",
-      "Implementei dashboards e CRM próprio para decisão comercial em tempo real.",
+      "Lidero equipe de ~13 profissionais em loja referência da rede, respondendo por resultados em vendas, giro, ruptura e margem em [N] categorias.",
+      "Desenvolvi método próprio de treinamento da equipe para indicação ativa, elevando conversão em [X%] e ticket médio em [Y%].",
+      "Mantenho conformidade CRF/SP e ANVISA — [N] anos sem autuações.",
+      "Estruturei dashboards e sistema próprio de CRM para decisão comercial em tempo real.",
     ],
   },
   {
@@ -49,11 +48,11 @@ const EXPERIENCIA = [
     periodo: "2013–2014",
     cargo: "Farmacêutico RT",
     local: "Franca, SP",
-    resumo: "Gestão de rotina técnica e operacional de farmácia independente.",
+    resumo: "Gestão de rotina técnica e operacional de farmácia de bairro.",
     resultados: [
       "Gerenciei atendimento a [N] pacientes/dia com foco em adesão ao tratamento e indicação ativa.",
-      "Implementei processos que reduziram tempo de espera em [X%] e aumentaram rotatividade de estoque.",
-      "Suportei campanhas de trade marketing da indústria, gerando aumento de [X%] no sell-out de [N] linhas.",
+      "Implementei processos que reduziram tempo de espera em [X%] e elevaram produtividade da equipe.",
+      "Participei de ações comerciais com indústria, gerando aumento de [X%] nos resultados de [N] linhas.",
     ],
   },
   {
@@ -65,7 +64,7 @@ const EXPERIENCIA = [
     resultados: [
       "Responsável por controle documental e adequação a RDCs e boas práticas de farmácia.",
       "Padronizei processos de dispensação com rastreabilidade total.",
-      "Participei ativamente de visitas de representantes da indústria, compreendendo o ciclo completo de negociação.",
+      "Vivenciei o ciclo completo de negociação com a indústria, consolidando experiência em vendas e relacionamento.",
     ],
   },
   {
@@ -77,7 +76,7 @@ const EXPERIENCIA = [
     resultados: [
       "Atuei suportando equipe multidisciplinar em ambiente hospitalar de alta complexidade — [N] leitos.",
       "Gerenciei logística de medicamentos controlados e de alto custo com [X%] de disponibilidade.",
-      "Participei de comissões de farmácia e terapêutica, desenvolvendo base clínica para relação com prescritores.",
+      "Participei de comissões de farmácia e terapêutica, consolidando base clínica para abordagem com prescritores.",
     ],
   },
 ];
@@ -106,7 +105,7 @@ export function IndustriaDossier() {
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] px-4 py-1.5 mb-6">
                 <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand)]" />
                 <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)]">
-                  Dossiê — Indústria Farmacêutica
+                  Atuação Profissional
                 </span>
               </div>
             </Reveal>
@@ -120,15 +119,14 @@ export function IndustriaDossier() {
 
             <Reveal variant="up" delay={0.12}>
               <p className="mt-4 text-xl font-semibold text-muted md:text-2xl">
-                Farmacêutico CRF/SP 58.519 · Candidato a <span className="text-foreground">Representante / Consultor de Vendas</span>
+                Farmacêutico CRF/SP 58.519 · <span className="text-foreground">Vendas · Treinamento · Indústria Farmacêutica</span>
               </p>
             </Reveal>
 
             <Reveal variant="fade" delay={0.18}>
               <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-muted md:text-lg">
-                <span className="text-foreground font-semibold">15+ anos operando o PDV que o representante é treinado a conquistar.</span>{" "}
-                Experiência em varejo farmacêutico, clínica e hospitalar. Liderança de equipe, gestão de indicadores comerciais, 
-                compliance regulatório e fluência digital — incluindo IA aplicada a vendas.
+                <span className="text-foreground font-semibold">Mais de 15 anos transformando conhecimento farmacêutico em resultado.</span>{" "}
+                Experiência consolidada em farmácia, vendas, treinamento de equipes e gestão de negócios. Liderança, compliance regulatório e fluência digital — incluindo IA aplicada.
               </p>
             </Reveal>
 
@@ -136,17 +134,17 @@ export function IndustriaDossier() {
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-primary group">
                   <MessageCircle className="h-4 w-4" />
-                  Quero contratar
+                  Vamos conversar
                   <ArrowUpRight className="h-3.5 w-3.5 opacity-60 transition-all group-hover:translate-x-0.5" aria-hidden />
                 </a>
                 <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary group">
                   <LinkedinIcon className="h-4 w-4" />
-                  Ver LinkedIn
+                  LinkedIn
                   <ExternalLink className="h-3 w-3 opacity-50" />
                 </a>
                 <a href={site.cvUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary group">
                   <Download className="h-4 w-4" />
-                  Download CV
+                  Currículo
                 </a>
               </div>
             </Reveal>
@@ -172,16 +170,16 @@ export function IndustriaDossier() {
             <Reveal variant="fade">
               <div className="rounded-2xl border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] p-8 md:p-10 text-center">
                 <p className="text-[10px] font-mono font-bold uppercase tracking-[0.22em] text-[var(--brand)] mb-3">
-                  Tese Central
+                  Diferencial
                 </p>
                 <blockquote className="text-lg md:text-xl font-semibold leading-relaxed text-foreground">
-                  &ldquo;A indústria treina representantes para entender o PDV e influenciar o farmacêutico do balcão. 
-                  Eu não preciso entender o PDV — eu o <span className="text-[var(--brand)]">opero</span>. 
-                  Sou hoje o cliente que o representante é treinado a conquistar.&rdquo;
+                  &ldquo;A indústria investe em treinar profissionais para entender a farmácia e influenciar quem está no balcão. 
+                  Eu não preciso entender — eu <span className="text-[var(--brand)]">vivo</span> essa realidade todos os dias. 
+                  Conheço o cliente, a operação e o produto por dentro.&rdquo;
                 </blockquote>
                 <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted">
                   <TrendingUp className="h-4 w-4 text-[var(--brand)]" />
-                  <span>Esta é a diferença que levo para o território.</span>
+                  <span>Esse é o valor que entrego.</span>
                 </div>
               </div>
             </Reveal>
@@ -200,7 +198,7 @@ export function IndustriaDossier() {
               </h2>
               <div className="mt-3 divider-brand w-20" />
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
-                Cada posição reescrita em linguagem comercial de indústria — verbo de ação, resultado mensurável, escopo definido.
+                Cada posição com verbo de ação, resultado mensurável e escopo definido.
               </p>
             </Reveal>
 
@@ -290,14 +288,14 @@ export function IndustriaDossier() {
                   />
                   <CredentialCard
                     icon={<LinkedinIcon className="h-4 w-4" />}
-                    label="LinkedIn verificado"
-                    desc="Perfil completo com recomendações"
+                    label="LinkedIn"
+                    desc="Perfil profissional completo"
                     href={site.linkedin}
                   />
                   <CredentialCard
                     icon={<TrendingUp className="h-4 w-4" />}
                     label="Google GEAR — IA e Agentes"
-                    desc="Formação Google em inteligência artificial"
+                    desc="Formação Google em inteligência artificial aplicada"
                     href="https://me.developers.google.com/u/105476544026751993130"
                   />
                   <CredentialCard
@@ -313,7 +311,7 @@ export function IndustriaDossier() {
                     Localização
                   </p>
                   <p className="text-sm text-foreground">{site.location}</p>
-                  <p className="text-xs text-muted mt-1">Disponível para viagens e reuniões presenciais.</p>
+                  <p className="text-xs text-muted mt-1">Disponibilidade para viagens e deslocamentos.</p>
                 </div>
               </Reveal>
             </div>
@@ -325,19 +323,19 @@ export function IndustriaDossier() {
           <div className="mx-auto max-w-2xl px-5 md:px-8 text-center">
             <Reveal variant="up">
               <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brand)] mb-3">
-                Pronto para o território
+                Próximos passos
               </p>
               <h2 className="text-3xl font-semibold tracking-tight md:text-4xl text-gradient-brand">
                 Vamos conversar?
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed max-w-lg mx-auto">
-                Se você busca um profissional que já opera o PDV, conhece a ciência do produto e treina o balcão para converter — 
-                esse é o perfil. Franca/SP, Ribeirão Preto e região.
+                Se você busca um profissional que combina conhecimento técnico, experiência de gestão, 
+                resultados comerciais comprovados e visão estratégica — esse é o perfil. Franca/SP, Ribeirão Preto e região.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-primary group text-base px-8 py-4">
                   <MessageCircle className="h-5 w-5" />
-                  Quero contratar
+                  Vamos conversar
                 </a>
                 <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary group text-base px-8 py-4">
                   <LinkedinIcon className="h-5 w-5" />
@@ -349,7 +347,7 @@ export function IndustriaDossier() {
                 </a>
               </div>
               <p className="mt-6 text-xs text-muted">
-                <Link href="/" className="underline underline-offset-2 hover:text-[var(--brand)]">← Voltar ao site principal</Link>
+                <Link href="/" className="underline underline-offset-2 hover:text-[var(--brand)]">← Voltar à página inicial</Link>
               </p>
             </Reveal>
           </div>
