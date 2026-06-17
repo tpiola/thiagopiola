@@ -53,7 +53,7 @@ export function Logo({
     <span className={cn("inline-flex items-center gap-4", className)}>
       {logoImage}
       <span className="flex min-w-0 flex-col leading-tight">
-        <span className="whitespace-nowrap text-[12px] font-semibold tracking-[0.14em] text-foreground">
+        <span className="whitespace-nowrap overflow-hidden text-ellipsis text-[12px] font-semibold tracking-[0.14em] text-foreground">
           THIAGO PIOLA
         </span>
         {showCredential && <span className="text-[11px] text-muted">CRF/SP 58.519</span>}

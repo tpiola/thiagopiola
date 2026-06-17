@@ -42,7 +42,7 @@ export function SocialLinks({ className, iconClassName = "h-4 w-4" }: SocialLink
             rel="noopener noreferrer"
             aria-label={label}
             className={cn(
-              "flex h-10 w-10 items-center justify-center rounded-lg border border-border text-muted",
+              "flex h-11 w-11 items-center justify-center rounded-lg border border-border text-muted",
               "transition-all duration-300 ease-out",
               "hover:scale-110 hover:border-[var(--brand)]/40 hover:text-[var(--brand)] hover:shadow-sm",
               "active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100",

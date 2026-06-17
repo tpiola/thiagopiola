@@ -64,7 +64,7 @@ export function Header() {
             Quero resultado
           </motion.a>
           <button type="button"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
             onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -88,7 +88,7 @@ export function Header() {
         >
           <button
             type="button"
-            className="absolute right-5 top-5 inline-flex h-10 w-10 items-center justify-center rounded-lg text-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)]"
+            className="absolute right-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-lg text-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)]"
             aria-label="Fechar menu"
             onClick={() => setMenuOpen(false)}
           >

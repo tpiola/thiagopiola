@@ -14,7 +14,7 @@ export function ThemeToggle({ className }: { className?: string }) {
   const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   if (!mounted) {
-    return <span className={cn("inline-block h-9 w-9", className)} aria-hidden />;
+    return <span className={cn("inline-block h-11 w-11", className)} aria-hidden />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -24,7 +24,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       className={cn(
-        "inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface-elevated text-muted transition-colors hover:text-foreground",
+        "inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-surface-elevated text-muted transition-colors hover:text-foreground",
         className,
       )}
       aria-label={isDark ? "Ativar modo claro" : "Ativar modo escuro"}

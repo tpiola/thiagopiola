@@ -49,7 +49,7 @@ function LinkGrid({
               rel="noopener noreferrer"
               aria-label={linkLabel}
               className={cn(
-                "flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted",
+                "flex h-11 w-11 items-center justify-center rounded-lg border border-border text-muted",
                 "transition-all duration-300 hover:border-[var(--brand)]/40 hover:text-[var(--brand)] hover:scale-110",
                 "active:scale-95",
               )}
