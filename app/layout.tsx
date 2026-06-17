@@ -21,12 +21,12 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Thiago Biasoli Garcia Piola — Farmacêutico CRF/SP 58.519 com mais de 15 anos de experiência em farmácia, vendas, treinamento de equipes e inteligência comercial. RT Droga Raia. Franca, SP e região.";
+  "Thiago Biasoli Garcia Piola — Farmacêutico CRF/SP 58.519. 15 anos transformando conhecimento farmacêutico em resultado. Vendas, treinamento de equipes, compliance e inteligência comercial. Franca, SP.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Thiago Biasoli Garcia Piola | Farmácia, Vendas, Treinamento e Indústria Farmacêutica",
+    default: "Thiago Biasoli Garcia Piola | Farmacêutico CRF/SP 58.519 — Farmácia, Vendas e Indústria Farmacêutica",
     template: "%s | Thiago Biasoli Garcia Piola",
   },
   description,
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: site.url,
     siteName: "Thiago Biasoli Garcia Piola",
-    title: "Thiago Biasoli Garcia Piola | Farmácia, Vendas, Treinamento e Indústria Farmacêutica",
+    title: "Thiago Biasoli Garcia Piola | Farmacêutico CRF/SP 58.519 — Farmácia, Vendas e Indústria Farmacêutica",
     description,
     countryName: "Brasil",
     firstName: "Thiago",
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thiago Biasoli Garcia Piola | Farmácia, Vendas, Treinamento e Indústria Farmacêutica",
+    title: "Thiago Biasoli Garcia Piola | Farmacêutico CRF/SP 58.519 — Farmácia, Vendas e Indústria Farmacêutica",
     description,
     creator: "@ThiagoPiola07",
     images: ["/images/og-card.webp"],
