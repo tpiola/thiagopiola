@@ -10,7 +10,7 @@ type LogoProps = {
   showCredential?: boolean;
 };
 
-/** Logo em PNG com fundo transparente — altíssima definição (1536x1024) */
+/** Logo em PNG com fundo transparente — altíssima definição (2560x2157) */
 export function Logo({
   className,
   iconClassName,
@@ -24,17 +24,17 @@ export function Logo({
       <Image
         src={logoSrc}
         alt="Thiago Piola — Farmacêutico CRF/SP 58.519"
-        width={1536}
-        height={1024}
+        width={800}
+        height={674}
         className={cn(
           "h-auto w-auto object-contain",
-          variant === "icon" ? "max-h-14" : "max-h-14",
+          variant === "icon" ? "max-h-16" : "max-h-16",
         )}
         priority
-        sizes="(max-width: 768px) 140px, 180px"
+        sizes="(max-width: 768px) 160px, 200px"
         style={{
           width: variant === "icon" ? "auto" : "auto",
-          maxWidth: variant === "icon" ? "160px" : "160px",
+          maxWidth: variant === "icon" ? "180px" : "180px",
         }}
       />
     </div>
