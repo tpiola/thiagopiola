@@ -1,15 +1,14 @@
-/** Conteúdo centralizado — thiagopiola.com.br | Definitivo */
-/* Tom: executivo, confiante, humano. Mensagem implícita: "Estou pronto. Já provei. Agora quero o terreno maior." */
+/** Conteúdo centralizado do portfólio — thiagopiola.com.br */
 
 const whatsappText = encodeURIComponent(
-    "Olá, Thiago. Vim pelo seu site e gostaria de conversar sobre sua trajetória profissional.",
+    "Olá, Thiago. Vim pelo site e quero conversar sobre treinamento de equipe, automação ou IA aplicada na minha operação.",
   );
 
 export const site = {
     name: "Thiago Biasoli Garcia Piola",
     shortName: "Thiago Piola",
     credential: "Farmacêutico CRF/SP 58.519",
-    location: "Franca, SP — Ribeirão Preto e região",
+    location: "Franca, SP, Brasil",
     geo: {
           locality: "Franca",
           region: "SP",
@@ -30,8 +29,9 @@ export const site = {
 } as const;
 
 export const footerTagline =
-    "Farmacêutico CRF/SP 58.519 com mais de 15 anos transformando conhecimento farmacêutico em resultado — do hospital ao balcão, da equipe à meta batida.";
+    "Farmacêutico, estrategista e engenheiro de IA. Especialista em treinamento de equipes, automação e inteligência artificial para aumentar receita e transformar operações farmacêuticas.";
 
+/** Ordem alfabética obrigatória — rodapé */
 export const socialLinks = [
   { href: "https://github.com/tpiola", label: "GitHub" },
   {
@@ -46,19 +46,23 @@ export const socialLinks = [
   { href: site.x, label: "X" },
   ] as const;
 
+/** Redes profissionais — exibidas com destaque */
 export const socialLinksProfessional = socialLinks.filter((l) =>
     ["GitHub", "Google Developers", "LinkedIn", "Notion", "X"].includes(l.label),
                                                           );
 
+/** Redes comunidade — secundárias no rodapé */
 export const socialLinksCommunity = socialLinks.filter((l) =>
     ["Reddit", "Telegram", "TikTok"].includes(l.label),
                                                        );
 
 export const nav = [
-  { href: "#quemsou", label: "Quem Sou" },
-  { href: "#trajetoria", label: "Trajetória" },
   { href: "#impacto", label: "Impacto" },
+  { href: "#metodo", label: "Método" },
   { href: "#resultados", label: "Resultados" },
+  { href: "#stack", label: "Stack" },
+  { href: "#trajetoria", label: "Trajetória" },
+  { href: "/industria", label: "Indústria" },
   { href: "#contato", label: "Contato" },
   ] as const;
 
@@ -66,11 +70,12 @@ export const hero = {
     title: "Thiago Biasoli\nGarcia Piola",
     titleLine1: "Thiago Biasoli",
     titleLine2: "Garcia Piola",
-    subtitle: "Levo saúde aonde eu chego.",
-    lead: "Quinze anos transformando conhecimento farmacêutico em resultado — do hospital ao balcão, da equipe à meta batida. Conheço o produto pela ciência e o cliente pela convivência. Agora, busco o desafio onde a entrega depende inteiramente de mim: estar na frente, com o prescritor, no ponto de venda, levando ciência e resultado para onde a saúde precisa chegar.",
-    ctaWhatsapp: "Vamos conversar",
+    subtitle: "Farmacêutico CRF/SP 58.519 · 15 anos transformando conhecimento em resultado.",
+    lead: "Do hospital ao balcão, da equipe à meta batida. Conheço o produto pela ciência e o cliente pela convivência. Liderança de equipe, treinamento comercial e conformidade regulatória impecável. Uma trajetória construída com método, ética e entrega.",
+    ctaWhatsapp: "Quero resultados",
     ctaEmail: "E-mail",
     ctaLinkedin: "LinkedIn",
+    ctaIndustria: "Ver atuação na indústria →",
 } as const;
 
 export const trustBar = [
@@ -80,223 +85,178 @@ export const trustBar = [
         href: "https://www.crfsp.org.br",
   },
   {
-            label: "15 anos de campo",
-            detail: "Hospital · clínica · balcão · gestão",
-            href: undefined,
-    },
+            label: "Droga Raia — Franca, SP",
+            detail: "Farmacêutico RT de filial — operação atual",
+            href: undefined,    },
   {
-        label: "Comissão de Ética — CRF",
-        detail: "Integridade institucional comprovada",
-        href: undefined,
-  },
-  {
-        label: "Liderança comprovada",
-        detail: "Equipes treinadas, metas batidas",
-        href: undefined,
+        label: "Pós IA + Google GEAR",
+        detail: "Engenharia de IA aplicada",
+        href: "https://me.developers.google.com/u/105476544026751993130",
   },
   ] as const;
 
-export const quemsou = {
-    paragraphs: [
-      "Não escolhi farmácia para ficar atrás de um balcão. Escolhi porque saúde é a coisa mais próxima que existe da vida das pessoas — e eu quero estar onde ela acontece.",
-      "Por quinze anos, me dediquei integralmente. Liderei equipes, treinei vendedores, bati indicadores, mantive conformidade impecável e construí método onde antes havia intuição. Fui membro da Comissão de Ética do Conselho Regional de Farmácia — porque acredito que resultado sem integridade não se sustenta.",
-      "Dei o meu melhor onde estou. E é justamente porque entreguei tudo que sei o que vem agora: eu cresço quando o desafio cresce. Meu perfil não é de acomodação — é de aceleração. Preciso de um campo onde meu esforço se converta diretamente em valor: para o prescritor que confia, para o paciente que se beneficia, para a companhia que cresce comigo.",
-      "É por isso que a estrada me chama. Estar na frente, olho no olho com quem prescreve e quem vende, é onde transformo conhecimento em impacto real. Essa é a missão. E eu estou pronto.",
-    ],
-} as const;
-
 export const farmaciaIndustria = {
-    title: "Áreas de atuação",
+    title: "Indústria farmacêutica & saúde",
     chips: [
-          "Vendas Consultivas",
-          "Treinamento e Desenvolvimento",
-          "Gestão de Equipes",
-          "Desenvolvimento de Negócios",
-          "Relacionamento com Clientes",
-          "Estratégia Comercial",
-          "Compliance e Regulatório",
-          "Performance Comercial",
-          "CRM e Inteligência de Dados",
-          "Produto Farmacêutico",
-          "Prescrição e Indicação",
-          "Comunicação Científica",
+          "Compliance & ANVISA / RDC",
+          "Farmácia clínica e hospitalar",
+          "Operação em rede (varejo)",
+          "Digitalização e IA em saúde",
         ],
 } as const;
 
 export const autoridade = {
     sectionId: "impacto",
-    sectionLabel: "03 / Impacto",
-    title: "O que construí em 15 anos.",
-    lead: "Mais de uma década unindo conhecimento técnico, gestão de pessoas e visão comercial. Cada resultado é prova de método — não de sorte.",
+    sectionLabel: "01 / Impacto",
+    title: "Resultados que mudam operações.",
+    lead: "Chega de treinamentos que não geram mudança. De automações que ficam no papel. Cada ação tem dono, prazo e resultado mensurável.",
     pilares: [
       {
               number: "01",
-              emoji: "🏪",
-              title: "Gestão de Farmácia e Resultados",
-              desc: "Lidero uma das lojas mais relevantes da maior rede do país. Giro, margem, ruptura, conversão — decisão baseada em dado, não em palpite.",
+              emoji: "🎯",
+              title: "Treinamento de equipes de alta performance",
+              desc: "Metodologia ativa que transforma equipe comum em time de resultados — com compliance CRF/SP, conversão ética e indicadores reais.",
       },
       {
               number: "02",
-              emoji: "🎯",
-              title: "Treinamento e Desenvolvimento",
-              desc: "Metodologia própria que transforma equipes. Treinamento técnico-comercial com foco em conversão ética, indicadores reais e crescimento contínuo.",
+              emoji: "⚙️",
+              title: "Automação que elimina retrabalho",
+              desc: "Fluxos n8n, integrações e processos 24/7 — menos erro humano, mais escala, operação enxuta que não depende de você estar presente.",
       },
       {
               number: "03",
-              emoji: "📋",
-              title: "Compliance e Boas Práticas",
-              desc: "CRF/SP ativo. Membro da Comissão de Ética do CRF. Conformidade ANVISA e RDCs. Zero autuação — rigor que protege a operação e a reputação.",
+              emoji: "🤖",
+              title: "IA que gera receita, não relatório",
+              desc: "Agentes inteligentes, LLMs e arquitetura aplicada com método Sprint/Scrum — IA que trabalha dentro da sua realidade operacional.",
       },
       {
               number: "04",
               emoji: "📊",
-              title: "Dados e Inteligência de Negócios",
-              desc: "Dashboards, CRM e automações que transformam números em decisão comercial. Do dado à ação — em tempo real.",
+              title: "Estratégia com visão de negócio",
+              desc: "Decisão técnica com fundamento comercial — do balcão ao produto digital, unindo saúde, tecnologia e resultado financeiro.",
       },
         ],
 } as const;
 
 export const competencias = {
-    sectionId: "competencias",
-    sectionLabel: "04 / Competências",
-    title: "Competências que geram resultado.",
-    lead: "O que entrego em cada desafio profissional — da gestão de pessoas à inteligência de dados.",
+    sectionId: "metodo",
+    sectionLabel: "02 / Método",
+    title: "Como transformo operações em resultados.",
+    lead: "Diagnóstico real, execução real, resultado mensurável.",
     skills: [
       {
-              title: "Vendas Consultivas e Relacionamento",
-              desc: "Técnica de indicação e venda com embasamento científico. Relacionamento de longo prazo com clientes, prescritores e parceiros.",
+              title: "Treinamento & liderança de equipes",
+              desc: "Times treinados para converter, engajar e crescer — com métricas reais e compliance regulatório.",
       },
       {
-              title: "Treinamento e Desenvolvimento de Pessoas",
-              desc: "Metodologia que transforma equipes comuns em times de alta performance. Treinamento técnico-comercial com métrica de conversão.",
+              title: "IA aplicada à operação",
+              desc: "Copilots, qualificação assistida e decisão inteligente integrada ao fluxo de trabalho.",
       },
       {
-              title: "Gestão de Equipes e Liderança",
-              desc: "Liderança de times de até 13 profissionais. Desenvolvimento de pessoas, delegação por resultado e cultura de alta performance.",
+              title: "Automação & dashboards",
+              desc: "CRM, indicadores e processos automatizados rodando 24/7 sem depender de planilha.",
       },
       {
-              title: "Inteligência Comercial e CRM",
-              desc: "CRM, dashboards e BI comercial para decisão rápida. Funil e indicadores — tudo com número, sem achismo.",
-      },
-      {
-              title: "Compliance e Regulatório",
-              desc: "Conformidade com RDCs, ANVISA e boas práticas. Membro da Comissão de Ética do CRF/SP. Conhecimento que o mercado regulado exige.",
-      },
-      {
-              title: "Desenvolvimento de Negócios",
-              desc: "Visão de mercado, prospecção e estruturação comercial. Da operação atual a novas oportunidades — com método e resultado.",
-      },
-      {
-              title: "Produto Farmacêutico e Comunicação Científica",
-              desc: "Conhecimento profundo de mecanismos de ação, indicações e fisiologia. Base clínica que fundamenta a venda consultiva.",
-      },
-      {
-              title: "IA Aplicada a Negócios",
-              desc: "Automação de processos, agentes inteligentes e LLMs para qualificação, conteúdo e decisão comercial acelerada.",
+              title: "Produto digital e escala",
+              desc: "Next.js, integrações e entregas que convertem visitante em oportunidade real.",
       },
         ],
     metrics: [
-      { value: "15+", label: "Anos em operação farmacêutica" },
-      { value: "CRF/SP", label: "Registro profissional ativo" },
-      { value: "Ética CRF", label: "Comissão de Ética — CRF/SP" },
+      { value: "15+", label: "Anos de operação real" },
+      { value: "CRF/SP", label: "Registro ativo" },
+      { value: "360°", label: "Saúde + tech + negócio" },
         ],
 } as const;
 
 export const projetos = {
     sectionId: "resultados",
-    sectionLabel: "05 / Resultados",
-    title: "Entregas que provam execução.",
-    lead: "Projetos reais com stack verificável — método comercial, visão de mercado e capacidade de entrega.",
+    sectionLabel: "03 / Resultados",
+    title: "Entregas em produção.",
+    lead: "Projetos reais com stack verificável — prova de execução.",
     items: [
       {
-              title: "Rei das Vendas",
-              problem: "Equipes farmacêuticas sem método de conversão estruturado — dependência de intuição, não de processo.",
-              result: "Plataforma de treinamento comercial com método documentado, dashboard de indicadores e integração CRM.",
-              stack: ["Treinamento", "CRM", "Farmácia"],
-              href: "https://www.reidasvendas.com.br",
-      },
-      {
-              title: "Atuação Profissional — Indústria Farmacêutica",
-              problem: "Mais de 15 anos de experiência consolidada precisam de apresentação clara e navegável.",
-              result: "Documento vivo com trajetória, competências e resultados — organizado por áreas de atuação.",
-              stack: ["Indústria", "Vendas", "Farmácia"],
-              href: site.industriaUrl,
-      },
-      {
-              title: "Automação de Indicadores Comerciais",
-              problem: "Decisão atrasada por falta de dado consolidado — planilhas e relatórios manuais consomem tempo de gestão.",
-              result: "Fluxos n8n + dashboards em tempo real. CRM com lead scoring, tracking de indicadores e BI comercial.",
-              stack: ["n8n", "CRM", "BI"],
+              title: "Automação de qualificação B2B",
+              problem: "Leads sem triagem consistente entre canais, gerando perda de oportunidades.",
+              result: "Fluxos n8n + CRM com resposta assistida por LLM — triagem automática, zero retrabalho.",
+              stack: ["n8n", "LLM", "CRM"],
               href: "https://thiagopiola.notion.site/",
+      },
+      {
+              title: "Agentes inteligentes (GEAR/Google)",
+              problem: "Operação repetitiva em atendimento e conteúdo consumindo tempo de gestão.",
+              result: "Arquitetura de agentes com método Sprint/Scrum — atendimento escalável, gestão livre.",
+              stack: ["Google AI", "Agentes", "Scrum"],
+              href: "https://me.developers.google.com/u/105476544026751993130",
+      },
+      {
+              title: "Rei das Vendas — plataforma de treinamento",
+              problem: "Equipes farmacêuticas sem método de conversão ética e escalável.",
+              result: "Plataforma de treinamento comercial para o setor farmacêutico — em operação.",
+              stack: ["Treinamento", "Vendas", "Farmácia"],
+              href: "https://www.reidasvendas.com.br",
       },
         ],
 } as const;
 
 export const tecnologia = {
     sectionId: "stack",
-    sectionLabel: "06 / Stack",
+    sectionLabel: "04 / Stack",
     title: "Ferramentas que entregam resultado.",
-    lead: "Stack usado em produção real — prova de execução, não promessa de vitrine.",
+    lead: "Stack usado em produção real — sem promessa de vitrine.",
     items: [
-      { title: "CRM & Automação Comercial", desc: "Gestão de carteira e indicadores em tempo real — funil, tracking, follow-up automatizado" },
-      { title: "IA e Agentes Inteligentes", desc: "LLMs e agentes para qualificação, conteúdo e decisão comercial acelerada" },
-      { title: "Dashboards & BI", desc: "Painéis vivos de indicadores de farmácia — decisão baseada em dado, não em palpite" },
-      { title: "n8n & Integrações", desc: "Orquestração de processos comerciais sem atrito — 24/7, escala, zero planilha" },
-      { title: "Google GEAR & IA Aplicada", desc: "Programa Google de agentes e IA — formação em inteligência artificial para negócios" },
-      { title: "Presença Digital", desc: "Posicionamento profissional e conteúdo que gera reconhecimento e oportunidade" },
+      { title: "Agentes & LLMs", desc: "Atendimento e qualificação inteligente em escala" },
+      { title: "n8n & integrações", desc: "Orquestração sem atrito operacional" },
+      { title: "Claude AI & Google Gemini", desc: "Modelos de linguagem aplicados ao negócio" },
+      { title: "Dados & CRM", desc: "Métricas para decisão rápida e precisa" },
+      { title: "Sprint & Scrum", desc: "Entrega previsível com resultado real" },
+      { title: "SEO & GEO", desc: "Visibilidade local e global otimizada" },
         ],
 } as const;
 
 export const trajetoria = {
     sectionId: "trajetoria",
-    sectionLabel: "02 / Trajetória",
-    title: "Trajetória profissional.",
-    lead: "Experiência consolidada em ambientes de alta exigência — do hospital ao balcão, da operação à estratégia.",
+    sectionLabel: "05 / Trajetória",
+    title: "Trajetória",
+    lead: "Experiência verificável em ambientes de alta exigência.",
     career: [
       {
-                    company: "Droga Raia / RD Saúde — Franca, SP",
-              period: "Atual — [N] anos",
+                    company: "Droga Raia — Filial Franca, SP",
+              period: "Atual",
                     role: "Farmacêutico Responsável Técnico de Filial",
-              desc: "Liderança de equipe, indicadores comerciais e compliance em loja referência da maior rede do país",
+              desc: "RT, vendas, treinamento e gestão",
               impacts: [
-                                  "Conduzo uma das unidades de maior relevância da maior rede de farmácias do país, com liderança direta de equipe de ~13 profissionais.",
-                        "Desenvolvi e implementei metodologia própria de treinamento comercial, elevando conversão e ticket médio por meio de indicação técnica e ética.",
-                        "Mantenho conformidade plena com CRF/SP e ANVISA — histórico sem não-conformidades.",
-                        "Estruturei dashboards e CRM próprios para leitura de indicadores e decisão comercial em tempo real.",
-                        "Construí relacionamento sólido e duradouro com clientes, prescritores e parceiros da cadeia de saúde.",
+                                  "Farmacêutico Responsável Técnico pela filial de Franca, SP",
+                        "Treinamento de equipe e conversão com compliance CRF/SP",
                       ],
       },
       {
-              company: "Drogaria Americana — Franca, SP",
+              company: "Drogaria Americana",
               period: "2013–2014",
               role: "Farmacêutico RT",
-              desc: "Gestão completa de rotina técnica e operacional de farmácia de bairro",
+              desc: "Operação e atendimento",
               impacts: [
-                        "Gestão completa da rotina técnica e operacional, com foco em adesão terapêutica e indicação ativa.",
-                        "Otimização de processos de atendimento, elevando produtividade da equipe.",
-                        "Atuação direta em ações comerciais conduzidas pela indústria farmacêutica.",
+                        "Gestão de rotina técnica e atendimento farmacêutico",
+                        "Suporte a indicadores operacionais da unidade",
                       ],
       },
       {
-              company: "Farma Cruz — Franca, SP",
+              company: "Farma Cruz",
               period: "2012–2013",
               role: "Farmacêutico RT",
-              desc: "Compliance regulatório, documentação e processos de dispensação",
+              desc: "Compliance e rotina técnica",
               impacts: [
-                        "Responsável por controle documental e conformidade regulatória — adequação a RDCs e boas práticas.",
-                        "Padronização da dispensação, garantindo rastreabilidade total e segurança do paciente.",
-                        "Vivência completa do ciclo de visitas e negociação com a indústria — compreensão prática da dinâmica de vendas e relacionamento.",
+                        "Controle de documentação e conformidade regulatória",
+                        "Padronização de processos de dispensação",
                       ],
       },
       {
-              company: "Hospital Unimed — Franca, SP",
+              company: "Hospital Unimed",
               period: "2008–2011",
-              role: "Auxiliar de Farmácia — Farmácia Hospitalar",
-              desc: "Farmácia clínica hospitalar, logística de medicamentos e suporte multidisciplinar",
+              role: "Aux. de Farmácia",
+              desc: "Farmácia hospitalar",
               impacts: [
-                        "Atuação em farmácia clínica de alta complexidade, em suporte à equipe multidisciplinar — [N] leitos.",
-                        "Gestão logística de medicamentos controlados e de alto custo, com rastreabilidade integral.",
-                        "Participação em comissões de farmácia e terapêutica — base clínica que fundamenta o diálogo com prescritores.",
+                        "Suporte à farmácia clínica hospitalar",
+                        "Logística e controle de estoque crítico",
                       ],
       },
         ],
@@ -306,15 +266,14 @@ export const trajetoria = {
       { course: "MBA em Gestão Empresarial", status: "Concluído" },
       { course: "MBA em Gestão Estratégica", status: "Concluído" },
       { course: "Farmácia — UNIFRAN", status: "Concluído" },
-    ],
-    institutional: "Membro da Comissão de Ética — Conselho Regional de Farmácia (CRF/SP). Atuação em pareceres e zelo pela conduta ética da profissão — postura institucional que reforça responsabilidade e credibilidade.",
+        ],
 } as const;
 
-/** Resumo EN */
+/** Resumo EN para RH internacional */
 export const heroEn = {
     title: "Thiago Biasoli\nGarcia Piola",
     titleLine1: "Thiago Biasoli",
     titleLine2: "Garcia Piola",
-    subtitle: "I bring health wherever I go.",
-    lead: "Fifteen years turning pharmaceutical knowledge into results — from hospital to counter, from team to target met. I know the product through science and the client through daily contact. Now I seek the challenge where delivery depends entirely on me.",
+    subtitle: "Your pharmacy operation is leaving money on the table.",
+    lead: "High-performance team training · Intelligent automation · AI that drives revenue. Pharmacist CRF/SP 58.519 with 15+ years of real operations.",
 } as const;

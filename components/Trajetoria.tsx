@@ -94,18 +94,6 @@ export function Trajetoria() {
             </div>
           </Reveal>
         </div>
-
-        {/* Atuação Institucional */}
-        <Reveal variant="fade" delay={0.2} className="mt-8">
-          <div className="rounded-xl border border-[var(--brand)]/15 bg-[color-mix(in_srgb,var(--brand)_4%,transparent)] px-6 py-5 md:px-8 md:py-6">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)] mb-2">
-              Atuação Institucional
-            </p>
-            <p className="text-sm leading-relaxed text-foreground">
-              {trajetoria.institutional}
-            </p>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

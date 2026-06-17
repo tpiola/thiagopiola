@@ -12,21 +12,21 @@ import { site } from "@/lib/content";
 import Link from "next/link";
 
 const KEYWORDS = [
-  "Vendas Consultivas",
-  "Treinamento e Desenvolvimento",
-  "Gestão de Equipes",
-  "Desenvolvimento de Negócios",
-  "Relacionamento com Clientes",
-  "Estratégia Comercial",
-  "Expansão de Mercado",
-  "Compliance e Regulatório",
-  "Resultados e Metas",
-  "Performance Comercial",
-  "CRM e Inteligência de Dados",
-  "Produto Farmacêutico",
-  "Prescrição e Indicação",
-  "Inovação e IA Aplicada",
-  "Comunicação Científica",
+  "Vendas Consultivas Técnico-Científicas",
+  "Relacionamento com Prescritores",
+  "Inteligência Comercial e CRM",
+  "Liderança e Desenvolvimento de Equipes",
+  "Compliance ANVISA e Regulatório",
+  "Gestão de Território e Carteira",
+  "Comunicação Científica de Produto",
+  "Business Acumen e Visão de Negócios",
+  "People Analytics e Decisão por Dados",
+  "Inovação e IA Aplicada a Vendas",
+  "Negociação e Persuasão Ética",
+  "Gestão de Indicadores e Metas",
+  "Farmácia Clínica e Hospitalar",
+  "ESG e Integridade Corporativa",
+  "Inteligência Emocional e Liderança",
 ];
 
 const EXPERIENCIA = [
@@ -105,7 +105,7 @@ export function IndustriaDossier() {
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] px-4 py-1.5 mb-6">
                 <ShieldCheck className="h-3.5 w-3.5 text-[var(--brand)]" />
                 <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)]">
-                  Atuação Profissional
+                  Perfil Profissional — Indústria Farmacêutica
                 </span>
               </div>
             </Reveal>
@@ -119,14 +119,15 @@ export function IndustriaDossier() {
 
             <Reveal variant="up" delay={0.12}>
               <p className="mt-4 text-xl font-semibold text-muted md:text-2xl">
-                Farmacêutico CRF/SP 58.519 · <span className="text-foreground">Vendas · Treinamento · Indústria Farmacêutica</span>
+                Farmacêutico CRF/SP 58.519 · <span className="text-foreground">Vendas Consultivas · Liderança · Compliance</span>
               </p>
             </Reveal>
 
             <Reveal variant="fade" delay={0.18}>
               <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-muted md:text-lg">
-                <span className="text-foreground font-semibold">Mais de 15 anos transformando conhecimento farmacêutico em resultado.</span>{" "}
-                Experiência consolidada em farmácia, vendas, treinamento de equipes e gestão de negócios. Liderança, compliance regulatório e fluência digital — incluindo IA aplicada.
+                <span className="text-foreground font-semibold">15 anos de experiência em saúde — do hospital ao balcão.</span>{" "}
+                Conhecimento técnico-científico, relacionamento com prescritores, liderança de equipes e conformidade regulatória impecável. 
+                Fluência digital, inteligência comercial e IA aplicada a vendas. Uma trajetória que combina o que a indústria farmacêutica mais valoriza em 2026.
               </p>
             </Reveal>
 

@@ -13,6 +13,7 @@ import { Reveal } from "./motion/Reveal";
 import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
+import Link from "next/link";
 
 /** Typewriter effect — digita o texto caractere por caractere após um delay */
 function TypewriterText({ text, className }: { text: string; className?: string }) {
@@ -143,6 +144,10 @@ export function Hero() {
                 <Mail className="h-4 w-4" aria-hidden />
                 {hero.ctaEmail}
               </MagneticLink>
+              <Link href={site.industriaUrl}
+                className="btn-secondary group font-semibold">
+                {hero.ctaIndustria}
+              </Link>
             </motion.div>
           </Reveal>
 
