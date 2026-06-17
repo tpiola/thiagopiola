@@ -10,32 +10,28 @@ type LogoProps = {
   showCredential?: boolean;
 };
 
-/** Logo com filtro de cor para harmonizar com o texto — fundo transparente */
+/** Logo SVG que herda a cor do tema — mesma cor do fundo dos botões (var(--brand)) */
 export function Logo({
   className,
   iconClassName,
   variant = "icon",
   showCredential = false,
 }: LogoProps) {
-  const logoSrc = "/images/logo-principal.png";
+  const logoSrc = "/images/logo.svg";
 
   const logoImage = (
     <div className="relative flex items-center justify-center">
-      <Image
+      <img
         src={logoSrc}
         alt="Thiago Piola — Farmacêutico CRF/SP 58.519"
-        width={800}
-        height={674}
         className={cn(
-          "h-auto w-auto object-contain brightness-0 invert-[92%]",
+          "h-auto w-auto object-contain",
           variant === "icon" ? "max-h-[52px]" : "max-h-[52px]",
         )}
-        priority
-        unoptimized
-        sizes="(max-width: 768px) 140px, 160px"
         style={{
           width: variant === "icon" ? "auto" : "auto",
           maxWidth: variant === "icon" ? "150px" : "150px",
+          color: "var(--brand)",
         }}
       />
     </div>
