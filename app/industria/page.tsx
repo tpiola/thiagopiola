@@ -3,14 +3,48 @@ import { site } from "@/lib/content";
 import { IndustriaDossier } from "./IndustriaDossier";
 
 export const metadata: Metadata = {
-  title: "Atuação Profissional — Indústria Farmacêutica",
+  title: "Thiago Piola — Farmacêutico | Indústria Farmacêutica | Franca SP",
   description:
-    "Farmacêutico CRF/SP 58.519 com 15 anos de experiência em farmácia, vendas consultivas, treinamento de equipes e compliance ANVISA. Perfil completo com trajetória, competências e resultados. Thiago Biasoli Garcia Piola.",
+    "Farmacêutico CRF/SP 58.519 · 15 anos de experiência · Vendas consultivas técnico-científicas, relacionamento com prescritores, liderança de equipes, compliance ANVISA e inteligência comercial. Perfil disponível para Franca, Ribeirão Preto e região.",
+  keywords: [
+    "farmacêutico indústria Franca SP",
+    "vendas consultivas farmacêuticas",
+    "relacionamento com prescritores",
+    "compliance ANVISA",
+    "farmacêutico CRF/SP",
+    "regulatory affairs farmacêutico",
+    "farmacêutico vendas indústria",
+    "profissional farmacêutico Ribeirão Preto",
+    "assuntos regulatórios farmácia",
+    "liderança equipes farmacêuticas",
+    "gestão de território farmacêutico",
+    "business acumen farmacêutico",
+    "farmacêutico IA aplicada",
+    "farmacêutico 15 anos experiência",
+    "farmacêutico Franca SP CRF",
+    "recrutamento farmacêutico interior SP",
+    "curriculo farmacêutico indústria",
+  ],
   openGraph: {
-    title: "Thiago Piola — Atuação em Vendas, Treinamento e Indústria Farmacêutica",
+    title: "Thiago Piola — Perfil Farmacêutico para Indústria | CRF/SP 58.519 | Franca SP",
     description:
-      "Perfil profissional completo. Farmacêutico CRF/SP 58.519 com sólida experiência em vendas consultivas, liderança de equipes, inteligência comercial e conformidade regulatória. Disponível para Franca/SP, Ribeirão Preto e região.",
+      "15 anos de experiência do hospital ao balcão. Vendas consultivas, relacionamento com prescritores, liderança, compliance ANVISA e inteligência comercial. Disponível para Franca/SP, Ribeirão Preto e região.",
     url: `${site.url}/industria`,
+    locale: "pt_BR",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thiago Piola — Farmacêutico | Indústria Farmacêutica",
+    description:
+      "15 anos de experiência. Vendas consultivas, relacionamento com prescritores, compliance ANVISA. CRF/SP 58.519.",
+  },
+  alternates: {
+    canonical: `${site.url}/industria`,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

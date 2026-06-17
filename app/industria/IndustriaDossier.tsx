@@ -32,14 +32,14 @@ const KEYWORDS = [
 const EXPERIENCIA = [
   {
     empresa: "Droga Raia / RD Saúde",
-    periodo: "Atual — [N] anos",
+    periodo: "Atual — 15 anos de trajetória em farmácia",
     cargo: "Farmacêutico Responsável Técnico de Filial",
     local: "Franca, SP",
-    resumo: "Liderança de equipe (~13 profissionais), gestão de indicadores comerciais e compliance regulatório em loja referência da maior rede de farmácias do Brasil.",
+    resumo: "Liderança de equipe multiprofissional, gestão de indicadores comerciais e compliance regulatório em loja referência da maior rede de farmácias do Brasil.",
     resultados: [
-      "Lidero equipe de ~13 profissionais em loja referência da rede, respondendo por resultados em vendas, giro, ruptura e margem em [N] categorias.",
-      "Desenvolvi método próprio de treinamento da equipe para indicação ativa, elevando conversão em [X%] e ticket médio em [Y%].",
-      "Mantenho conformidade CRF/SP e ANVISA — [N] anos sem autuações.",
+      "Lidero equipe multiprofissional em loja referência da rede, respondendo por resultados em vendas, giro, ruptura e margem.",
+      "Desenvolvi método próprio de treinamento da equipe para indicação ativa, elevando conversão e ticket médio.",
+      "Mantenho conformidade CRF/SP e ANVISA — histórico sem autuações.",
       "Estruturei dashboards e sistema próprio de CRM para decisão comercial em tempo real.",
     ],
   },
@@ -50,9 +50,9 @@ const EXPERIENCIA = [
     local: "Franca, SP",
     resumo: "Gestão de rotina técnica e operacional de farmácia de bairro.",
     resultados: [
-      "Gerenciei atendimento a [N] pacientes/dia com foco em adesão ao tratamento e indicação ativa.",
-      "Implementei processos que reduziram tempo de espera em [X%] e elevaram produtividade da equipe.",
-      "Participei de ações comerciais com indústria, gerando aumento de [X%] nos resultados de [N] linhas.",
+      "Gerenciei atendimento ao público com foco em adesão ao tratamento e indicação ativa.",
+      "Implementei processos que reduziram tempo de espera e elevaram produtividade da equipe.",
+      "Participei de ações comerciais com indústria, gerando aumento nos resultados de linhas selecionadas.",
     ],
   },
   {
@@ -74,8 +74,8 @@ const EXPERIENCIA = [
     local: "Franca, SP",
     resumo: "Farmácia clínica hospitalar, logística de medicamentos e suporte multidisciplinar.",
     resultados: [
-      "Atuei suportando equipe multidisciplinar em ambiente hospitalar de alta complexidade — [N] leitos.",
-      "Gerenciei logística de medicamentos controlados e de alto custo com [X%] de disponibilidade.",
+      "Atuei suportando equipe multidisciplinar em ambiente hospitalar de alta complexidade.",
+      "Gerenciei logística de medicamentos controlados e de alto custo com alta disponibilidade.",
       "Participei de comissões de farmácia e terapêutica, consolidando base clínica para abordagem com prescritores.",
     ],
   },

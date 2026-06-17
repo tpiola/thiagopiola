@@ -152,6 +152,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${geistSans.variable} ${geistMono.variable} bg-surface font-sans text-foreground antialiased`}
       >
         <SkipLink />
+        <JsonLd />
         <ThemeProvider>
           {children}
           <CookieConsent />

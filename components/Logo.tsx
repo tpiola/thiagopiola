@@ -10,7 +10,7 @@ type LogoProps = {
   showCredential?: boolean;
 };
 
-/** Logo em PNG com fundo transparente — altíssima definição (2560x2157) */
+/** Logo com filtro de cor para harmonizar com o texto — fundo transparente */
 export function Logo({
   className,
   iconClassName,
@@ -27,15 +27,15 @@ export function Logo({
         width={800}
         height={674}
         className={cn(
-          "h-auto w-auto object-contain",
-          variant === "icon" ? "max-h-16" : "max-h-16",
+          "h-auto w-auto object-contain brightness-0 invert-[92%]",
+          variant === "icon" ? "max-h-[52px]" : "max-h-[52px]",
         )}
         priority
         unoptimized
-        sizes="(max-width: 768px) 160px, 200px"
+        sizes="(max-width: 768px) 140px, 160px"
         style={{
           width: variant === "icon" ? "auto" : "auto",
-          maxWidth: variant === "icon" ? "180px" : "180px",
+          maxWidth: variant === "icon" ? "150px" : "150px",
         }}
       />
     </div>
