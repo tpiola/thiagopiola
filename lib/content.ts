@@ -70,13 +70,55 @@ export const hero = {
     title: "Thiago Biasoli\nGarcia Piola",
     titleLine1: "Thiago Biasoli",
     titleLine2: "Garcia Piola",
-    subtitle: "Farmacêutico CRF/SP 58.519 · 15 anos transformando conhecimento em resultado.",
-    lead: "Do hospital ao balcão, da equipe à meta batida. Conheço o produto pela ciência e o cliente pela convivência. Liderança de equipe, treinamento comercial e conformidade regulatória impecável. Uma trajetória construída com método, ética e entrega.",
+    subtitle: "METAS BATIDAS = VIDAS TRANSFORMADAS",
+    lead: "Farmacêutico Notável RD Saúde 2025. 1 entre 14.000 farmacêuticos do Brasil. Mérito inédito em Franca/SP.\n\nVendas. Resultados. Foco total.\n\nÉtica que entrega: cada meta batida = produtos de altíssima qualidade mudando vidas reais. Da linha de frente da drogaria para a indústria farmacêutica com IA, automação e inteligência comercial que provam número — não conversa.",
     ctaWhatsapp: "Quero resultados",
     ctaEmail: "E-mail",
     ctaLinkedin: "LinkedIn",
     ctaIndustria: "Ver atuação na indústria →",
 } as const;
+
+export const jornadaHero = {
+    chamado: {
+        title: "Chamado",
+        desc: "15+ anos na trincheira: RD Saúde, liderança, compliance ANVISA, vendas sob pressão.",
+    },
+    provacao: {
+        title: "Provação",
+        desc: "Metas diárias. Equipes. Giro. Margem. Entrega total quando ninguém via.",
+    },
+    transformacao: {
+        title: "Transformação",
+        desc: "n8n + IA eliminando 100% rework. Dashboards em tempo real. Rei das Vendas. Farmacêutico Notável 2025 — reconhecimento da maior rede do país.",
+    },
+    retorno: {
+        title: "Retorno com Elixir",
+        desc: "Habilidades que 99% dos farmacêuticos não têm: automação comercial, BI, plataforma de treinamento escalável, visão 360° farmácia → indústria. Pronto para multiplicar resultados onde importa.",
+    },
+} as const;
+
+export const provasEntrega = [
+    {
+        value: "1/14.000",
+        label: "Farmacêutico Notável RD Saúde 2025",
+        detail: "Mérito inédito em Franca/SP",
+    },
+    {
+        value: "15",
+        label: "Anos de operação",
+        detail: "CRF/SP 58.519 · RT Droga Raia",
+    },
+    {
+        value: "100%",
+        label: "Rework eliminado",
+        detail: "Automação n8n + IA",
+    },
+    {
+        value: "Ativa",
+        label: "Plataforma Rei das Vendas",
+        detail: "Treinamento comercial escalável",
+    },
+] as const;
 
 export const trustBar = [
   {

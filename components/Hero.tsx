@@ -100,16 +100,22 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.22} variant="up">
-            <TypewriterText
-              text={copy.subtitle}
-              className="mt-6 max-w-xl text-lg font-semibold leading-snug text-foreground md:text-xl"
-            />
+            <p className="mt-6 max-w-2xl text-lg font-bold leading-tight text-foreground md:text-xl tracking-tight">
+              {copy.subtitle}
+            </p>
           </Reveal>
 
           <Reveal delay={0.28} variant="up">
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted md:text-[17px]">
-              {copy.lead}
-            </p>
+            <div className="mt-4 max-w-2xl space-y-4">
+              {copy.lead.split('\n\n').filter(Boolean).map((paragraph, i) => (
+                <p key={i} className={cn(
+                  "text-base leading-relaxed md:text-[17px]",
+                  i === 1 ? "font-semibold text-foreground" : "text-muted"
+                )}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </Reveal>
 
           <Reveal delay={0.33} variant="fade">
