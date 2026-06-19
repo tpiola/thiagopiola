@@ -34,7 +34,6 @@ export function Logo({
         style={{
           height: `${height}px`,
           maxWidth: "420px",
-          mixBlendMode: "multiply",
         }}
       />
     </div>
