@@ -33,7 +33,7 @@ const KEYWORDS = [
 const EXPERIENCIA = [
   {
     empresa: "Droga Raia / RD Saúde",
-    periodo: "Atual — 15 anos de trajetória em farmácia",
+    periodo: "Atual — mais de uma década de trajetória em farmácia",
     cargo: "Farmacêutico Responsável Técnico de Filial",
     local: "Franca, SP",
     resumo: "Liderança de equipe multiprofissional, gestão de indicadores comerciais e compliance regulatório em loja referência da maior rede de farmácias do Brasil.",
@@ -126,7 +126,7 @@ export function IndustriaDossier() {
 
             <Reveal variant="fade" delay={0.18}>
               <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-muted md:text-lg">
-                <span className="text-foreground font-semibold">15 anos de execução em saúde, operação e performance no varejo farmacêutico.</span>{" "}
+                <span className="text-foreground font-semibold">Mais de uma década de execução em saúde, operação e performance no varejo farmacêutico.</span>{" "}
                 Atuação que combina profundidade técnico-científica, disciplina regulatória e domínio de campo para acelerar resultado comercial com consistência.
                 Uma trajetória orientada por indicadores, relacionamento médico e excelência de execução no PDV.
               </p>

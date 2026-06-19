@@ -5,7 +5,7 @@ import { IndustriaDossier } from "./IndustriaDossier";
 export const metadata: Metadata = {
   title: "Thiago Piola — Farmacêutico Executivo | Performance Comercial na Indústria Farmacêutica",
   description:
-    "Farmacêutico CRF/SP 58.519 com 15 anos de execução em operação farmacêutica, liderança de times, relacionamento com prescritores, compliance ANVISA e inteligência comercial orientada por dados.",
+    "Farmacêutico CRF/SP 58.519 com mais de uma década de execução em operação farmacêutica, liderança de times, relacionamento com prescritores, compliance ANVISA e inteligência comercial orientada por dados.",
   keywords: [
     "farmacêutico indústria Franca SP",
     "vendas consultivas farmacêuticas",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "gestão de território farmacêutico",
     "business acumen farmacêutico",
     "farmacêutico IA aplicada",
-    "farmacêutico 15 anos experiência",
+    "farmacêutico mais de uma década experiência",
     "farmacêutico Franca SP CRF",
     "liderança comercial farma",
     "sell out farmacêutico",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Thiago Piola — Perfil Executivo para Indústria Farmacêutica | CRF/SP 58.519",
     description:
-      "15 anos de experiência do hospital ao varejo farmacêutico, com foco em execução comercial, relacionamento médico, liderança de equipes e rigor regulatório.",
+      "Mais de uma década de experiência do hospital ao varejo farmacêutico, com foco em execução comercial, relacionamento médico, liderança de equipes e rigor regulatório.",
     url: `${site.url}/industria`,
     locale: "pt_BR",
     type: "profile",

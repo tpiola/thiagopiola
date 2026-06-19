@@ -75,7 +75,6 @@ export function Header() {
             whileTap={reduce ? undefined : { scale: 0.98 }}
             onClick={() => trackCta("cta_whatsapp_click")}>
             <Zap className="h-3.5 w-3.5" />
-            Quero resultado
           </motion.a>
           <button type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
@@ -131,12 +130,12 @@ export function Header() {
 
             {/* CTA principal mobile */}
             <motion.a
-              href={site.whatsapp}
+              href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-10 py-4 text-lg font-bold text-white shadow-lg shadow-[var(--brand)]/30"
               onClick={() => {
-                trackCta("cta_whatsapp_click");
+                trackCta("cta_linkedin_click");
                 closeMenu();
               }}
               initial={reduce ? undefined : { opacity: 0, y: 20 }}
@@ -144,8 +143,8 @@ export function Header() {
               exit={reduce ? undefined : { opacity: 0, y: -10 }}
               transition={{ delay: reduce ? 0 : 0.3, duration: 0.3 }}
             >
-              <Zap className="h-5 w-5" />
-              Quero resultado agora
+              <LinkedinIcon className="h-5 w-5" />
+              Ver perfil no LinkedIn
             </motion.a>
 
             {/* Micro-copy de confiança no mobile */}

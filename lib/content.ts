@@ -30,7 +30,7 @@ export const site = {
 } as const;
 
 export const footerTagline =
-  "Farmacêutico CRF/SP 58.519 · 15 anos conectando ciência, execução comercial e performance em operação farmacêutica.";
+  "Farmacêutico CRF/SP 58.519 · Mais de uma década conectando ciência, execução comercial e performance em operação farmacêutica.";
 
 export const socialLinks = [
   { href: "https://github.com/tpiola", label: "GitHub" },
@@ -63,34 +63,48 @@ export const nav = [
    dor → desejo → ação
    ═══════════════════════════════════════════ */
 export const hero = {
-  titleLine1: "Você precisa de um",
-  titleLine2: "Farmacêutico Executivo",
-  subtitleBefore: "15 anos de estrada.",
-  subtitleAfter: "Resultado que se vê no sell-out.",
-  lead: "Enquanto você lê isto, sua operação está perdendo receita que um profissional certo poderia recuperar em semanas. Não é sobre currículo bonito. É sobre execução que converte. Sou o farmacêutico que enxerga o que ninguém vê — e transforma em resultado no PDV.",
-  ctaWhatsapp: "Falar com Thiago",
+  tagline: "Farmácia, campo e tecnologia aplicados à evolução da saúde.",
+  description:
+    "Sou farmacêutico CRF/SP 58.519, com trajetória em operação farmacêutica, atendimento, treinamento, indicadores e uso prático de inteligência artificial para produtividade.",
+  titleLine1: "Farmácia, campo e tecnologia",
+  titleLine2: "na evolução da saúde.",
+  subtitleBefore: "Vivência prática em saúde",
+  subtitleAfter: "com visão de campo, dados e melhoria contínua.",
+  lead:
+    "Sou farmacêutico CRF/SP 58.519, com trajetória em operação farmacêutica, atendimento, treinamento, indicadores e uso prático de inteligência artificial para produtividade.",
+  ctaWhatsapp: "",
   ctaEmail: "E-mail",
-  ctaLinkedin: "LinkedIn",
+  ctaLinkedin: "Ver perfil no LinkedIn",
   ctaIndustria: "Dossiê Executivo →",
+  whatsappLabel: "",
+  ctaPrincipal: "Ver perfil no LinkedIn",
+  ctaSecundario: "Abrir trajetória profissional",
   microCta: "Resposta em até 2 horas · Sem jogada de vendas",
 } as const;
 
 export const heroEn = {
-  titleLine1: "You need a",
-  titleLine2: "Pharmaceutical Executive",
-  subtitleBefore: "15 years in the field.",
-  subtitleAfter: "Results you can measure at POS.",
-  lead: "While you read this, your operation is losing revenue that the right professional could recover in weeks. This isn't about a pretty resume. It's about execution that converts. I'm the pharmacist who sees what no one else sees — and turns it into results at the point of sale.",
-  ctaWhatsapp: "Talk to Thiago",
+  tagline: "Pharmacy, field, and technology applied to healthcare evolution.",
+  description:
+    "I am a pharmacist CRF/SP 58.519 with a background in pharmaceutical operations, customer service, training, KPIs, and practical use of artificial intelligence for productivity.",
+  titleLine1: "Pharmacy, field, and technology",
+  titleLine2: "in healthcare evolution.",
+  subtitleBefore: "Practical healthcare experience",
+  subtitleAfter: "with field insight, data, and continuous improvement.",
+  lead:
+    "I am a pharmacist CRF/SP 58.519 with a background in pharmaceutical operations, customer service, training, KPIs, and practical use of artificial intelligence for productivity.",
+  ctaWhatsapp: "",
   ctaEmail: "Email",
-  ctaLinkedin: "LinkedIn",
+  ctaLinkedin: "View LinkedIn profile",
   ctaIndustria: "Executive Dossier →",
+  whatsappLabel: "",
+  ctaPrincipal: "View LinkedIn profile",
+  ctaSecundario: "Open career journey",
   microCta: "Response within 2 hours · No sales pitch",
 } as const;
 
 export const provasEntrega = [
   { value: "1/14.000", label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional em operação farmacêutica — top 0.007%" },
-  { value: "15", label: "Anos em campo", detail: "Execução técnica, comercial e regulatória ininterrupta" },
+  { value: "10+", label: "Mais de uma década em grande rede", detail: "Execução técnica, comercial e regulatória ininterrupta" },
   { value: "360°", label: "Visão de operação", detail: "Da farmácia clínica ao sell-out no PDV" },
   { value: "Ativa", label: "Plataforma Rei das Vendas", detail: "Método comercial proprietário aplicado ao setor farma" },
 ] as const;
@@ -128,3 +142,27 @@ export const trajetoria = {
     { course: "Farmácia — UNIFRAN", status: "Concluído" },
   ],
 } as const;
+
+/* ─── Novas strings do Prompt Gabaritado ─── */
+
+export const sectionParaRecrutadores =
+  "O que minha trajetória entrega";
+
+export const trajetoriaCards = [
+  "Comunicação técnica com clareza",
+  "Vivência de campo",
+  "Disciplina regulatória",
+  "Treinamento e desenvolvimento",
+  "Indicadores e leitura operacional",
+  "Tecnologia aplicada à produtividade",
+] as const;
+
+export const secaoIndustria =
+  "Um perfil preparado para ambientes onde saúde, campo e relacionamento se encontram.";
+
+export const industriaCards = [
+  { titulo: "Campo", desc: "Leitura prática de rotina, necessidades reais e comportamento de canal." },
+  { titulo: "Regulatório", desc: "Disciplina documental, compliance ANVISA e boas práticas de dispensação." },
+  { titulo: "Tecnologia", desc: "Automação de processos, agentes de IA e indicadores operacionais." },
+  { titulo: "Treinamento", desc: "Desenvolvimento de equipes com método comercial e comunicação clara." },
+] as const;
