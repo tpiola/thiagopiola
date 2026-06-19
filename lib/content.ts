@@ -107,13 +107,11 @@ export const provasEntrega = [
   { value: "10+", label: "Anos em operação farmacêutica", detail: "Grande rede — RT, treinamento, compliance ANVISA e execução comercial" },
   { value: "360°", label: "Visão integrada do negócio", detail: "Farmácia clínica ao sell-out no PDV — técnica, regulatória e comercial" },
   { value: "Ativa", label: "Plataforma Rei das Vendas", detail: "Treinamento comercial proprietário aplicado ao setor farmacêutico" },
-  { value: "1/14.000", label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional entre 14 mil farmacêuticos da Droga Raia" },
 ] as const;
 
 export const trustBar = [
   { label: "CRF/SP 58.519", detail: "Registro ativo e verificável — consulte no site do Conselho", href: "https://www.crfsp.org.br" },
   { label: "MBA + Pós em Engenharia de IA + GEAR/Google", detail: "Formação multidisciplinar: gestão, tecnologia e inteligência artificial", href: "https://me.developers.google.com/u/105476544026751993130" },
-  { label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional — entre 14 mil profissionais", href: undefined },
 ] as const;
 
 export const projetos = {
@@ -130,7 +128,7 @@ export const trajetoria = {
   title: "Trajetória",
   lead: "Experiência verificável em ambientes de alta exigência. Resultado, segurança regulatória e crescimento sustentável.",
   career: [
-    { company: "Droga Raia (RD Saúde) — Filial Franca, SP", period: "Atual", role: "Farmacêutico RT de Filial", desc: "Responsável Técnico — vendas, treinamento, compliance ANVISA e gestão de equipe", impacts: ["Farmacêutico Notável RD Saúde 2025 — reconhecimento nacional", "Treinamento de equipe com compliance CRF/SP e foco em resultado comercial"] },
+    { company: "Droga Raia (RD Saúde) — Filial Franca, SP", period: "Atual", role: "Farmacêutico RT de Filial", desc: "Responsável Técnico — vendas, treinamento, compliance ANVISA e gestão de equipe", impacts: ["Treinamento de equipe com compliance CRF/SP e foco em resultado comercial"] },
     { company: "Drogaria Americana", period: "2013–2014", role: "Farmacêutico RT", desc: "Operação, atendimento e gestão de rotina técnica", impacts: ["Gestão de rotina técnica e indicadores operacionais", "Atendimento e dispensação com conformidade regulatória"] },
     { company: "Farma Cruz", period: "2012–2013", role: "Farmacêutico RT", desc: "Compliance documental e rotina técnica", impacts: ["Controle documental e conformidade ANVISA", "Padronização de processos de dispensação"] },
     { company: "Hospital Unimed", period: "2008–2011", role: "Aux. de Farmácia", desc: "Farmácia hospitalar — logística e suporte clínico", impacts: ["Suporte à farmácia clínica", "Logística de estoque crítico e rastreabilidade"] },

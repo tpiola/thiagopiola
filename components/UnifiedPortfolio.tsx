@@ -1,18 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { 
-  ShieldCheck, 
-  TrendingUp, 
   MessageCircle, 
   FileText, 
   ArrowUpRight, 
-  Zap, 
-  History, 
-  Layers, 
-  Cpu, 
   Microscope,
-  Star,
   Download
 } from "lucide-react";
 import { LinkedinIcon } from "@/components/SocialIcons";
@@ -25,8 +17,7 @@ import { ProvasEntrega } from "@/components/ProvasEntrega";
 import { Projetos } from "@/components/Projetos";
 import { PageShell } from "@/components/motion/PageShell";
 import { Reveal } from "@/components/motion/Reveal";
-import { site, hero, trajetoria, projetos } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { site, projetos } from "@/lib/content";
 import { FloatingCta } from "./FloatingCta";
 
 export function UnifiedPortfolio() {
@@ -38,36 +29,7 @@ export function UnifiedPortfolio() {
         {/* 1. HERO DE ELITE (UNIFICADO) */}
         <Hero sectionType="unified" />
 
-        {/* 2. HIRING INSIGHTS BAR (MÉTRICAS PREMIUM) */}
-        <section className="relative z-10 -mt-8 px-5 md:px-8">
-          <div className="mx-auto max-w-5xl rounded-2xl border border-border bg-surface-elevated/80 backdrop-blur-xl p-6 shadow-strong">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:divide-x md:divide-border/50">
-              <div className="flex flex-col items-center text-center md:px-4">
-                <div className="mb-2 p-2 rounded-lg bg-[var(--brand)]/5 text-[var(--brand)]">
-                  <Star className="h-5 w-5 fill-current" />
-                </div>
-                <span className="text-sm font-bold text-foreground">Top 1% Skills Verified</span>
-                <span className="text-xs text-muted">Inteligência Comercial & Farma</span>
-              </div>
-              <div className="flex flex-col items-center text-center md:px-4">
-                <div className="mb-2 p-2 rounded-lg bg-[var(--brand)]/5 text-[var(--brand)]">
-                  <ShieldCheck className="h-5 w-5" />
-                </div>
-                <span className="text-sm font-bold text-foreground">Perfil Verificado 2026</span>
-                <span className="text-xs text-muted">CRF/SP Ativo & Compliance Total</span>
-              </div>
-              <div className="flex flex-col items-center text-center md:px-4">
-                <div className="mb-2 p-2 rounded-lg bg-[var(--brand)]/5 text-[var(--brand)]">
-                  <Cpu className="h-5 w-5" />
-                </div>
-                <span className="text-sm font-bold text-foreground">AI Engineering Native</span>
-                <span className="text-xs text-muted">Agentes & Orquestração LLM</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. PROVAS DE ENTREGA (AUTORIDADE RÁPIDA) */}
+        {/* 2. PROVAS DE ENTREGA (AUTORIDADE RÁPIDA) */}
         <ProvasEntrega />
 
         {/* 4. TESE DE CAMPO (THE JUDGMENT LAYER) */}
@@ -88,7 +50,7 @@ export function UnifiedPortfolio() {
                 </h2>
                 
                 <p className="mt-8 text-muted leading-relaxed max-w-2xl mx-auto">
-                  Minha abordagem une a precisão de dados da Engenharia de IA com a intuição científica de 15 anos em campo. Eu elimino o ponto cego entre a diretriz da diretoria e o resultado no faturamento da filial.
+                  Minha abordagem une a precisão de dados da Engenharia de IA com a intuição científica de anos em campo. Eu elimino o ponto cego entre a diretriz da diretoria e o resultado no faturamento da filial.
                 </p>
               </div>
             </Reveal>

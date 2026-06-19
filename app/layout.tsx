@@ -36,7 +36,6 @@ export const metadata: Metadata = {
   keywords: [
     "Thiago Piola",
     "farmacêutico CRF SP",
-    "Farmacêutico Notável RD Saúde 2025",
     "indústria farmacêutica",
     "recrutamento indústria farma",
     "executivo farmacêutico",
