@@ -5,7 +5,7 @@ import { useReducedMotion, motion } from "framer-motion";
 import { duration, easeLuxury } from "@/lib/motion";
 import { site } from "@/lib/content";
 
-const PROFILE_SRC = "/images/profile.webp";
+const PROFILE_SRC = "/images/profile.jpg";
 
 type ProfilePortraitProps = {
   className?: string;
