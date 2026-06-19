@@ -15,7 +15,7 @@ import {
   Star,
   Download
 } from "lucide-react";
-import { LinkedinIcon } from "@/components/icons/LinkedinIcon";
+import { LinkedinIcon } from "@/components/SocialIcons";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
