@@ -41,6 +41,25 @@ npm run lint
 npx prettier -w .
 ```
 
+## OpenCode (uso seguro)
+
+Se precisar usar o OpenCode neste projeto, faça a instalação **fora do repositório**:
+
+```bash
+curl -fsSL https://opencode.ai/install | bash
+# ou
+npm install -g opencode-ai
+```
+
+Não salve chaves de API no código, em arquivos versionados ou na documentação. Configure a credencial no seu shell antes de executar o OpenCode:
+
+```bash
+export OPENAI_API_KEY="sua-chave-aqui"
+opencode
+```
+
+Alternativamente, use `opencode auth login` para armazenar a credencial no diretório do usuário, fora deste repositório.
+
 ## Estrutura
 
 ```
