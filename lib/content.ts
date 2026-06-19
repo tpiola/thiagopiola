@@ -66,13 +66,13 @@ export const nav = [
 export const hero = {
   tagline: "Farmacêutico CRF/SP 58.519 · Operação, tecnologia e execução comercial",
   description:
-    "Mais de uma década em operação farmacêutica combinando execução técnica, visão de negócio, inteligência artificial e automação.",
+    "Farmacêutico CRF/SP 58.519 — mais de uma década em operação na maior rede de farmácias do Brasil, combinando técnica, negócio e tecnologia.",
   titleLine1: "Thiago Biasoli Garcia Piola",
-  titleLine2: "Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução comercial em saúde",
-  subtitleBefore: "Mais de uma década em operação farmacêutica",
-  subtitleAfter: "Execução técnica, comercial e regulatória com tecnologia aplicada.",
+  titleLine2: "Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução em saúde",
+  subtitleBefore: "Mais de uma década na maior rede do Brasil",
+  subtitleAfter: "Técnica, comercial e regulatória com tecnologia",
   lead:
-    "Farmacêutico CRF/SP 58.519 com mais de uma década em operação na maior rede de farmácias do Brasil. Experiência em execução comercial, treinamento de equipes, compliance ANVISA, regulatório, automação de processos e inteligência artificial aplicada à saúde.",
+    "Farmacêutico CRF/SP 58.519 — operação, treinamento, compliance ANVISA e IA aplicada à saúde.",
   ctaWhatsapp: "",
   ctaEmail: "E-mail",
   ctaLinkedin: "Ver perfil no LinkedIn",
@@ -86,13 +86,13 @@ export const hero = {
 export const heroEn = {
   tagline: "Pharmacist CRF/SP 58.519 · Operations, technology and commercial execution",
   description:
-    "Over a decade in pharmaceutical operations combining technical execution, business vision, artificial intelligence and automation.",
+    "Pharmacist CRF/SP 58.519 — over a decade at Brazil's largest pharmacy chain, combining technical, business and technology.",
   titleLine1: "Thiago Biasoli Garcia Piola",
-  titleLine2: "Pharmacist · CRF/SP 58.519 · Operations, technology and commercial execution in healthcare",
-  subtitleBefore: "Over a decade in pharmaceutical operations",
-  subtitleAfter: "Technical, commercial, and regulatory execution with applied technology.",
+  titleLine2: "Pharmacist · CRF/SP 58.519 · Operations, technology and execution in healthcare",
+  subtitleBefore: "Over a decade at Brazil's largest chain",
+  subtitleAfter: "Technical, commercial and regulatory with technology",
   lead:
-    "Pharmacist CRF/SP 58.519 with over a decade of operations at Brazil's largest pharmacy chain. Experience in commercial execution, team training, ANVISA compliance, regulatory affairs, process automation and artificial intelligence applied to healthcare.",
+    "Pharmacist CRF/SP 58.519 — operations, training, ANVISA compliance and AI applied to healthcare.",
   ctaWhatsapp: "",
   ctaEmail: "Email",
   ctaLinkedin: "View LinkedIn profile",

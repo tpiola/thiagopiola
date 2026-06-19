@@ -48,7 +48,7 @@ export function Logo({
   }
 
   return (
-    <span className={cn("inline-flex items-center gap-3", className)}>
+    <span className={cn("inline-flex items-center gap-1.5", className)}>
       {logoImage}
       {showCredential && (
         <span className="flex min-w-0 flex-col leading-tight">

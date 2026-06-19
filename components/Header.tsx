@@ -45,7 +45,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-full max-h-24 min-h-[80px] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link href="/" aria-label={`${site.shortName} — início`} className="shrink-0">
-          <Logo variant="full" showCredential height={scrolled ? 90 : 120} className="hover:scale-105 transition-transform" />
+          <Logo variant="full" showCredential height={scrolled ? 110 : 150} className="hover:scale-105 transition-transform" />
         </Link>
 
         {/* Navegação Desktop */}
