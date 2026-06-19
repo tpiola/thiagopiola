@@ -116,7 +116,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               animate={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 0.15, duration: duration.slow, ease: easeLuxury }}
             >
-              Farmácia, campo e tecnologia
+              Thiago Biasoli Garcia Piola
             </motion.span>
             <motion.span
               className="block text-gradient-brand"
@@ -124,7 +124,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               animate={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 0.25, duration: duration.slow, ease: easeLuxury }}
             >
-              aplicados à evolução da saúde.
+              Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução comercial em saúde
             </motion.span>
           </motion.h1>
 
