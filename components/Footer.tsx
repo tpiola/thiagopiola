@@ -60,7 +60,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Brand column */}
           <div className="lg:col-span-5">
-            <Logo variant="full" showCredential height={100} />
+            <Logo variant="full" showCredential height={140} />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted">{footerTagline}</p>
             <SocialLinksGrouped className="mt-8" />
 

@@ -20,7 +20,7 @@ export function Logo({
   iconClassName,
   variant = "icon",
   showCredential = false,
-  height = 88,
+  height = 110,
 }: LogoProps) {
   const logoImage = (
     <div className="relative flex items-center justify-center">
@@ -33,8 +33,8 @@ export function Logo({
         )}
         style={{
           height: `${height}px`,
-          maxWidth: "320px",
-          filter: "drop-shadow(0 2px 12px rgba(var(--brand-rgb, 30 58 138) / 0.2))",
+          maxWidth: "420px",
+          mixBlendMode: "multiply",
         }}
       />
     </div>
