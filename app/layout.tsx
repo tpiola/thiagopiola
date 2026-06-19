@@ -21,13 +21,13 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Farmacêutico Notável RD Saúde 2025 — reconhecimento nacional entre 14 mil profissionais. Perfil com mais de uma década em operação farmacêutica, combinando execução técnica, visão de negócio, IA e automação. Preparado para a indústria farmacêutica.";
+  "Farmacêutico CRF/SP 58.519 com mais de uma década em operação farmacêutica na maior rede de farmácias do Brasil. Execução técnica, visão de negócio, inteligência artificial e automação aplicadas à saúde.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Thiago Piola | Farmacêutico Notável RD Saúde 2025 — Indústria Farmacêutica, IA e Automação",
-    template: "%s | Thiago Piola — Farmacêutico Notável RD Saúde 2025",
+    default: "Thiago Piola | Farmacêutico CRF/SP 58.519 — Operação, Tecnologia e Saúde",
+    template: "%s | Thiago Piola — Farmacêutico CRF/SP 58.519",
   },
   description,
   authors: [{ name: "Thiago Biasoli Garcia Piola", url: site.url }],
@@ -87,8 +87,8 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "pt_BR",
     url: site.url,
-    siteName: "Thiago Piola — Farmacêutico Notável RD Saúde 2025",
-    title: "Thiago Piola | Farmacêutico Notável RD Saúde 2025 — Indústria Farmacêutica, IA e Automação",
+    siteName: "Thiago Piola — Farmacêutico CRF/SP 58.519",
+    title: "Thiago Piola | Farmacêutico CRF/SP 58.519 — Operação, Tecnologia e Saúde",
     description,
     countryName: "Brasil",
     firstName: "Thiago",
@@ -100,14 +100,14 @@ export const metadata: Metadata = {
         url: "/images/og-card.webp",
         width: 1200,
         height: 630,
-        alt: "Thiago Piola — Farmacêutico Notável RD Saúde 2025 — Indústria Farmacêutica, IA e Automação",
+        alt: "Thiago Piola — Farmacêutico CRF/SP 58.519 — Operação, Tecnologia e Saúde",
         type: "image/webp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thiago Piola | Farmacêutico Notável RD Saúde 2025 — Indústria Farmacêutica, IA e Automação",
+    title: "Thiago Piola | Farmacêutico CRF/SP 58.519 — Operação, Tecnologia e Saúde",
     description,
     creator: "@ThiagoPiola07",
     images: ["/images/og-card.webp"],

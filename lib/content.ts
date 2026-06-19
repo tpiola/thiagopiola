@@ -23,7 +23,7 @@ export const site = {
   cvUrl: "https://thiagopiola.notion.site/",
   cvLabel: "Ver Currículo",
   description:
-    "Farmacêutico Notável RD Saúde 2025 — reconhecimento nacional entre 14 mil profissionais. Mais de uma década em operação farmacêutica, combinando execução técnica, visão de negócio, IA e automação.",
+    "Farmacêutico CRF/SP 58.519 com mais de uma década em operação farmacêutica na maior rede de farmácias do Brasil. Execução técnica, visão de negócio, inteligência artificial e automação.",
   url: "https://www.thiagopiola.com.br",
   reidasvendas: "https://www.reidasvendas.com.br",
   industriaUrl: "https://www.thiagopiola.com.br/industria",
@@ -32,7 +32,7 @@ export const site = {
 } as const;
 
 export const footerTagline =
-  "Farmacêutico Notável RD Saúde 2025. Reconhecimento nacional entre 14 mil profissionais da Droga Raia. CRF/SP 58.519 · Franca, SP.";
+  "Farmacêutico CRF/SP 58.519 — Operação, tecnologia e execução comercial em saúde.";
 
 export const socialLinks = [
   { href: "https://github.com/tpiola", label: "GitHub" },
@@ -64,15 +64,15 @@ export const nav = [
    Tom: direto, factual, baseado em reconhecimento real
    ═══════════════════════════════════════════ */
 export const hero = {
-  tagline: "Farmacêutico Notável RD Saúde 2025. 1 entre 14.000.",
+  tagline: "Farmacêutico CRF/SP 58.519 · Operação, tecnologia e execução comercial",
   description:
-    "Mais de uma década transformando operação farmacêutica em resultado. Da linha de frente da drogaria para a indústria — com IA, automação e visão de negócio.",
+    "Mais de uma década em operação farmacêutica combinando execução técnica, visão de negócio, inteligência artificial e automação.",
   titleLine1: "Thiago Biasoli Garcia Piola",
-  titleLine2: "Farmacêutico Notável RD Saúde 2025. Reconhecimento nacional entre 14 mil profissionais.",
+  titleLine2: "Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução comercial em saúde",
   subtitleBefore: "Mais de uma década em operação farmacêutica",
   subtitleAfter: "Execução técnica, comercial e regulatória com tecnologia aplicada.",
   lead:
-    "Farmacêutico Notável RD Saúde 2025 — reconhecimento nacional entre 14 mil profissionais. Mais de uma década em operação farmacêutica, combinando execução técnica, visão de negócio, IA e automação.",
+    "Farmacêutico CRF/SP 58.519 com mais de uma década em operação na maior rede de farmácias do Brasil. Experiência em execução comercial, treinamento de equipes, compliance ANVISA, regulatório, automação de processos e inteligência artificial aplicada à saúde.",
   ctaWhatsapp: "",
   ctaEmail: "E-mail",
   ctaLinkedin: "Ver perfil no LinkedIn",
@@ -80,19 +80,19 @@ export const hero = {
   whatsappLabel: "",
   ctaPrincipal: "Ver perfil no LinkedIn",
   ctaSecundario: "Ver trajetória profissional",
-  microCta: "Perfil verificado · CRF/SP 58.519 · Contato direto",
+  microCta: "CRF/SP 58.519 · Perfil verificado · Contato direto",
 } as const;
 
 export const heroEn = {
-  tagline: "Distinguished Pharmacist RD Saúde 2025. 1 in 14,000.",
+  tagline: "Pharmacist CRF/SP 58.519 · Operations, technology and commercial execution",
   description:
-    "Over a decade transforming pharmaceutical operations into results. From the retail pharmacy frontline to the industry — with AI, automation, and business vision.",
+    "Over a decade in pharmaceutical operations combining technical execution, business vision, artificial intelligence and automation.",
   titleLine1: "Thiago Biasoli Garcia Piola",
-  titleLine2: "Distinguished Pharmacist RD Saúde 2025. National recognition among 14,000 professionals.",
+  titleLine2: "Pharmacist · CRF/SP 58.519 · Operations, technology and commercial execution in healthcare",
   subtitleBefore: "Over a decade in pharmaceutical operations",
   subtitleAfter: "Technical, commercial, and regulatory execution with applied technology.",
   lead:
-    "Distinguished Pharmacist RD Saúde 2025 — national recognition among 14,000 professionals. Over a decade in pharmaceutical operations, combining technical execution, business vision, AI and automation.",
+    "Pharmacist CRF/SP 58.519 with over a decade of operations at Brazil's largest pharmacy chain. Experience in commercial execution, team training, ANVISA compliance, regulatory affairs, process automation and artificial intelligence applied to healthcare.",
   ctaWhatsapp: "",
   ctaEmail: "Email",
   ctaLinkedin: "View LinkedIn profile",
@@ -100,7 +100,7 @@ export const heroEn = {
   whatsappLabel: "",
   ctaPrincipal: "View LinkedIn profile",
   ctaSecundario: "View career journey",
-  microCta: "Verified profile · CRF/SP 58.519 · Direct contact",
+  microCta: "CRF/SP 58.519 · Verified profile · Direct contact",
 } as const;
 
 export const provasEntrega = [
