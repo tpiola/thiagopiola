@@ -19,13 +19,13 @@ interface HeroProps {
   sectionType?: "default" | "unified";
 }
 
-/* ─── Palavras que alternam (tipo máquina de escrever hipnótica) ─── */
+/* ─── Palavras que alternam (resultados, não motivação) ─── */
 const rotatingWords = [
-  "Crescer",
-  "Vender Mais",
-  "Reduzir Perdas",
-  "Escalar Resultados",
-  "Superar Metas",
+  "Resultado",
+  "Performance",
+  "Eficiência",
+  "Escala",
+  "Inovação",
 ];
 
 /** Partículas CSS animadas (perfomáticas, sem canvas em mobile) */

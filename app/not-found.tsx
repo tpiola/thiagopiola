@@ -10,7 +10,7 @@ export default function NotFound() {
       <div className="relative z-10 flex flex-col items-center gap-8">
         {/* Logo */}
         <div className="mb-2 opacity-60">
-          <Logo variant="icon" iconClassName="h-16 w-16" />
+          <Logo variant="icon" height={64} />
         </div>
 
         {/* Error code */}

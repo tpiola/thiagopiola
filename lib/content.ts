@@ -1,6 +1,6 @@
 /** Conteúdo centralizado — thiagopiola.com.br
- *  Copy com PNL, hipnose, autoridade e gatilhos de conversão.
- *  Tom: mestre respeitado, não vendedor.
+ *  Copy profissional voltada para recrutadores da indústria farmacêutica.
+ *  Tom: factual, direto, baseado em resultados e competências verificáveis.
  */
 
 const whatsappText = encodeURIComponent(
@@ -22,6 +22,8 @@ export const site = {
   crfConsultaUrl: "https://www.crfsp.org.br",
   cvUrl: "https://thiagopiola.notion.site/",
   cvLabel: "Ver Currículo",
+  description:
+    "Farmacêutico Notável RD Saúde 2025 — reconhecimento nacional entre 14 mil profissionais. Mais de uma década em operação farmacêutica, combinando execução técnica, visão de negócio, IA e automação.",
   url: "https://www.thiagopiola.com.br",
   reidasvendas: "https://www.reidasvendas.com.br",
   industriaUrl: "https://www.thiagopiola.com.br/industria",
@@ -30,7 +32,7 @@ export const site = {
 } as const;
 
 export const footerTagline =
-  "Farmacêutico CRF/SP 58.519 · Mais de uma década conectando ciência, execução comercial e performance em operação farmacêutica.";
+  "Farmacêutico Notável RD Saúde 2025. Reconhecimento nacional entre 14 mil profissionais da Droga Raia. CRF/SP 58.519 · Franca, SP.";
 
 export const socialLinks = [
   { href: "https://github.com/tpiola", label: "GitHub" },
@@ -58,81 +60,80 @@ export const nav = [
 ] as const;
 
 /* ═══════════════════════════════════════════
-   HERO COPY — PNL & Hipnose
-   Gatilhos: autoridade, escassez, prova social,
-   dor → desejo → ação
+   HERO — Posicionamento para recrutadores
+   Tom: direto, factual, baseado em reconhecimento real
    ═══════════════════════════════════════════ */
 export const hero = {
-  tagline: "Farmácia, campo e tecnologia aplicados à evolução da saúde.",
+  tagline: "Farmacêutico Notável RD Saúde 2025. 1 entre 14.000.",
   description:
-    "Sou farmacêutico CRF/SP 58.519, com trajetória em operação farmacêutica, atendimento, treinamento, indicadores e uso prático de inteligência artificial para produtividade.",
-  titleLine1: "Farmácia, campo e tecnologia",
-  titleLine2: "na evolução da saúde.",
-  subtitleBefore: "Vivência prática em saúde",
-  subtitleAfter: "com visão de campo, dados e melhoria contínua.",
+    "Mais de uma década transformando operação farmacêutica em resultado. Da linha de frente da drogaria para a indústria — com IA, automação e visão de negócio.",
+  titleLine1: "Thiago Biasoli Garcia Piola",
+  titleLine2: "Farmacêutico Notável RD Saúde 2025. Reconhecimento nacional entre 14 mil profissionais.",
+  subtitleBefore: "Mais de uma década em operação farmacêutica",
+  subtitleAfter: "Execução técnica, comercial e regulatória com tecnologia aplicada.",
   lead:
-    "Sou farmacêutico CRF/SP 58.519, com trajetória em operação farmacêutica, atendimento, treinamento, indicadores e uso prático de inteligência artificial para produtividade.",
+    "Farmacêutico Notável RD Saúde 2025 — reconhecimento nacional entre 14 mil profissionais. Mais de uma década em operação farmacêutica, combinando execução técnica, visão de negócio, IA e automação.",
   ctaWhatsapp: "",
   ctaEmail: "E-mail",
   ctaLinkedin: "Ver perfil no LinkedIn",
   ctaIndustria: "Dossiê Executivo →",
   whatsappLabel: "",
   ctaPrincipal: "Ver perfil no LinkedIn",
-  ctaSecundario: "Abrir trajetória profissional",
-  microCta: "Resposta em até 2 horas · Sem jogada de vendas",
+  ctaSecundario: "Ver trajetória profissional",
+  microCta: "Perfil verificado · CRF/SP 58.519 · Contato direto",
 } as const;
 
 export const heroEn = {
-  tagline: "Pharmacy, field, and technology applied to healthcare evolution.",
+  tagline: "Distinguished Pharmacist RD Saúde 2025. 1 in 14,000.",
   description:
-    "I am a pharmacist CRF/SP 58.519 with a background in pharmaceutical operations, customer service, training, KPIs, and practical use of artificial intelligence for productivity.",
-  titleLine1: "Pharmacy, field, and technology",
-  titleLine2: "in healthcare evolution.",
-  subtitleBefore: "Practical healthcare experience",
-  subtitleAfter: "with field insight, data, and continuous improvement.",
+    "Over a decade transforming pharmaceutical operations into results. From the retail pharmacy frontline to the industry — with AI, automation, and business vision.",
+  titleLine1: "Thiago Biasoli Garcia Piola",
+  titleLine2: "Distinguished Pharmacist RD Saúde 2025. National recognition among 14,000 professionals.",
+  subtitleBefore: "Over a decade in pharmaceutical operations",
+  subtitleAfter: "Technical, commercial, and regulatory execution with applied technology.",
   lead:
-    "I am a pharmacist CRF/SP 58.519 with a background in pharmaceutical operations, customer service, training, KPIs, and practical use of artificial intelligence for productivity.",
+    "Distinguished Pharmacist RD Saúde 2025 — national recognition among 14,000 professionals. Over a decade in pharmaceutical operations, combining technical execution, business vision, AI and automation.",
   ctaWhatsapp: "",
   ctaEmail: "Email",
   ctaLinkedin: "View LinkedIn profile",
   ctaIndustria: "Executive Dossier →",
   whatsappLabel: "",
   ctaPrincipal: "View LinkedIn profile",
-  ctaSecundario: "Open career journey",
-  microCta: "Response within 2 hours · No sales pitch",
+  ctaSecundario: "View career journey",
+  microCta: "Verified profile · CRF/SP 58.519 · Direct contact",
 } as const;
 
 export const provasEntrega = [
-  { value: "1/14.000", label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional em operação farmacêutica — top 0.007%" },
-  { value: "10+", label: "Mais de uma década em grande rede", detail: "Execução técnica, comercial e regulatória ininterrupta" },
-  { value: "360°", label: "Visão de operação", detail: "Da farmácia clínica ao sell-out no PDV" },
-  { value: "Ativa", label: "Plataforma Rei das Vendas", detail: "Método comercial proprietário aplicado ao setor farma" },
+  { value: "1/14.000", label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional — top 0,007% entre 14 mil farmacêuticos da Droga Raia" },
+  { value: "10+", label: "Anos em operação farmacêutica", detail: "Grande rede — RT, treinamento, compliance ANVISA e execução comercial" },
+  { value: "360°", label: "Visão integrada do negócio", detail: "Farmácia clínica ao sell-out no PDV — técnica, regulatória e comercial" },
+  { value: "Ativa", label: "Plataforma Rei das Vendas", detail: "Treinamento comercial proprietário aplicado ao setor farmacêutico" },
 ] as const;
 
 export const trustBar = [
-  { label: "CRF/SP 58.519", detail: "Registro ativo e verificável — consulte", href: "https://www.crfsp.org.br" },
-  { label: "RD Saúde — operação de alta escala", detail: "Liderança técnica e comercial em loja referência", href: undefined },
-  { label: "Pós IA + Google GEAR", detail: "Modelagem de decisão e produtividade comercial", href: "https://me.developers.google.com/u/105476544026751993130" },
+  { label: "CRF/SP 58.519", detail: "Registro ativo e verificável — consulte no site do Conselho", href: "https://www.crfsp.org.br" },
+  { label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional — mérito inédito em Franca/SP", href: undefined },
+  { label: "MBA + Pós em Engenharia de IA + GEAR/Google", detail: "Formação multidisciplinar: gestão, tecnologia e inteligência artificial", href: "https://me.developers.google.com/u/105476544026751993130" },
 ] as const;
 
 export const projetos = {
-  title: "Execução com método e rastreabilidade.",
-  lead: "Projetos em produção que combinam estratégia comercial, tecnologia e governança operacional.",
+  title: "Projetos em produção com impacto real.",
+  lead: "Soluções em operação que combinam estratégia comercial, tecnologia e governança operacional.",
   items: [
     { title: "Automação de qualificação B2B", problem: "Leads sem triagem consistente entre canais.", result: "Fluxos n8n + CRM com LLM — triagem automática, zero retrabalho.", stack: ["n8n", "LLM", "CRM"], href: "https://thiagopiola.notion.site/" },
-    { title: "Agentes inteligentes (GEAR/Google)", problem: "Operação repetitiva consumindo tempo de gestão.", result: "Arquitetura Sprint/Scrum — atendimento escalável.", stack: ["Google AI", "Agentes", "Scrum"], href: "https://me.developers.google.com/u/105476544026751993130" },
+    { title: "Agentes inteligentes (GEAR/Google)", problem: "Operação repetitiva consumindo tempo de gestão.", result: "Arquitetura Sprint/Scrum — atendimento escalável com IA.", stack: ["Google AI", "Agentes", "Scrum"], href: "https://me.developers.google.com/u/105476544026751993130" },
     { title: "Rei das Vendas", problem: "Equipes sem método de conversão estruturado.", result: "Plataforma de treinamento comercial para o setor farmacêutico.", stack: ["Treinamento", "Vendas", "Farmácia"], href: "https://www.reidasvendas.com.br" },
   ],
 } as const;
 
 export const trajetoria = {
   title: "Trajetória",
-  lead: "Experiência verificável em ambientes de alta exigência, com foco em resultado, segurança e crescimento sustentável.",
+  lead: "Experiência verificável em ambientes de alta exigência. Resultado, segurança regulatória e crescimento sustentável.",
   career: [
-    { company: "Droga Raia — Filial Franca, SP", period: "Atual", role: "Farmacêutico RT de Filial", desc: "RT, vendas, treinamento e gestão", impacts: ["Farmacêutico RT pela filial de Franca, SP", "Treinamento de equipe com compliance CRF/SP"] },
-    { company: "Drogaria Americana", period: "2013–2014", role: "Farmacêutico RT", desc: "Operação e atendimento", impacts: ["Gestão de rotina técnica", "Suporte a indicadores operacionais"] },
-    { company: "Farma Cruz", period: "2012–2013", role: "Farmacêutico RT", desc: "Compliance e rotina técnica", impacts: ["Controle documental e conformidade", "Padronização de dispensação"] },
-    { company: "Hospital Unimed", period: "2008–2011", role: "Aux. de Farmácia", desc: "Farmácia hospitalar", impacts: ["Suporte à farmácia clínica", "Logística de estoque crítico"] },
+    { company: "Droga Raia (RD Saúde) — Filial Franca, SP", period: "Atual", role: "Farmacêutico RT de Filial", desc: "Responsável Técnico — vendas, treinamento, compliance ANVISA e gestão de equipe", impacts: ["Farmacêutico Notável RD Saúde 2025 — reconhecimento nacional", "Treinamento de equipe com compliance CRF/SP e foco em resultado comercial"] },
+    { company: "Drogaria Americana", period: "2013–2014", role: "Farmacêutico RT", desc: "Operação, atendimento e gestão de rotina técnica", impacts: ["Gestão de rotina técnica e indicadores operacionais", "Atendimento e dispensação com conformidade regulatória"] },
+    { company: "Farma Cruz", period: "2012–2013", role: "Farmacêutico RT", desc: "Compliance documental e rotina técnica", impacts: ["Controle documental e conformidade ANVISA", "Padronização de processos de dispensação"] },
+    { company: "Hospital Unimed", period: "2008–2011", role: "Aux. de Farmácia", desc: "Farmácia hospitalar — logística e suporte clínico", impacts: ["Suporte à farmácia clínica", "Logística de estoque crítico e rastreabilidade"] },
   ],
   education: [
     { course: "Pós-graduação em Engenharia de IA", status: "Em andamento" },
@@ -143,26 +144,26 @@ export const trajetoria = {
   ],
 } as const;
 
-/* ─── Novas strings do Prompt Gabaritado ─── */
+/* ─── Seções direcionadas a recrutadores da indústria ─── */
 
 export const sectionParaRecrutadores =
-  "O que minha trajetória entrega";
+  "Competências que a indústria farmacêutica valoriza";
 
 export const trajetoriaCards = [
-  "Comunicação técnica com clareza",
-  "Vivência de campo",
-  "Disciplina regulatória",
-  "Treinamento e desenvolvimento",
-  "Indicadores e leitura operacional",
-  "Tecnologia aplicada à produtividade",
+  "Comunicação técnica com clareza — treinamento e desenvolvimento de equipes",
+  "Vivência de campo — leitura de rotina, necessidades reais e canal",
+  "Disciplina regulatória — compliance ANVISA e boas práticas de dispensação",
+  "Treinamento e desenvolvimento — método comercial proprietário aplicado",
+  "Indicadores e leitura operacional — dados para tomada de decisão",
+  "Tecnologia aplicada à produtividade — IA, n8n, automação de processos",
 ] as const;
 
 export const secaoIndustria =
-  "Um perfil preparado para ambientes onde saúde, campo e relacionamento se encontram.";
+  "Perfil preparado para a indústria farmacêutica: visão de negócio, execução em campo e tecnologia aplicada.";
 
 export const industriaCards = [
-  { titulo: "Campo", desc: "Leitura prática de rotina, necessidades reais e comportamento de canal." },
-  { titulo: "Regulatório", desc: "Disciplina documental, compliance ANVISA e boas práticas de dispensação." },
-  { titulo: "Tecnologia", desc: "Automação de processos, agentes de IA e indicadores operacionais." },
-  { titulo: "Treinamento", desc: "Desenvolvimento de equipes com método comercial e comunicação clara." },
+  { titulo: "Campo e Canal", desc: "Leitura prática de rotina de drogarias, necessidades reais de pacientes e comportamento de prescritores." },
+  { titulo: "Regulatório e Compliance", desc: "Disciplina documental, compliance ANVISA, BPF e boas práticas de dispensação — mais de uma década de atuação regulada." },
+  { titulo: "Tecnologia e Automação", desc: "Automação de processos com n8n, agentes de IA (GEAR/Google), CRM e indicadores para decisão baseada em dados." },
+  { titulo: "Treinamento e Desenvolvimento", desc: "Desenvolvimento de equipes com método comercial estruturado, comunicação clara e foco em resultado." },
 ] as const;
