@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { provasEntrega } from "@/lib/content";
+import { CountUp } from "./motion/CountUp";
 import { Reveal } from "./motion/Reveal";
 
 export function ProvasEntrega() {
@@ -30,7 +31,7 @@ export function ProvasEntrega() {
             >
               <div className="h-full rounded-2xl border border-border bg-surface p-6 md:p-7 text-center transition-all duration-300 hover:border-[var(--brand)]/25 hover:shadow-lg hover:shadow-[var(--brand)]/5">
                 <p className="text-[clamp(2.2rem,5vw,3.2rem)] font-bold leading-none tracking-tight text-foreground mb-3">
-                  {prova.value}
+                  <CountUp value={prova.value} />
                 </p>
                 <p className="text-sm font-bold text-foreground leading-snug mb-1.5">
                   {prova.label}

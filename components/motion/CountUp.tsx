@@ -1,46 +1,48 @@
 "use client";
 
-import { useInView, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { animate, useInView, useMotionValue, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 type CountUpProps = {
   value: string;
   className?: string;
 };
 
-/** Métricas com contagem animada quando entram na viewport */
+/** Extrai prefixo, valor numérico e sufixo de strings como "15", "100%".
+ *  Retorna null para valores como "1/14.000" ou "Ativa" (não animáveis). */
+function parseNumeric(value: string): { prefix: string; numeric: number; suffix: string } | null {
+  const match = value.match(/^([^0-9]*)([0-9]+)([^0-9]*)$/);
+  if (!match) return null;
+  const numeric = parseInt(match[2], 10);
+  if (Number.isNaN(numeric)) return null;
+  return { prefix: match[1], numeric, suffix: match[3] };
+}
+
+/** Métricas com contagem animada (useMotionValue + animate) quando entram na viewport */
 export function CountUp({ value, className }: CountUpProps) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
-
-  const numeric = parseInt(value.replace(/\D/g, ""), 10);
-  const suffix = value.replace(/[0-9]/g, "");
-  const hasSuffix = suffix.length > 0;
-  const isPureNumber = /^\d+$/.test(value);
-  const hasNumber = isPureNumber && !Number.isNaN(numeric);
-
-  const [count, setCount] = useState(hasNumber ? 0 : null);
+  const motionValue = useMotionValue(0);
+  const parsed = parseNumeric(value);
 
   useEffect(() => {
-    if (!hasNumber || reduce || !inView) return;
+    if (!parsed || reduce || !inView || !ref.current) return;
 
-    let frame = 0;
-    const start = performance.now();
-    const duration = 1100;
+    const controls = animate(motionValue, parsed.numeric, {
+      duration: 1.1,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (latest) => {
+        if (ref.current) {
+          ref.current.textContent = `${parsed.prefix}${Math.round(latest)}${parsed.suffix}`;
+        }
+      },
+    });
 
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - (1 - progress) ** 3;
-      setCount(Math.round(numeric * eased));
-      if (progress < 1) frame = requestAnimationFrame(tick);
-    };
+    return () => controls.stop();
+  }, [inView, motionValue, parsed, reduce]);
 
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [hasNumber, inView, numeric, reduce]);
-
-  if (!hasNumber || reduce) {
+  if (!parsed || reduce) {
     return (
       <span ref={ref} className={className}>
         {value}
@@ -50,8 +52,7 @@ export function CountUp({ value, className }: CountUpProps) {
 
   return (
     <span ref={ref} className={className}>
-      {count}
-      {suffix}
+      {parsed.prefix}0{parsed.suffix}
     </span>
   );
 }

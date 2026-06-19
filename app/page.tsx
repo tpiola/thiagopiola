@@ -1,3 +1,5 @@
+import { CtaSection } from "@/components/CtaSection";
+import { Faq } from "@/components/Faq";
 import { FloatingCta } from "@/components/FloatingCta";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -18,6 +20,8 @@ export default function Home() {
         <TrustBar />
         <Trajetoria />
         <Projetos />
+        <CtaSection />
+        <Faq />
         <Footer />
         <FloatingCta />
       </main>
