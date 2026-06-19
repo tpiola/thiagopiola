@@ -34,6 +34,8 @@ export function JsonLd() {
         telephone: site.phone,
         jobTitle: [
           "Farmacêutico",
+          "Farmacêutico Responsável Técnico",
+          "Profissional de Saúde",
           "Especialista em Treinamento de Equipes",
           "Engenheiro de Inteligência Artificial",
           "Gestor de Automações",

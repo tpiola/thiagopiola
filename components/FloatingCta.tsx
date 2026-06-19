@@ -1,11 +1,11 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { site } from "@/lib/content";
 import { trackCta } from "@/lib/analytics";
 
-/** CTA flutuante — WhatsApp com texto em desktop, ícone no mobile */
+/** CTA flutuante — WhatsApp apenas ícone, sem texto */
 export function FloatingCta() {
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
@@ -21,18 +21,14 @@ export function FloatingCta() {
         href={site.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="pulse-glow group relative flex items-center gap-2.5 overflow-hidden rounded-full bg-[var(--brand)] px-5 py-3 text-white shadow-lg shadow-[var(--brand)]/30 transition-all"
+        className="pulse-glow group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--brand)] p-3 text-white shadow-lg shadow-[var(--brand)]/30 transition-all"
         whileHover={reduce ? undefined : { scale: 1.05, boxShadow: "0 8px 32px var(--brand-glow)" }}
         whileTap={reduce ? undefined : { scale: 0.97 }}
-        aria-label="Contato via WhatsApp"
+        aria-label="Contato via WhatsApp — Fale com Thiago Piola"
         onClick={() => trackCta("cta_whatsapp_floating")}
       >
         <span className="gradient-shift pointer-events-none absolute inset-0 opacity-30" aria-hidden />
-        <MessageCircle className="relative h-5 w-5 shrink-0" aria-hidden />
-        <span className="relative hidden font-mono text-[11px] font-bold uppercase tracking-wider sm:block">
-          Conversar Agora
-        </span>
-        <ArrowRight className="relative hidden h-3.5 w-3.5 opacity-60 transition-transform group-hover:translate-x-0.5 sm:block" aria-hidden />
+        <MessageCircle className="relative h-5 w-5" aria-hidden />
       </motion.a>
     </motion.div>
   );

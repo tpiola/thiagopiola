@@ -11,6 +11,8 @@ import {
   TelegramIcon,
   TikTokIcon,
   XIcon,
+  InstagramIcon,
+  FacebookIcon,
 } from "./SocialIcons";
 
 const iconMap = {
@@ -22,6 +24,8 @@ const iconMap = {
   Telegram: TelegramIcon,
   TikTok: TikTokIcon,
   X: XIcon,
+  Instagram: InstagramIcon,
+  Facebook: FacebookIcon,
 } as const;
 
 type SocialLinksGroupedProps = {
@@ -32,7 +36,7 @@ function LinkGrid({
   links,
   label,
 }: {
-  links: readonly { href: string; label: keyof typeof iconMap }[];
+  links: readonly { href: string; label: string }[];
   label: string;
 }) {
   return (
@@ -40,7 +44,8 @@ function LinkGrid({
       <p className="font-mono text-[10px] uppercase tracking-wider text-muted">{label}</p>
       <div className="mt-2 flex flex-wrap gap-2">
         {links.map(({ href, label: linkLabel }) => {
-          const Icon = iconMap[linkLabel];
+          const Icon = iconMap[linkLabel as keyof typeof iconMap];
+          if (!Icon) return null;
           return (
             <a
               key={href}

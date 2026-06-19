@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { MessageCircle, ArrowRight, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
+import { MessageCircle, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
 import { duration, easeLuxury, spring, easeOutExpo } from "@/lib/motion";
 import { hero, heroEn, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -103,7 +103,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.div>
           </div>
 
-          {/* ─── TÍTULO PRINCIPAL — PNL/HIPNOSE ─── */}
+          {/* ─── TÍTULO PRINCIPAL — TAGLINE DO PDF ─── */}
           <motion.h1
             className="text-[clamp(2.5rem,9vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground"
             initial={reduce ? false : { opacity: 0 }}
@@ -116,7 +116,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               animate={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 0.15, duration: duration.slow, ease: easeLuxury }}
             >
-              {copy.titleLine1}
+              Farmácia, campo e tecnologia
             </motion.span>
             <motion.span
               className="block text-gradient-brand"
@@ -124,7 +124,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               animate={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 0.25, duration: duration.slow, ease: easeLuxury }}
             >
-              {copy.titleLine2}
+              aplicados à evolução da saúde.
             </motion.span>
           </motion.h1>
 
@@ -146,20 +146,14 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </span>
           </motion.div>
 
-          {/* ─── LEAD (DOR → DESEJO → SOLUÇÃO) ─── */}
+          {/* ─── DESCRIÇÃO PRINCIPAL (PDF Prompt Gabaritado) ─── */}
           <motion.p
             className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted md:text-[16px]"
             initial={reduce ? false : { opacity: 0, y: 24 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 0.42, duration: 0.6, ease: easeOutExpo }}
           >
-            {sectionType === "unified" ? (
-              <>
-                <span className="text-foreground font-semibold">15 anos de execução em saúde, operação e performance comercial.</span>{" "}
-                Uma trajetória que une a precisão da engenharia de IA ao rigor regulatório e excelência de campo.{" "}
-                Foco absoluto em converter estratégia em sell-out e liderança em resultados.
-              </>
-            ) : copy.lead}
+            {copy.description}
           </motion.p>
 
           {/* ─── PALAVRA ROTATIVA HIPNÓTICA ─── */}
@@ -191,25 +185,28 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.div>
           )}
 
-          {/* ─── CTAs PRINCIPAIS ─── */}
+          {/* ─── CTAs — LinkedIn (principal) + Trajetória (secundário) + WhatsApp (ícone) ─── */}
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             initial={reduce ? false : { opacity: 0, y: 24 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.6, ease: easeOutExpo }}
           >
-            <MagneticLink href={site.whatsapp} target="_blank" rel="noopener noreferrer"
-              className="btn-primary group relative overflow-hidden"
-              onClick={ctaSound}>
-              <span className="gradient-shift pointer-events-none absolute inset-0 opacity-20" aria-hidden />
-              <MessageCircle className="relative h-4 w-4" aria-hidden />
-              <span className="relative">{copy.ctaWhatsapp}</span>
-              <ArrowRight className="relative h-3.5 w-3.5 opacity-60 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100" aria-hidden />
-            </MagneticLink>
             <MagneticLink href={site.linkedin} target="_blank" rel="noopener noreferrer"
-              className="btn-secondary group" onClick={() => trackCta("cta_linkedin_click")}>
-              <LinkedinIcon className="h-4 w-4" aria-hidden />
-              {copy.ctaLinkedin}
+              className="btn-primary group relative overflow-hidden" onClick={() => trackCta("cta_linkedin_click")}>
+              <span className="gradient-shift pointer-events-none absolute inset-0 opacity-20" aria-hidden />
+              <LinkedinIcon className="relative h-4 w-4" aria-hidden />
+              <span className="relative">{copy.ctaPrincipal}</span>
+            </MagneticLink>
+            <a href="#trajetoria"
+              className="btn-secondary group">
+              <span className="relative">{copy.ctaSecundario}</span>
+            </a>
+            <MagneticLink href={site.whatsapp} target="_blank" rel="noopener noreferrer"
+              className="btn-secondary group relative overflow-hidden"
+              onClick={ctaSound}
+              aria-label="Contato via WhatsApp">
+              <MessageCircle className="relative h-4 w-4" aria-hidden />
             </MagneticLink>
             <Link href={site.industriaUrl}
               className="btn-secondary group font-semibold">

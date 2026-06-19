@@ -11,6 +11,8 @@ import {
   TelegramIcon,
   TikTokIcon,
   XIcon,
+  InstagramIcon,
+  FacebookIcon,
 } from "./SocialIcons";
 
 const iconMap = {
@@ -22,6 +24,8 @@ const iconMap = {
   Telegram: TelegramIcon,
   TikTok: TikTokIcon,
   X: XIcon,
+  Instagram: InstagramIcon,
+  Facebook: FacebookIcon,
 } as const;
 
 type SocialLinksProps = {
@@ -33,7 +37,8 @@ export function SocialLinks({ className, iconClassName = "h-4 w-4" }: SocialLink
   return (
     <div className={cn("flex flex-wrap gap-2", className)}>
       {socialLinks.map(({ href, label }) => {
-        const Icon = iconMap[label];
+        const Icon = iconMap[label as keyof typeof iconMap];
+        if (!Icon) return null;
         return (
           <a
             key={href}

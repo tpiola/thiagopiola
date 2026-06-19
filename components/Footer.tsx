@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone, ExternalLink, MessageCircle } from "lucide-react";
 import { footerTagline, nav, site } from "@/lib/content";
 import { trackCta } from "@/lib/analytics";
 import { Logo } from "./Logo";
@@ -30,29 +30,29 @@ export function Footer() {
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
 
-        {/* Rei das Vendas Destaque */}
+        {/* LinkedIn Destaque Principal */}
         <div className="mb-14 rounded-2xl border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_4%,transparent)] p-6 md:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)] mb-1">
-                Founder & CEO
+                Perfil Profissional
               </p>
               <h3 className="text-lg font-bold text-foreground md:text-xl">
-                Rei das Vendas
+                LinkedIn
               </h3>
               <p className="mt-1 text-sm text-muted max-w-md">
-                Plataforma de treinamento comercial para o setor farmacêutico — metodologia que transforma equipes em máquinas de conversão ética.
+                Conecte-se para acompanhar trajetória, resultados e posicionamento no setor farmacêutico. Perfil verificado com recomendações e histórico completo.
               </p>
             </div>
             <a
-              href={site.reidasvendas}
+              href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-6 py-3 font-mono text-[11px] font-bold uppercase tracking-wider text-white shrink-0 transition-all hover:opacity-90"
-              onClick={() => trackCta("cta_reidasvendas_footer")}
+              onClick={() => trackCta("cta_linkedin_footer")}
             >
               <ExternalLink className="h-3.5 w-3.5" />
-              reidasvendas.com.br
+              Ver perfil no LinkedIn
             </a>
           </div>
         </div>
@@ -102,6 +102,19 @@ export function Footer() {
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">Contato</p>
             <ul className="mt-5 space-y-4">
               <li>
+                <a href={site.whatsapp} target="_blank" rel="noopener noreferrer"
+                  className="group flex gap-3 text-sm text-foreground hover:text-[var(--brand)] transition-colors duration-200"
+                  aria-label="WhatsApp — Fale com Thiago Piola">
+                  <div className="mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "color-mix(in srgb, var(--brand) 8%, transparent)" }}>
+                    <MessageCircle className="h-3.5 w-3.5" style={{ color: "var(--brand)" }} />
+                  </div>
+                  <span>
+                    WhatsApp
+                    <span className="block text-[11px] text-muted mt-0.5">Mensagem rápida</span>
+                  </span>
+                </a>
+              </li>
+              <li>
                 <a href={site.phoneHref}
                   className="group flex gap-3 text-sm text-foreground hover:text-[var(--brand)] transition-colors duration-200">
                   <div className="mt-0.5 w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "color-mix(in srgb, var(--brand) 8%, transparent)" }}>
@@ -109,7 +122,7 @@ export function Footer() {
                   </div>
                   <span>
                     {site.phone}
-                    <span className="block text-[11px] text-muted mt-0.5">Telefone e WhatsApp</span>
+                    <span className="block text-[11px] text-muted mt-0.5">Telefone</span>
                   </span>
                 </a>
               </li>
