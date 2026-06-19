@@ -61,7 +61,7 @@ export function Header() {
             whileTap={reduce ? undefined : { scale: 0.98 }}
             onClick={() => trackCta("cta_whatsapp_click")}>
             <Zap className="h-3.5 w-3.5" />
-            Quero resultado
+            Vamos conversar
           </motion.a>
           <button type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
@@ -117,7 +117,7 @@ export function Header() {
             }}
           >
             <Zap className="h-5 w-5" />
-            Quero resultado agora
+            Vamos conversar agora
           </a>
         </motion.div>
       )}

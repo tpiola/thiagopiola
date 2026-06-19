@@ -1,12 +1,14 @@
+import { Especialidades } from "@/components/Especialidades";
+import { Faq } from "@/components/Faq";
 import { FloatingCta } from "@/components/FloatingCta";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { Missao } from "@/components/Missao";
 import { PageShell } from "@/components/motion/PageShell";
-import { Projetos } from "@/components/Projetos";
 import { ProvasEntrega } from "@/components/ProvasEntrega";
-import { Trajetoria } from "@/components/Trajetoria";
 import { TrustBar } from "@/components/TrustBar";
+import { Trajetoria } from "@/components/Trajetoria";
 
 export default function Home() {
   return (
@@ -16,8 +18,10 @@ export default function Home() {
         <Hero />
         <ProvasEntrega />
         <TrustBar />
+        <Especialidades />
         <Trajetoria />
-        <Projetos />
+        <Missao />
+        <Faq />
         <Footer />
         <FloatingCta />
       </main>

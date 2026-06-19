@@ -21,12 +21,12 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Thiago Biasoli Garcia Piola — Farmacêutico CRF/SP 58.519, especialista em treinamento de equipes de alta performance, automação de processos e engenharia de IA aplicada ao setor farmacêutico. Founder da Rei das Vendas. Franca, SP, Brasil.";
+  "Thiago Biasoli Garcia Piola — Farmacêutico CRF/SP 58.519. Especialista em treinamento de equipes de alta performance e vendas consultivas no setor farmacêutico. Farmacêutico Notável RD Saúde 2025. 15 anos de experiência. Buscando novos desafios na indústria farmacêutica. Franca, SP.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Thiago Biasoli Garcia Piola | Treinamento, IA e Automação Farmacêutica",
+    default: "Thiago Piola | Farmacêutico · Treinamento · Alta Performance · Indústria Farmacêutica",
     template: "%s | Thiago Biasoli Garcia Piola",
   },
   description,
@@ -34,26 +34,23 @@ export const metadata: Metadata = {
   creator: "Thiago Biasoli Garcia Piola",
   publisher: "Thiago Biasoli Garcia Piola",
   keywords: [
-    "farmacêutico",
-    "treinamento de equipes farmácia",
-    "automação farmácia",
-    "inteligência artificial farmácia",
-    "engenheiro de inteligência artificial",
-    "healthtech",
-    "indústria farmacêutica",
+    "farmacêutico indústria farmacêutica",
+    "treinamento equipes farmácia",
+    "gestão alta performance farmacêutica",
+    "vendas consultivas farmacêutico",
+    "farmacêutico CRF/SP",
+    "farmacêutico notável RD Saúde",
+    "representante farmacêutico",
+    "propagandista farmacêutico",
+    "visitador médico farmacêutico",
     "thiago piola",
     "thiago biasoli garcia piola",
-    "franca sp",
-    "CRF-SP",
-    "rei das vendas",
-    "reidasvendas",
-    "gestão farmácia",
-    "compliance ANVISA",
-    "n8n automação",
-    "Google GEAR",
-    "agentes IA",
-    "taça de higéia",
-    "bowl of hygieia",
+    "franca SP farmacêutico",
+    "indústria farmacêutica franca ribeirão preto",
+    "compliance ANVISA farmácia",
+    "Google GEAR IA farmácia",
+    "rei das vendas farmácia",
+    "desenvolvimento de talentos farmácia",
   ],
   robots: {
     index: true,

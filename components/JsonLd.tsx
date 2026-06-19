@@ -1,4 +1,4 @@
-import { site, socialLinks, trajetoria } from "@/lib/content";
+import { site, socialLinks, trajetoria, faqItems } from "@/lib/content";
 
 export function JsonLd() {
   const personId = `${site.url}/#person`;
@@ -39,7 +39,7 @@ export function JsonLd() {
           "Gestor de Automações",
           "Founder",
         ],
-        description: "Farmacêutico CRF/SP 58.519 especialista em treinamento de equipes de alta performance, automação de processos e IA aplicada ao setor farmacêutico. Founder da Rei das Vendas.",
+        description: "Farmacêutico CRF/SP 58.519 especialista em treinamento de equipes de alta performance, vendas consultivas e gestão no setor farmacêutico. Farmacêutico Notável RD Saúde 2025. Founder da Rei das Vendas.",
         worksFor: [
           {
             "@type": "Organization",
@@ -137,6 +137,18 @@ export function JsonLd() {
         founder: { "@id": personId },
         description: "Plataforma de treinamento comercial para o setor farmacêutico.",
         sameAs: [site.reidasvendas],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${site.url}/#faq`,
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.a,
+          },
+        })),
       },
     ],
   };

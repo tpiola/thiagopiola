@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { Mail, MessageCircle, ArrowRight, TrendingUp } from "lucide-react";
+import { MessageCircle, ArrowRight, TrendingUp } from "lucide-react";
 import { duration, easeLuxury } from "@/lib/motion";
 import { hero, heroEn, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,6 @@ import { Reveal } from "./motion/Reveal";
 import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
-import Link from "next/link";
 
 export function Hero() {
   const [locale, setLocale] = useState<"pt" | "en">("pt");
@@ -122,10 +121,6 @@ export function Hero() {
                 <LinkedinIcon className="h-4 w-4" aria-hidden />
                 {hero.ctaLinkedin}
               </MagneticLink>
-              <Link href={site.industriaUrl}
-                className="btn-secondary group font-semibold">
-                {hero.ctaIndustria}
-              </Link>
             </motion.div>
           </Reveal>
 
