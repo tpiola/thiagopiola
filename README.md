@@ -54,7 +54,7 @@ npm install -g opencode-ai
 Não salve chaves de API no código, em arquivos versionados ou na documentação. Configure a credencial no seu shell antes de executar o OpenCode:
 
 ```bash
-export OPENAI_API_KEY="sua-chave-aqui"
+export OPENAI_API_KEY="<sua-chave-real>"
 opencode
 ```
 
