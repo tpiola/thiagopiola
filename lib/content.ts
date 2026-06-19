@@ -104,16 +104,16 @@ export const heroEn = {
 } as const;
 
 export const provasEntrega = [
-  { value: "1/14.000", label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional — top 0,007% entre 14 mil farmacêuticos da Droga Raia" },
   { value: "10+", label: "Anos em operação farmacêutica", detail: "Grande rede — RT, treinamento, compliance ANVISA e execução comercial" },
   { value: "360°", label: "Visão integrada do negócio", detail: "Farmácia clínica ao sell-out no PDV — técnica, regulatória e comercial" },
   { value: "Ativa", label: "Plataforma Rei das Vendas", detail: "Treinamento comercial proprietário aplicado ao setor farmacêutico" },
+  { value: "1/14.000", label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional entre 14 mil farmacêuticos da Droga Raia" },
 ] as const;
 
 export const trustBar = [
   { label: "CRF/SP 58.519", detail: "Registro ativo e verificável — consulte no site do Conselho", href: "https://www.crfsp.org.br" },
-  { label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional — mérito inédito em Franca/SP", href: undefined },
   { label: "MBA + Pós em Engenharia de IA + GEAR/Google", detail: "Formação multidisciplinar: gestão, tecnologia e inteligência artificial", href: "https://me.developers.google.com/u/105476544026751993130" },
+  { label: "Farmacêutico Notável RD Saúde 2025", detail: "Reconhecimento nacional — entre 14 mil profissionais", href: undefined },
 ] as const;
 
 export const projetos = {
