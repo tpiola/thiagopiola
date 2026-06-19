@@ -3,12 +3,15 @@ import { site } from "@/lib/content";
 import { IndustriaDossier } from "./IndustriaDossier";
 
 export const metadata: Metadata = {
-  title: "Thiago Piola — Farmacêutico | Indústria Farmacêutica | Franca SP",
+  title: "Thiago Piola — Farmacêutico Executivo | Performance Comercial na Indústria Farmacêutica",
   description:
-    "Farmacêutico CRF/SP 58.519 · 15 anos de experiência · Vendas consultivas técnico-científicas, relacionamento com prescritores, liderança de equipes, compliance ANVISA e inteligência comercial. Perfil disponível para Franca, Ribeirão Preto e região.",
+    "Farmacêutico CRF/SP 58.519 com 15 anos de execução em operação farmacêutica, liderança de times, relacionamento com prescritores, compliance ANVISA e inteligência comercial orientada por dados.",
   keywords: [
     "farmacêutico indústria Franca SP",
     "vendas consultivas farmacêuticas",
+    "representante farmacêutico",
+    "executivo comercial farmacêutico",
+    "trade marketing farma",
     "relacionamento com prescritores",
     "compliance ANVISA",
     "farmacêutico CRF/SP",
@@ -22,22 +25,24 @@ export const metadata: Metadata = {
     "farmacêutico IA aplicada",
     "farmacêutico 15 anos experiência",
     "farmacêutico Franca SP CRF",
-    "recrutamento farmacêutico interior SP",
+    "liderança comercial farma",
+    "sell out farmacêutico",
+    "performance PDV farma",
     "curriculo farmacêutico indústria",
   ],
   openGraph: {
-    title: "Thiago Piola — Perfil Farmacêutico para Indústria | CRF/SP 58.519 | Franca SP",
+    title: "Thiago Piola — Perfil Executivo para Indústria Farmacêutica | CRF/SP 58.519",
     description:
-      "15 anos de experiência do hospital ao balcão. Vendas consultivas, relacionamento com prescritores, liderança, compliance ANVISA e inteligência comercial. Disponível para Franca/SP, Ribeirão Preto e região.",
+      "15 anos de experiência do hospital ao varejo farmacêutico, com foco em execução comercial, relacionamento médico, liderança de equipes e rigor regulatório.",
     url: `${site.url}/industria`,
     locale: "pt_BR",
     type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thiago Piola — Farmacêutico | Indústria Farmacêutica",
+    title: "Thiago Piola — Farmacêutico Executivo | Indústria Farmacêutica",
     description:
-      "15 anos de experiência. Vendas consultivas, relacionamento com prescritores, compliance ANVISA. CRF/SP 58.519.",
+      "Execução comercial farmacêutica com visão técnica, liderança e compliance. CRF/SP 58.519.",
   },
   alternates: {
     canonical: `${site.url}/industria`,

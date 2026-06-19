@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { Mail, MessageCircle, ArrowRight, TrendingUp } from "lucide-react";
-import { duration, easeLuxury } from "@/lib/motion";
+import { MessageCircle, ArrowRight, TrendingUp } from "lucide-react";
+import { duration, easeLuxury, spring } from "@/lib/motion";
 import { hero, heroEn, site } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { trackCta } from "@/lib/analytics";
@@ -15,19 +15,24 @@ import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
 import Link from "next/link";
 
-export function Hero() {
+interface HeroProps {
+  sectionType?: "default" | "unified";
+}
+
+export function Hero({ sectionType = "default" }: HeroProps) {
   const [locale, setLocale] = useState<"pt" | "en">("pt");
   const copy = locale === "pt" ? hero : heroEn;
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
   const heroY = useTransform(scrollY, [0, 500], [0, 60]);
+  const heroScale = useTransform(scrollY, [0, 500], [1, 0.975]);
 
   return (
     <section className="relative min-h-[100dvh] overflow-hidden border-b border-border">
       <HeroAmbience />
       <motion.div
-        style={reduce ? undefined : { opacity: heroOpacity, y: heroY }}
+        style={reduce ? undefined : { opacity: heroOpacity, y: heroY, scale: heroScale }}
         className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-20 pt-24 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-28"
       >
         <div className="flex flex-col justify-center">
@@ -90,7 +95,13 @@ export function Hero() {
 
           <Reveal delay={0.3} variant="up">
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-[17px]">
-              {copy.lead}
+              {sectionType === "unified" ? (
+                <>
+                  <span className="text-foreground font-semibold">15 anos de execução em saúde, operação e performance comercial.</span>{" "}
+                  Uma trajetória que une a precisão da engenharia de IA ao rigor regulatório e excelência de campo. 
+                  Foco absoluto em converter estratégia em sell-out e liderança em resultados.
+                </>
+              ) : copy.lead}
             </p>
           </Reveal>
 
@@ -110,21 +121,21 @@ export function Hero() {
             <motion.div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
               initial={reduce ? false : { opacity: 0, y: 20 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
-              transition={{ delay: 0.48, duration: duration.base, ease: easeLuxury }}>
+              transition={{ delay: 0.48, ...spring.smooth }}>
               <MagneticLink href={site.whatsapp} target="_blank" rel="noopener noreferrer"
                 className="btn-primary group" onClick={() => trackCta("cta_whatsapp_click")}>
                 <MessageCircle className="h-4 w-4" aria-hidden />
-                {hero.ctaWhatsapp}
+                {copy.ctaWhatsapp}
                 <ArrowRight className="h-3.5 w-3.5 opacity-60 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 -translate-x-1" aria-hidden />
               </MagneticLink>
               <MagneticLink href={site.linkedin} target="_blank" rel="noopener noreferrer"
                 className="btn-secondary group" onClick={() => trackCta("cta_linkedin_click")}>
                 <LinkedinIcon className="h-4 w-4" aria-hidden />
-                {hero.ctaLinkedin}
+                {copy.ctaLinkedin}
               </MagneticLink>
               <Link href={site.industriaUrl}
                 className="btn-secondary group font-semibold">
-                {hero.ctaIndustria}
+                {copy.ctaIndustria}
               </Link>
             </motion.div>
           </Reveal>

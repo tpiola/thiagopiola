@@ -30,7 +30,7 @@ export function FloatingCta() {
         <span className="gradient-shift pointer-events-none absolute inset-0 opacity-30" aria-hidden />
         <MessageCircle className="relative h-5 w-5 shrink-0" aria-hidden />
         <span className="relative hidden font-mono text-[11px] font-bold uppercase tracking-wider sm:block">
-          Quero resultado
+          Conversar Agora
         </span>
         <ArrowRight className="relative hidden h-3.5 w-3.5 opacity-60 transition-transform group-hover:translate-x-0.5 sm:block" aria-hidden />
       </motion.a>

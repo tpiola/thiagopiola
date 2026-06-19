@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Menu, X, Zap } from "lucide-react";
+import Link from "next/link";
 import { nav, site } from "@/lib/content";
 import { trackCta } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -27,13 +28,13 @@ export function Header() {
       className={cn("fixed inset-x-0 top-0 z-[80]",
         scrolled ? "border-b border-border bg-surface/85 backdrop-blur-xl shadow-sm shadow-black/5" : "bg-transparent")}
       initial={false}
-      animate={{ height: scrolled ? 60 : 64 }}
+      animate={{ height: scrolled ? 80 : 100 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="mx-auto flex h-full max-h-16 min-h-[60px] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
-        <a href="#" aria-label={`${site.shortName} — início`}>
-          <Logo variant="full" showCredential iconClassName="h-9 w-9" />
-        </a>
+      <div className="mx-auto flex h-full max-h-24 min-h-[80px] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
+        <Link href="/" aria-label={`${site.shortName} — início`}>
+          <Logo variant="full" showCredential height={scrolled ? 70 : 90} className="hover:scale-105 transition-transform" />
+        </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
           {nav.map((link) => (
@@ -80,6 +81,8 @@ export function Header() {
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
           }}
+          role="dialog"
+          aria-modal="true"
           aria-label="Menu mobile"
           initial={reduce ? undefined : { opacity: 0, scale: 0.95 }}
           animate={reduce ? undefined : { opacity: 1, scale: 1 }}

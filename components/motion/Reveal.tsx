@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { duration, easeLuxury, viewport } from "@/lib/motion";
+import { duration, easeLuxury, spring, viewport } from "@/lib/motion";
 
 export type RevealVariant = "fade" | "up" | "scale" | "left" | "right";
 
@@ -23,6 +23,10 @@ const hiddenByVariant: Record<RevealVariant, Variants["hidden"]> = {
 };
 
 function buildVariants(variant: RevealVariant): Variants {
+  const transition = variant === "fade"
+    ? { duration: duration.base, ease: easeLuxury }
+    : spring.soft;
+
   return {
     hidden: hiddenByVariant[variant],
     visible: {
@@ -31,7 +35,7 @@ function buildVariants(variant: RevealVariant): Variants {
       x: 0,
       scale: 1,
       filter: "blur(0px)",
-      transition: { duration: duration.base, ease: easeLuxury },
+      transition,
     },
   };
 }

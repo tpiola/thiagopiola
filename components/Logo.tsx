@@ -16,8 +16,9 @@ export function Logo({
   iconClassName,
   variant = "icon",
   showCredential = false,
-}: LogoProps) {
-  const logoSrc = "/images/logo.svg";
+  height = 80,
+}: LogoProps & { height?: number }) {
+  const logoSrc = "/logo.png";
 
   const logoImage = (
     <div className="relative flex items-center justify-center">
@@ -25,13 +26,12 @@ export function Logo({
         src={logoSrc}
         alt="Thiago Piola — Farmacêutico CRF/SP 58.519"
         className={cn(
-          "h-auto w-auto object-contain",
-          variant === "icon" ? "max-h-[52px]" : "max-h-[52px]",
+          "h-auto w-auto object-contain transition-all duration-300",
+          className
         )}
         style={{
-          width: variant === "icon" ? "auto" : "auto",
-          maxWidth: variant === "icon" ? "150px" : "150px",
-          color: "var(--brand)",
+          height: `${height}px`,
+          maxWidth: "400px",
         }}
       />
     </div>

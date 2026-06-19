@@ -9,6 +9,7 @@ import { FloatingCta } from "@/components/FloatingCta";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
 import { site } from "@/lib/content";
+import { spring } from "@/lib/motion";
 import Link from "next/link";
 
 const KEYWORDS = [
@@ -19,11 +20,11 @@ const KEYWORDS = [
   "Compliance ANVISA e Regulatório",
   "Gestão de Território e Carteira",
   "Comunicação Científica de Produto",
-  "Business Acumen e Visão de Negócios",
+  "Business Acumen e Estratégia de Mercado",
   "People Analytics e Decisão por Dados",
   "Inovação e IA Aplicada a Vendas",
   "Negociação e Persuasão Ética",
-  "Gestão de Indicadores e Metas",
+  "Gestão de Indicadores, Sell-out e Margem",
   "Farmácia Clínica e Hospitalar",
   "ESG e Integridade Corporativa",
   "Inteligência Emocional e Liderança",
@@ -119,15 +120,15 @@ export function IndustriaDossier() {
 
             <Reveal variant="up" delay={0.12}>
               <p className="mt-4 text-xl font-semibold text-muted md:text-2xl">
-                Farmacêutico CRF/SP 58.519 · <span className="text-foreground">Vendas Consultivas · Liderança · Compliance</span>
+                Farmacêutico CRF/SP 58.519 · <span className="text-foreground">Execução Comercial · Liderança · Compliance</span>
               </p>
             </Reveal>
 
             <Reveal variant="fade" delay={0.18}>
               <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-muted md:text-lg">
-                <span className="text-foreground font-semibold">15 anos de experiência em saúde — do hospital ao balcão.</span>{" "}
-                Conhecimento técnico-científico, relacionamento com prescritores, liderança de equipes e conformidade regulatória impecável. 
-                Fluência digital, inteligência comercial e IA aplicada a vendas. Uma trajetória que combina o que a indústria farmacêutica mais valoriza em 2026.
+                <span className="text-foreground font-semibold">15 anos de execução em saúde, operação e performance no varejo farmacêutico.</span>{" "}
+                Atuação que combina profundidade técnico-científica, disciplina regulatória e domínio de campo para acelerar resultado comercial com consistência.
+                Uma trajetória orientada por indicadores, relacionamento médico e excelência de execução no PDV.
               </p>
             </Reveal>
 
@@ -135,7 +136,7 @@ export function IndustriaDossier() {
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-primary group">
                   <MessageCircle className="h-4 w-4" />
-                  Vamos conversar
+                  Conversa estratégica
                   <ArrowUpRight className="h-3.5 w-3.5 opacity-60 transition-all group-hover:translate-x-0.5" aria-hidden />
                 </a>
                 <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary group">
@@ -145,7 +146,7 @@ export function IndustriaDossier() {
                 </a>
                 <a href={site.cvUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary group">
                   <Download className="h-4 w-4" />
-                  Currículo
+                  Dossiê profissional
                 </a>
               </div>
             </Reveal>
@@ -153,12 +154,17 @@ export function IndustriaDossier() {
             <Reveal variant="fade" delay={0.3}>
               <div className="mt-10 flex flex-wrap justify-center gap-2">
                 {KEYWORDS.map((kw, i) => (
-                  <span key={kw}
+                  <motion.span
+                    key={kw}
+                    initial={reduce ? undefined : { opacity: 0, y: 12, scale: 0.96 }}
+                    whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={reduce ? undefined : { delay: i * 0.02, ...spring.soft }}
                     className="rounded-full border border-border bg-surface-elevated px-3 py-1.5 text-[10px] font-mono font-medium text-muted transition-colors hover:border-[var(--brand)]/30 hover:text-[var(--brand)]"
                     style={{ transitionDelay: `${i * 20}ms` }}
                   >
                     {kw}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </Reveal>
@@ -174,9 +180,9 @@ export function IndustriaDossier() {
                   Diferencial
                 </p>
                 <blockquote className="text-lg md:text-xl font-semibold leading-relaxed text-foreground">
-                  &ldquo;A indústria investe em treinar profissionais para entender a farmácia e influenciar quem está no balcão. 
-                  Eu não preciso entender — eu <span className="text-[var(--brand)]">vivo</span> essa realidade todos os dias. 
-                  Conheço o cliente, a operação e o produto por dentro.&rdquo;
+                  &ldquo;Entre estratégia e execução existe um intervalo crítico: o campo.
+                  É nele que transformo diretriz em sell-out, ciência em confiança e produto em preferência.
+                  <span className="text-[var(--brand)]"> Essa é a vantagem competitiva.</span>&rdquo;
                 </blockquote>
                 <div className="mt-6 flex items-center justify-center gap-2 text-sm text-muted">
                   <TrendingUp className="h-4 w-4 text-[var(--brand)]" />
@@ -210,7 +216,7 @@ export function IndustriaDossier() {
                   initial={reduce ? undefined : { opacity: 0, y: 30 }}
                   whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ delay: idx * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  transition={reduce ? undefined : { delay: idx * 0.1, ...spring.soft }}
                   className="relative border-l-2 border-[var(--brand)]/30 pl-6 md:pl-8"
                 >
                   <span className="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-2 border-[var(--brand)] bg-surface" aria-hidden />
@@ -312,7 +318,7 @@ export function IndustriaDossier() {
                     Localização
                   </p>
                   <p className="text-sm text-foreground">{site.location}</p>
-                  <p className="text-xs text-muted mt-1">Disponibilidade para viagens e deslocamentos.</p>
+                  <p className="text-xs text-muted mt-1">Atuação regional com mobilidade para agendas estratégicas e visitas de campo.</p>
                 </div>
               </Reveal>
             </div>
@@ -330,13 +336,13 @@ export function IndustriaDossier() {
                 Vamos conversar?
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed max-w-lg mx-auto">
-                Se você busca um profissional que combina conhecimento técnico, experiência de gestão, 
-                resultados comerciais comprovados e visão estratégica — esse é o perfil. Franca/SP, Ribeirão Preto e região.
+                Se a sua operação precisa de uma liderança que converta estratégia em execução mensurável,
+                com rigor técnico e visão comercial, esta página resume exatamente essa proposta de valor.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-primary group text-base px-8 py-4">
                   <MessageCircle className="h-5 w-5" />
-                  Vamos conversar
+                  Conversa estratégica
                 </a>
                 <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="btn-secondary group text-base px-8 py-4">
                   <LinkedinIcon className="h-5 w-5" />
