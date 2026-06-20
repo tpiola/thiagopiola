@@ -25,14 +25,16 @@
 }
 
 :root {
-  --brand: #0c2340;
+  --brand: #0A2540;
   --brand-light: #1a4d8c;
-  --brand-glow: rgba(12, 35, 64, 0.4);
+  --brand-glow: rgba(10, 37, 64, 0.4);
+  --accent: #F97316;
+  --accent-glow: rgba(249, 115, 22, 0.3);
   --surface: #f5f6f8;
   --surface-elevated: #ffffff;
-  --border: rgba(12, 35, 64, 0.08);
+  --border: rgba(10, 37, 64, 0.08);
   --muted: #5c6570;
-  --foreground: #0c2340;
+  --foreground: #0A2540;
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-medium: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.05);
   --shadow-strong: 0 16px 64px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -42,6 +44,8 @@
   --brand: #5b9bd5;
   --brand-light: #7eb3e8;
   --brand-glow: rgba(91, 155, 213, 0.3);
+  --accent: #F97316;
+  --accent-glow: rgba(249, 115, 22, 0.25);
   --surface: #06090f;
   --surface-elevated: #0c1320;
   --border: rgba(255, 255, 255, 0.07);
@@ -245,13 +249,13 @@ body {
    GRADIENTS
 ═══════════════════════════════════════════ */
 .text-gradient-brand {
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
+  background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .dark .text-gradient-brand {
-  background: linear-gradient(135deg, #90c0ff 0%, #5b9bd5 100%);
+  background: linear-gradient(135deg, #90c0ff 0%, #f99a4a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
