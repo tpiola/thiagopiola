@@ -12,7 +12,6 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
-import { TrustBar } from "@/components/TrustBar";
 import { Trajetoria } from "@/components/Trajetoria";
 import { ProvasEntrega } from "@/components/ProvasEntrega";
 import { Projetos } from "@/components/Projetos";
@@ -21,6 +20,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { spring } from "@/lib/motion";
 import { projetos, competenciasCards, blog } from "@/lib/content";
 import { FloatingCta } from "./FloatingCta";
+import { ScrollToTop } from "./ScrollToTop";
 import { useLocale } from "@/lib/i18n";
 
 function NewsletterForm() {
@@ -253,6 +253,7 @@ export function UnifiedPortfolio() {
 
         <Footer />
         <FloatingCta />
+        <ScrollToTop />
       </main>
     </PageShell>
   );

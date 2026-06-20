@@ -165,6 +165,61 @@ export function JsonLd() {
           name: "Contato via WhatsApp",
         },
       },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${site.url}/#localbusiness`,
+        name: site.shortName,
+        url: site.url,
+        email: site.email,
+        telephone: site.phone,
+        description: "Farmácia e consultoria farmacêutica em Franca, SP — responsabilidade técnica, treinamento e vendas consultivas.",
+        image: imageUrl,
+        priceRange: "$$",
+        openingHours: "Mo-Fr 08:00-18:00",
+        areaServed: { "@type": "City", name: "Franca" },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: site.geo.locality,
+          addressRegion: site.geo.region,
+          addressCountry: site.geo.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: -20.5386,
+          longitude: -47.4008,
+        },
+        parentOrganization: { "@id": organizationId },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${site.url}/#faq`,
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Thiago Piola atende em Franca?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Sim, Thiago Piola é farmacêutico com registro ativo CRF/SP 58.519 e atua como Responsável Técnico em Franca, SP, na Droga Raia. Também oferece consultoria e treinamento para equipes farmacêuticas em toda a região.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Quais serviços Thiago Piola oferece?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Thiago Piola oferece responsabilidade técnica farmacêutica, treinamento de equipes, vendas consultivas, compliance ANVISA, automação de processos com IA e consultoria técnico-comercial para o setor de saúde.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Como entrar em contato com Thiago Piola?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: `O contato pode ser feito via WhatsApp (${site.phone}), email (${site.email}) ou LinkedIn. A resposta geralmente ocorre em até 2 horas.`,
+            },
+          },
+        ],
+      },
     ],
   };
 

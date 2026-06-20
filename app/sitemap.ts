@@ -1,21 +1,22 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/content";
+import { SLUGS } from "@/lib/slugs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
 
-  return [
-    {
-      url: base,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1.0,
-    },
-    {
-      url: `${base}/en`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
+  const staticPages = [
+    { url: base, changeFrequency: "monthly" as const, priority: 1.0 },
+    { url: `${base}/industria`, changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${base}/blog`, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${base}/privacidade`, changeFrequency: "yearly" as const, priority: 0.3 },
   ];
+
+  const blogPages = SLUGS.map((slug) => ({
+    url: `${base}/blog/${slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...blogPages].map((p) => ({ ...p, lastModified: new Date() }));
 }
