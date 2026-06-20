@@ -74,9 +74,11 @@ export function NewsletterForm() {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder={locale === "pt" ? "seu@email.com" : "your@email.com"}
+        placeholder={locale === "pt" ? "Seu melhor E-mail" : "Your best Email"}
         required
         disabled={status === "loading"}
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+        title="Formato de email inválido"
         className="flex-1 rounded-xl border border-border bg-surface-elevated px-4 py-3 text-sm text-foreground placeholder:text-muted outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)]/30 transition-all disabled:opacity-50"
       />
       <button

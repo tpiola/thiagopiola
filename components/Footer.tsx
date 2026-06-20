@@ -321,39 +321,7 @@ export function Footer() {
                 </a>
               </motion.li>
 
-              {/* Phone */}
-              <motion.li variants={fadeIn}>
-                <a
-                  href={site.phoneHref}
-                  className={`${cardBase} relative overflow-hidden`}
-                >
-                  <div
-                    className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
-                    style={{
-                      boxShadow:
-                        "inset 0 0 0 1px color-mix(in srgb, var(--brand) 25%, transparent)",
-                    }}
-                    aria-hidden
-                  />
-                  <div
-                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-[400ms] group-hover:scale-110 group-hover:shadow-sm"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--brand) 10%, transparent)",
-                      color: "var(--brand)",
-                    }}
-                  >
-                    <Phone className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-8deg]" />
-                  </div>
-                  <div className="flex-1">
-                    <span className="font-semibold">{site.phone}</span>
-                    <span className="block text-[11px] text-muted/70 mt-0.5 tracking-wider font-medium uppercase">
-                      {locale === "pt" ? blog.footerPhoneLabel : blog.footerPhoneLabelEn}
-                    </span>
-                  </div>
-                  <ArrowUpRight className="h-3.5 w-3.5 text-muted opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
-              </motion.li>
+
 
               {/* Email */}
               <motion.li variants={fadeIn}>
@@ -414,32 +382,12 @@ export function Footer() {
               </motion.li>
             </ul>
 
-            {/* Site link card */}
-            <motion.div
-              variants={fadeIn}
-              className="mt-5 rounded-xl border border-border bg-[color-mix(in_srgb,var(--brand)_3%,transparent)] p-4 transition-all duration-[400ms] hover:border-[var(--brand)]/20 hover:bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] hover:shadow-sm"
-            >
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
-              {locale === "pt" ? blog.footerSite : blog.footerSiteEn}
-              </span>
-              <a
-                href={site.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-1.5 inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300"
-                style={{ color: "var(--brand)" }}
-              >
-                <span className="transition-all duration-300 group-hover:underline group-hover:underline-offset-4 group-hover:decoration-[var(--brand)]/40">
-                  www.thiagopiola.com.br
-                </span>
-                <ArrowUpRight className="h-3.5 w-3.5 opacity-50 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-            </motion.div>
+
           </motion.div>
         </motion.div>
 
         {/* ═══════════════════════════════════════════
-            FOUNDER / ECOSYSTEM — seção destacada
+            FOUNDER / ECOSYSTEM
            ═══════════════════════════════════════════ */}
         <motion.div
           initial="hidden"
@@ -456,45 +404,45 @@ export function Footer() {
             }}
             aria-hidden
           />
-          <div className="flex flex-col items-center text-center gap-3">
+          <div className="flex flex-col items-center text-center gap-4">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/50">
               {locale === "pt" ? "CRIADO POR" : "CREATED BY"}
             </span>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
-              <a href={site.reidasvendas} target="_blank" rel="noopener noreferrer"
-                className="font-semibold text-foreground/80 transition-colors duration-200 hover:text-[var(--brand)]">
-                reidasvendas.com.br
-              </a>
-              <span className="text-muted/30 hidden sm:inline">·</span>
-              <a href={site.saudegpt} target="_blank" rel="noopener noreferrer"
-                className="font-semibold text-foreground/80 transition-colors duration-200 hover:text-[var(--brand)]">
-                saudegpt.com
-              </a>
-              <span className="text-muted/30 hidden sm:inline">·</span>
-              <a href={site.thiagolab} target="_blank" rel="noopener noreferrer"
-                className="font-semibold text-foreground/80 transition-colors duration-200 hover:text-[var(--brand)]">
-                thiagolab.com
-              </a>
+            <a href={site.reidasvendas} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-5 py-2.5 text-sm font-semibold text-[var(--brand)] transition-all duration-300 hover:border-[var(--brand)]/30 hover:bg-[color-mix(in_srgb,var(--brand)_10%,transparent)] hover:scale-[1.02]">
+              <span>rei</span><span className="text-[var(--brand)]/60">das</span><span>vendas.com.br</span>
+              <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
+            </a>
+            <div className="w-full max-w-md">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/40 block mb-3">
+                {locale === "pt" ? "ACESSE TAMBÉM" : "ALSO VISIT"}
+              </span>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a href={site.saudegpt} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface-elevated px-4 py-2 text-xs font-medium text-foreground/80 transition-all duration-300 hover:border-[var(--brand)]/20 hover:text-[var(--brand)] hover:shadow-sm">
+                  saudegpt.com
+                  <ArrowUpRight className="h-3 w-3 opacity-50" />
+                </a>
+                <a href={site.thiagolab} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface-elevated px-4 py-2 text-xs font-medium text-foreground/80 transition-all duration-300 hover:border-[var(--brand)]/20 hover:text-[var(--brand)] hover:shadow-sm">
+                  thiagolab.com
+                  <ArrowUpRight className="h-3 w-3 opacity-50" />
+                </a>
+              </div>
             </div>
-            <p className="text-[11px] text-muted/40 max-w-md leading-relaxed">
-              {locale === "pt"
-                ? "Thiago Piola — Founder & ecossistema de transformação digital para o setor farmacêutico."
-                : "Thiago Piola — Founder & digital transformation ecosystem for the pharmaceutical sector."}
-            </p>
           </div>
         </motion.div>
 
         {/* ═══════════════════════════════════════════
-            BOTTOM BAR — refinada
+            BOTTOM BAR
            ═══════════════════════════════════════════ */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
-          className="relative mt-16 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="relative mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
         >
-          {/* Subtle divider line */}
           <div
             className="absolute left-5 right-5 md:left-8 md:right-8 top-0 h-px"
             style={{
@@ -503,50 +451,9 @@ export function Footer() {
             }}
             aria-hidden
           />
-
           <p className="text-[11px] text-muted/60 leading-relaxed tracking-wide">
             &copy; {year} {site.name} — {locale === "pt" ? blog.footerCopyright : blog.footerCopyrightEn}
           </p>
-          <span className="text-[10px] text-muted/40 tracking-wider">
-            Ecossistema:{" "}
-            <a href={site.reidasvendas} target="_blank" rel="noopener noreferrer"
-              className="font-medium text-muted/60 transition-colors duration-200 hover:text-[var(--brand)]">
-              reidasvendas.com.br
-            </a>
-            <span className="mx-1.5">·</span>
-            <a href={site.saudegpt} target="_blank" rel="noopener noreferrer"
-              className="font-medium text-muted/60 transition-colors duration-200 hover:text-[var(--brand)]">
-              saudegpt.com
-            </a>
-            <span className="mx-1.5">·</span>
-            <a href={site.thiagolab} target="_blank" rel="noopener noreferrer"
-              className="font-medium text-muted/60 transition-colors duration-200 hover:text-[var(--brand)]">
-              thiagolab.com
-            </a>
-          </span>
-          <div className="flex items-center gap-3 mt-3 sm:mt-0">
-            <span className="text-[10px] text-muted/50 tracking-wider">
-              {locale === "pt" ? blog.footerCreatedBy : blog.footerCreatedByEn}{" "}
-              <a
-                href={site.reidasvendas}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-[var(--brand)] transition-all duration-200 hover:opacity-80 hover:underline hover:underline-offset-2"
-              >
-                Rei das Vendas
-              </a>
-            </span>
-            <span className="relative flex h-2 w-2">
-              <span
-                className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-30"
-                style={{ background: "var(--brand)" }}
-              />
-              <span
-                className="relative inline-flex h-2 w-2 rounded-full"
-                style={{ background: "var(--brand)" }}
-              />
-            </span>
-          </div>
         </motion.div>
       </div>
     </footer>

@@ -147,7 +147,7 @@ export function UnifiedPortfolio() {
                 {locale === "pt" ? "Newsletter" : "Newsletter"}
               </h3>
               <p className="text-sm text-muted leading-relaxed mb-6 max-w-md mx-auto">
-                {locale === "pt" ? "Análises, insights e novidades sobre saúde, farmácia e tecnologia direto na sua caixa de entrada." : "Analyses, insights and news about health, pharmacy and technology straight to your inbox."}
+                {locale === "pt" ? "Fique por dentro do que há de mais atual em Saúde e Bem Estar, coloque seu E-mail abaixo." : "Stay up to date with the latest in Health and Wellness, enter your email below."}
               </p>
             </Reveal>
             <NewsletterForm />

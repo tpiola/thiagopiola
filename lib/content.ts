@@ -6,11 +6,11 @@
  */
 
 const whatsappText = encodeURIComponent(
-  "Olá, Thiago. Vi seu portfólio e quero conversar sobre resultados comerciais e estratégia para operação farmacêutica.",
+  "Olá, tudo bem? Meu nome é",
 );
 
 const whatsappTextEn = encodeURIComponent(
-  "Hi, Thiago. I saw your portfolio and want to talk about commercial results and strategy for pharmaceutical operations.",
+  "Hi, how are you? My name is",
 );
 
 export const site = {

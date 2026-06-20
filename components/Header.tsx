@@ -75,21 +75,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <LocaleToggle className="hidden sm:inline-flex" />
-          <motion.a href={site.linkedin} target="_blank" rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 rounded-lg border border-[var(--brand)]/30 bg-[color-mix(in_srgb,var(--brand)_8%,transparent)] px-3 py-2 font-mono text-[10px] font-medium uppercase tracking-wider text-[var(--brand)] md:inline-flex"
-            whileHover={reduce ? undefined : { scale: 1.03 }}
-            whileTap={reduce ? undefined : { scale: 0.98 }}
-            onClick={() => trackCta("cta_linkedin_click")}>
-            <LinkedinIcon className="h-3.5 w-3.5" />
-            LinkedIn
-          </motion.a>
-          <motion.a href={site.whatsapp} target="_blank" rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 rounded-lg bg-[var(--brand)] px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-wider text-white lg:inline-flex"
-            whileHover={reduce ? undefined : { scale: 1.03, boxShadow: "0 4px 20px var(--brand-glow)" }}
-            whileTap={reduce ? undefined : { scale: 0.98 }}
-            onClick={() => trackCta("cta_whatsapp_click")}>
-            <Zap className="h-3.5 w-3.5" />
-          </motion.a>
+
           <button type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
               aria-label={t("Abrir menu", "Open menu")}
