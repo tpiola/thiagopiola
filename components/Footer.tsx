@@ -10,10 +10,11 @@ import {
   MessageCircle,
   ChevronRight,
 } from "lucide-react";
-import { footerTagline, nav, site } from "@/lib/content";
+import { footerTagline, footerTaglineEn, nav, site, blog } from "@/lib/content";
 import { trackCta } from "@/lib/analytics";
 import { Logo } from "./Logo";
 import { SocialLinksGrouped } from "./SocialLinksGrouped";
+import { useLocale } from "@/lib/i18n";
 
 /* ─── Animation presets ─── */
 
@@ -73,6 +74,7 @@ const cardBase =
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { locale } = useLocale();
 
   return (
     <footer
@@ -178,7 +180,7 @@ export function Footer() {
                   className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand)]/15 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--brand)] mb-3"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] dot-pulse" />
-                  Perfil Profissional
+                  {locale === "pt" ? "Perfil Profissional" : "Professional Profile"}
                 </motion.span>
                 <motion.h3
                   variants={fadeUp}
@@ -190,9 +192,9 @@ export function Footer() {
                   variants={fadeUp}
                   className="mt-1.5 text-sm text-muted max-w-lg leading-relaxed"
                 >
-                  Conecte-se para acompanhar trajetória, resultados e
-                  posicionamento no setor farmacêutico. Perfil verificado com
-                  recomendações e histórico completo.
+                  {locale === "pt"
+                    ? "Conecte-se para acompanhar trajetória, resultados e posicionamento no setor farmacêutico. Perfil verificado com recomendações e histórico completo."
+                    : "Connect to follow career journey, results and positioning in the pharmaceutical sector. Verified profile with recommendations and full history."}
                 </motion.p>
               </div>
               <motion.a
@@ -208,7 +210,7 @@ export function Footer() {
                 onClick={() => trackCta("cta_linkedin_click")}
               >
                 <ExternalLink className="h-4 w-4" />
-                <span>Ver perfil no LinkedIn</span>
+                <span>{locale === "pt" ? "Ver perfil no LinkedIn" : "View LinkedIn profile"}</span>
                 <ArrowUpRight className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </motion.a>
             </div>
@@ -229,7 +231,7 @@ export function Footer() {
           <motion.div variants={fadeUp} className="lg:col-span-5">
             <Logo variant="full" showCredential height={160} />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
-              {footerTagline}
+              {locale === "pt" ? footerTagline : footerTaglineEn}
             </p>
             <SocialLinksGrouped className="mt-6" />
 
@@ -250,7 +252,7 @@ export function Footer() {
 
           {/* ── Nav column ── */}
           <motion.div variants={fadeUp} className="lg:col-span-3">
-            <p className="text-label text-muted tracking-[0.24em]">Menu</p>
+            <p className="text-label text-muted tracking-[0.24em]">{locale === "pt" ? "Menu" : "Menu"}</p>
             <ul className="mt-5 space-y-3">
               {nav.map((item, i) => (
                 <motion.li

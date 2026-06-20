@@ -4,9 +4,11 @@ import { motion, useReducedMotion } from "framer-motion";
 import { provasEntrega } from "@/lib/content";
 import { Reveal } from "./motion/Reveal";
 import { CountUp } from "./motion/CountUp";
+import { useLocale } from "@/lib/i18n";
 
 export function ProvasEntrega() {
   const reduce = useReducedMotion();
+  const { locale } = useLocale();
 
   return (
     <section className="relative border-b border-border bg-surface-elevated py-20 md:py-28 overflow-hidden">
@@ -15,7 +17,7 @@ export function ProvasEntrega() {
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal variant="fade">
           <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brand)] text-center mb-14">
-            Provas de Entrega
+            {locale === "pt" ? "Provas de Entrega" : "Proof of Delivery"}
           </p>
         </Reveal>
 
@@ -34,10 +36,10 @@ export function ProvasEntrega() {
                   <CountUp value={prova.value} />
                 </p>
                 <p className="text-sm font-bold text-foreground leading-snug mb-1.5">
-                  {prova.label}
+                  {locale === "pt" ? prova.label : (prova as typeof prova & { labelEn: string }).labelEn}
                 </p>
                 <p className="text-xs text-muted leading-relaxed">
-                  {prova.detail}
+                  {locale === "pt" ? prova.detail : (prova as typeof prova & { detailEn: string }).detailEn}
                 </p>
               </div>
             </motion.div>

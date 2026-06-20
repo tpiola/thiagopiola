@@ -5,9 +5,11 @@ import { trajetoria } from "@/lib/content";
 import { Reveal } from "./motion/Reveal";
 import { Stagger, StaggerItem } from "./motion/Stagger";
 import { SectionLabel } from "./SectionLabel";
+import { useLocale } from "@/lib/i18n";
 
 export function Trajetoria() {
   const reduce = useReducedMotion();
+  const { locale } = useLocale();
 
   return (
     <section
@@ -25,22 +27,26 @@ export function Trajetoria() {
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="mb-16 max-w-2xl" variant="up">
-          <SectionLabel index="05">Trajetória</SectionLabel>
+          <SectionLabel index="05">{locale === "pt" ? "Trajetória" : "Career"}</SectionLabel>
           <h2 className="text-heading-xl mt-4 font-semibold tracking-tight text-foreground text-gradient-brand">
-            {trajetoria.title}
+            {locale === "pt" ? trajetoria.title : trajetoria.titleEn}
           </h2>
           <div className="divider-brand mt-4 w-24" />
-          <p className="mt-5 text-base leading-relaxed text-muted">{trajetoria.lead}</p>
+          <p className="mt-5 text-base leading-relaxed text-muted">
+            {locale === "pt" ? trajetoria.lead : trajetoria.leadEn}
+          </p>
         </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal variant="left">
             <div className="h-full border border-border bg-surface-elevated p-6 md:p-8">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">
-                Experiência
+                {locale === "pt" ? "Experiência" : "Experience"}
               </h3>
               <Stagger className="mt-8 space-y-0" stagger={0.08}>
-                {trajetoria.career.map((job) => (
+                {trajetoria.career.map((job) => {
+                  const impacts = locale === "pt" ? job.impacts : (job as typeof job & { impactsEn: readonly string[] }).impactsEn || job.impacts;
+                  return (
                   <StaggerItem key={job.company}>
                     <div className="timeline-item relative border-l border-border py-4 pl-6 last:pb-0">
                       <span
@@ -48,13 +54,21 @@ export function Trajetoria() {
                         aria-hidden
                       />
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <span className="text-sm font-bold text-foreground">{job.company}</span>
-                        <span className="font-mono text-[10px] text-muted">{job.period}</span>
+                        <span className="text-sm font-bold text-foreground">
+                          {locale === "pt" ? job.company : (job as typeof job & { companyEn: string }).companyEn || job.company}
+                        </span>
+                        <span className="font-mono text-[10px] text-muted">
+                          {locale === "pt" ? job.period : (job as typeof job & { periodEn: string }).periodEn || job.period}
+                        </span>
                       </div>
-                      <p className="mt-1 text-sm font-semibold text-[var(--brand)]">{job.role}</p>
-                      <p className="mt-1 text-sm text-muted">{job.desc}</p>
+                      <p className="mt-1 text-sm font-semibold text-[var(--brand)]">
+                        {locale === "pt" ? job.role : (job as typeof job & { roleEn: string }).roleEn || job.role}
+                      </p>
+                      <p className="mt-1 text-sm text-muted">
+                        {locale === "pt" ? job.desc : (job as typeof job & { descEn: string }).descEn || job.desc}
+                      </p>
                       <ul className="mt-3 space-y-1.5">
-                        {job.impacts.map((impact) => (
+                        {impacts.map((impact: string) => (
                           <li
                             key={impact}
                             className="flex gap-2 text-xs leading-relaxed text-muted"
@@ -66,7 +80,8 @@ export function Trajetoria() {
                       </ul>
                     </div>
                   </StaggerItem>
-                ))}
+                  );
+                })}
               </Stagger>
             </div>
           </Reveal>
@@ -74,7 +89,7 @@ export function Trajetoria() {
           <Reveal variant="right" delay={0.1}>
             <div className="h-full border border-border bg-surface-elevated p-6 md:p-8">
               <h3 className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted">
-                Formação
+                {locale === "pt" ? "Formação" : "Education"}
               </h3>
               <Stagger className="mt-8 space-y-2" stagger={0.06}>
                 {trajetoria.education.map((item) => (
@@ -83,9 +98,11 @@ export function Trajetoria() {
                       className="group flex items-center justify-between gap-4 border border-border px-4 py-3.5 text-sm transition-all duration-300 hover:border-[var(--brand)]/30 hover:bg-[color-mix(in_srgb,var(--brand)_3%,transparent)]"
                       whileHover={reduce ? undefined : { x: 4 }}
                     >
-                      <span className="leading-snug text-foreground">{item.course}</span>
+                      <span className="leading-snug text-foreground">
+                        {locale === "pt" ? item.course : (item as typeof item & { courseEn: string }).courseEn || item.course}
+                      </span>
                       <span className="shrink-0 font-mono text-[9px] uppercase tracking-wider text-[var(--brand)]">
-                        {item.status}
+                        {locale === "pt" ? item.status : (item as typeof item & { statusEn: string }).statusEn || item.status}
                       </span>
                     </motion.div>
                   </StaggerItem>

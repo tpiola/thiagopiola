@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
 import { duration, easeLuxury, spring, easeOutExpo } from "@/lib/motion";
-import { hero, heroEn, site } from "@/lib/content";
+import { hero, heroEn, site, blog } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { trackCta } from "@/lib/analytics";
 import { HeroAmbience } from "./motion/HeroAmbience";
@@ -13,6 +13,8 @@ import { Reveal } from "./motion/Reveal";
 import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
+import { useLocale } from "@/lib/i18n";
+import { LocaleToggle } from "./LocaleToggle";
 
 interface HeroProps {
   sectionType?: "default" | "unified";
@@ -33,7 +35,7 @@ function useReduced() {
 }
 
 export function Hero({ sectionType = "default" }: HeroProps) {
-  const [locale, setLocale] = useState<"pt" | "en">("pt");
+  const { locale } = useLocale();
   const copy = locale === "pt" ? hero : heroEn;
   const reduce = useReduced();
   const { scrollY } = useScroll();
@@ -117,19 +119,8 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               initial={reduce ? false : { opacity: 0, scale: 0.9 }}
               animate={reduce ? undefined : { opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex rounded-lg border border-border p-0.5"
             >
-              {(["pt", "en"] as const).map((code) => (
-                <button key={code} type="button"
-                  className={cn(
-                    "touch-target rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors",
-                    locale === code ? "bg-[var(--brand)] text-white" : "text-muted hover:text-foreground"
-                  )}
-                  onClick={() => setLocale(code)} aria-pressed={locale === code}
-                >
-                  {code}
-                </button>
-              ))}
+              <LocaleToggle />
             </motion.div>
           </div>
 
@@ -157,7 +148,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6, ease: easeOutExpo }}
           >
-            Farmacêutico &middot; CRF/SP 58.519 &middot; Operação, tecnologia e execução comercial em saúde
+            Farmacêutico &middot; CRF/SP 58.519 &middot; {locale === "pt" ? "Operação, tecnologia e execução comercial em saúde" : "Operations, technology and commercial execution in healthcare"}
           </motion.p>
 
           {/* Subtítulo com selo de autoridade */}
@@ -201,7 +192,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             >
               <Sparkles className="h-3.5 w-3.5 text-[var(--brand)] shrink-0" aria-hidden />
               <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
-                Seu próximo passo:
+                {locale === "pt" ? "Seu próximo passo:" : "Your next step:"}
               </span>
               <span className="inline-flex items-center typewriter-cursor">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--brand)]">
@@ -231,7 +222,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             <MagneticLink href={site.whatsapp} target="_blank" rel="noopener noreferrer"
               className="btn-secondary group relative overflow-hidden border-glow"
               onClick={ctaSound}
-              aria-label="Contato via WhatsApp">
+              aria-label={locale === "pt" ? "Contato via WhatsApp" : "Contact via WhatsApp"}>
               <MessageCircle className="relative h-4 w-4" aria-hidden />
             </MagneticLink>
           </motion.div>
@@ -281,7 +272,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 0.8 }} aria-hidden>
           <span className="font-mono text-[9px] font-bold uppercase tracking-[0.22em] text-muted/40">
-            Role para explorar
+            {locale === "pt" ? "Role para explorar" : "Scroll to explore"}
           </span>
           <motion.div className="flex h-9 w-5 items-start justify-center rounded-full border border-border p-1.5"
             animate={{ y: [0, 7, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}>

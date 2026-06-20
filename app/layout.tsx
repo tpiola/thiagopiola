@@ -5,6 +5,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { I18nProvider } from "@/lib/i18n";
 import { site } from "@/lib/content";
 import "./globals.css";
 
@@ -187,9 +188,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SkipLink />
         <JsonLd />
         <ThemeProvider>
-          {children}
-          <CookieConsent />
-          <Analytics />
+          <I18nProvider>
+            {children}
+            <CookieConsent />
+            <Analytics />
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

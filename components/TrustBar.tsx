@@ -3,18 +3,24 @@
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { trustBar } from "@/lib/content";
 import { Reveal } from "./motion/Reveal";
+import { useLocale } from "@/lib/i18n";
 
 /** Prova social verificável — cards com hover premium */
 export function TrustBar() {
+  const { locale } = useLocale();
+
   return (
     <section
       className="border-b border-border bg-surface-elevated/60 backdrop-blur-sm"
-      aria-label="Credenciais verificáveis"
+      aria-label={locale === "pt" ? "Credenciais verificáveis" : "Verifiable credentials"}
     >
       <div className="mx-auto max-w-6xl px-5 py-6 md:px-8 md:py-8">
         <Reveal variant="fade">
           <ul className="grid gap-4 sm:grid-cols-3">
-            {trustBar.map((item) => (
+            {trustBar.map((item: any) => {
+              const label = locale === "pt" ? item.label : item.labelEn || item.label;
+              const detail = locale === "pt" ? item.detail : item.detailEn || item.detail;
+              return (
               <li key={item.label}>
                 {item.href ? (
                   <a
@@ -24,16 +30,17 @@ export function TrustBar() {
                     className="group card-hover-premium flex items-start gap-3 rounded-xl border border-border bg-surface p-4"
                   >
                     <TrustIcon />
-                    <TrustCopy label={item.label} detail={item.detail} linked />
+                    <TrustCopy label={label} detail={detail} linked />
                   </a>
                 ) : (
                   <div className="card-hover-premium flex items-start gap-3 rounded-xl border border-border bg-surface p-4">
                     <TrustIcon />
-                    <TrustCopy label={item.label} detail={item.detail} />
+                    <TrustCopy label={label} detail={detail} />
                   </div>
                 )}
               </li>
-            ))}
+              );
+            })}
           </ul>
         </Reveal>
       </div>

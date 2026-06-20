@@ -19,12 +19,14 @@ import { Projetos } from "@/components/Projetos";
 import { PageShell } from "@/components/motion/PageShell";
 import { Reveal } from "@/components/motion/Reveal";
 import { spring } from "@/lib/motion";
-import { projetos, competenciasCards } from "@/lib/content";
+import { projetos, competenciasCards, blog } from "@/lib/content";
 import { FloatingCta } from "./FloatingCta";
+import { useLocale } from "@/lib/i18n";
 
 function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { locale } = useLocale();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,10 +76,10 @@ function NewsletterForm() {
       >
         <Mail className="h-8 w-8 text-[var(--brand)] mx-auto mb-3" />
         <p className="text-base font-medium text-foreground">
-          Obrigado por assinar! 🎉
+          {locale === "pt" ? "Obrigado por assinar! 🎉" : "Thanks for subscribing! 🎉"}
         </p>
         <p className="text-sm text-muted mt-1">
-          Você receberá os próximos conteúdos no seu email.
+          {locale === "pt" ? "Você receberá os próximos conteúdos no seu email." : "You'll receive upcoming content in your inbox."}
         </p>
       </motion.div>
     );
@@ -89,17 +91,19 @@ function NewsletterForm() {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="seu@email.com"
+        placeholder={locale === "pt" ? "seu@email.com" : "your@email.com"}
         required
         disabled={status === "loading"}
-        className="flex-1 rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)]/30 transition-all disabled:opacity-50"
+        className="flex-1 rounded-xl border border-border bg-surface-elevated px-4 py-3 text-sm text-foreground placeholder:text-muted outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)]/30 transition-all disabled:opacity-50"
       />
       <button
         type="submit"
         disabled={status === "loading"}
         className="btn-primary whitespace-nowrap disabled:opacity-50"
       >
-        {status === "loading" ? "Enviando…" : "Assinar"}
+        {status === "loading"
+          ? (locale === "pt" ? "Enviando…" : "Sending…")
+          : (locale === "pt" ? "Assinar" : "Subscribe")}
       </button>
       {status === "error" && (
         <motion.p
@@ -107,7 +111,9 @@ function NewsletterForm() {
           animate={{ opacity: 1, y: 0 }}
           className="col-span-full text-sm text-red-500 text-center"
         >
-          Ocorreu um erro ao enviar. Tente novamente mais tarde.
+          {locale === "pt"
+            ? "Ocorreu um erro ao enviar. Tente novamente mais tarde."
+            : "An error occurred. Please try again later."}
         </motion.p>
       )}
     </form>
@@ -115,6 +121,8 @@ function NewsletterForm() {
 }
 
 export function UnifiedPortfolio() {
+  const { locale } = useLocale();
+
   return (
     <PageShell>
       <main className="min-h-screen bg-surface text-foreground font-sans selection:bg-[var(--brand)] selection:text-white">
@@ -130,18 +138,20 @@ export function UnifiedPortfolio() {
         <section className="py-20 md:py-32 overflow-hidden bg-surface-elevated">
           <div className="mx-auto max-w-4xl px-5 md:px-8">
             <Reveal variant="fade">
-              <div className="relative rounded-3xl border border-[var(--brand)]/10 bg-white p-8 md:p-14 text-center shadow-subtle">
+              <div className="relative rounded-3xl border border-[var(--brand)]/10 bg-surface-elevated p-8 md:p-14 text-center shadow-subtle">
                 
                 <span className="mb-6 block font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--brand)]">
-                  Manifesto Profissional
+                  {locale === "pt" ? "Manifesto Profissional" : "Professional Manifesto"}
                 </span>
                 
                 <h2 className="text-2xl md:text-3xl font-semibold leading-snug text-foreground balance">
-                  &ldquo;A tecnologia acelera processos, mas o <span className="text-gradient-brand">Judgment Layer</span> humano é o que valida o compliance e a conversão no ponto de venda.&rdquo;
+                  &ldquo;{locale === "pt" ? "A tecnologia acelera processos, mas o" : "Technology accelerates processes, but the"} <span className="text-gradient-brand">Judgment Layer</span>{locale === "pt" ? " humano é o que valida o compliance e a conversão no ponto de venda." : " is what validates compliance and conversion at the point of sale."}&rdquo;
                 </h2>
                 
                 <p className="mt-8 text-muted leading-relaxed max-w-2xl mx-auto">
-                  Minha abordagem une a precisão de dados da Engenharia de IA com a intuição científica de anos em campo. Eu elimino o ponto cego entre a diretriz da diretoria e o resultado no faturamento da filial.
+                  {locale === "pt"
+                    ? "Minha abordagem une a precisão de dados da Engenharia de IA com a intuição científica de anos em campo. Eu elimino o ponto cego entre a diretriz da diretoria e o resultado no faturamento da filial."
+                    : "My approach combines the data precision of AI Engineering with the scientific intuition of years in the field. I eliminate the blind spot between boardroom directives and branch revenue results."}
                 </p>
               </div>
             </Reveal>
@@ -154,13 +164,15 @@ export function UnifiedPortfolio() {
             <Reveal variant="fade">
               <div className="text-center mb-14">
                 <span className="inline-block mb-5 rounded-full bg-[var(--brand)]/10 px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--brand)]">
-                  Atuação Profissional
+                  {locale === "pt" ? "Atuação Profissional" : "Professional Expertise"}
                 </span>
                 <h2 className="text-2xl md:text-3xl font-semibold leading-snug text-foreground balance mb-4">
-                  Competências profissionais
+                  {locale === "pt" ? "Competências profissionais" : "Professional Skills"}
                 </h2>
                 <p className="text-muted leading-relaxed max-w-xl mx-auto">
-                  Comunicação técnica, vendas consultivas, relacionamento profissional, treinamento e tecnologia.
+                  {locale === "pt"
+                    ? "Comunicação técnica, vendas consultivas, relacionamento profissional, treinamento e tecnologia."
+                    : "Technical communication, consultative sales, professional relationships, training and technology."}
                 </p>
               </div>
             </Reveal>
@@ -176,16 +188,16 @@ export function UnifiedPortfolio() {
                     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ delay: i * 0.08, ...spring.soft }}
-                    className="group rounded-2xl border border-border bg-white p-6 md:p-8 hover:border-[var(--brand)]/30 hover:shadow-md transition-all duration-300"
+                    className="group rounded-2xl border border-border bg-surface-elevated p-6 md:p-8 hover:border-[var(--brand)]/30 hover:shadow-md transition-all duration-300"
                   >
                     <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] group-hover:bg-[var(--brand)] group-hover:text-white transition-colors duration-300">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="text-base font-semibold text-foreground mb-2">
-                      {card.titulo}
+                      {locale === "pt" ? card.titulo : card.tituloEn}
                     </h3>
                     <p className="text-sm text-muted leading-relaxed">
-                      {card.desc}
+                      {locale === "pt" ? card.desc : card.descEn}
                     </p>
                   </motion.div>
                 );
@@ -202,14 +214,14 @@ export function UnifiedPortfolio() {
         <Projetos />
 
         {/* 8. NEWSLETTER */}
-        <section className="py-20 md:py-24 bg-gradient-to-b from-surface-elevated to-white border-t border-border">
+        <section className="py-20 md:py-24 bg-gradient-to-b from-surface-elevated to-surface-elevated border-t border-border">
           <div className="mx-auto max-w-xl px-5 md:px-8 text-center">
             <Reveal variant="up">
               <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-                Receba conteúdos sobre saúde, farmácia e tecnologia
+                {locale === "pt" ? "Receba conteúdos sobre saúde, farmácia e tecnologia" : "Receive content about health, pharmacy and technology"}
               </h3>
               <p className="text-muted leading-relaxed mb-8">
-                Análises, insights e novidades direto na sua caixa de entrada.
+                {locale === "pt" ? "Análises, insights e novidades direto na sua caixa de entrada." : "Analyses, insights and news straight to your inbox."}
               </p>
             </Reveal>
             <NewsletterForm />

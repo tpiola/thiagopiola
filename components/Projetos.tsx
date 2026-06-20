@@ -6,18 +6,23 @@ import { LuxuryCard } from "./motion/LuxuryCard";
 import { Reveal } from "./motion/Reveal";
 import { Stagger, StaggerItem } from "./motion/Stagger";
 import { SectionLabel } from "./SectionLabel";
+import { useLocale } from "@/lib/i18n";
 
 export function Projetos() {
+  const { locale } = useLocale();
+
   return (
     <section id="resultados" className="border-b border-border py-24 md:py-36 overflow-hidden">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="max-w-3xl" variant="left">
-          <SectionLabel index="03">Resultados</SectionLabel>
+          <SectionLabel index="03">{locale === "pt" ? "Resultados" : "Results"}</SectionLabel>
           <h2 className="mt-4 text-heading-xl font-semibold tracking-tight text-foreground text-gradient-brand">
-            {projetos.title}
+            {locale === "pt" ? projetos.title : projetos.titleEn}
           </h2>
           <div className="mt-4 divider-brand w-24" />
-          <p className="mt-5 text-base text-muted md:text-lg leading-relaxed max-w-2xl">{projetos.lead}</p>
+          <p className="mt-5 text-base text-muted md:text-lg leading-relaxed max-w-2xl">
+            {locale === "pt" ? projetos.lead : projetos.leadEn}
+          </p>
         </Reveal>
 
         <Stagger className="mt-12 grid gap-5 lg:grid-cols-3" stagger={0.08}>
@@ -30,27 +35,31 @@ export function Projetos() {
                   </span>
                   <a href={item.href} target="_blank" rel="noopener noreferrer"
                     className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                    aria-label={`Ver projeto: ${item.title}`}>
+                    aria-label={`${locale === "pt" ? "Ver projeto:" : "View project:"} ${item.title}`}>
                     <ArrowUpRight className="h-4 w-4 text-muted" />
                   </a>
                 </div>
 
-                <h3 className="text-base font-bold leading-snug text-foreground">{item.title}</h3>
+                <h3 className="text-base font-bold leading-snug text-foreground">
+                  {locale === "pt" ? item.title : item.titleEn}
+                </h3>
 
                 <div className="mt-4 space-y-3 flex-1">
                   <div>
                     <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-1">
-                      Desafio
+                      {locale === "pt" ? "Desafio" : "Challenge"}
                     </p>
-                    <p className="text-sm text-muted leading-relaxed">{item.problem}</p>
+                    <p className="text-sm text-muted leading-relaxed">
+                      {locale === "pt" ? item.problem : item.problemEn}
+                    </p>
                   </div>
                   <div>
                     <p className="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--brand)] mb-1">
-                      Resultado
+                      {locale === "pt" ? "Resultado" : "Result"}
                     </p>
                     <p className="text-sm font-medium text-foreground leading-relaxed flex items-start gap-1.5">
                       <CheckCircle2 className="h-3.5 w-3.5 text-[var(--brand)] mt-0.5 shrink-0" aria-hidden />
-                      {item.result}
+                      {locale === "pt" ? item.result : item.resultEn}
                     </p>
                   </div>
                 </div>
@@ -66,7 +75,7 @@ export function Projetos() {
 
                 <a href={item.href} target="_blank" rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand)] transition-all hover:gap-2.5 duration-200">
-                  Ver projeto
+                  {locale === "pt" ? "Ver projeto" : "View project"}
                   <ArrowUpRight className="h-3.5 w-3.5 arrow-bounce" />
                 </a>
               </LuxuryCard>

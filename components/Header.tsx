@@ -9,12 +9,19 @@ import { trackCta } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
+import { LocaleToggle } from "./LocaleToggle";
 import { LinkedinIcon } from "./SocialIcons";
+import { useLocale, useT } from "@/lib/i18n";
 
 export function Header() {
   const reduce = useReducedMotion();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { locale } = useLocale();
+  const t = useT();
+  const navLabel = t("Trajetória", "Career");
+  const navBlog = t("Blog", "Blog");
+  const navContato = t("Contato", "Contact");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -49,18 +56,25 @@ export function Header() {
         </Link>
 
         {/* Navegação Desktop */}
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
-          {nav.map((link) => (
+        <nav className="hidden items-center gap-1 lg:flex" aria-label={t("Principal", "Main navigation")}>
+          {nav.map((link) => {
+            let label = link.label;
+            if (link.href === "#trajetoria") label = navLabel;
+            else if (link.href === "/blog") label = navBlog;
+            else if (link.href === "#contato") label = navContato;
+            return (
             <a key={link.href} href={link.href}
-              className="group relative rounded-md px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted transition-all duration-200 hover:text-foreground xl:px-3.5">
-              {link.label}
+              className="group relative rounded-md px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted transition-all duration-200 hover:text-foreground xl:px-3.5 touch-target">
+              {label}
               <span className="absolute inset-x-3 bottom-1.5 h-px origin-left scale-x-0 bg-[var(--brand)] transition-transform duration-300 group-hover:scale-x-100" />
             </a>
-          ))}
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          <LocaleToggle className="hidden sm:inline-flex" />
           <motion.a href={site.linkedin} target="_blank" rel="noopener noreferrer"
             className="hidden items-center gap-1.5 rounded-lg border border-[var(--brand)]/30 bg-[color-mix(in_srgb,var(--brand)_8%,transparent)] px-3 py-2 font-mono text-[10px] font-medium uppercase tracking-wider text-[var(--brand)] md:inline-flex"
             whileHover={reduce ? undefined : { scale: 1.03 }}
@@ -78,7 +92,7 @@ export function Header() {
           </motion.a>
           <button type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
-            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-label={t("Abrir menu", "Open menu")}
             onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -106,14 +120,22 @@ export function Header() {
             <button
               type="button"
               className="absolute right-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-lg text-foreground hover:bg-[color-mix(in_srgb,var(--foreground)_8%,transparent)]"
-              aria-label="Fechar menu"
+              aria-label={t("Fechar menu", "Close menu")}
               onClick={closeMenu}
             >
               <X className="h-6 w-6" />
             </button>
 
+            {/* Locale toggle no mobile */}
+            <LocaleToggle />
+
             {/* Links do menu com stagger */}
-            {nav.map((link, i) => (
+            {nav.map((link, i) => {
+              let label = link.label;
+              if (link.href === "#trajetoria") label = navLabel;
+              else if (link.href === "/blog") label = navBlog;
+              else if (link.href === "#contato") label = navContato;
+              return (
               <motion.a
                 key={link.href}
                 href={link.href}
@@ -124,9 +146,9 @@ export function Header() {
                 exit={reduce ? undefined : { opacity: 0, y: -10 }}
                 transition={{ delay: reduce ? 0 : i * 0.08, duration: 0.3 }}
               >
-                {link.label}
+                {label}
               </motion.a>
-            ))}
+            )})}
 
             {/* CTA principal mobile */}
             <motion.a
@@ -144,7 +166,7 @@ export function Header() {
               transition={{ delay: reduce ? 0 : 0.3, duration: 0.3 }}
             >
               <LinkedinIcon className="h-5 w-5" />
-              Ver perfil no LinkedIn
+              {t("Ver perfil no LinkedIn", "View LinkedIn profile")}
             </motion.a>
 
             {/* Micro-copy de confiança no mobile */}
@@ -155,7 +177,7 @@ export function Header() {
               exit={reduce ? undefined : { opacity: 0 }}
               transition={{ delay: reduce ? 0 : 0.4 }}
             >
-              CRF/SP 58.519 · Resposta em até 2h
+              CRF/SP 58.519 · {t("Resposta em até 2h", "Response within 2h")}
             </motion.p>
           </motion.div>
         )}
