@@ -76,7 +76,7 @@ export const socialLinksCommunity = socialLinks.filter((l) =>
 
 export const nav = [
   { href: "#trajetoria", label: "Trajetória", labelEn: "Career" },
-  { href: "/industria", label: "Indústria", labelEn: "Industry" },
+  { href: "/blog", label: "Blog", labelEn: "Blog" },
   { href: "#contato", label: "Contato", labelEn: "Contact" },
 ] as const;
 
