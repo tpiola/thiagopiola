@@ -13,7 +13,6 @@ import { Reveal } from "./motion/Reveal";
 import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
-import Link from "next/link";
 
 interface HeroProps {
   sectionType?: "default" | "unified";
@@ -213,10 +212,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               aria-label="Contato via WhatsApp">
               <MessageCircle className="relative h-4 w-4" aria-hidden />
             </MagneticLink>
-            <Link href={site.industriaUrl}
-              className="btn-secondary group font-semibold">
-              {copy.ctaIndustria}
-            </Link>
           </motion.div>
 
           {/* ─── Micro-cópia persuasiva (escassez + reciprocidade) ─── */}

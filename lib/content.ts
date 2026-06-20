@@ -1,5 +1,5 @@
 /** Conteúdo centralizado — thiagopiola.com.br
- *  Copy profissional voltada para recrutadores da indústria farmacêutica.
+ *  Copy profissional com posicionamento técnico-comercial em saúde.
  *  Tom: factual, direto, baseado em resultados e competências verificáveis.
  */
 
@@ -23,10 +23,9 @@ export const site = {
   cvUrl: "https://thiagopiola.notion.site/",
   cvLabel: "Ver Currículo",
   description:
-    "Farmacêutico CRF/SP 58.519 com mais de uma década em operação farmacêutica na maior rede de farmácias do Brasil. Execução técnica, visão de negócio, inteligência artificial e automação.",
+    "Farmacêutico com atuação técnico-comercial em saúde — operação farmacêutica, hospitalar, treinamento, vendas consultivas e tecnologia.",
   url: "https://www.thiagopiola.com.br",
   reidasvendas: "https://www.reidasvendas.com.br",
-  industriaUrl: "https://www.thiagopiola.com.br/industria",
   facebook: "https://www.facebook.com/thiagoopiolaoficial",
   instagram: "https://www.instagram.com/othiagopiolaoficial",
   github: "https://github.com/tpiola",
@@ -36,7 +35,7 @@ export const site = {
 } as const;
 
 export const footerTagline =
-  "Farmacêutico CRF/SP 58.519 — Operação, tecnologia e execução comercial em saúde.";
+  "Farmacêutico CRF/SP 58.519 — Atuação técnico-comercial em saúde.";
 
 export const socialLinks = [
   { href: "https://github.com/tpiola", label: "GitHub" },
@@ -59,64 +58,61 @@ export const socialLinksCommunity = socialLinks.filter((l) =>
 
 export const nav = [
   { href: "#trajetoria", label: "Trajetória" },
-  { href: "/industria", label: "Indústria" },
   { href: "/blog", label: "Blog" },
   { href: "#contato", label: "Contato" },
 ] as const;
 
 /* ═══════════════════════════════════════════
-   HERO — Posicionamento para recrutadores
-   Tom: direto, factual, baseado em reconhecimento real
+   HERO — Posicionamento técnico-comercial
+   Tom: direto, factual, baseado em competências reais
    ═══════════════════════════════════════════ */
 export const hero = {
-  tagline: "Farmacêutico CRF/SP 58.519 · Operação, tecnologia e execução comercial",
+  tagline: "Farmacêutico CRF/SP 58.519 · Operação técnica e comercial em saúde",
   description:
-    "Farmacêutico CRF/SP 58.519 — mais de uma década em operação na maior rede de farmácias do Brasil, combinando técnica, negócio e tecnologia.",
+    "Farmacêutico com visão técnica, comercial e digital para operações estratégicas em saúde.",
   titleLine1: "Thiago Biasoli Garcia Piola",
-  titleLine2: "Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução em saúde",
-  subtitleBefore: "Mais de uma década na maior rede do Brasil",
-  subtitleAfter: "Técnica, comercial e regulatória com tecnologia",
+  titleLine2: "Farmacêutico CRF/SP 58.519 · Franca/SP",
+  subtitleBefore: "Operação farmacêutica e hospitalar",
+  subtitleAfter: "Vendas consultivas e tecnologia",
   lead:
-    "Farmacêutico CRF/SP 58.519 — operação, treinamento, compliance ANVISA e IA aplicada à saúde.",
+    "Farmacêutico CRF/SP 58.519 — operação, treinamento, compliance e execução comercial em saúde.",
   ctaWhatsapp: "",
   ctaEmail: "E-mail",
   ctaLinkedin: "Ver perfil no LinkedIn",
-  ctaIndustria: "Dossiê Executivo →",
   whatsappLabel: "",
   ctaPrincipal: "Ver perfil no LinkedIn",
-  ctaSecundario: "Ver trajetória profissional",
-  microCta: "CRF/SP 58.519 · Perfil verificado · Contato direto",
+  ctaSecundario: "Conhecer a trajetória",
+  microCta: "CRF/SP 58.519 · Perfil profissional",
 } as const;
 
 export const heroEn = {
-  tagline: "Pharmacist CRF/SP 58.519 · Operations, technology and commercial execution",
+  tagline: "Pharmacist CRF/SP 58.519 · Technical and commercial operations in healthcare",
   description:
-    "Pharmacist CRF/SP 58.519 — over a decade at Brazil's largest pharmacy chain, combining technical, business and technology.",
+    "Pharmacist with technical, commercial and digital vision for strategic healthcare operations.",
   titleLine1: "Thiago Biasoli Garcia Piola",
-  titleLine2: "Pharmacist · CRF/SP 58.519 · Operations, technology and execution in healthcare",
-  subtitleBefore: "Over a decade at Brazil's largest chain",
-  subtitleAfter: "Technical, commercial and regulatory with technology",
+  titleLine2: "Pharmacist CRF/SP 58.519 · Franca/SP",
+  subtitleBefore: "Pharmaceutical and hospital operations",
+  subtitleAfter: "Consultative sales and technology",
   lead:
-    "Pharmacist CRF/SP 58.519 — operations, training, ANVISA compliance and AI applied to healthcare.",
+    "Pharmacist CRF/SP 58.519 — operations, training, compliance and commercial execution in healthcare.",
   ctaWhatsapp: "",
   ctaEmail: "Email",
   ctaLinkedin: "View LinkedIn profile",
-  ctaIndustria: "Executive Dossier →",
   whatsappLabel: "",
   ctaPrincipal: "View LinkedIn profile",
   ctaSecundario: "View career journey",
-  microCta: "CRF/SP 58.519 · Verified profile · Direct contact",
+  microCta: "CRF/SP 58.519 · Professional profile",
 } as const;
 
 export const provasEntrega = [
-  { value: "10+", label: "Anos em operação farmacêutica", detail: "Grande rede — RT, treinamento, compliance ANVISA e execução comercial" },
-  { value: "360°", label: "Visão integrada do negócio", detail: "Farmácia clínica ao sell-out no PDV — técnica, regulatória e comercial" },
-  { value: "Ativa", label: "Plataforma Rei das Vendas", detail: "Treinamento comercial proprietário aplicado ao setor farmacêutico" },
+  { value: "10+", label: "Anos em operação farmacêutica", detail: "RT, treinamento, compliance e execução comercial" },
+  { value: "360°", label: "Visão integrada do negócio", detail: "Técnica, regulatória e comercial — visão 360° do negócio" },
+  { value: "Ativa", label: "Plataforma Rei das Vendas", detail: "Treinamento comercial proprietário com método e resultado" },
 ] as const;
 
 export const trustBar = [
   { label: "CRF/SP 58.519", detail: "Registro ativo e verificável — consulte no site do Conselho", href: "https://www.crfsp.org.br" },
-  { label: "MBA + Pós em Engenharia de IA + GEAR/Google", detail: "Formação multidisciplinar: gestão, tecnologia e inteligência artificial", href: "https://me.developers.google.com/u/105476544026751993130" },
+  { label: "MBA · Pós em Engenharia de IA · GEAR/Google", detail: "Formação multidisciplinar: gestão, tecnologia e inteligência artificial", href: "https://me.developers.google.com/u/105476544026751993130" },
 ] as const;
 
 export const projetos = {
@@ -133,10 +129,10 @@ export const trajetoria = {
   title: "Trajetória",
   lead: "Experiência verificável em ambientes de alta exigência. Resultado, segurança regulatória e crescimento sustentável.",
   career: [
-    { company: "Droga Raia (RD Saúde) — Filial Franca, SP", period: "Atual", role: "Farmacêutico RT de Filial", desc: "Responsável Técnico — vendas, treinamento, compliance ANVISA e gestão de equipe", impacts: ["Treinamento de equipe com compliance CRF/SP e foco em resultado comercial"] },
+    { company: "Operação Farmacêutica e Varejo de Saúde", period: "Atual", role: "Farmacêutico RT", desc: "Experiência em atendimento farmacêutico, orientação, vendas consultivas, indicadores e treinamento de equipes.", impacts: ["Treinamento de equipe com compliance CRF/SP e foco em resultado comercial"] },
     { company: "Drogaria Americana", period: "2013–2014", role: "Farmacêutico RT", desc: "Operação, atendimento e gestão de rotina técnica", impacts: ["Gestão de rotina técnica e indicadores operacionais", "Atendimento e dispensação com conformidade regulatória"] },
     { company: "Farma Cruz", period: "2012–2013", role: "Farmacêutico RT", desc: "Compliance documental e rotina técnica", impacts: ["Controle documental e conformidade ANVISA", "Padronização de processos de dispensação"] },
-    { company: "Hospital Unimed", period: "2008–2011", role: "Aux. de Farmácia", desc: "Farmácia hospitalar — logística e suporte clínico", impacts: ["Suporte à farmácia clínica", "Logística de estoque crítico e rastreabilidade"] },
+    { company: "Hospital Unimed", period: "2008–2011", role: "Aux. de Farmácia", desc: "Farmácia hospitalar — vivência com médicos, prescrições, equipe multiprofissional, fluxos assistenciais e logística de medicamentos.", impacts: ["Comunicação técnica com profissionais da saúde", "Logística de medicamentos e rastreabilidade em ambiente hospitalar", "Contato direto com prescrições e equipe multiprofissional"] },
   ],
   education: [
     { course: "Pós-graduação em Engenharia de IA", status: "Em andamento" },
@@ -147,26 +143,28 @@ export const trajetoria = {
   ],
 } as const;
 
-/* ─── Seções direcionadas a recrutadores da indústria ─── */
+/* ─── Seções de competências profissionais ─── */
 
-export const sectionParaRecrutadores =
-  "Competências que a indústria farmacêutica valoriza";
+export const sectionCompetencias =
+  "Competências profissionais";
 
 export const trajetoriaCards = [
   "Comunicação técnica com clareza — treinamento e desenvolvimento de equipes",
-  "Vivência de campo — leitura de rotina, necessidades reais e canal",
-  "Disciplina regulatória — compliance ANVISA e boas práticas de dispensação",
-  "Treinamento e desenvolvimento — método comercial proprietário aplicado",
+  "Vivência de campo — leitura de rotina e necessidades reais",
+  "Disciplina regulatória — compliance e boas práticas",
+  "Treinamento e desenvolvimento — método comercial proprietário",
   "Indicadores e leitura operacional — dados para tomada de decisão",
-  "Tecnologia aplicada à produtividade — IA, n8n, automação de processos",
+  "Tecnologia aplicada à produtividade — IA, n8n, automação",
 ] as const;
 
-export const secaoIndustria =
-  "Perfil preparado para a indústria farmacêutica: visão de negócio, execução em campo e tecnologia aplicada.";
+export const secaoCompetencias =
+  "Farmacêutico com visão técnico-comercial: operação, relacionamento profissional e tecnologia aplicada.";
 
-export const industriaCards = [
-  { titulo: "Campo e Canal", desc: "Leitura prática de rotina de drogarias, necessidades reais de pacientes e comportamento de prescritores." },
-  { titulo: "Regulatório e Compliance", desc: "Disciplina documental, compliance ANVISA, BPF e boas práticas de dispensação — mais de uma década de atuação regulada." },
-  { titulo: "Tecnologia e Automação", desc: "Automação de processos com n8n, agentes de IA (GEAR/Google), CRM e indicadores para decisão baseada em dados." },
-  { titulo: "Treinamento e Desenvolvimento", desc: "Desenvolvimento de equipes com método comercial estruturado, comunicação clara e foco em resultado." },
+export const competenciasCards = [
+  { titulo: "Comunicação Técnica", desc: "Traduzir informações farmacêuticas com clareza e linguagem adequada ao público profissional e ao paciente." },
+  { titulo: "Vendas Consultivas", desc: "Identificar necessidades, conduzir conversas com ética e gerar resultado sem perder responsabilidade técnica." },
+  { titulo: "Relacionamento Profissional", desc: "Pacientes, equipes, médicos e gestores — escuta ativa, respeito e comunicação objetiva." },
+  { titulo: "Treinamento e Tecnologia", desc: "Desenvolvimento de pessoas com método estruturado, IA, automação e dados para produtividade." },
 ] as const;
+
+export const posicionamento = "Farmacêutico com visão técnica, comercial e digital para operações estratégicas em saúde.";

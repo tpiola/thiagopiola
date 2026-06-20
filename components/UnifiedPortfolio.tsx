@@ -3,10 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
-  MessageCircle, 
   FileText, 
   ArrowUpRight, 
-  Download,
   Store,
   ShieldCheck,
   Cpu,
@@ -24,7 +22,7 @@ import { Projetos } from "@/components/Projetos";
 import { PageShell } from "@/components/motion/PageShell";
 import { Reveal } from "@/components/motion/Reveal";
 import { spring } from "@/lib/motion";
-import { site, projetos, industriaCards, secaoIndustria } from "@/lib/content";
+import { site, projetos, competenciasCards } from "@/lib/content";
 import { FloatingCta } from "./FloatingCta";
 
 function NewsletterForm() {
@@ -112,25 +110,25 @@ export function UnifiedPortfolio() {
           </div>
         </section>
 
-        {/* 5. SEÇÃO INDÚSTRIA (RECRUTADORES) */}
+        {/* 5. COMPETÊNCIAS PROFISSIONAIS */}
         <section className="py-20 md:py-32 overflow-hidden bg-surface-elevated border-b border-border">
           <div className="mx-auto max-w-5xl px-5 md:px-8">
             <Reveal variant="fade">
               <div className="text-center mb-14">
                 <span className="inline-block mb-5 rounded-full bg-[var(--brand)]/10 px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--brand)]">
-                  Indústria Farmacêutica
+                  Atuação Profissional
                 </span>
                 <h2 className="text-2xl md:text-3xl font-semibold leading-snug text-foreground balance mb-4">
-                  Perfil preparado para a indústria farma
+                  Competências profissionais
                 </h2>
                 <p className="text-muted leading-relaxed max-w-xl mx-auto">
-                  Visão de negócio, execução em campo e tecnologia aplicada.
+                  Comunicação técnica, vendas consultivas, relacionamento profissional, treinamento e tecnologia.
                 </p>
               </div>
             </Reveal>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
-              {industriaCards.map((card, i) => {
+              {competenciasCards.map((card, i) => {
                 const icons = [Store, ShieldCheck, Cpu, GraduationCap];
                 const Icon = icons[i];
                 return (
@@ -156,16 +154,6 @@ export function UnifiedPortfolio() {
               })}
             </div>
 
-            <Reveal variant="up" delay={0.2}>
-              <div className="mt-12 text-center">
-                <a
-                  href="/industria"
-                  className="btn-primary group"
-                >
-                  Dossiê Executivo Completo →
-                </a>
-              </div>
-            </Reveal>
           </div>
         </section>
 
@@ -191,14 +179,14 @@ export function UnifiedPortfolio() {
             </Reveal>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={site.whatsapp} className="btn-primary group scale-110">
-                <MessageCircle className="h-5 w-5" />
-                Agendar Conversa Estratégica
+              <a href={site.linkedin} target="_blank" className="btn-primary group scale-110">
+                <LinkedinIcon className="h-5 w-5" />
+                Conectar no LinkedIn
                 <ArrowUpRight className="h-4 w-4 opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-              <a href={site.cvUrl} className="btn-secondary">
-                <Download className="h-5 w-5" />
-                Baixar Dossiê Completo (PDF)
+              <a href={`mailto:${site.email}`} className="btn-secondary">
+                <FileText className="h-5 w-5" />
+                Enviar e-mail
               </a>
             </div>
             
