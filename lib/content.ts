@@ -23,7 +23,7 @@ export const site = {
   geo: { locality: "Franca", region: "SP", country: "BR" },
   phone: "(16) 99233-3344",
   phoneHref: "tel:5516992333344",
-  email: "thiagoopiola@gmail.com",
+  email: "contato@thiagopiola.com.br",
   whatsapp: `https://wa.me/5516992333344?text=${whatsappText}`,
   whatsappEn: `https://wa.me/5516992333344?text=${whatsappTextEn}`,
   linkedin: "https://www.linkedin.com/in/thiago-piolaoficial",
@@ -74,7 +74,7 @@ export const socialLinksCommunity = socialLinks.filter((l) =>
 
 export const nav = [
   { href: "#trajetoria", label: "Trajetória", labelEn: "Career" },
-  { href: "/blog", label: "Blog", labelEn: "Blog" },
+  { href: "/industria", label: "Indústria", labelEn: "Industry" },
   { href: "#contato", label: "Contato", labelEn: "Contact" },
 ] as const;
 
@@ -85,11 +85,11 @@ export const nav = [
 export const hero = {
   tagline: "Farmacêutico CRF/SP 58.519 · Operação técnica e comercial em saúde",
   description:
-    "Farmacêutico com visão técnica, comercial e digital para operações estratégicas em saúde.",
+    "Farmacêutico com mais de uma década unindo operação hospitalar e farmacêutica, tecnologia e execução comercial — uma ponte direta entre a prescrição e o resultado.",
   titleLine1: "Thiago Biasoli Garcia Piola",
   titleLine2: "Farmacêutico CRF/SP 58.519 · Franca/SP",
-  subtitleBefore: "Operação farmacêutica e hospitalar",
-  subtitleAfter: "Vendas consultivas e tecnologia",
+  subtitleBefore: "Operação hospitalar e farmacêutica",
+  subtitleAfter: "Estratégia comercial e tecnologia",
   lead:
     "Farmacêutico CRF/SP 58.519 — operação, treinamento, compliance e execução comercial em saúde.",
   ctaWhatsapp: "",
@@ -116,11 +116,11 @@ export const hero = {
 export const heroEn = {
   tagline: "Pharmacist CRF/SP 58.519 · Technical and commercial operations in healthcare",
   description:
-    "Pharmacist with technical, commercial and digital vision for strategic healthcare operations.",
+    "Pharmacist with over a decade bridging hospital and pharmaceutical operations, technology and commercial execution — a direct link between prescription and results.",
   titleLine1: "Thiago Biasoli Garcia Piola",
   titleLine2: "Pharmacist CRF/SP 58.519 · Franca/SP",
-  subtitleBefore: "Pharmaceutical and hospital operations",
-  subtitleAfter: "Consultative sales and technology",
+  subtitleBefore: "Hospital and pharmaceutical operations",
+  subtitleAfter: "Commercial strategy and technology",
   lead:
     "Pharmacist CRF/SP 58.519 — operations, training, compliance and commercial execution in healthcare.",
   ctaWhatsapp: "",

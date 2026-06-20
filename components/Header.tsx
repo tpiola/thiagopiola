@@ -20,7 +20,7 @@ export function Header() {
   const { locale } = useLocale();
   const t = useT();
   const navLabel = t("Trajetória", "Career");
-  const navBlog = t("Blog", "Blog");
+  const navIndustria = t("Indústria", "Industry");
   const navContato = t("Contato", "Contact");
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export function Header() {
           {nav.map((link) => {
             let label = link.label;
             if (link.href === "#trajetoria") label = navLabel;
-            else if (link.href === "/blog") label = navBlog;
+            else if (link.href === "/industria") label = navIndustria;
             else if (link.href === "#contato") label = navContato;
             return (
             <a key={link.href} href={link.href}
@@ -133,7 +133,7 @@ export function Header() {
             {nav.map((link, i) => {
               let label = link.label;
               if (link.href === "#trajetoria") label = navLabel;
-              else if (link.href === "/blog") label = navBlog;
+              else if (link.href === "/industria") label = navIndustria;
               else if (link.href === "#contato") label = navContato;
               return (
               <motion.a

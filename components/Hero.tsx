@@ -101,7 +101,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
 
       <motion.div
         style={reduce ? undefined : { opacity: heroOpacity, y: heroY, scale: heroScale }}
-        className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-24 pt-28 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-28"
+        className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-24 pt-16 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-16"
       >
         <div className="flex flex-col justify-center pt-6 sm:pt-0 hero-content hero-gap-mobile">
           {/* Badge de credibilidade + locale */}
@@ -127,7 +127,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
 
           {/* TÍTULO PRINCIPAL com gradiente animado */}
           <motion.h1
-            className="text-[clamp(2.5rem,9vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground"
+            className="text-[clamp(1.8rem,6vw,3.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground"
             initial={reduce ? false : { opacity: 0 }}
             animate={reduce ? undefined : { opacity: 1 }}
             transition={{ delay: 0.12, duration: 0.7, ease: easeLuxury }}
@@ -141,16 +141,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               Thiago Biasoli Garcia Piola
             </motion.span>
           </motion.h1>
-
-          {/* CREDENCIAIS — fonte menor, delay maior */}
-          <motion.p
-            className="mt-2 text-base text-gradient-brand md:text-lg"
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6, ease: easeOutExpo }}
-          >
-            Farmacêutico &middot; CRF/SP 58.519 &middot; {locale === "pt" ? "Operação, tecnologia e execução comercial em saúde" : "Operations, technology and commercial execution in healthcare"}
-          </motion.p>
 
           {/* Subtítulo com selo de autoridade */}
           <motion.div
@@ -191,7 +181,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <Sparkles className="h-3.5 w-3.5 text-[var(--brand)] shrink-0" aria-hidden />
               <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
                 {locale === "pt" ? "Seu próximo passo:" : "Your next step:"}
               </span>
