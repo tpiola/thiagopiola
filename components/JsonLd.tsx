@@ -76,6 +76,7 @@ export function JsonLd() {
             name: "Conselho Regional de Farmácia do Estado de São Paulo",
           },
         },
+        award: "Farmacêutico Notável 2025",
         knowsAbout: [
           "Farmácia",
           "Vendas Consultivas",

@@ -116,17 +116,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               <span>{site.credential} &middot; {site.location}</span>
             </motion.div>
 
-            {/* Farmacêutico Notável 2025 badge */}
-            <motion.span
-              initial={reduce ? false : { opacity: 0, scale: 0.9 }}
-              animate={reduce ? undefined : { opacity: 1, scale: 1 }}
-              transition={{ delay: 0.08, duration: 0.4 }}
-              className="inline-flex items-center gap-1 rounded-full border border-[#D6A84F]/30 bg-[#D6A84F]/10 px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-[#D6A84F]"
-            >
-              <span className="text-[10px]" aria-hidden>✦</span>
-              {locale === "pt" ? site.badgeNotavel : site.badgeNotavelEn}
-            </motion.span>
-
             <motion.div
               initial={reduce ? false : { opacity: 0, scale: 0.9 }}
               animate={reduce ? undefined : { opacity: 1, scale: 1 }}

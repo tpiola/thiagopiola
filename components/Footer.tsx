@@ -234,14 +234,6 @@ export function Footer() {
               {locale === "pt" ? footerTagline : footerTaglineEn}
             </p>
 
-            {/* Farmacêutico Notável 2025 badge */}
-            <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[#D6A84F]/25 bg-[#D6A84F]/10 px-3 py-1">
-              <span className="text-[11px] text-[#D6A84F]" aria-hidden>✦</span>
-              <span className="font-mono text-[10px] font-bold tracking-wide text-[#D6A84F]">
-                {locale === "pt" ? site.badgeNotavel : site.badgeNotavelEn}
-              </span>
-            </div>
-
             <SocialLinksGrouped className="mt-6" />
 
             <motion.a
