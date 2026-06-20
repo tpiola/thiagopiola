@@ -134,31 +134,7 @@ export function UnifiedPortfolio() {
         {/* 2. PROVAS DE ENTREGA (AUTORIDADE RÁPIDA) */}
         <ProvasEntrega />
 
-        {/* 4. TESE DE CAMPO (THE JUDGMENT LAYER) */}
-        <section className="py-20 md:py-32 overflow-hidden bg-surface-elevated">
-          <div className="mx-auto max-w-4xl px-5 md:px-8">
-            <Reveal variant="fade">
-              <div className="relative rounded-3xl border border-[var(--brand)]/10 bg-surface-elevated p-8 md:p-14 text-center shadow-subtle">
-                
-                <span className="mb-6 block font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--brand)]">
-                  {locale === "pt" ? "Manifesto Profissional" : "Professional Manifesto"}
-                </span>
-                
-                <h2 className="text-2xl md:text-3xl font-semibold leading-snug text-foreground balance">
-                  &ldquo;{locale === "pt" ? "A tecnologia acelera processos, mas o" : "Technology accelerates processes, but the"} <span className="text-gradient-brand">Judgment Layer</span>{locale === "pt" ? " humano é o que valida o compliance e a conversão no ponto de venda." : " is what validates compliance and conversion at the point of sale."}&rdquo;
-                </h2>
-                
-                <p className="mt-8 text-muted leading-relaxed max-w-2xl mx-auto">
-                  {locale === "pt"
-                    ? "Minha abordagem une a precisão de dados da Engenharia de IA com a intuição científica de anos em campo. Eu elimino o ponto cego entre a diretriz da diretoria e o resultado no faturamento da filial."
-                    : "My approach combines the data precision of AI Engineering with the scientific intuition of years in the field. I eliminate the blind spot between boardroom directives and branch revenue results."}
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* 5. COMPETÊNCIAS PROFISSIONAIS */}
+        {/* 4. COMPETÊNCIAS PROFISSIONAIS */}
         <section className="py-20 md:py-32 overflow-hidden bg-surface-elevated border-b border-border">
           <div className="mx-auto max-w-5xl px-5 md:px-8">
             <Reveal variant="fade">
@@ -214,14 +190,14 @@ export function UnifiedPortfolio() {
         <Projetos />
 
         {/* 8. NEWSLETTER */}
-        <section className="py-20 md:py-24 bg-gradient-to-b from-surface-elevated to-surface-elevated border-t border-border">
-          <div className="mx-auto max-w-xl px-5 md:px-8 text-center">
+        <section className="py-12 md:py-16 bg-surface-elevated border-t border-border">
+          <div className="mx-auto max-w-lg px-5 md:px-8 text-center">
             <Reveal variant="up">
-              <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-                {locale === "pt" ? "Receba conteúdos sobre saúde, farmácia e tecnologia" : "Receive content about health, pharmacy and technology"}
+              <h3 className="text-lg md:text-xl font-semibold tracking-tight mb-2">
+                {locale === "pt" ? "Newsletter" : "Newsletter"}
               </h3>
-              <p className="text-muted leading-relaxed mb-8">
-                {locale === "pt" ? "Análises, insights e novidades direto na sua caixa de entrada." : "Analyses, insights and news straight to your inbox."}
+              <p className="text-sm text-muted leading-relaxed mb-6 max-w-md mx-auto">
+                {locale === "pt" ? "Análises, insights e novidades sobre saúde, farmácia e tecnologia direto na sua caixa de entrada." : "Analyses, insights and news about health, pharmacy and technology straight to your inbox."}
               </p>
             </Reveal>
             <NewsletterForm />
