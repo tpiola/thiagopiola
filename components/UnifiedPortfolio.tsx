@@ -24,17 +24,47 @@ import { FloatingCta } from "./FloatingCta";
 
 function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      setSubmitted(true);
-      setEmail("");
+    if (!email.trim()) return;
+
+    setStatus("loading");
+
+    try {
+      const webhookUrl = process.env.NEXT_PUBLIC_MAKE_NEWSLETTER_WEBHOOK;
+
+      if (!webhookUrl) {
+        console.error("NEXT_PUBLIC_MAKE_NEWSLETTER_WEBHOOK não configurado");
+        setStatus("error");
+        return;
+      }
+
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim(),
+          source: "thiagopiola",
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        console.error("Webhook respondeu com status", response.status);
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("Erro ao enviar email para webhook:", err);
+      setStatus("error");
     }
   };
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.94 }}
@@ -61,14 +91,25 @@ function NewsletterForm() {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="seu@email.com"
         required
-        className="flex-1 rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)]/30 transition-all"
+        disabled={status === "loading"}
+        className="flex-1 rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)]/30 transition-all disabled:opacity-50"
       />
       <button
         type="submit"
-        className="btn-primary whitespace-nowrap"
+        disabled={status === "loading"}
+        className="btn-primary whitespace-nowrap disabled:opacity-50"
       >
-        Assinar
+        {status === "loading" ? "Enviando…" : "Assinar"}
       </button>
+      {status === "error" && (
+        <motion.p
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="col-span-full text-sm text-red-500 text-center"
+        >
+          Ocorreu um erro ao enviar. Tente novamente mais tarde.
+        </motion.p>
+      )}
     </form>
   );
 }
