@@ -44,6 +44,8 @@ export const site = {
   tiktok: "https://www.tiktok.com/@tpiola",
   telegram: "https://t.me/m/pGzbdmS2ZWRh",
   reddit: "https://www.reddit.com/user/Mental_Individual641/",
+  badgeNotavel: "✦ Farmacêutico Notável 2025",
+  badgeNotavelEn: "✦ Notable Pharmacist 2025",
 } as const;
 
 export const footerTagline =
