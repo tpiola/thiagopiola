@@ -382,12 +382,32 @@ export function Footer() {
               </motion.li>
             </ul>
 
+            {/* ── Acesse Também — botões abaixo do contato ── */}
+            <motion.div variants={fadeIn} className="mt-8">
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/50 mb-4 text-center lg:text-left">
+                {locale === "pt" ? "ACESSE TAMBÉM" : "ALSO VISIT"}
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <a href={site.saudegpt} target="_blank" rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-xl border border-border bg-surface-elevated px-5 py-3 text-sm font-medium text-foreground/80 transition-all duration-300 hover:border-[var(--brand)]/25 hover:text-[var(--brand)] hover:shadow-sm hover:-translate-y-0.5"
+                >
+                  <span className="font-semibold">saudegpt</span><span className="text-muted/50">.com</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-muted/50 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+                <a href={site.thiagolab} target="_blank" rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-xl border border-border bg-surface-elevated px-5 py-3 text-sm font-medium text-foreground/80 transition-all duration-300 hover:border-[var(--brand)]/25 hover:text-[var(--brand)] hover:shadow-sm hover:-translate-y-0.5"
+                >
+                  <span className="font-semibold">thiagolab</span><span className="text-muted/50">.com</span>
+                  <ArrowUpRight className="h-3.5 w-3.5 text-muted/50 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </div>
+            </motion.div>
 
           </motion.div>
         </motion.div>
 
         {/* ═══════════════════════════════════════════
-            FOUNDER / ECOSYSTEM
+            CRIADO POR
            ═══════════════════════════════════════════ */}
         <motion.div
           initial="hidden"
@@ -413,47 +433,10 @@ export function Footer() {
               <span>rei</span><span className="text-[var(--brand)]/60">das</span><span>vendas.com.br</span>
               <ArrowUpRight className="h-3.5 w-3.5 opacity-60" />
             </a>
-            <div className="w-full max-w-md">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/40 block mb-3">
-                {locale === "pt" ? "ACESSE TAMBÉM" : "ALSO VISIT"}
-              </span>
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                <a href={site.saudegpt} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface-elevated px-4 py-2 text-xs font-medium text-foreground/80 transition-all duration-300 hover:border-[var(--brand)]/20 hover:text-[var(--brand)] hover:shadow-sm">
-                  saudegpt.com
-                  <ArrowUpRight className="h-3 w-3 opacity-50" />
-                </a>
-                <a href={site.thiagolab} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface-elevated px-4 py-2 text-xs font-medium text-foreground/80 transition-all duration-300 hover:border-[var(--brand)]/20 hover:text-[var(--brand)] hover:shadow-sm">
-                  thiagolab.com
-                  <ArrowUpRight className="h-3 w-3 opacity-50" />
-                </a>
-              </div>
-            </div>
+            <p className="text-[11px] text-muted/50 leading-relaxed tracking-wide">
+              &copy; {year} {site.name} — {locale === "pt" ? blog.footerCopyright : blog.footerCopyrightEn}
+            </p>
           </div>
-        </motion.div>
-
-        {/* ═══════════════════════════════════════════
-            BOTTOM BAR
-           ═══════════════════════════════════════════ */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={fadeUp}
-          className="relative mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
-        >
-          <div
-            className="absolute left-5 right-5 md:left-8 md:right-8 top-0 h-px"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--brand) 25%, transparent) 50%, transparent 100%)",
-            }}
-            aria-hidden
-          />
-          <p className="text-[11px] text-muted/60 leading-relaxed tracking-wide">
-            &copy; {year} {site.name} — {locale === "pt" ? blog.footerCopyright : blog.footerCopyrightEn}
-          </p>
         </motion.div>
       </div>
     </footer>
