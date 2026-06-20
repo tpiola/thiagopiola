@@ -2,6 +2,7 @@
 
 import { socialLinksCommunity, socialLinksProfessional } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/lib/i18n";
 import {
   GitHubIcon,
   GoogleDevelopersIcon,
@@ -39,6 +40,7 @@ function LinkGrid({
   links: readonly { href: string; label: string }[];
   label: string;
 }) {
+  const { locale } = useLocale();
   return (
     <div>
       <p className="font-mono text-[10px] uppercase tracking-wider text-muted">{label}</p>
@@ -69,10 +71,11 @@ function LinkGrid({
 }
 
 export function SocialLinksGrouped({ className }: SocialLinksGroupedProps) {
+  const { locale } = useLocale();
   return (
     <div className={cn("space-y-5", className)}>
-      <LinkGrid links={socialLinksProfessional} label="Profissional" />
-      <LinkGrid links={socialLinksCommunity} label="Comunidade" />
+      <LinkGrid links={socialLinksProfessional} label={locale === "pt" ? "Profissional" : "Professional"} />
+      <LinkGrid links={socialLinksCommunity} label={locale === "pt" ? "Comunidade" : "Community"} />
     </div>
   );
 }

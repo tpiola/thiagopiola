@@ -86,7 +86,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
   return (
     <section
       className="relative min-h-[100dvh] overflow-hidden border-b border-border"
-      aria-label="Hero principal"
+      aria-label={locale === "pt" ? "Hero principal" : "Main hero"}
     >
       <HeroAmbience />
 

@@ -9,6 +9,8 @@ import { Header } from "@/components/Header";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
 import { spring } from "@/lib/motion";
+import { blog } from "@/lib/content";
+import { useLocale } from "@/lib/i18n";
 
 /* ─── Dados dos posts (mesmo array do page.tsx) ─── */
 
@@ -133,16 +135,19 @@ function findPost(slug: string): Post | undefined {
 /* ─── Newsletter inline ─── */
 
 function NewsletterForm() {
+  const { locale } = useLocale();
   return (
     <div className="rounded-2xl border border-border bg-surface-elevated p-8 md:p-10">
       <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brand)]">
         Newsletter
       </p>
       <h3 className="mt-3 text-xl font-semibold tracking-tight text-foreground">
-        Receba conteúdo exclusivo
+        {locale === "pt" ? "Receba conteúdo exclusivo" : "Get exclusive content"}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-muted">
-        Farmácia clínica, tecnologia, compliance e gestão. Direto ao ponto, sem spam.
+        {locale === "pt"
+          ? "Farmácia clínica, tecnologia, compliance e gestão. Direto ao ponto, sem spam."
+          : "Clinical pharmacy, technology, compliance and management. Straight to the point, no spam."}
       </p>
       <form
         className="mt-6 flex flex-col sm:flex-row gap-3"
@@ -152,14 +157,16 @@ function NewsletterForm() {
             "input",
           ) as HTMLInputElement;
           if (input?.value) {
-            alert("Obrigado por se inscrever! Em breve você receberá nossas novidades.");
+            alert(locale === "pt"
+              ? "Obrigado por se inscrever! Em breve você receberá nossas novidades."
+              : "Thank you for subscribing! You'll receive our updates soon.");
             input.value = "";
           }
         }}
       >
         <input
           type="email"
-          placeholder="Seu melhor e-mail"
+          placeholder={locale === "pt" ? "Seu melhor e-mail" : "Your best email"}
           required
           className="flex-1 rounded-xl border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted outline-none transition-colors focus:border-[var(--brand)]"
         />
@@ -167,7 +174,7 @@ function NewsletterForm() {
           type="submit"
           className="btn-primary group text-sm px-6 py-3"
         >
-          Inscrever
+          {locale === "pt" ? "Inscrever" : "Subscribe"}
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
         </button>
       </form>
@@ -182,6 +189,7 @@ export default function PostPage() {
   const slug = params.slug as string;
   const post = findPost(slug);
   const reduce = useReducedMotion();
+  const { locale } = useLocale();
 
   if (!post) {
     notFound();
@@ -210,7 +218,7 @@ export default function PostPage() {
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-[var(--brand)] transition-colors mb-8"
               >
                 <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
-                Voltar ao blog
+                {locale === "pt" ? "Voltar ao blog" : "Back to blog"}
               </Link>
             </Reveal>
 
@@ -291,7 +299,7 @@ export default function PostPage() {
                   className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)] transition-all hover:gap-3"
                 >
                   <ArrowLeft className="h-4 w-4" aria-hidden />
-                  Ver todos os artigos
+                  {locale === "pt" ? "Ver todos os artigos" : "View all articles"}
                 </Link>
               </div>
             </Reveal>

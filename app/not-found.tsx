@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { useLocale } from "@/lib/i18n";
 
 export default function NotFound() {
+  const { locale } = useLocale();
+
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-surface px-6 text-center text-foreground">
       {/* Background subtle pattern */}
@@ -20,8 +25,9 @@ export default function NotFound() {
 
         {/* Message */}
         <p className="max-w-md text-lg text-muted">
-          Página não encontrada. O link pode estar desatualizado ou a página
-          foi movida.
+          {locale === "pt"
+            ? "Página não encontrada. O link pode estar desatualizado ou a página foi movida."
+            : "Page not found. The link may be outdated or the page has been moved."}
         </p>
 
         {/* Actions */}
@@ -30,7 +36,7 @@ export default function NotFound() {
             href="/"
             className="inline-flex items-center gap-2 rounded-lg bg-foreground px-6 py-3 text-sm font-semibold text-surface transition-all hover:opacity-90"
           >
-            ← Voltar ao início
+            {locale === "pt" ? "← Voltar ao início" : "← Back to home"}
           </Link>
           <Link
             href="https://wa.me/5516992333344?text=Oi%2C%20vim%20pelo%20site%20e%20n%C3%A3o%20encontrei%20uma%20p%C3%A1gina"
@@ -38,7 +44,7 @@ export default function NotFound() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-border/20"
           >
-            Fale comigo
+            {locale === "pt" ? "Fale comigo" : "Talk to me"}
           </Link>
         </div>
       </div>

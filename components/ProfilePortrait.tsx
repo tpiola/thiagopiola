@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useReducedMotion, motion } from "framer-motion";
 import { duration, easeLuxury } from "@/lib/motion";
 import { site } from "@/lib/content";
+import { useLocale } from "@/lib/i18n";
 
 const PROFILE_SRC = "/images/profile.jpg";
 
@@ -14,6 +15,7 @@ type ProfilePortraitProps = {
 /** Retrato profissional — substitua profile.webp por foto real quando disponível */
 export function ProfilePortrait({ className }: ProfilePortraitProps) {
   const reduce = useReducedMotion();
+  const { locale } = useLocale();
 
   return (
     <motion.div
@@ -33,7 +35,7 @@ export function ProfilePortrait({ className }: ProfilePortraitProps) {
         />
         <Image
           src={PROFILE_SRC}
-          alt={`${site.shortName} — farmacêutico e engenheiro de IA`}
+          alt={`${site.shortName} — ${locale === "pt" ? "farmacêutico e engenheiro de IA" : "pharmacist and AI engineer"}`}
           width={560}
           height={700}
           className="h-full w-full object-cover"

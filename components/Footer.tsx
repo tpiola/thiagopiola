@@ -11,6 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { footerTagline, footerTaglineEn, nav, site, blog } from "@/lib/content";
+import { useT } from "@/lib/i18n";
 import { trackCta } from "@/lib/analytics";
 import { Logo } from "./Logo";
 import { SocialLinksGrouped } from "./SocialLinksGrouped";
@@ -253,7 +254,7 @@ export function Footer() {
 
           {/* ── Nav column ── */}
           <motion.div variants={fadeUp} className="lg:col-span-3">
-            <p className="text-label text-muted tracking-[0.24em]">{locale === "pt" ? "Menu" : "Menu"}</p>
+            <p className="text-label text-muted tracking-[0.24em]">{locale === "pt" ? blog.footerMenu : blog.footerMenuEn}</p>
             <ul className="mt-5 space-y-3">
               {nav.map((item, i) => (
                 <motion.li
@@ -269,7 +270,7 @@ export function Footer() {
                   >
                     <span className="h-[1.5px] w-0 rounded-full bg-[var(--brand)] transition-all duration-300 group-hover:w-4" />
                     <span className="transition-all duration-300 group-hover:translate-x-0.5 group-hover:font-semibold">
-                      {item.label}
+                      {locale === "pt" ? item.label : (item as { labelEn?: string }).labelEn || item.label}
                     </span>
                     <ChevronRight className="h-3 w-3 text-muted/40 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-60 group-hover:translate-x-0" />
                   </a>
@@ -280,7 +281,7 @@ export function Footer() {
 
           {/* ── Contact column ── */}
           <motion.div variants={fadeUp} className="lg:col-span-4">
-            <p className="text-label text-muted tracking-[0.24em]">Contato</p>
+            <p className="text-label text-muted tracking-[0.24em]">{locale === "pt" ? blog.footerContact : blog.footerContactEn}</p>
             <ul className="mt-5 space-y-3">
               {/* WhatsApp */}
               <motion.li variants={fadeIn}>
@@ -289,7 +290,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${cardBase} relative overflow-hidden`}
-                  aria-label="WhatsApp — Fale com Thiago Piola"
+                  aria-label={`WhatsApp — ${locale === "pt" ? "Fale com Thiago Piola" : "Talk to Thiago Piola"}`}
                 >
                   {/* Hover border glow */}
                   <div
@@ -313,7 +314,7 @@ export function Footer() {
                   <div className="flex-1">
                     <span className="font-semibold">WhatsApp</span>
                     <span className="block text-[11px] text-muted/70 mt-0.5 tracking-wider font-medium uppercase">
-                      Mensagem rápida
+                      {locale === "pt" ? blog.footerWhatsappDesc : blog.footerWhatsappDescEn}
                     </span>
                   </div>
                   <ArrowUpRight className="h-3.5 w-3.5 text-muted opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -347,7 +348,7 @@ export function Footer() {
                   <div className="flex-1">
                     <span className="font-semibold">{site.phone}</span>
                     <span className="block text-[11px] text-muted/70 mt-0.5 tracking-wider font-medium uppercase">
-                      Telefone
+                      {locale === "pt" ? blog.footerPhoneLabel : blog.footerPhoneLabelEn}
                     </span>
                   </div>
                   <ArrowUpRight className="h-3.5 w-3.5 text-muted opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -383,7 +384,7 @@ export function Footer() {
                       {site.email}
                     </span>
                     <span className="block text-[11px] text-muted/70 mt-0.5 tracking-wider font-medium uppercase">
-                      E-mail
+                      {locale === "pt" ? blog.footerEmailLabel : blog.footerEmailLabelEn}
                     </span>
                   </div>
                   <ArrowUpRight className="h-3.5 w-3.5 text-muted opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -406,7 +407,7 @@ export function Footer() {
                   <div className="flex-1">
                     <span className="font-medium">{site.location}</span>
                     <span className="block text-[11px] text-muted/50 mt-0.5 tracking-wider font-medium uppercase">
-                      Localização
+                      {locale === "pt" ? blog.footerLocationLabel : blog.footerLocationLabelEn}
                     </span>
                   </div>
                 </div>
@@ -419,7 +420,7 @@ export function Footer() {
               className="mt-5 rounded-xl border border-border bg-[color-mix(in_srgb,var(--brand)_3%,transparent)] p-4 transition-all duration-[400ms] hover:border-[var(--brand)]/20 hover:bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] hover:shadow-sm"
             >
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
-                Site
+              {locale === "pt" ? blog.footerSite : blog.footerSiteEn}
               </span>
               <a
                 href={site.url}
@@ -458,11 +459,11 @@ export function Footer() {
           />
 
           <p className="text-[11px] text-muted/60 leading-relaxed tracking-wide">
-            &copy; {year} {site.name} — Todos os direitos reservados.
+            &copy; {year} {site.name} — {locale === "pt" ? blog.footerCopyright : blog.footerCopyrightEn}
           </p>
           <div className="flex items-center gap-3">
             <span className="text-[10px] text-muted/50 tracking-wider">
-              Criado por{" "}
+              {locale === "pt" ? blog.footerCreatedBy : blog.footerCreatedByEn}{" "}
               <a
                 href={site.reidasvendas}
                 target="_blank"

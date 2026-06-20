@@ -8,6 +8,8 @@ import { Header } from "@/components/Header";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
 import { spring } from "@/lib/motion";
+import { blog } from "@/lib/content";
+import { useLocale } from "@/lib/i18n";
 
 /* ─── Mock data: posts em português ─── */
 
@@ -90,6 +92,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 function PostCard({ post, index }: { post: Post; index: number }) {
   const reduce = useReducedMotion();
+  const { locale } = useLocale();
 
   return (
     <motion.article
@@ -132,7 +135,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
         href={`/blog/${post.slug}`}
         className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand)] transition-all group-hover:gap-2.5"
       >
-        Ler artigo
+        {locale === "pt" ? blog.readMore : blog.readMoreEn}
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
       </Link>
 
@@ -150,6 +153,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
 
 export default function BlogPage() {
   const reduce = useReducedMotion();
+  const { locale } = useLocale();
 
   return (
     <PageShell>
@@ -169,23 +173,21 @@ export default function BlogPage() {
             <Reveal variant="fade">
               <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] px-4 py-1.5 mb-6">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--brand)]">
-                  Conteúdo profissional
+                  {locale === "pt" ? blog.tag : blog.tagEn}
                 </span>
               </div>
             </Reveal>
 
             <Reveal variant="up" delay={0.06}>
               <h1 className="text-[clamp(2.5rem,7vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
-                Blog
+                {locale === "pt" ? blog.pageTitle : blog.pageTitleEn}
                 <span className="block text-gradient-brand">— Thiago Piola</span>
               </h1>
             </Reveal>
 
             <Reveal variant="up" delay={0.12}>
               <p className="mt-4 max-w-2xl mx-auto text-base leading-relaxed text-muted md:text-lg">
-                Farmácia clínica, tecnologia aplicada à saúde, gestão farmacêutica,
-                compliance regulatório e automação de processos. Conteúdo direto,
-                baseado em experiência real de mais de uma década na operação.
+                {locale === "pt" ? blog.subtitle : blog.subtitleEn}
               </p>
             </Reveal>
           </div>
@@ -196,10 +198,10 @@ export default function BlogPage() {
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <Reveal variant="left">
               <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brand)]">
-                Artigos
+                {locale === "pt" ? blog.articlesLabel : blog.articlesLabelEn}
               </p>
               <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl text-foreground">
-                Últimas publicações
+                {locale === "pt" ? blog.articlesTitle : blog.articlesTitleEn}
               </h2>
               <div
                 className="mt-3 h-px w-16 rounded-full"
@@ -217,7 +219,7 @@ export default function BlogPage() {
             <Reveal variant="fade" delay={0.3}>
               <div className="mt-16 text-center">
                 <p className="text-sm text-muted">
-                  Mais artigos em breve. Acompanhe para conteúdo sobre farmácia, tecnologia e gestão.
+                  {locale === "pt" ? blog.footerNote : blog.footerNoteEn}
                 </p>
               </div>
             </Reveal>
@@ -229,14 +231,13 @@ export default function BlogPage() {
           <div className="mx-auto max-w-2xl px-5 md:px-8 text-center">
             <Reveal variant="up">
               <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brand)] mb-3">
-                Acompanhe
+                {locale === "pt" ? blog.newsletterSectionLabel : blog.newsletterSectionLabelEn}
               </p>
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-gradient-brand">
-                Receba os próximos artigos
+                {locale === "pt" ? blog.ctaTitle : blog.ctaTitleEn}
               </h2>
               <p className="mt-4 text-base text-muted leading-relaxed max-w-lg mx-auto">
-                Conteúdo sobre farmácia clínica, compliance, IA aplicada à saúde e automação.
-                Direto ao ponto, sem spam.
+                {locale === "pt" ? blog.ctaDesc : blog.ctaDescEn}
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
@@ -245,13 +246,13 @@ export default function BlogPage() {
                   rel="noopener noreferrer"
                   className="btn-primary group text-base px-8 py-4"
                 >
-                  Seguir no LinkedIn
+                  {locale === "pt" ? blog.ctaButton : blog.ctaButtonEn}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
                 </a>
               </div>
               <p className="mt-6 text-xs text-muted">
                 <Link href="/" className="underline underline-offset-2 hover:text-[var(--brand)]">
-                  ← Voltar à página inicial
+                  {locale === "pt" ? blog.backLink : blog.backLinkEn}
                 </Link>
               </p>
             </Reveal>

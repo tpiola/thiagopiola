@@ -51,7 +51,7 @@ export function Header() {
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="mx-auto flex h-full max-h-24 min-h-[80px] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
-        <Link href="/" aria-label={`${site.shortName} — início`} className="shrink-0">
+        <Link href="/" aria-label={`${site.shortName} — ${locale === "pt" ? "início" : "home"}`} className="shrink-0">
           <Logo variant="full" showCredential height={scrolled ? 140 : 200} className="hover:scale-105 transition-transform" />
         </Link>
 
@@ -111,7 +111,7 @@ export function Header() {
             }}
             role="dialog"
             aria-modal="true"
-            aria-label="Menu mobile"
+            aria-label={locale === "pt" ? "Menu mobile" : "Mobile menu"}
             initial={reduce ? undefined : { opacity: 0 }}
             animate={reduce ? undefined : { opacity: 1 }}
             exit={reduce ? undefined : { opacity: 0 }}
