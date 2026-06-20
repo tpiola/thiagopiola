@@ -3,8 +3,8 @@
 import { useRef, useEffect } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
-/** Partículas flutuantes com canvas — sutis e perfomáticas */
-function FloatingParticles() {
+/** Neurónios flutuantes com canvas — sutis, elegantes e perfomáticos */
+function NeuronParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduce = useReducedMotion();
 
@@ -38,45 +38,110 @@ function FloatingParticles() {
       .getPropertyValue("--brand")
       .trim();
 
-    type Particle = {
+    type Neuron = {
       x: number;
       y: number;
-      size: number;
       speedY: number;
       speedX: number;
-      opacity: number;
+      baseOpacity: number;
+      somaRadius: number;
+      dendriteCount: number;
+      dendriteLength: number;
+      phase: number; // for floating sine wobble
+      pulsePhase: number; // for occasional pulse
+      pulseSpeed: number;
     };
 
-    const particles: Particle[] = Array.from({ length: 20 }, () => ({
+    const count = 13;
+
+    const neurons: Neuron[] = Array.from({ length: count }, () => ({
       x: Math.random() * canvas.clientWidth,
       y: Math.random() * canvas.clientHeight,
-      size: 2 + Math.random() * 2, // 2–4px
-      speedY: 0.15 + Math.random() * 0.25, // sobe lentamente
-      speedX: (Math.random() - 0.5) * 0.15,
-      opacity: 0.1 + Math.random() * 0.05, // 0.1–0.15
+      speedY: 0.08 + Math.random() * 0.12,
+      speedX: (Math.random() - 0.5) * 0.06,
+      baseOpacity: 0.06 + Math.random() * 0.06, // 0.06–0.12
+      somaRadius: 3 + Math.random() * 2, // 3–5px soma
+      dendriteCount: 3 + Math.floor(Math.random() * 2), // 3–4 dendrites
+      dendriteLength: 3 + Math.random() * 4, // 3–7px
+      phase: Math.random() * Math.PI * 2,
+      pulsePhase: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.005 + Math.random() * 0.008,
     }));
+
+    const drawNeuron = (
+      ctx: CanvasRenderingContext2D,
+      n: Neuron,
+      currentOpacity: number,
+    ) => {
+      const { x, y, somaRadius, dendriteCount, dendriteLength } = n;
+      const color = brand || "var(--brand)";
+
+      ctx.save();
+      ctx.globalAlpha = currentOpacity;
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 1;
+
+      // Draw dendrites
+      const angleStep = (Math.PI * 2) / dendriteCount;
+      const offset = Math.random() * 0.3; // slight randomness per frame for organic look
+      for (let i = 0; i < dendriteCount; i++) {
+        const angle = angleStep * i + offset;
+        const endX = x + Math.cos(angle) * dendriteLength;
+        const endY = y + Math.sin(angle) * dendriteLength;
+
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+
+        // Small terminal bulb at dendrite tip
+        ctx.beginPath();
+        ctx.arc(endX, endY, 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Soma (cell body)
+      ctx.beginPath();
+      ctx.arc(x, y, somaRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    };
 
     const draw = () => {
       ctx!.clearRect(0, 0, canvas!.clientWidth, canvas!.clientHeight);
+      const w = canvas!.clientWidth;
+      const h = canvas!.clientHeight;
+      const now = Date.now();
 
-      for (const p of particles) {
-        ctx!.beginPath();
-        ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx!.fillStyle = brand || "var(--brand)";
-        ctx!.globalAlpha = p.opacity;
-        ctx!.fill();
+      for (const n of neurons) {
+        // Calculate floating wobble
+        const wobbleX = Math.sin(now * 0.0003 + n.phase) * 3;
+        const wobbleY = Math.cos(now * 0.0004 + n.phase * 1.3) * 2;
 
-        p.y -= p.speedY;
-        p.x += p.speedX;
+        // Calculate pulse — occasional brightness increase
+        n.pulsePhase += n.pulseSpeed;
+        const pulseFactor =
+          Math.sin(n.pulsePhase) > 0.85
+            ? 1 + (Math.sin(n.pulsePhase) - 0.85) * 6
+            : 1;
+        const opacity = Math.min(n.baseOpacity * pulseFactor, 0.25);
+
+        drawNeuron(ctx!, n, opacity);
+
+        // Movement
+        n.y -= n.speedY;
+        n.x += n.speedX + wobbleX * 0.01;
 
         // Reset when off-screen top
-        if (p.y < -p.size) {
-          p.y = canvas!.clientHeight + p.size;
-          p.x = Math.random() * canvas!.clientWidth;
+        if (n.y < -16) {
+          n.y = h + 16;
+          n.x = Math.random() * w;
         }
         // Wrap horizontally
-        if (p.x < -p.size) p.x = canvas!.clientWidth + p.size;
-        if (p.x > canvas!.clientWidth + p.size) p.x = -p.size;
+        if (n.x < -16) n.x = w + 16;
+        if (n.x > w + 16) n.x = -16;
       }
 
       animationId = requestAnimationFrame(draw);
@@ -191,8 +256,8 @@ export function HeroAmbience() {
         transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Floating particles canvas */}
-      <FloatingParticles />
+      {/* Floating neurons canvas */}
+      <NeuronParticles />
 
       {/* Subtle vignette */}
       <div
