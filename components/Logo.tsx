@@ -24,7 +24,7 @@ export function Logo({
   iconClassName,
   variant = "icon",
   showCredential = false,
-  height = 110,
+  height = 220,
 }: LogoProps) {
   const prefersReduced = useReducedMotion();
 
@@ -50,7 +50,7 @@ export function Logo({
         )}
         style={{
           height: `${height}px`,
-          maxWidth: "clamp(180px, 35vw, 420px)",
+          maxWidth: "clamp(220px, 45vw, 600px)",
         }}
       />
     </motion.div>

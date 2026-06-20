@@ -24,24 +24,25 @@ export function ProfilePortrait({ className }: ProfilePortraitProps) {
       animate={reduce ? undefined : { opacity: 1, scale: 1, filter: "blur(0px)" }}
       transition={{ duration: duration.slow, ease: easeLuxury, delay: 0.15 }}
     >
-      <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-xl shadow-[var(--brand)]/10">
-        <div
-          className="pointer-events-none absolute inset-0 z-10"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent 60%, color-mix(in srgb, var(--brand) 25%, transparent))",
-          }}
-          aria-hidden
-        />
-        <Image
-          src={PROFILE_SRC}
-          alt={`${site.shortName} — ${locale === "pt" ? "farmacêutico e engenheiro de IA" : "pharmacist and AI engineer"}`}
-          width={560}
-          height={700}
-          className="h-full w-full object-cover"
-          priority
-          sizes="(max-width: 768px) 70vw, 280px"
-        />
+      <div className="relative mx-auto w-full max-w-[280px] overflow-hidden rounded-2xl border border-border bg-surface-elevated shadow-xl shadow-[var(--brand)]/10">
+        <div className="relative aspect-[4/5]">
+          <div
+            className="pointer-events-none absolute inset-0 z-10"
+            style={{
+              background:
+                "linear-gradient(180deg, transparent 60%, color-mix(in srgb, var(--brand) 25%, transparent))",
+            }}
+            aria-hidden
+          />
+          <Image
+            src={PROFILE_SRC}
+            alt={`${site.shortName} — ${locale === "pt" ? "farmacêutico e engenheiro de IA" : "pharmacist and AI engineer"}`}
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="(max-width: 768px) 70vw, 280px"
+          />
+        </div>
       </div>
     </motion.div>
   );

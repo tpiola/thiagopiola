@@ -23,7 +23,7 @@ export function FloatingCta() {
         href={site.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="pulse-glow group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--brand)] p-4 text-white shadow-lg shadow-[var(--brand)]/30 transition-all min-h-[52px] min-w-[52px]"
+        className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface-elevated text-foreground shadow-md transition-all hover:border-[var(--brand)]/30 hover:text-[var(--brand)] hover:shadow-lg"
         whileHover={reduce ? undefined : { scale: 1.05, boxShadow: "0 8px 32px var(--brand-glow)" }}
         whileTap={reduce ? undefined : { scale: 0.97 }}
         aria-label={
@@ -33,8 +33,7 @@ export function FloatingCta() {
         }
         onClick={() => trackCta("cta_whatsapp_floating")}
       >
-        <span className="gradient-shift pointer-events-none absolute inset-0 opacity-30" aria-hidden />
-        <MessageCircle className="relative h-5 w-5" aria-hidden />
+        <MessageCircle className="h-5 w-5" aria-hidden />
       </motion.a>
     </motion.div>
   );

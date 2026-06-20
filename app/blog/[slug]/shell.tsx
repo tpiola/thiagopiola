@@ -1,13 +1,15 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Mail, Tag } from "lucide-react";
 import Link from "next/link";
-import { notFound, useParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
+import { FloatingPharmaIcons } from "@/components/motion/FloatingPharmaIcons";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { spring } from "@/lib/motion";
 import { useLocale } from "@/lib/i18n";
 import { blogPosts, BlogPost } from "@/lib/blog-data";
@@ -26,6 +28,32 @@ function getPost(post: BlogPost, locale: string) {
   return { title: data.title, summary: data.summary, content: data.content, source: data.source };
 }
 
+function NewsletterCTA({ locale }: { locale: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ delay: 0.1, ...spring.soft }}
+    >
+      <section className="my-12 rounded-2xl border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_4%,transparent)] p-8 md:p-10 text-center">
+        <div className="max-w-md mx-auto">
+          <Mail className="h-8 w-8 text-[var(--brand)] mx-auto mb-3" />
+          <h3 className="text-lg font-semibold tracking-tight mb-2">
+            {locale === "pt" ? "Receba análises como esta no seu email" : "Get analysis like this in your inbox"}
+          </h3>
+          <p className="text-sm text-muted leading-relaxed mb-6">
+            {locale === "pt"
+              ? "Insights sobre farmácia, saúde e tecnologia direto de quem vive o setor."
+              : "Pharmacy, health and tech insights straight from someone who lives it."}
+          </p>
+          <NewsletterForm />
+        </div>
+      </section>
+    </motion.div>
+  );
+}
+
 export default function BlogPostShell({ slug }: { slug: string }) {
   const { locale } = useLocale();
   const reduce = useReducedMotion();
@@ -38,6 +66,7 @@ export default function BlogPostShell({ slug }: { slug: string }) {
   return (
     <PageShell>
       <main className="min-h-screen bg-surface text-foreground">
+        <FloatingPharmaIcons />
         <Header />
         <section className="border-b border-border pt-32 pb-20 md:pt-40 md:pb-24">
           <div className="mx-auto max-w-3xl px-5 md:px-8">
@@ -58,9 +87,10 @@ export default function BlogPostShell({ slug }: { slug: string }) {
           </div>
         </section>
         <section className="py-16 md:py-20">
-          <article className="mx-auto max-w-3xl px-5 md:px-8">
+          <article className="mx-auto max-w-3xl px-5 md:px-8 article-content">
             {paragraphs.map((paragraph, i) => {
               const isSource = paragraph.startsWith("**Fonte:") || paragraph.startsWith("**Source:");
+              const isThirdParagraph = i === 2;
               return (
                 <Reveal key={i} variant="up" delay={i * 0.03}>
                   <p className={`mb-5 leading-relaxed ${isSource ? "mt-8 pt-6 border-t border-border text-xs text-muted/70" : "text-muted"}`}>
@@ -71,9 +101,13 @@ export default function BlogPostShell({ slug }: { slug: string }) {
                       return <span key={j}>{part}</span>;
                     })}
                   </p>
+                  {isThirdParagraph && <NewsletterCTA locale={locale} />}
                 </Reveal>
               );
             })}
+
+            {/* Newsletter CTA — after last paragraph (before Footer) */}
+            <NewsletterCTA locale={locale} />
           </article>
         </section>
         <Footer />

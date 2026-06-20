@@ -439,6 +439,52 @@ export function Footer() {
         </motion.div>
 
         {/* ═══════════════════════════════════════════
+            FOUNDER / ECOSYSTEM — seção destacada
+           ═══════════════════════════════════════════ */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={fadeUp}
+          className="relative mt-16 pt-8"
+        >
+          <div
+            className="absolute left-5 right-5 md:left-8 md:right-8 top-0 h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--brand) 25%, transparent) 50%, transparent 100%)",
+            }}
+            aria-hidden
+          />
+          <div className="flex flex-col items-center text-center gap-3">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted/50">
+              {locale === "pt" ? "CRIADO POR" : "CREATED BY"}
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
+              <a href={site.reidasvendas} target="_blank" rel="noopener noreferrer"
+                className="font-semibold text-foreground/80 transition-colors duration-200 hover:text-[var(--brand)]">
+                reidasvendas.com.br
+              </a>
+              <span className="text-muted/30 hidden sm:inline">·</span>
+              <a href={site.saudegpt} target="_blank" rel="noopener noreferrer"
+                className="font-semibold text-foreground/80 transition-colors duration-200 hover:text-[var(--brand)]">
+                saudegpt.com
+              </a>
+              <span className="text-muted/30 hidden sm:inline">·</span>
+              <a href={site.thiagolab} target="_blank" rel="noopener noreferrer"
+                className="font-semibold text-foreground/80 transition-colors duration-200 hover:text-[var(--brand)]">
+                thiagolab.com
+              </a>
+            </div>
+            <p className="text-[11px] text-muted/40 max-w-md leading-relaxed">
+              {locale === "pt"
+                ? "Thiago Piola — Founder & ecossistema de transformação digital para o setor farmacêutico."
+                : "Thiago Piola — Founder & digital transformation ecosystem for the pharmaceutical sector."}
+            </p>
+          </div>
+        </motion.div>
+
+        {/* ═══════════════════════════════════════════
             BOTTOM BAR — refinada
            ═══════════════════════════════════════════ */}
         <motion.div
