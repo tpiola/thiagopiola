@@ -5,6 +5,7 @@ export function generateStaticParams() {
   return SLUGS.map((slug) => ({ slug }));
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  return <BlogPostShell slug={params.slug} />;
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  return <BlogPostShell slug={slug} />;
 }
