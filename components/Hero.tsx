@@ -14,7 +14,6 @@ import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
 import { useLocale } from "@/lib/i18n";
-import { LocaleToggle } from "./LocaleToggle";
 
 interface HeroProps {
   sectionType?: "default" | "unified";
@@ -104,7 +103,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
         className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-24 pt-16 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-16"
       >
         <div className="flex flex-col justify-center pt-6 sm:pt-0 hero-content hero-gap-mobile">
-          {/* Badge de credibilidade + locale */}
+          {/* Badge de credibilidade */}
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <motion.div
               initial={reduce ? false : { opacity: 0, y: -12, scale: 0.95 }}
@@ -115,17 +114,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               <span className="dot-pulse" />
               <span>{site.credential} &middot; {site.location}</span>
             </motion.div>
-
-            <motion.div
-              initial={reduce ? false : { opacity: 0, scale: 0.9 }}
-              animate={reduce ? undefined : { opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-            >
-              <LocaleToggle />
-            </motion.div>
           </div>
-
-          {/* TÍTULO PRINCIPAL com gradiente animado */}
           <motion.h1
             className="text-[clamp(1.8rem,6vw,3.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground"
             initial={reduce ? false : { opacity: 0 }}
@@ -192,7 +181,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.div>
           )}
 
-          {/* CTAs — LinkedIn (principal) + Trajetória (secundário) + WhatsApp (ícone) */}
+          {/* CTAs — LinkedIn (principal) + WhatsApp (ícone) */}
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -205,10 +194,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               <LinkedinIcon className="relative h-4 w-4" aria-hidden />
               <span className="relative">{copy.ctaPrincipal}</span>
             </MagneticLink>
-            <a href="#trajetoria"
-              className="btn-secondary group">
-              <span className="relative">{copy.ctaSecundario}</span>
-            </a>
             <MagneticLink href={site.whatsapp} target="_blank" rel="noopener noreferrer"
               className="btn-secondary group relative overflow-hidden border-glow"
               onClick={ctaSound}
@@ -234,13 +219,25 @@ export function Hero({ sectionType = "default" }: HeroProps) {
 
           {/* Founder tag */}
           <Reveal delay={0.65} variant="fade">
-            <div className="mt-6 inline-flex items-center gap-2 rounded-lg border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-4 py-2.5">
-              <TrendingUp className="h-3.5 w-3.5 text-[var(--brand)]" aria-hidden />
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted">Founder</span>
+            <div className="mt-6 inline-flex flex-wrap items-center gap-2 rounded-lg border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-4 py-2.5">
+              <span className="inline-flex items-center gap-2">
+                <TrendingUp className="h-3.5 w-3.5 text-[var(--brand)]" aria-hidden />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted">Founder</span>
+              </span>
               <span className="h-3 w-px bg-border" />
               <a href={site.reidasvendas} target="_blank" rel="noopener noreferrer"
-                className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--brand)] underline-offset-2 hover:underline">
+                className="btn-secondary group font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
                 reidasvendas.com.br
+              </a>
+              <span className="h-3 w-px bg-border" />
+              <a href="https://www.saudegpt.com" target="_blank" rel="noopener noreferrer"
+                className="btn-secondary group font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
+                saudegpt.com.br
+              </a>
+              <span className="h-3 w-px bg-border" />
+              <a href="https://www.thiagolab.com" target="_blank" rel="noopener noreferrer"
+                className="btn-secondary group font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
+                thiagolab.com
               </a>
             </div>
           </Reveal>

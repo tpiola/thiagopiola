@@ -38,6 +38,8 @@ export const site = {
     "Pharmacist with technical-commercial expertise in healthcare — pharmaceutical and hospital operations, training, consultative sales and technology.",
   url: "https://www.thiagopiola.com.br",
   reidasvendas: "https://www.reidasvendas.com.br",
+  saudegpt: "https://www.saudegpt.com",
+  thiagolab: "https://www.thiagolab.com",
   facebook: "https://www.facebook.com/thiagoopiolaoficial",
   instagram: "https://www.instagram.com/othiagopiolaoficial",
   github: "https://github.com/tpiola",
@@ -85,11 +87,11 @@ export const nav = [
 export const hero = {
   tagline: "Farmacêutico CRF/SP 58.519 · Operação técnica e comercial em saúde",
   description:
-    "Farmacêutico com mais de uma década unindo operação hospitalar e farmacêutica, tecnologia e execução comercial — uma ponte direta entre a prescrição e o resultado.",
+    "Farmacêutico com mais de uma década unindo operação hospitalar e drogaria, tecnologia e execução comercial — exclusividade no setor de Saúde mundial.",
   titleLine1: "Thiago Biasoli Garcia Piola",
   titleLine2: "Farmacêutico CRF/SP 58.519 · Franca/SP",
-  subtitleBefore: "Operação hospitalar e farmacêutica",
-  subtitleAfter: "Estratégia comercial e tecnologia",
+  subtitleBefore: "Operação hospitalar e drogaria",
+  subtitleAfter: "Exclusividade no setor de Saúde mundial",
   lead:
     "Farmacêutico CRF/SP 58.519 — operação, treinamento, compliance e execução comercial em saúde.",
   ctaWhatsapp: "",
@@ -97,7 +99,7 @@ export const hero = {
   ctaLinkedin: "Ver perfil no LinkedIn",
   whatsappLabel: "",
   ctaPrincipal: "Ver perfil no LinkedIn",
-  ctaSecundario: "Conhecer a trajetória",
+  ctaSecundario: "",
   microCta: "CRF/SP 58.519 · Perfil profissional",
   rotatingLabel: "Seu próximo passo:",
   descriptionCard: "Operação farmacêutica e hospitalar · Vendas consultivas e tecnologia",
@@ -116,11 +118,11 @@ export const hero = {
 export const heroEn = {
   tagline: "Pharmacist CRF/SP 58.519 · Technical and commercial operations in healthcare",
   description:
-    "Pharmacist with over a decade bridging hospital and pharmaceutical operations, technology and commercial execution — a direct link between prescription and results.",
+    "Pharmacist with over a decade bridging hospital and drugstore operations, technology and commercial execution — exclusivity in the global Healthcare sector.",
   titleLine1: "Thiago Biasoli Garcia Piola",
   titleLine2: "Pharmacist CRF/SP 58.519 · Franca/SP",
-  subtitleBefore: "Hospital and pharmaceutical operations",
-  subtitleAfter: "Commercial strategy and technology",
+  subtitleBefore: "Hospital and drugstore operations",
+  subtitleAfter: "Exclusivity in the global Healthcare sector",
   lead:
     "Pharmacist CRF/SP 58.519 — operations, training, compliance and commercial execution in healthcare.",
   ctaWhatsapp: "",
@@ -128,7 +130,7 @@ export const heroEn = {
   ctaLinkedin: "View LinkedIn profile",
   whatsappLabel: "",
   ctaPrincipal: "View LinkedIn profile",
-  ctaSecundario: "View career journey",
+  ctaSecundario: "",
   microCta: "CRF/SP 58.519 · Professional profile",
   rotatingLabel: "Your next step:",
   descriptionCard: "Pharmaceutical and hospital operations · Consultative sales and technology",
