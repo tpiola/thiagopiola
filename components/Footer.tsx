@@ -15,6 +15,8 @@ import { trackCta } from "@/lib/analytics";
 import { Logo } from "./Logo";
 import { SocialLinksGrouped } from "./SocialLinksGrouped";
 
+/* ─── Animation presets ─── */
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -24,13 +26,50 @@ const containerVariants = {
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const slideItem = (i: number) => ({
+  hidden: { opacity: 0, x: -14 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.06 + 0.15,
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+});
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
     transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
+
+/* ─── Shared card class ─── */
+
+const cardBase =
+  "card-elevated group flex items-center gap-4 rounded-xl p-4 text-sm text-foreground transition-all duration-[400ms] hover:scale-[1.02]";
+
+/* ─── Component ─── */
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -40,32 +79,48 @@ export function Footer() {
       id="contato"
       className="relative border-t border-border bg-surface-elevated py-16 md:py-24 overflow-hidden"
     >
-      {/* ── Brand accent glow line ── */}
-      <div
-        className="pointer-events-none absolute top-0 left-0 right-0 h-[1px]"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--brand) 50%, transparent) 50%, transparent 100%)",
-        }}
-        aria-hidden
-      />
+      {/* ── Dual-layer top accent ── */}
+      <div className="pointer-events-none absolute top-0 left-0 right-0 h-px" aria-hidden>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, var(--brand) 50%, transparent 100%)",
+            opacity: 0.35,
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--brand) 60%, transparent) 50%, transparent 100%)",
+            filter: "blur(4px)",
+            opacity: 0.6,
+          }}
+        />
+      </div>
 
-      {/* ── Ambient orbs ── */}
+      {/* ── Refined ambient orbs ── */}
       <div
-        className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] orb opacity-[0.06]"
+        className="pointer-events-none absolute -top-48 -right-48 w-[600px] h-[600px] orb opacity-[0.07]"
         style={{ background: "var(--brand)" }}
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-40 -left-40 w-[400px] h-[400px] orb opacity-[0.04]"
+        className="pointer-events-none absolute -bottom-48 -left-48 w-[500px] h-[500px] orb opacity-[0.05]"
+        style={{ background: "var(--brand)" }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] orb opacity-[0.02]"
         style={{ background: "var(--brand)" }}
         aria-hidden
       />
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
-        {/* ══════════════════════════════════
-            LINKEDIN DESTAQUE — card premium
-           ══════════════════════════════════ */}
+        {/* ═══════════════════════════════════════════
+            LINKEDIN DESTAQUE — card premium refinado
+           ═══════════════════════════════════════════ */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -73,62 +128,102 @@ export function Footer() {
           variants={containerVariants}
           className="mb-16"
         >
-          <div className="group relative rounded-2xl border border-[var(--brand)]/20 p-6 md:p-8 transition-all duration-500"
+          <motion.div
+            variants={scaleIn}
+            className="group relative overflow-hidden rounded-2xl border border-[var(--brand)]/20 p-6 md:p-8 transition-all duration-500 hover:border-[var(--brand)]/30 hover:shadow-lg"
             style={{
-              background: "linear-gradient(135deg, color-mix(in srgb, var(--brand) 5%, transparent) 0%, color-mix(in srgb, var(--brand) 2%, transparent) 100%)",
+              background:
+                "linear-gradient(135deg, color-mix(in srgb, var(--brand) 6%, transparent) 0%, color-mix(in srgb, var(--brand) 2%, transparent) 100%)",
+              boxShadow:
+                "0 0 0 0 color-mix(in srgb, var(--brand) 0%, transparent)",
+              transition:
+                "box-shadow 0.5s ease, border-color 0.5s ease, transform 0.5s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow =
+                "0 8px 40px color-mix(in srgb, var(--brand) 12%, transparent)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow =
+                "0 0 0 0 color-mix(in srgb, var(--brand) 0%, transparent)";
             }}
           >
-            {/* Subtle hover glow */}
+            {/* Hover glow radial */}
             <div
               className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
               style={{
                 background:
-                  "radial-gradient(600px circle at 30% 50%, color-mix(in srgb, var(--brand) 8%, transparent), transparent 70%)",
+                  "radial-gradient(600px circle at 30% 50%, color-mix(in srgb, var(--brand) 10%, transparent), transparent 70%)",
+              }}
+              aria-hidden
+            />
+
+            {/* Shine sweep on hover */}
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+              style={{
+                background:
+                  "linear-gradient(105deg, transparent 40%, color-mix(in srgb, var(--brand) 6%, transparent) 50%, transparent 60%)",
+                backgroundSize: "200% 100%",
+                animation: "none",
               }}
               aria-hidden
             />
 
             <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5">
               <div>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand)]/15 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--brand)] mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand)]" />
+                {/* Badge */}
+                <motion.span
+                  variants={fadeUp}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[var(--brand)]/15 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--brand)] mb-3"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand)] dot-pulse" />
                   Perfil Profissional
-                </span>
-                <h3 className="text-lg font-bold text-foreground md:text-xl">
+                </motion.span>
+                <motion.h3
+                  variants={fadeUp}
+                  className="text-lg font-bold text-foreground md:text-xl tracking-tight"
+                >
                   LinkedIn
-                </h3>
-                <p className="mt-1.5 text-sm text-muted max-w-lg leading-relaxed">
+                </motion.h3>
+                <motion.p
+                  variants={fadeUp}
+                  className="mt-1.5 text-sm text-muted max-w-lg leading-relaxed"
+                >
                   Conecte-se para acompanhar trajetória, resultados e
                   posicionamento no setor farmacêutico. Perfil verificado com
                   recomendações e histórico completo.
-                </p>
+                </motion.p>
               </div>
-              <a
+              <motion.a
+                variants={fadeUp}
                 href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-6 py-3 text-sm font-semibold text-white shrink-0 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand)] px-6 py-3 text-sm font-semibold text-white shrink-0 transition-all duration-300 hover:scale-[1.04] hover:shadow-lg active:scale-[0.98]"
                 style={{
-                  boxShadow: "0 4px 20px color-mix(in srgb, var(--brand) 30%, transparent)",
+                  boxShadow:
+                    "0 4px 20px color-mix(in srgb, var(--brand) 30%, transparent)",
                 }}
                 onClick={() => trackCta("cta_linkedin_click")}
               >
                 <ExternalLink className="h-4 w-4" />
-                Ver perfil no LinkedIn
-              </a>
+                <span>Ver perfil no LinkedIn</span>
+                <ArrowUpRight className="h-3.5 w-3.5 opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* ══════════════════════════════════
-            MAIN GRID
-           ══════════════════════════════════ */}
+        {/* ═══════════════════════════════════════════
+            MAIN GRID — layout mais arejado
+           ═══════════════════════════════════════════ */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={containerVariants}
-          className="grid gap-12 lg:grid-cols-12"
+          className="grid gap-10 lg:gap-12 lg:grid-cols-12"
         >
           {/* ── Brand column ── */}
           <motion.div variants={fadeUp} className="lg:col-span-5">
@@ -138,39 +233,42 @@ export function Footer() {
             </p>
             <SocialLinksGrouped className="mt-6" />
 
-            <a
+            <motion.a
+              variants={fadeIn}
               href={site.cvUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-6 inline-flex items-center gap-2 rounded-xl border border-[var(--brand)]/25 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-5 py-3 text-sm font-semibold text-[var(--brand)] transition-all duration-300 hover:border-[var(--brand)]/40 hover:bg-[color-mix(in_srgb,var(--brand)_10%,transparent)] hover:scale-[1.02]"
+              className="group mt-6 inline-flex items-center gap-2.5 rounded-xl border border-[var(--brand)]/25 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-5 py-3 text-sm font-semibold text-[var(--brand)] transition-all duration-[400ms] hover:border-[var(--brand)]/45 hover:bg-[color-mix(in_srgb,var(--brand)_10%,transparent)] hover:scale-[1.02] active:scale-[0.98]"
               onClick={() => trackCta("cta_cv_download")}
             >
-              {site.cvLabel}
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+              <span className="relative inline-flex items-center gap-1">
+                {site.cvLabel}
+              </span>
+              <ArrowUpRight className="h-4 w-4 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </motion.a>
           </motion.div>
 
           {/* ── Nav column ── */}
           <motion.div variants={fadeUp} className="lg:col-span-3">
-            <p className="text-label text-muted">Menu</p>
+            <p className="text-label text-muted tracking-[0.24em]">Menu</p>
             <ul className="mt-5 space-y-3">
               {nav.map((item, i) => (
                 <motion.li
                   key={item.href}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  variants={slideItem(i)}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.06 + 0.15, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <a
                     href={item.href}
-                    className="group inline-flex items-center gap-2 text-sm text-foreground transition-all duration-300 hover:text-[var(--brand)]"
+                    className="group inline-flex items-center gap-2 text-sm text-foreground/85 transition-all duration-300 hover:text-[var(--brand)]"
                   >
-                    <span className="w-0 h-[1.5px] rounded-full bg-[var(--brand)] transition-all duration-300 group-hover:w-4" />
-                    <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+                    <span className="h-[1.5px] w-0 rounded-full bg-[var(--brand)] transition-all duration-300 group-hover:w-4" />
+                    <span className="transition-all duration-300 group-hover:translate-x-0.5 group-hover:font-semibold">
                       {item.label}
                     </span>
-                    <ChevronRight className="h-3 w-3 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-60 group-hover:translate-x-0" />
+                    <ChevronRight className="h-3 w-3 text-muted/40 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-60 group-hover:translate-x-0" />
                   </a>
                 </motion.li>
               ))}
@@ -179,110 +277,145 @@ export function Footer() {
 
           {/* ── Contact column ── */}
           <motion.div variants={fadeUp} className="lg:col-span-4">
-            <p className="text-label text-muted">Contato</p>
+            <p className="text-label text-muted tracking-[0.24em]">Contato</p>
             <ul className="mt-5 space-y-3">
               {/* WhatsApp */}
-              <li>
+              <motion.li variants={fadeIn}>
                 <a
                   href={site.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card-elevated group flex items-center gap-4 rounded-xl p-4 text-sm text-foreground transition-all duration-300 hover:scale-[1.02]"
+                  className={`${cardBase} relative overflow-hidden`}
                   aria-label="WhatsApp — Fale com Thiago Piola"
                 >
+                  {/* Hover border glow */}
                   <div
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-sm"
+                    className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
+                    style={{
+                      boxShadow:
+                        "inset 0 0 0 1px color-mix(in srgb, var(--brand) 25%, transparent)",
+                    }}
+                    aria-hidden
+                  />
+                  <div
+                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-[400ms] group-hover:scale-110 group-hover:shadow-sm"
                     style={{
                       background:
                         "color-mix(in srgb, var(--brand) 10%, transparent)",
                       color: "var(--brand)",
                     }}
                   >
-                    <MessageCircle className="h-4 w-4" />
+                    <MessageCircle className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-8deg]" />
                   </div>
                   <div className="flex-1">
                     <span className="font-semibold">WhatsApp</span>
-                    <span className="block text-[11px] text-muted mt-0.5">
+                    <span className="block text-[11px] text-muted/70 mt-0.5 tracking-wider font-medium uppercase">
                       Mensagem rápida
                     </span>
                   </div>
                   <ArrowUpRight className="h-3.5 w-3.5 text-muted opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
-              </li>
+              </motion.li>
 
               {/* Phone */}
-              <li>
+              <motion.li variants={fadeIn}>
                 <a
                   href={site.phoneHref}
-                  className="card-elevated group flex items-center gap-4 rounded-xl p-4 text-sm text-foreground transition-all duration-300 hover:scale-[1.02]"
+                  className={`${cardBase} relative overflow-hidden`}
                 >
                   <div
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-sm"
+                    className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
+                    style={{
+                      boxShadow:
+                        "inset 0 0 0 1px color-mix(in srgb, var(--brand) 25%, transparent)",
+                    }}
+                    aria-hidden
+                  />
+                  <div
+                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-[400ms] group-hover:scale-110 group-hover:shadow-sm"
                     style={{
                       background:
                         "color-mix(in srgb, var(--brand) 10%, transparent)",
                       color: "var(--brand)",
                     }}
                   >
-                    <Phone className="h-4 w-4" />
+                    <Phone className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-8deg]" />
                   </div>
                   <div className="flex-1">
                     <span className="font-semibold">{site.phone}</span>
-                    <span className="block text-[11px] text-muted mt-0.5">
+                    <span className="block text-[11px] text-muted/70 mt-0.5 tracking-wider font-medium uppercase">
                       Telefone
                     </span>
                   </div>
                   <ArrowUpRight className="h-3.5 w-3.5 text-muted opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
-              </li>
+              </motion.li>
 
               {/* Email */}
-              <li>
+              <motion.li variants={fadeIn}>
                 <a
                   href={`mailto:${site.email}`}
-                  className="card-elevated group flex items-center gap-4 rounded-xl p-4 text-sm text-foreground transition-all duration-300 hover:scale-[1.02]"
+                  className={`${cardBase} relative overflow-hidden`}
                 >
                   <div
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-sm"
+                    className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
+                    style={{
+                      boxShadow:
+                        "inset 0 0 0 1px color-mix(in srgb, var(--brand) 25%, transparent)",
+                    }}
+                    aria-hidden
+                  />
+                  <div
+                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-[400ms] group-hover:scale-110 group-hover:shadow-sm"
                     style={{
                       background:
                         "color-mix(in srgb, var(--brand) 10%, transparent)",
                       color: "var(--brand)",
                     }}
                   >
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-4 w-4 transition-transform duration-300 group-hover:rotate-[-8deg]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="font-semibold truncate block">
                       {site.email}
                     </span>
-                    <span className="block text-[11px] text-muted mt-0.5">
+                    <span className="block text-[11px] text-muted/70 mt-0.5 tracking-wider font-medium uppercase">
                       E-mail
                     </span>
                   </div>
                   <ArrowUpRight className="h-3.5 w-3.5 text-muted opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
-              </li>
+              </motion.li>
 
-              {/* Location */}
-              <li className="card-elevated flex items-center gap-4 rounded-xl p-4 text-sm text-muted">
-                <div
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
-                  style={{
-                    background:
-                      "color-mix(in srgb, var(--brand) 10%, transparent)",
-                    color: "var(--brand)",
-                  }}
-                >
-                  <MapPin className="h-4 w-4" />
+              {/* Location (non-clickable) */}
+              <motion.li variants={fadeIn}>
+                <div className="card-elevated flex items-center gap-4 rounded-xl p-4 text-sm text-muted transition-all duration-300 hover:border-[var(--brand)]/15">
+                  <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                    style={{
+                      background:
+                        "color-mix(in srgb, var(--brand) 10%, transparent)",
+                      color: "var(--brand)",
+                    }}
+                  >
+                    <MapPin className="h-4 w-4" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="font-medium">{site.location}</span>
+                    <span className="block text-[11px] text-muted/50 mt-0.5 tracking-wider font-medium uppercase">
+                      Localização
+                    </span>
+                  </div>
                 </div>
-                <span className="font-medium">{site.location}</span>
-              </li>
+              </motion.li>
             </ul>
 
-            {/* Site link */}
-            <div className="mt-5 rounded-xl border border-border bg-[color-mix(in_srgb,var(--brand)_3%,transparent)] p-4 transition-all duration-300 hover:border-[var(--brand)]/20 hover:bg-[color-mix(in_srgb,var(--brand)_5%,transparent)]">
-              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted">
+            {/* Site link card */}
+            <motion.div
+              variants={fadeIn}
+              className="mt-5 rounded-xl border border-border bg-[color-mix(in_srgb,var(--brand)_3%,transparent)] p-4 transition-all duration-[400ms] hover:border-[var(--brand)]/20 hover:bg-[color-mix(in_srgb,var(--brand)_6%,transparent)] hover:shadow-sm"
+            >
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
                 Site
               </span>
               <a
@@ -292,34 +425,46 @@ export function Footer() {
                 className="group mt-1.5 inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-300"
                 style={{ color: "var(--brand)" }}
               >
-                www.thiagopiola.com.br
-                <ArrowUpRight className="h-3.5 w-3.5 opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <span className="transition-all duration-300 group-hover:underline group-hover:underline-offset-4 group-hover:decoration-[var(--brand)]/40">
+                  www.thiagopiola.com.br
+                </span>
+                <ArrowUpRight className="h-3.5 w-3.5 opacity-50 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* ══════════════════════════════════
-            BOTTOM BAR
-           ══════════════════════════════════ */}
+        {/* ═══════════════════════════════════════════
+            BOTTOM BAR — refinada
+           ═══════════════════════════════════════════ */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={fadeUp}
-          className="divider-brand mt-16 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="relative mt-16 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
-          <p className="text-[11px] text-muted/70 leading-relaxed">
+          {/* Subtle divider line */}
+          <div
+            className="absolute left-5 right-5 md:left-8 md:right-8 top-0 h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--brand) 25%, transparent) 50%, transparent 100%)",
+            }}
+            aria-hidden
+          />
+
+          <p className="text-[11px] text-muted/60 leading-relaxed tracking-wide">
             &copy; {year} {site.name} — Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-3">
-            <span className="text-[10px] text-muted/50">
+            <span className="text-[10px] text-muted/50 tracking-wider">
               Criado por{" "}
               <a
                 href={site.reidasvendas}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-[var(--brand)] transition-all duration-200 hover:opacity-80 hover:underline"
+                className="font-semibold text-[var(--brand)] transition-all duration-200 hover:opacity-80 hover:underline hover:underline-offset-2"
               >
                 Rei das Vendas
               </a>

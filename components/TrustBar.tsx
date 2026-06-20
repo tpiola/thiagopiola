@@ -4,7 +4,7 @@ import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { trustBar } from "@/lib/content";
 import { Reveal } from "./motion/Reveal";
 
-/** Prova social verificável — leitura em ~10 segundos */
+/** Prova social verificável — cards com hover premium */
 export function TrustBar() {
   return (
     <section
@@ -21,13 +21,13 @@ export function TrustBar() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-start gap-3 rounded-xl border border-border bg-surface p-4 transition-colors hover:border-[var(--brand)]/35"
+                    className="group card-hover-premium flex items-start gap-3 rounded-xl border border-border bg-surface p-4"
                   >
                     <TrustIcon />
                     <TrustCopy label={item.label} detail={item.detail} linked />
                   </a>
                 ) : (
-                  <div className="flex items-start gap-3 rounded-xl border border-border bg-surface p-4">
+                  <div className="card-hover-premium flex items-start gap-3 rounded-xl border border-border bg-surface p-4">
                     <TrustIcon />
                     <TrustCopy label={item.label} detail={item.detail} />
                   </div>
@@ -44,7 +44,7 @@ export function TrustBar() {
 function TrustIcon() {
   return (
     <div
-      className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+      className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg glow-subtle"
       style={{ background: "color-mix(in srgb, var(--brand) 12%, transparent)" }}
     >
       <ShieldCheck className="h-4 w-4 text-[var(--brand)]" aria-hidden />

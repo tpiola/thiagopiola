@@ -56,6 +56,25 @@ html {
   scroll-padding-top: 80px;
 }
 
+/* ─── Smooth transitions globais (GPU accelerated) ─── */
+.smooth-transitions *,
+.smooth-transitions *::before,
+.smooth-transitions *::after {
+  transition: opacity 0.25s ease,
+              transform 0.25s ease,
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smooth-transitions *,
+  .smooth-transitions *::before,
+  .smooth-transitions *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
@@ -97,6 +116,34 @@ body {
 ::selection {
   background: color-mix(in srgb, var(--brand) 18%, transparent);
 }
+
+/* ─── Touch targets (mobile — mínimo 44px) ─── */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Mobile spacing helpers ─── */
+.section-gap {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+.section-gap-top {
+  padding-top: clamp(3rem, 8vw, 6rem);
+}
+.section-gap-bottom {
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+/* ─── Stack vertical spacing (mobile-first) ─── */
+.stack-xs > * + * { margin-top: 0.5rem; }
+.stack-sm > * + * { margin-top: 1rem; }
+.stack-md > * + * { margin-top: 1.5rem; }
+.stack-lg > * + * { margin-top: 2rem; }
+.stack-xl > * + * { margin-top: 3rem; }
 
 /* ─── Focus ─── */
 :focus-visible {
@@ -237,6 +284,142 @@ body {
   background: rgba(91, 155, 213, 0.08);
   border-color: rgba(91, 155, 213, 0.2);
   color: #7eb3e8;
+}
+
+/* ═══════════════════════════════════════════
+   PREMIUM ANIMATIONS — GPU accelerated
+   (glow, shimmer, pulse refinado, float, hover premium)
+═══════════════════════════════════════════ */
+
+/* ─── Glow sutil (autoridade) ─── */
+@keyframes glow-subtle {
+  0%, 100% {
+    box-shadow: 0 0 12px color-mix(in srgb, var(--brand) 15%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 24px color-mix(in srgb, var(--brand) 25%, transparent),
+                0 0 48px color-mix(in srgb, var(--brand) 8%, transparent);
+  }
+}
+.glow-subtle {
+  animation: glow-subtle 4s ease-in-out infinite;
+}
+
+/* ─── Shimmer (linha de luz que percorre) ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--brand) 12%, transparent) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* ─── Text gradient animado (nome / títulos de autoridade) ─── */
+@keyframes text-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.text-gradient-animated {
+  background: linear-gradient(
+    135deg,
+    var(--brand) 0%,
+    var(--brand-light) 30%,
+    var(--brand) 60%,
+    var(--brand-light) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-gradient-shift 6s ease-in-out infinite;
+}
+.dark .text-gradient-animated {
+  background: linear-gradient(
+    135deg,
+    #90c0ff 0%,
+    #5b9bd5 30%,
+    #7eb3e8 60%,
+    #b8d6f5 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Pulse refinado (badges e destaques sutis) ─── */
+@keyframes pulse-refined {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.92); }
+}
+.pulse-refined {
+  animation: pulse-refined 3s ease-in-out infinite;
+}
+
+/* ─── Float sutil (foto de perfil, ícones) ─── */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-subtle {
+  animation: float-subtle 6s ease-in-out infinite;
+}
+
+/* ─── Card hover elevado premium (ProvasEntrega / TrustBar) ─── */
+.card-hover-premium {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+  will-change: transform;
+}
+.card-hover-premium:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--brand) 12%, transparent),
+              0 4px 16px color-mix(in srgb, var(--brand) 6%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 25%, transparent);
+}
+
+/* ─── Fade-in up com blur premium ─── */
+@keyframes fade-in-up-premium {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.fade-in-up-premium {
+  animation: fade-in-up-premium 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ─── Contador de números com glint sutil ─── */
+@keyframes count-glint {
+  0%, 100% { opacity: 1; text-shadow: 0 0 0 transparent; }
+  50% { opacity: 0.85; text-shadow: 0 0 12px color-mix(in srgb, var(--brand) 10%, transparent); }
+}
+.count-glint {
+  animation: count-glint 3s ease-in-out infinite;
+}
+
+/* ─── Border gradient animado (CTAs / cards de destaque) ─── */
+@keyframes border-glow {
+  0%, 100% { border-color: color-mix(in srgb, var(--brand) 20%, transparent); }
+  50% { border-color: color-mix(in srgb, var(--brand) 40%, transparent); }
+}
+.border-glow {
+  animation: border-glow 3s ease-in-out infinite;
 }
 
 /* ─── Dot accent ─── */
@@ -465,6 +648,33 @@ body {
   .text-heading {
     font-size: clamp(1.375rem, 6vw, 2rem);
   }
+
+  /* Mobile: botões maiores (touch target 44px+) */
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 28px;
+    font-size: 14px;
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Mobile: Hero — textos não grudados */
+  .hero-content {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Mobile: cards full width com padding */
+  .card-mobile-full {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Mobile: gap vertical entre elementos do hero */
+  .hero-gap-mobile > * + * {
+    margin-top: 0.875rem;
+  }
 }
 
 /* ─── Reduced motion ─── */
@@ -620,6 +830,14 @@ body {
 /* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
   .pulse-glow { animation: none; }
+  .glow-subtle { animation: none; box-shadow: none; }
+  .shimmer { animation: none; background: none; }
+  .text-gradient-animated { animation: none; }
+  .pulse-refined { animation: none; }
+  .float-subtle { animation: none; }
+  .card-hover-premium { transform: none !important; }
+  .border-glow { border-color: var(--border); }
+  .count-glint { animation: none; }
   .arrow-bounce { transition: none; }
 }
 
@@ -838,6 +1056,11 @@ body {
   .scroll-progress-native {
     /* show static bar at full width when reduced motion */
     transform: scaleX(1);
+  }
+
+  .card-hover-premium:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
 }
 

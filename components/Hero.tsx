@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
 import { duration, easeLuxury, spring, easeOutExpo } from "@/lib/motion";
 import { hero, heroEn, site } from "@/lib/content";
@@ -18,7 +18,7 @@ interface HeroProps {
   sectionType?: "default" | "unified";
 }
 
-/* ─── Palavras que alternam (resultados, não motivação) ─── */
+/* Palavras que alternam (resultados, não motivação) */
 const rotatingWords = [
   "Resultado",
   "Performance",
@@ -41,19 +41,45 @@ export function Hero({ sectionType = "default" }: HeroProps) {
   const heroY = useTransform(scrollY, [0, 500], [0, 60]);
   const heroScale = useTransform(scrollY, [0, 500], [1, 0.975]);
   const [wordIndex, setWordIndex] = useState(0);
+  const [typewriterText, setTypewriterText] = useState("");
+  const [typewriterPhase, setTypewriterPhase] = useState<"typing" | "pause" | "deleting">("typing");
 
-  /* Rotação de palavras */
+  /* Typewriter effect for rotating words */
   useEffect(() => {
     if (reduce) return;
-    const interval = setInterval(() => {
-      setWordIndex((i) => (i + 1) % rotatingWords.length);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, [reduce]);
+    const currentWord = rotatingWords[wordIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (typewriterPhase === "typing") {
+      if (typewriterText.length < currentWord.length) {
+        timeout = setTimeout(() => {
+          setTypewriterText(currentWord.slice(0, typewriterText.length + 1));
+        }, 60);
+      } else {
+        timeout = setTimeout(() => setTypewriterPhase("pause"), 1200);
+      }
+    } else if (typewriterPhase === "pause") {
+      timeout = setTimeout(() => setTypewriterPhase("deleting"), 200);
+    } else if (typewriterPhase === "deleting") {
+      if (typewriterText.length > 0) {
+        timeout = setTimeout(() => {
+          setTypewriterText(typewriterText.slice(0, -1));
+        }, 35);
+      } else {
+        setWordIndex((i) => (i + 1) % rotatingWords.length);
+        setTypewriterPhase("typing");
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [reduce, wordIndex, typewriterText, typewriterPhase]);
 
   const ctaSound = useCallback(() => {
     trackCta("cta_whatsapp_click");
   }, []);
+
+  /* Parallax sutil para a foto de perfil */
+  const portraitY = useTransform(scrollY, [0, 400], [0, -20]);
 
   return (
     <section
@@ -75,17 +101,17 @@ export function Hero({ sectionType = "default" }: HeroProps) {
         style={reduce ? undefined : { opacity: heroOpacity, y: heroY, scale: heroScale }}
         className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-24 pt-28 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-28"
       >
-        <div className="flex flex-col justify-center pt-6 sm:pt-0">
-          {/* ─── Badge de credibilidade + locale ─── */}
+        <div className="flex flex-col justify-center pt-6 sm:pt-0 hero-content hero-gap-mobile">
+          {/* Badge de credibilidade + locale */}
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <motion.div
               initial={reduce ? false : { opacity: 0, y: -12, scale: 0.95 }}
               animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.05, duration: 0.5, ease: easeOutExpo }}
-              className="badge w-fit"
+              className="badge w-fit glow-subtle"
             >
               <span className="dot-pulse" />
-              <span>{site.credential} · {site.location}</span>
+              <span>{site.credential} &middot; {site.location}</span>
             </motion.div>
             <motion.div
               initial={reduce ? false : { opacity: 0, scale: 0.9 }}
@@ -95,14 +121,19 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             >
               {(["pt", "en"] as const).map((code) => (
                 <button key={code} type="button"
-                  className={cn("rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors",
-                    locale === code ? "bg-[var(--brand)] text-white" : "text-muted hover:text-foreground")}
-                  onClick={() => setLocale(code)} aria-pressed={locale === code}>{code}</button>
+                  className={cn(
+                    "touch-target rounded-md px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors",
+                    locale === code ? "bg-[var(--brand)] text-white" : "text-muted hover:text-foreground"
+                  )}
+                  onClick={() => setLocale(code)} aria-pressed={locale === code}
+                >
+                  {code}
+                </button>
               ))}
             </motion.div>
           </div>
 
-          {/* ─── TÍTULO PRINCIPAL ─── */}
+          {/* TÍTULO PRINCIPAL com gradiente animado */}
           <motion.h1
             className="text-[clamp(2.5rem,9vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground"
             initial={reduce ? false : { opacity: 0 }}
@@ -110,7 +141,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             transition={{ delay: 0.12, duration: 0.7, ease: easeLuxury }}
           >
             <motion.span
-              className="block"
+              className="block text-gradient-animated"
               initial={reduce ? false : { opacity: 0, y: 50, filter: "blur(12px)" }}
               animate={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 0.15, duration: duration.slow, ease: easeLuxury }}
@@ -119,17 +150,17 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.span>
           </motion.h1>
 
-          {/* ─── CREDENCIAIS — fonte menor, delay maior ─── */}
+          {/* CREDENCIAIS — fonte menor, delay maior */}
           <motion.p
             className="mt-2 text-base text-gradient-brand md:text-lg"
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6, ease: easeOutExpo }}
           >
-            Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução comercial em saúde
+            Farmacêutico &middot; CRF/SP 58.519 &middot; Operação, tecnologia e execução comercial em saúde
           </motion.p>
 
-          {/* ─── Subtítulo com selo de autoridade ─── */}
+          {/* Subtítulo com selo de autoridade */}
           <motion.div
             className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2"
             initial={reduce ? false : { opacity: 0, y: 20 }}
@@ -147,7 +178,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </span>
           </motion.div>
 
-          {/* ─── DESCRIÇÃO PRINCIPAL — card vitrine com destaque ─── */}
+          {/* DESCRIÇÃO PRINCIPAL — card vitrine com destaque */}
           <motion.div
             className="relative mt-6 max-w-2xl overflow-hidden rounded-r-xl border-l-2 border-[var(--brand)]/40 bg-[color-mix(in_srgb,var(--brand)_3%,transparent)] pl-5 pr-6 py-4"
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -160,7 +191,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </p>
           </motion.div>
 
-          {/* ─── PALAVRA ROTATIVA HIPNÓTICA ─── */}
+          {/* PALAVRA ROTATIVA TYPEWRITER — prende atenção */}
           {!reduce && (
             <motion.div
               className="mt-5 flex items-center gap-2"
@@ -172,24 +203,15 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted">
                 Seu próximo passo:
               </span>
-              <span className="relative inline-block h-[1.2em] overflow-hidden">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={wordIndex}
-                    className="block font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--brand)]"
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {rotatingWords[wordIndex]}
-                  </motion.span>
-                </AnimatePresence>
+              <span className="inline-flex items-center typewriter-cursor">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--brand)]">
+                  {typewriterText || "\u00A0"}
+                </span>
               </span>
             </motion.div>
           )}
 
-          {/* ─── CTAs — LinkedIn (principal) + Trajetória (secundário) + WhatsApp (ícone) ─── */}
+          {/* CTAs — LinkedIn (principal) + Trajetória (secundário) + WhatsApp (ícone) */}
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -207,14 +229,14 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               <span className="relative">{copy.ctaSecundario}</span>
             </a>
             <MagneticLink href={site.whatsapp} target="_blank" rel="noopener noreferrer"
-              className="btn-secondary group relative overflow-hidden"
+              className="btn-secondary group relative overflow-hidden border-glow"
               onClick={ctaSound}
               aria-label="Contato via WhatsApp">
               <MessageCircle className="relative h-4 w-4" aria-hidden />
             </MagneticLink>
           </motion.div>
 
-          {/* ─── Micro-cópia persuasiva (escassez + reciprocidade) ─── */}
+          {/* Micro-cópia persuasiva (escassez + reciprocidade) */}
           <motion.p
             className="mt-3 text-[11px] text-muted/60 font-mono tracking-wider"
             initial={reduce ? false : { opacity: 0 }}
@@ -224,12 +246,12 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             {copy.microCta}
           </motion.p>
 
-          {/* ─── Social Proof ─── */}
+          {/* Social Proof */}
           <Reveal delay={0.6} variant="fade">
             <SocialLinks className="mt-8" />
           </Reveal>
 
-          {/* ─── Founder tag ─── */}
+          {/* Founder tag */}
           <Reveal delay={0.65} variant="fade">
             <div className="mt-6 inline-flex items-center gap-2 rounded-lg border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-4 py-2.5">
               <TrendingUp className="h-3.5 w-3.5 text-[var(--brand)]" aria-hidden />
@@ -243,12 +265,17 @@ export function Hero({ sectionType = "default" }: HeroProps) {
           </Reveal>
         </div>
 
-        {/* ─── Portrait ─── */}
-        <div className="hidden lg:block">
-          <ProfilePortrait />
-        </div>
+        {/* Portrait com parallax sutil */}
+        <motion.div
+          className="hidden lg:block"
+          style={reduce ? undefined : { y: portraitY }}
+        >
+          <div className="float-subtle">
+            <ProfilePortrait />
+          </div>
+        </motion.div>
 
-        {/* ─── Scroll indicator ─── */}
+        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:flex flex-col items-center gap-2 lg:left-[40%]"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}

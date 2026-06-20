@@ -3,15 +3,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
-  FileText, 
-  ArrowUpRight, 
   Store,
   ShieldCheck,
   Cpu,
   GraduationCap,
   Mail
 } from "lucide-react";
-import { LinkedinIcon } from "@/components/SocialIcons";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
@@ -22,7 +19,7 @@ import { Projetos } from "@/components/Projetos";
 import { PageShell } from "@/components/motion/PageShell";
 import { Reveal } from "@/components/motion/Reveal";
 import { spring } from "@/lib/motion";
-import { site, projetos, competenciasCards } from "@/lib/content";
+import { projetos, competenciasCards } from "@/lib/content";
 import { FloatingCta } from "./FloatingCta";
 
 function NewsletterForm() {
@@ -163,45 +160,7 @@ export function UnifiedPortfolio() {
         {/* 7. PROJETOS & INOVAÇÃO (COMPETÊNCIA TÉCNICA) */}
         <Projetos />
 
-        {/* 8. CTA EXECUTIVO (FINAL DO FUNIL) */}
-        <section className="py-24 md:py-40 bg-white border-t border-border">
-          <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
-            <Reveal variant="up">
-              <h3 className="text-3xl md:text-5xl font-bold tracking-tight mb-8">
-                Pronto para elevar sua <span className="text-gradient-brand">operação</span>?
-              </h3>
-            </Reveal>
-            
-            <Reveal variant="up" delay={0.1}>
-              <p className="text-lg text-muted mb-12">
-                Recrutadores e Gestores: Estou pronto para aplicar visão estratégica, liderança e inovação tecnológica em ambientes de alta exigência.
-              </p>
-            </Reveal>
-
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href={site.linkedin} target="_blank" className="btn-primary group scale-110">
-                <LinkedinIcon className="h-5 w-5" />
-                Conectar no LinkedIn
-                <ArrowUpRight className="h-4 w-4 opacity-70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-              <a href={`mailto:${site.email}`} className="btn-secondary">
-                <FileText className="h-5 w-5" />
-                Enviar e-mail
-              </a>
-            </div>
-            
-            <div className="mt-12 flex items-center justify-center gap-6">
-               <a href={site.linkedin} target="_blank" className="text-muted hover:text-[var(--brand)] transition-colors">
-                 <LinkedinIcon className="h-6 w-6" />
-               </a>
-               <a href={`mailto:${site.email}`} className="text-muted hover:text-[var(--brand)] transition-colors">
-                 <FileText className="h-6 w-6" />
-               </a>
-            </div>
-          </div>
-        </section>
-
-        {/* 9. NEWSLETTER */}
+        {/* 8. NEWSLETTER */}
         <section className="py-20 md:py-24 bg-gradient-to-b from-surface-elevated to-white border-t border-border">
           <div className="mx-auto max-w-xl px-5 md:px-8 text-center">
             <Reveal variant="up">
