@@ -461,7 +461,24 @@ export function Footer() {
           <p className="text-[11px] text-muted/60 leading-relaxed tracking-wide">
             &copy; {year} {site.name} — {locale === "pt" ? blog.footerCopyright : blog.footerCopyrightEn}
           </p>
-          <div className="flex items-center gap-3">
+          <span className="text-[10px] text-muted/40 tracking-wider">
+            Ecossistema:{" "}
+            <a href={site.reidasvendas} target="_blank" rel="noopener noreferrer"
+              className="font-medium text-muted/60 transition-colors duration-200 hover:text-[var(--brand)]">
+              reidasvendas.com.br
+            </a>
+            <span className="mx-1.5">·</span>
+            <a href={site.saudegpt} target="_blank" rel="noopener noreferrer"
+              className="font-medium text-muted/60 transition-colors duration-200 hover:text-[var(--brand)]">
+              saudegpt.com
+            </a>
+            <span className="mx-1.5">·</span>
+            <a href={site.thiagolab} target="_blank" rel="noopener noreferrer"
+              className="font-medium text-muted/60 transition-colors duration-200 hover:text-[var(--brand)]">
+              thiagolab.com
+            </a>
+          </span>
+          <div className="flex items-center gap-3 mt-3 sm:mt-0">
             <span className="text-[10px] text-muted/50 tracking-wider">
               {locale === "pt" ? blog.footerCreatedBy : blog.footerCreatedByEn}{" "}
               <a
