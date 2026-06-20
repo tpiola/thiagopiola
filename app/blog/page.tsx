@@ -10,8 +10,9 @@ import { PageShell } from "@/components/motion/PageShell";
 import { spring } from "@/lib/motion";
 import { blog } from "@/lib/content";
 import { useLocale } from "@/lib/i18n";
+import { blogPosts } from "@/lib/blog-data";
 
-/* ─── Mock data: posts em português ─── */
+/* ─── Mapeia blogPosts para o formato usado na UI (apenas PT) ─── */
 
 type Post = {
   slug: string;
@@ -22,62 +23,14 @@ type Post = {
   summary: string;
 };
 
-const POSTS: Post[] = [
-  {
-    slug: "farmacia-clinica-na-era-digital",
-    date: "15 jun 2026",
-    readTime: "8 min",
-    category: "Farmácia Clínica",
-    title: "Farmácia Clínica na Era Digital",
-    summary:
-      "Como a transformação digital está redefinindo o papel do farmacêutico clínico — da reconciliação medicamentosa ao uso de prontuários eletrônicos e telefarmácia.",
-  },
-  {
-    slug: "compliance-anvisa-2026",
-    date: "02 jun 2026",
-    readTime: "6 min",
-    category: "Regulatório",
-    title: "Compliance ANVISA: O Que Mudou em 2026",
-    summary:
-      "Atualização completa sobre as novas resoluções da ANVISA para o varejo farmacêutico: RDCs atualizadas, documentação obrigatória e prazos de adequação.",
-  },
-  {
-    slug: "ia-generativa-aplicada-a-saude",
-    date: "20 mai 2026",
-    readTime: "10 min",
-    category: "Tecnologia",
-    title: "IA Generativa Aplicada à Saúde",
-    summary:
-      "Explorando casos de uso reais de inteligência artificial generativa no setor saúde: atendimento, análise de dados clínicos, automação documental e suporte à decisão.",
-  },
-  {
-    slug: "gestao-indicadores-varejo-farmaceutico",
-    date: "08 mai 2026",
-    readTime: "7 min",
-    category: "Gestão",
-    title: "Gestão de Indicadores no Varejo Farmacêutico",
-    summary:
-      "Os KPIs essenciais para gestão de farmácias — giro, ruptura, ticket médio, conversão e margem — e como usá-los para decisões comerciais mais assertivas.",
-  },
-  {
-    slug: "lideranca-desenvolvimento-equipes-farmacia",
-    date: "25 abr 2026",
-    readTime: "9 min",
-    category: "Liderança",
-    title: "Liderança e Desenvolvimento de Equipes em Farmácia",
-    summary:
-      "Estratégias práticas para formar, treinar e reter talentos no varejo farmacêutico, com foco em comunicação clara, feedback estruturado e cultura de resultados.",
-  },
-  {
-    slug: "automacao-processos-n8n-farmacia",
-    date: "10 abr 2026",
-    readTime: "7 min",
-    category: "Automação",
-    title: "Automação de Processos com n8n na Farmácia",
-    summary:
-      "Guia prático de como utilizar o n8n para automatizar fluxos de trabalho na farmácia: notificações, CRM, relatórios de indicadores e integração entre sistemas.",
-  },
-];
+const POSTS: Post[] = blogPosts.map((p) => ({
+  slug: p.slug,
+  date: p.date,
+  readTime: p.readTime,
+  category: p.category,
+  title: p.pt.title,
+  summary: p.pt.summary,
+}));
 
 /* ─── Componentes auxiliares ─── */
 
