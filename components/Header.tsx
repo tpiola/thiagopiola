@@ -19,9 +19,9 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { locale } = useLocale();
   const t = useT();
-  const navLabel = t("Trajetória", "Career");
-  const navBlog = t("Blog", "Blog");
-  const navContato = t("Contato", "Contact");
+  const navLabel = t("Trajetória", "Career") as "Trajetória" | "Career";
+  const navBlog = t("Blog", "Blog") as "Blog";
+  const navContato = t("Contato", "Contact") as "Contato" | "Contact";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
