@@ -145,7 +145,8 @@ export const heroEn = {
 } as const;
 
 export const provasEntrega = [
-  { value: "10+", label: "Anos em operação farmacêutica", labelEn: "Years in pharmaceutical operations", detail: "RT, treinamento, compliance e execução comercial", detailEn: "RT, training, compliance and commercial execution" },
+  { value: "12+", label: "Anos como RT em grande rede", labelEn: "12+ years as RT in major chain", detail: "Responsável técnico, treinamento, gestão de pessoas e processos, compliance ANVISA e execução comercial", detailEn: "Technical manager, training, people and process management, ANVISA compliance and commercial execution" },
+  { value: "1/14.000", label: "Farmacêutico Notável RD Saúde 2025", labelEn: "Notable Pharmacist RD Saúde 2025", detail: "Finalista entre 14 mil farmacêuticos — Ética, compromisso e lealdade reconhecidos nacionalmente", detailEn: "Finalist among 14,000 pharmacists — Ethics, commitment and loyalty recognized nationwide" },
   { value: "360°", label: "Visão integrada do negócio", labelEn: "Integrated business vision", detail: "Técnica, regulatória e comercial — visão 360° do negócio", detailEn: "Technical, regulatory and commercial — 360° business view" },
   { value: "Ativa", label: "Plataforma Rei das Vendas", labelEn: "Rei das Vendas Platform", detail: "Treinamento comercial proprietário com método e resultado", detailEn: "Proprietary sales training with method and results" },
 ] as const;
