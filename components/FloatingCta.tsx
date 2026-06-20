@@ -17,13 +17,13 @@ export function FloatingCta() {
   return (
     <motion.div
       style={reduce ? undefined : { opacity, y }}
-      className="fixed bottom-5 right-5 z-[70]"
+      className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-[max(1.25rem,env(safe-area-inset-right,0px))] z-[70]"
     >
       <motion.a
         href={site.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="pulse-glow group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--brand)] p-3 text-white shadow-lg shadow-[var(--brand)]/30 transition-all"
+        className="pulse-glow group relative flex items-center justify-center overflow-hidden rounded-full bg-[var(--brand)] p-4 text-white shadow-lg shadow-[var(--brand)]/30 transition-all min-h-[52px] min-w-[52px]"
         whileHover={reduce ? undefined : { scale: 1.05, boxShadow: "0 8px 32px var(--brand-glow)" }}
         whileTap={reduce ? undefined : { scale: 0.97 }}
         aria-label={

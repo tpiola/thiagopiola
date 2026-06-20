@@ -56,7 +56,7 @@
 /* ─── Base ─── */
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;  /* clip em vez de hidden — não causa scroll trapping */
   scroll-padding-top: 80px;
 }
 
@@ -94,7 +94,7 @@ html.lenis body {
 
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--surface);
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
@@ -119,6 +119,53 @@ body {
 /* ─── Selection ─── */
 ::selection {
   background: color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE-FIRST — Body reset, touch targets, safe areas
+   ═══════════════════════════════════════════ */
+
+/* Body reset — previne scroll horizontal e trapping */
+body {
+  overflow-x: clip;
+  width: 100%;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Safe areas para dispositivos com notch */
+@media (max-width: 640px) {
+  .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-2xl, .max-w-lg {
+    padding-left: max(1rem, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right, 0px)) !important;
+  }
+}
+
+/* Global image/video fix — previne overflow horizontal */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Touch targets mínimos 44px (WCAG 2.5.5 + Apple HIG) — mobile only */
+@media (pointer: coarse) and (max-width: 640px) {
+  a, button, [role="button"],
+  input, select, textarea {
+    min-height: 44px;
+  }
+}
+
+/* Landscape mobile — hero não ocupa tela inteira */
+@media (orientation: landscape) and (max-height: 500px) {
+  section[aria-label="Hero principal"] {
+    min-height: auto !important;
+    padding: 2rem 0 !important;
+  }
+  section[aria-label="Hero principal"] h1 {
+    font-size: clamp(1.2rem, 4vw, 2rem) !important;
+  }
 }
 
 /* ─── Touch targets (mobile — mínimo 44px) ─── */
@@ -833,7 +880,7 @@ body {
 
 /* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
-  .pulse-glow { animation: none; }
+  .pulse-glow { animation: none; box-shadow: 0 0 12px color-mix(in srgb, var(--brand) 20%, transparent); }
   .glow-subtle { animation: none; box-shadow: none; }
   .shimmer { animation: none; background: none; }
   .text-gradient-animated { animation: none; }
@@ -843,6 +890,11 @@ body {
   .border-glow { border-color: var(--border); }
   .count-glint { animation: none; }
   .arrow-bounce { transition: none; }
+}
+
+/* Desliga pulse-glow em mobile (performance GPU/bateria) */
+@media (max-width: 768px) {
+  .pulse-glow { animation: none; box-shadow: 0 0 12px color-mix(in srgb, var(--brand) 20%, transparent); }
 }
 
 /* ═══════════════════════════════════════════
@@ -1081,4 +1133,9 @@ body {
 
 .blend-container {
   isolation: isolate;
+}
+
+/* ─── Footer bottom safe area ─── */
+footer {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
 }

@@ -21,8 +21,8 @@ export function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] border-t border-border bg-surface/95 backdrop-blur-md shadow-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 md:px-8">
+    <div className="fixed bottom-0 left-0 right-0 z-[100] border-t border-border bg-surface/95 backdrop-blur-md shadow-lg pb-[env(safe-area-inset-bottom,0px)]">
+      <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-3 md:px-8 flex-col sm:flex-row sm:justify-between">
         <p className="text-xs text-muted leading-relaxed">
           {locale === "pt"
             ? "Usamos cookies para melhorar sua experiência."
