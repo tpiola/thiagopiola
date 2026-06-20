@@ -1,7 +1,11 @@
-import { site, socialLinks, trajetoria } from "@/lib/content";
+import { site, trajetoria } from "@/lib/content";
 
 export function JsonLd() {
   const personId = `${site.url}/#person`;
+  const organizationId = `${site.url}/#organization`;
+  const websiteId = `${site.url}/#website`;
+  const profilePageId = `${site.url}/#profilepage`;
+  const breadcrumbId = `${site.url}/#breadcrumb`;
   const imageUrl = `${site.url}/images/og-card.webp`;
 
   const schema = {
@@ -9,19 +13,25 @@ export function JsonLd() {
     "@graph": [
       {
         "@type": "ProfilePage",
-        "@id": `${site.url}/#profilepage`,
+        "@id": profilePageId,
         url: site.url,
         mainEntity: { "@id": personId },
         inLanguage: "pt-BR",
-        breadcrumb: {
-          "@type": "BreadcrumbList",
-          itemListElement: [{ "@type": "ListItem", position: 1, name: "Início", item: site.url }],
-        },
+        breadcrumb: { "@id": breadcrumbId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Início", item: site.url },
+        ],
       },
       {
         "@type": ["Person", "ProfessionalService"],
         "@id": personId,
         name: "Thiago Biasoli Garcia Piola",
+        givenName: "Thiago",
+        familyName: "Piola",
         alternateName: ["Thiago Piola", "Thiago Biasoli Piola"],
         url: site.url,
         image: {
@@ -41,13 +51,15 @@ export function JsonLd() {
           "Gestor de Automações",
           "Founder",
         ],
-        description: "Farmacêutico CRF/SP 58.519 especialista em treinamento de equipes de alta performance, automação de processos e IA aplicada ao setor farmacêutico. Founder da Rei das Vendas.",
+        description:
+          "Farmacêutico CRF/SP 58.519 especialista em treinamento de equipes de alta performance, automação de processos e IA aplicada ao setor farmacêutico. Founder da Rei das Vendas.",
         worksFor: [
           {
             "@type": "Organization",
-                        name: "Droga Raia — Filial Franca, SP",
+            name: "Droga Raia — Filial Franca, SP",
             url: "https://www.drogaraia.com.br",
-                        description: "Farmacêutico Responsável Técnico pela filial de Franca, SP.",
+            description:
+              "Farmacêutico Responsável Técnico pela filial de Franca, SP.",
           },
           {
             "@type": "Organization",
@@ -101,10 +113,9 @@ export function JsonLd() {
         })),
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Franca",
-          addressRegion: "SP",
-          addressCountry: "BR",
-          postalCode: "14400-000",
+          addressLocality: site.geo.locality,
+          addressRegion: site.geo.region,
+          addressCountry: site.geo.country,
         },
         geo: {
           "@type": "GeoCoordinates",
@@ -113,16 +124,58 @@ export function JsonLd() {
         },
         sameAs: [
           site.linkedin,
-          site.reidasvendas,
-          ...socialLinks.map((link) => link.href),
+          site.github,
+          site.x,
+          site.instagram,
+          site.facebook,
+          site.tiktok,
+          site.telegram,
+          site.reddit,
+          "https://me.developers.google.com/u/105476544026751993130",
+          "https://thiagopiola.notion.site/",
+        ],
+      },
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: site.shortName,
+        alternateName: site.name,
+        url: site.url,
+        email: site.email,
+        telephone: site.phone,
+        description: site.description,
+        founder: { "@id": personId },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: site.geo.locality,
+          addressRegion: site.geo.region,
+          addressCountry: site.geo.country,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: -20.5386,
+          longitude: -47.4008,
+        },
+        sameAs: [
+          site.linkedin,
+          site.github,
+          site.x,
+          site.instagram,
+          site.facebook,
+          site.tiktok,
+          site.telegram,
+          site.reddit,
+          "https://me.developers.google.com/u/105476544026751993130",
+          "https://thiagopiola.notion.site/",
         ],
       },
       {
         "@type": "WebSite",
-        "@id": `${site.url}/#website`,
+        "@id": websiteId,
         url: site.url,
         name: "Thiago Biasoli Garcia Piola",
-        description: "Site profissional de Thiago Biasoli Garcia Piola — Farmacêutico, especialista em treinamento, automação e IA.",
+        description:
+          "Site profissional de Thiago Biasoli Garcia Piola — Farmacêutico, especialista em treinamento, automação e IA.",
         publisher: { "@id": personId },
         inLanguage: "pt-BR",
         potentialAction: {
@@ -130,15 +183,6 @@ export function JsonLd() {
           target: `https://wa.me/5516992333344`,
           name: "Contato via WhatsApp",
         },
-      },
-      {
-        "@type": "Organization",
-        "@id": `${site.reidasvendas}/#organization`,
-        name: "Rei das Vendas",
-        url: site.reidasvendas,
-        founder: { "@id": personId },
-        description: "Plataforma de treinamento comercial para o setor farmacêutico.",
-        sameAs: [site.reidasvendas],
       },
     ],
   };

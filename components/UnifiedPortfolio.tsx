@@ -1,11 +1,17 @@
 "use client";
 
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { 
   MessageCircle, 
   FileText, 
   ArrowUpRight, 
-  Microscope,
-  Download
+  Download,
+  Store,
+  ShieldCheck,
+  Cpu,
+  GraduationCap,
+  Mail
 } from "lucide-react";
 import { LinkedinIcon } from "@/components/SocialIcons";
 import { Header } from "@/components/Header";
@@ -17,8 +23,60 @@ import { ProvasEntrega } from "@/components/ProvasEntrega";
 import { Projetos } from "@/components/Projetos";
 import { PageShell } from "@/components/motion/PageShell";
 import { Reveal } from "@/components/motion/Reveal";
-import { site, projetos } from "@/lib/content";
+import { spring } from "@/lib/motion";
+import { site, projetos, industriaCards, secaoIndustria } from "@/lib/content";
 import { FloatingCta } from "./FloatingCta";
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubmitted(true);
+      setEmail("");
+    }
+  };
+
+  if (submitted) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={spring.soft}
+        className="rounded-2xl border border-[var(--brand)]/20 bg-[var(--brand)]/5 p-8 text-center"
+      >
+        <Mail className="h-8 w-8 text-[var(--brand)] mx-auto mb-3" />
+        <p className="text-base font-medium text-foreground">
+          Obrigado por assinar! 🎉
+        </p>
+        <p className="text-sm text-muted mt-1">
+          Você receberá os próximos conteúdos no seu email.
+        </p>
+      </motion.div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="seu@email.com"
+        required
+        className="flex-1 rounded-xl border border-border bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)]/30 transition-all"
+      />
+      <button
+        type="submit"
+        className="btn-primary whitespace-nowrap"
+      >
+        Assinar
+      </button>
+    </form>
+  );
+}
 
 export function UnifiedPortfolio() {
   return (
@@ -36,10 +94,7 @@ export function UnifiedPortfolio() {
         <section className="py-20 md:py-32 overflow-hidden bg-surface-elevated">
           <div className="mx-auto max-w-4xl px-5 md:px-8">
             <Reveal variant="fade">
-              <div className="relative rounded-3xl border border-[var(--brand)]/10 bg-white p-10 md:p-16 text-center shadow-subtle">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--brand)] p-3 shadow-lg">
-                  <Microscope className="h-6 w-6 text-white" />
-                </div>
+              <div className="relative rounded-3xl border border-[var(--brand)]/10 bg-white p-8 md:p-14 text-center shadow-subtle">
                 
                 <span className="mb-6 block font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--brand)]">
                   Manifesto Profissional
@@ -57,13 +112,70 @@ export function UnifiedPortfolio() {
           </div>
         </section>
 
-        {/* 5. TRAJETÓRIA EXECUTIVA (STORYTELLING) */}
+        {/* 5. SEÇÃO INDÚSTRIA (RECRUTADORES) */}
+        <section className="py-20 md:py-32 overflow-hidden bg-surface-elevated border-b border-border">
+          <div className="mx-auto max-w-5xl px-5 md:px-8">
+            <Reveal variant="fade">
+              <div className="text-center mb-14">
+                <span className="inline-block mb-5 rounded-full bg-[var(--brand)]/10 px-4 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--brand)]">
+                  Indústria Farmacêutica
+                </span>
+                <h2 className="text-2xl md:text-3xl font-semibold leading-snug text-foreground balance mb-4">
+                  Perfil preparado para a indústria farma
+                </h2>
+                <p className="text-muted leading-relaxed max-w-xl mx-auto">
+                  Visão de negócio, execução em campo e tecnologia aplicada.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+              {industriaCards.map((card, i) => {
+                const icons = [Store, ShieldCheck, Cpu, GraduationCap];
+                const Icon = icons[i];
+                return (
+                  <motion.div
+                    key={card.titulo}
+                    initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ delay: i * 0.08, ...spring.soft }}
+                    className="group rounded-2xl border border-border bg-white p-6 md:p-8 hover:border-[var(--brand)]/30 hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] group-hover:bg-[var(--brand)] group-hover:text-white transition-colors duration-300">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground mb-2">
+                      {card.titulo}
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      {card.desc}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <Reveal variant="up" delay={0.2}>
+              <div className="mt-12 text-center">
+                <a
+                  href="/industria"
+                  className="btn-primary group"
+                >
+                  Dossiê Executivo Completo →
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* 6. TRAJETÓRIA EXECUTIVA (STORYTELLING) */}
         <Trajetoria />
 
-        {/* 6. PROJETOS & INOVAÇÃO (COMPETÊNCIA TÉCNICA) */}
+        {/* 7. PROJETOS & INOVAÇÃO (COMPETÊNCIA TÉCNICA) */}
         <Projetos />
 
-        {/* 7. CTA EXECUTIVO (FINAL DO FUNIL) */}
+        {/* 8. CTA EXECUTIVO (FINAL DO FUNIL) */}
         <section className="py-24 md:py-40 bg-white border-t border-border">
           <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
             <Reveal variant="up">
@@ -98,6 +210,21 @@ export function UnifiedPortfolio() {
                  <FileText className="h-6 w-6" />
                </a>
             </div>
+          </div>
+        </section>
+
+        {/* 9. NEWSLETTER */}
+        <section className="py-20 md:py-24 bg-gradient-to-b from-surface-elevated to-white border-t border-border">
+          <div className="mx-auto max-w-xl px-5 md:px-8 text-center">
+            <Reveal variant="up">
+              <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
+                Receba conteúdos sobre saúde, farmácia e tecnologia
+              </h3>
+              <p className="text-muted leading-relaxed mb-8">
+                Análises, insights e novidades direto na sua caixa de entrada.
+              </p>
+            </Reveal>
+            <NewsletterForm />
           </div>
         </section>
 

@@ -1,6 +1,9 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { site } from "@/lib/content";
+import { duration, easeLuxury } from "@/lib/motion";
 
 type LogoProps = {
   className?: string;
@@ -14,6 +17,7 @@ type LogoProps = {
  * Logo oficial — Thiago Piola
  * Símbolo caduceu farmacêutico de altíssima autoridade.
  * Usa PNG com tratamento visual premium para adaptar ao tema claro/escuro.
+ * Anima entrada com fade-up sutil para manter a elegância.
  */
 export function Logo({
   className,
@@ -22,21 +26,34 @@ export function Logo({
   showCredential = false,
   height = 110,
 }: LogoProps) {
+  const prefersReduced = useReducedMotion();
+
+  const fadeUp = prefersReduced
+    ? { initial: {}, animate: {} }
+    : {
+        initial: { opacity: 0, y: 8 },
+        animate: { opacity: 1, y: 0 },
+      };
+
   const logoImage = (
-    <div className="relative flex items-center justify-center">
+    <motion.div
+      className="relative flex items-center justify-center"
+      {...fadeUp}
+      transition={{ duration: duration.base, ease: easeLuxury }}
+    >
       <img
         src="/logo.png"
-        alt="Thiago Piola — Farmacêutico CRF/SP 58.519"
+        alt={`${site.shortName} — ${site.credential}`}
         className={cn(
-          "h-auto w-auto object-contain transition-all duration-300",
+          "h-auto w-auto object-contain transition-all duration-500 ease-out",
           iconClassName
         )}
         style={{
           height: `${height}px`,
-          maxWidth: "420px",
+          maxWidth: "clamp(180px, 35vw, 420px)",
         }}
       />
-    </div>
+    </motion.div>
   );
 
   if (variant === "icon") {
@@ -48,16 +65,26 @@ export function Logo({
   }
 
   return (
-    <span className={cn("inline-flex items-center gap-1.5", className)}>
+    <motion.span
+      className={cn("inline-flex items-center gap-1.5", className)}
+      {...fadeUp}
+      transition={{ duration: duration.base, ease: easeLuxury, delay: 0.05 }}
+    >
       {logoImage}
       {showCredential && (
-        <span className="flex min-w-0 flex-col leading-tight">
-          <span className="whitespace-nowrap overflow-hidden text-ellipsis text-[13px] font-bold tracking-[0.12em] text-foreground uppercase">
-            Thiago Piola
+        <motion.span
+          className="flex min-w-0 flex-col leading-tight"
+          {...(prefersReduced ? {} : { initial: { opacity: 0, x: -6 }, animate: { opacity: 1, x: 0 } })}
+          transition={{ duration: duration.fast, ease: easeLuxury, delay: 0.12 }}
+        >
+          <span className="whitespace-nowrap overflow-hidden text-ellipsis text-[13px] font-bold tracking-[0.15em] text-foreground uppercase">
+            {site.shortName}
           </span>
-          <span className="text-[10px] text-muted tracking-wider font-mono">CRF/SP 58.519</span>
-        </span>
+          <span className="text-[10px] text-muted tracking-wider font-mono">
+            {site.credential}
+          </span>
+        </motion.span>
       )}
-    </span>
+    </motion.span>
   );
 }

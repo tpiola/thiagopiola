@@ -29,6 +29,10 @@ export const site = {
   industriaUrl: "https://www.thiagopiola.com.br/industria",
   facebook: "https://www.facebook.com/thiagoopiolaoficial",
   instagram: "https://www.instagram.com/othiagopiolaoficial",
+  github: "https://github.com/tpiola",
+  tiktok: "https://www.tiktok.com/@tpiola",
+  telegram: "https://t.me/m/pGzbdmS2ZWRh",
+  reddit: "https://www.reddit.com/user/Mental_Individual641/",
 } as const;
 
 export const footerTagline =
@@ -56,6 +60,7 @@ export const socialLinksCommunity = socialLinks.filter((l) =>
 export const nav = [
   { href: "#trajetoria", label: "Trajetória" },
   { href: "/industria", label: "Indústria" },
+  { href: "/blog", label: "Blog" },
   { href: "#contato", label: "Contato" },
 ] as const;
 

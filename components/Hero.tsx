@@ -103,7 +103,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.div>
           </div>
 
-          {/* ─── TÍTULO PRINCIPAL — TAGLINE DO PDF ─── */}
+          {/* ─── TÍTULO PRINCIPAL ─── */}
           <motion.h1
             className="text-[clamp(2.5rem,9vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground"
             initial={reduce ? false : { opacity: 0 }}
@@ -118,15 +118,17 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             >
               Thiago Biasoli Garcia Piola
             </motion.span>
-            <motion.span
-              className="block text-gradient-brand"
-              initial={reduce ? false : { opacity: 0, y: 50, filter: "blur(12px)" }}
-              animate={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ delay: 0.25, duration: duration.slow, ease: easeLuxury }}
-            >
-              Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução comercial em saúde
-            </motion.span>
           </motion.h1>
+
+          {/* ─── CREDENCIAIS — fonte menor, delay maior ─── */}
+          <motion.p
+            className="mt-2 text-base text-gradient-brand md:text-lg"
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.6, ease: easeOutExpo }}
+          >
+            Farmacêutico · CRF/SP 58.519 · Operação, tecnologia e execução comercial em saúde
+          </motion.p>
 
           {/* ─── Subtítulo com selo de autoridade ─── */}
           <motion.div
@@ -146,15 +148,18 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </span>
           </motion.div>
 
-          {/* ─── DESCRIÇÃO PRINCIPAL (PDF Prompt Gabaritado) ─── */}
-          <motion.p
-            className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted md:text-[16px]"
+          {/* ─── DESCRIÇÃO PRINCIPAL — card vitrine com destaque ─── */}
+          <motion.div
+            className="relative mt-6 max-w-2xl overflow-hidden rounded-r-xl border-l-2 border-[var(--brand)]/40 bg-[color-mix(in_srgb,var(--brand)_3%,transparent)] pl-5 pr-6 py-4"
             initial={reduce ? false : { opacity: 0, y: 24 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 0.42, duration: 0.6, ease: easeOutExpo }}
           >
-            {copy.description}
-          </motion.p>
+            <Sparkles className="absolute right-3 top-3 h-3.5 w-3.5 text-[var(--brand)]/30" aria-hidden />
+            <p className="text-[15px] leading-relaxed text-muted md:text-[16px]">
+              {copy.description}
+            </p>
+          </motion.div>
 
           {/* ─── PALAVRA ROTATIVA HIPNÓTICA ─── */}
           {!reduce && (
