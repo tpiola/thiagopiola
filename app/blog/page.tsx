@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
+import { BlogThumbnail } from "@/components/BlogThumbnail";
 import { Header } from "@/components/Header";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
@@ -21,6 +22,7 @@ type Post = {
   category: string;
   title: string;
   summary: string;
+  image: string;
 };
 
 const POSTS: Post[] = blogPosts.map((p) => ({
@@ -30,6 +32,7 @@ const POSTS: Post[] = blogPosts.map((p) => ({
   category: p.category,
   title: p.pt.title,
   summary: p.pt.summary,
+  image: p.image,
 }));
 
 /* ─── Componentes auxiliares ─── */
@@ -72,6 +75,9 @@ function PostCard({ post, index }: { post: Post; index: number }) {
           {post.readTime}
         </span>
       </div>
+
+      {/* Thumbnail */}
+      <BlogThumbnail category={post.category as any} title={post.title} />
 
       {/* Title */}
       <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground group-hover:text-[var(--brand)] transition-colors duration-200">

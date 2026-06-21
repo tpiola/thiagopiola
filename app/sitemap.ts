@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages = [
     { url: base, changeFrequency: "monthly" as const, priority: 1.0 },
-    { url: `${base}/industria`, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${base}/blog`, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/privacidade`, changeFrequency: "yearly" as const, priority: 0.3 },
   ];
