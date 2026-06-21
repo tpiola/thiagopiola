@@ -4,8 +4,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, Mail, Tag } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { BlogThumbnail } from "@/components/BlogThumbnail";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
 import { FloatingPharmaIcons } from "@/components/motion/FloatingPharmaIcons";
@@ -68,7 +70,36 @@ export default function BlogPostShell({ slug }: { slug: string }) {
       <main className="min-h-screen bg-surface text-foreground">
         <FloatingPharmaIcons />
         <Header />
-        <section className="border-b border-border pt-32 pb-20 md:pt-40 md:pb-24">
+
+        {/* Imagem decorativa do artigo */}
+        <section className="pt-24 pb-0 md:pt-32">
+          <div className="mx-auto max-w-3xl px-5 md:px-8">
+            <motion.div
+              initial={reduce ? undefined : { opacity: 0, y: 16, filter: "blur(6px)" }}
+              animate={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={spring.soft}
+            >
+              {post.image ? (
+                <div className="relative overflow-hidden rounded-2xl border border-border">
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={post.image}
+                      alt=""
+                      fill
+                      className="object-cover"
+                      priority
+                      sizes="(max-width: 768px) 100vw, 768px"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <BlogThumbnail category={post.category as any} />
+              )}
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="border-b border-border pt-12 pb-20 md:pt-16 md:pb-24">
           <div className="mx-auto max-w-3xl px-5 md:px-8">
             <Link href="/blog" className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-[var(--brand)]">
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

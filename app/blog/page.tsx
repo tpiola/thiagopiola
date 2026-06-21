@@ -77,7 +77,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
       </div>
 
       {/* Thumbnail */}
-      <BlogThumbnail category={post.category as any} title={post.title} />
+      <BlogThumbnail src={post.image} alt={post.title} />
 
       {/* Title */}
       <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground group-hover:text-[var(--brand)] transition-colors duration-200">

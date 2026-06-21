@@ -45,7 +45,7 @@ function post(
   enTitle: string,
   enSummary: string,
   enContent: string,
-  imageUrl: string,
+  imageUrl?: string,
 ): BlogPost {
   const url = `https://www.thiagopiola.com.br/blog/${slug}`;
   // Extract source from end of content (last **Source:** or **Fonte:** line)
@@ -493,7 +493,7 @@ export const blogPosts: BlogPost[] = [
     "medicamentos-emagrecer-mercado-expansao-2025",
     "22 jan 2024",
     "6 min",
-    "Indústria",
+    "Inovação",
     ["O boom dos medicamentos para obesidade", "Novos entrantes no mercado", "Desafios regulatórios", "Oportunidades para farmácias"],
     "Medicamentos para Emagrecer: O Mercado que Cresce em 2025",
     "O mercado de medicamentos para perda de peso vive uma explosão de demanda. Conheça os principais players, novos entrantes e como as farmácias podem se preparar para atender essa crescente procura.",
@@ -573,7 +573,7 @@ export const blogPosts: BlogPost[] = [
     "industria-farmaceutica-inovacao-aberta-open-innovation",
     "18 nov 2024",
     "6 min",
-    "Indústria",
+    "Inovação",
     ["O que é inovação aberta", "Parcerias indústria-startups", "Casos de sucesso", "Desafios de implementação"],
     "Indústria Farmacêutica e Inovação Aberta: Parcerias que Transformam",
     "A inovação aberta está redesenhando a indústria farmacêutica. Conheça os modelos de parceria entre grandes laboratórios e startups, os casos de sucesso e como participar desse ecossistema.",
@@ -733,7 +733,7 @@ export const blogPosts: BlogPost[] = [
     "embalagem-logistica-reversa-setor-farmaceutico-sustentabilidade",
     "08 jul 2024",
     "5 min",
-    "Indústria",
+    "Gestão",
     ["Desafios de embalagens farmacêuticas", "Logística reversa de medicamentos", "Sustentabilidade na indústria", "Obrigações legais"],
     "Embalagem e Logística Reversa no Setor Farmacêutico: Sustentabilidade em Foco",
     "A indústria farmacêutica enfrenta o desafio de conciliar segurança e sustentabilidade nas embalagens. Conheça as regras de logística reversa, os programas de descarte consciente e as inovações em embalagens ecológicas.",
