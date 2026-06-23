@@ -176,7 +176,7 @@ export function BlogThumbnail({ category, title, className }: BlogThumbnailProps
           letterSpacing="1.5"
           textAnchor="start"
         >
-          {category.toUpperCase()}
+          {(category || "").toUpperCase()}
         </text>
 
         {/* Icon group — centered */}
