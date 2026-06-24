@@ -84,6 +84,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: site.url,
+    languages: {
+      "pt-BR": site.url,
+      en: site.url,
+    },
   },
   openGraph: {
     type: "profile",

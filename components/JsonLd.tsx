@@ -172,7 +172,8 @@ export function JsonLd() {
         url: site.url,
         email: site.email,
         telephone: site.phone,
-        description: "Farmácia e consultoria farmacêutica em Franca, SP — responsabilidade técnica, treinamento e vendas consultivas.",
+        description:
+          "Farmácia e consultoria farmacêutica em Franca, SP — responsabilidade técnica, treinamento e vendas consultivas.",
         image: imageUrl,
         priceRange: "$$",
         openingHours: "Mo-Fr 08:00-18:00",
@@ -207,7 +208,7 @@ export function JsonLd() {
             name: "Quais serviços Thiago Piola oferece?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Thiago Piola oferece responsabilidade técnica farmacêutica, treinamento de equipes, vendas consultivas, compliance ANVISA, automação de processos com IA e consultoria técnico-comercial para o setor de saúde.",
+              text: "Thiago Piola oferece responsabilidade técnica farmacêutica, treinamento de equipes, vendas consultivas, compliance ANVISA, automação de processos com IA (n8n, agentes inteligentes) e consultoria técnico-comercial para o setor de saúde.",
             },
           },
           {
@@ -215,9 +216,84 @@ export function JsonLd() {
             name: "Como entrar em contato com Thiago Piola?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: `O contato pode ser feito via WhatsApp (${site.phone}), email (${site.email}) ou LinkedIn. A resposta geralmente ocorre em até 2 horas.`,
+              text: `O contato pode ser feito via WhatsApp (${site.phone}), email (${site.email}) ou LinkedIn (${site.linkedin}). A resposta geralmente ocorre em até 2 horas em horário comercial.`,
             },
           },
+          {
+            "@type": "Question",
+            name: "O que é o programa Rei das Vendas?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Rei das Vendas é uma plataforma de treinamento comercial proprietária, criada por Thiago Piola, focada em metodologia de vendas consultivas para o setor farmacêutico. Combina técnicas de PNL, neuromarketing e estratégia comercial com resultados mensuráveis.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Thiago Piola atua com inteligência artificial na farmácia?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Sim. Thiago Piola possui certificação GEAR/Google em IA e Agentes Inteligentes e pós-graduação em Engenharia de IA. Desenvolve soluções de automação de processos com n8n, agentes inteligentes e IA generativa aplicada à saúde — incluindo triagem B2B, atendimento automatizado e análise de indicadores.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Qual a formação de Thiago Piola?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Thiago Piola é Farmacêutico formado pela UNIFRAN, com registro CRF/SP 58.519. Possui MBA em Gestão Empresarial, MBA em Gestão Estratégica, pós-graduação em Engenharia de IA (em andamento) e certificação GEAR/Google em IA e Agentes Inteligentes. Foi eleito Farmacêutico Notável RD Saúde 2025 entre 14 mil profissionais.",
+            },
+          },
+        ],
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${site.url}/#howto-automacao-n8n`,
+        name: "Como automatizar processos de qualificação B2B com n8n e IA",
+        description:
+          "Guia passo a passo para implementar automação de triagem de leads B2B utilizando n8n, LLM e CRM — metodologia utilizada por Thiago Piola.",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Mapear os canais de entrada de leads",
+            text: "Identifique todos os canais onde os leads chegam: formulários do site, WhatsApp, LinkedIn, e-mail. Liste os campos necessários para qualificação (nome, empresa, cargo, necessidade, orçamento).",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Configurar o webhook de captura no n8n",
+            text: "Crie um workflow no n8n com um nó Webhook como trigger. Configure os formulários para enviar dados para este endpoint. Habilite autenticação básica para segurança.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Integrar LLM para análise e scoring do lead",
+            text: "Adicione um nó HTTP Request para chamar a API do Google Gemini ou OpenAI. Envie os dados do lead como prompt para classificação (hot/warm/cold) com base em critérios predefinidos como cargo, urgência e fit com o serviço.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 4,
+            name: "Conectar ao CRM e notificar o time comercial",
+            text: "Configure um nó para criar/atualizar o lead no CRM. Leads classificados como 'hot' disparam notificação imediata via WhatsApp/Telegram. Leads 'warm' entram em sequência de nutrição automatizada.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 5,
+            name: "Monitorar e otimizar com dashboard de indicadores",
+            text: "Implemente um nó de banco de dados (PostgreSQL ou Supabase) para armazenar métricas de conversão. Crie alertas para gargalos e revise o prompt de classificação mensalmente com base nos resultados reais de fechamento.",
+          },
+        ],
+        totalTime: "P7D",
+        tool: [
+          { "@type": "HowToTool", name: "n8n (self-hosted ou cloud)" },
+          { "@type": "HowToTool", name: "Google Gemini API ou OpenAI API" },
+          { "@type": "HowToTool", name: "CRM (HubSpot, Pipedrive, ou similar)" },
+          { "@type": "HowToTool", name: "WhatsApp Business API ou Telegram Bot" },
+          { "@type": "HowToTool", name: "Banco de dados (PostgreSQL/Supabase)" },
+        ],
+        supply: [
+          { "@type": "HowToSupply", name: "Conta Google Cloud ou OpenAI com créditos de API" },
+          { "@type": "HowToSupply", name: "Servidor ou VPS para hospedar n8n (ou plano cloud)" },
         ],
       },
     ],

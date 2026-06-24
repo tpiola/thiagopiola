@@ -35,10 +35,21 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${site.url}/blog`,
+    languages: {
+      "pt-BR": `${site.url}/blog`,
+      en: `${site.url}/blog`,
+    },
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

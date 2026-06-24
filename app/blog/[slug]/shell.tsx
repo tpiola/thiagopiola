@@ -14,6 +14,7 @@ import { FloatingPharmaIcons } from "@/components/motion/FloatingPharmaIcons";
 import { NewsletterForm } from "@/components/NewsletterForm";
 import { spring } from "@/lib/motion";
 import { useLocale } from "@/lib/i18n";
+import { site } from "@/lib/content";
 import { blogPosts, BlogPost } from "@/lib/blog-data";
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -69,6 +70,52 @@ export default function BlogPostShell({ slug }: { slug: string }) {
     <PageShell>
       <main className="min-h-screen bg-surface text-foreground">
         <FloatingPharmaIcons />
+
+        {/* JSON-LD BlogPosting Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.seo.h1,
+              description: post.seo.metaDescription,
+              url: post.seo.url,
+              datePublished: post.date,
+              author: {
+                "@type": "Person",
+                name: site.name,
+                url: site.url,
+                jobTitle: "Farmacêutico CRF/SP 58.519",
+                sameAs: [
+                  site.linkedin,
+                  site.github,
+                  site.x,
+                  site.instagram,
+                ],
+              },
+              publisher: {
+                "@type": "Organization",
+                name: site.shortName,
+                url: site.url,
+                logo: {
+                  "@type": "ImageObject",
+                  url: `${site.url}/images/og-card.webp`,
+                  width: 1200,
+                  height: 630,
+                },
+              },
+              inLanguage: "pt-BR",
+              isAccessibleForFree: true,
+              about: post.category,
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": post.seo.url,
+              },
+              articleBody: post.pt.content.substring(0, 5000),
+            }),
+          }}
+        />
         <Header />
 
         {/* Imagem decorativa do artigo */}
