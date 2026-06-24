@@ -36,7 +36,7 @@ export const site = {
     "Farmacêutico com atuação técnico-comercial em saúde — operação farmacêutica, hospitalar, treinamento, vendas consultivas e tecnologia.",
   descriptionEn:
     "Pharmacist with technical-commercial expertise in healthcare — pharmaceutical and hospital operations, training, consultative sales and technology.",
-  url: "https://www.thiagopiola.com.br",
+  url: "https://thiagopiola.com.br",
   reidasvendas: "https://www.reidasvendas.com.br",
   saudegpt: "https://www.saudegpt.com",
   thiagolab: "https://www.thiagolab.com",

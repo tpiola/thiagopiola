@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Política de Privacidade — Thiago Piola",
     description:
       "Política de privacidade e proteção de dados pessoais conforme a LGPD.",
-    url: "https://www.thiagopiola.com.br/privacidade",
+    url: "https://thiagopiola.com.br/privacidade",
     locale: "pt_BR",
   },
   twitter: {
