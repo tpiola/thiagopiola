@@ -232,7 +232,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               <span className="h-3 w-px bg-border" />
               <a href="https://www.saudegpt.com" target="_blank" rel="noopener noreferrer"
                 className="btn-secondary group font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
-                saudegpt.com.br
+                saudegpt.com
               </a>
               <span className="h-3 w-px bg-border" />
               <a href="https://www.thiagolab.com" target="_blank" rel="noopener noreferrer"
