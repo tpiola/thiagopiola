@@ -35,3 +35,4 @@ yarn-error.log*
 
 # Standalone build (copied by next build)
 .standalone/
+.vercel

@@ -1,43 +1,20 @@
 {
-  "name": "Thiago Piola | Farmacêutico, IA e Automação",
+  "name": "Thiago Piola | Farmacêutico CRF/SP 58.519",
   "short_name": "Thiago Piola",
-  "description": "Farmacêutico CRF/SP 58.519 especialista em treinamento de equipes, automação de processos e IA aplicada ao setor farmacêutico.",
+  "description": "Farmacêutico CRF/SP 58.519 — Atuação técnico-comercial em saúde, operação hospitalar e drogaria, treinamento, compliance e tecnologia.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f6f8",
-  "theme_color": "#0c2340",
-  "categories": ["healthcare", "technology", "business"],
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "categories": ["healthcare", "technology", "business", "education"],
   "lang": "pt-BR",
   "orientation": "any",
   "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-192-maskable.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icon-512-maskable.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png" }
   ],
-  "screenshots": [],
   "prefer_related_applications": false
 }
