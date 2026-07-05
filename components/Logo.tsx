@@ -50,7 +50,7 @@ export function Logo({
         )}
         style={{
           height: `${height}px`,
-          maxWidth: "clamp(220px, 45vw, 600px)",
+          maxWidth: "clamp(280px, 55vw, 700px)",
         }}
       />
     </motion.div>
@@ -77,10 +77,10 @@ export function Logo({
           {...(prefersReduced ? {} : { initial: { opacity: 0, x: -6 }, animate: { opacity: 1, x: 0 } })}
           transition={{ duration: duration.fast, ease: easeLuxury, delay: 0.12 }}
         >
-          <span className="whitespace-nowrap overflow-hidden text-ellipsis text-[13px] font-bold tracking-[0.15em] text-foreground uppercase">
+          <span className="whitespace-nowrap overflow-hidden text-ellipsis text-[16px] font-bold tracking-[0.12em] text-foreground uppercase">
             {site.shortName}
           </span>
-          <span className="text-[10px] text-muted tracking-wider font-mono">
+          <span className="text-[12px] text-muted tracking-wider font-mono">
             {site.credential}
           </span>
         </motion.span>

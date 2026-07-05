@@ -116,7 +116,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.div>
           </div>
           <motion.h1
-            className="text-[clamp(1.8rem,6vw,3.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-foreground"
+            className="text-[clamp(2.2rem,7vw,4.5rem)] font-semibold leading-[0.96] tracking-[-0.04em] text-foreground"
             initial={reduce ? false : { opacity: 0 }}
             animate={reduce ? undefined : { opacity: 1 }}
             transition={{ delay: 0.12, duration: 0.7, ease: easeLuxury }}
@@ -138,13 +138,13 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.6, ease: easeOutExpo }}
           >
-            <span className="inline-flex items-center gap-2 text-base font-bold tracking-tight text-foreground md:text-lg">
-              <ShieldCheck className="h-4 w-4 text-[var(--brand)]" aria-hidden />
+            <span className="inline-flex items-center gap-2 text-lg font-bold tracking-tight text-foreground md:text-xl">
+              <ShieldCheck className="h-5 w-5 text-[var(--brand)]" aria-hidden />
               {copy.subtitleBefore}
             </span>
-            <span className="hidden h-4 w-px bg-border sm:block" aria-hidden />
-            <span className="inline-flex items-center gap-2 text-base font-bold tracking-tight text-foreground md:text-lg">
-              <TrendingUp className="h-4 w-4 text-[var(--brand)]" aria-hidden />
+            <span className="hidden h-5 w-px bg-border sm:block" aria-hidden />
+            <span className="inline-flex items-center gap-2 text-lg font-bold tracking-tight text-foreground md:text-xl">
+              <TrendingUp className="h-5 w-5 text-[var(--brand)]" aria-hidden />
               {copy.subtitleAfter}
             </span>
           </motion.div>
@@ -157,7 +157,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             transition={{ delay: 0.42, duration: 0.6, ease: easeOutExpo }}
           >
             <Sparkles className="absolute right-3 top-3 h-3.5 w-3.5 text-[var(--brand)]/30" aria-hidden />
-            <p className="text-[15px] leading-relaxed text-muted md:text-[16px]">
+            <p className="text-[16px] leading-relaxed text-muted md:text-[18px]">
               {copy.description}
             </p>
           </motion.div>
@@ -189,16 +189,16 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             transition={{ delay: 0.55, duration: 0.6, ease: easeOutExpo }}
           >
             <MagneticLink href={site.linkedin} target="_blank" rel="noopener noreferrer"
-              className="btn-primary group relative overflow-hidden" onClick={() => trackCta("cta_linkedin_click")}>
+              className="btn-primary group relative overflow-hidden text-lg px-7 py-4" onClick={() => trackCta("cta_linkedin_click")}>
               <span className="gradient-shift pointer-events-none absolute inset-0 opacity-20" aria-hidden />
-              <LinkedinIcon className="relative h-4 w-4" aria-hidden />
+              <LinkedinIcon className="relative h-5 w-5" aria-hidden />
               <span className="relative">{copy.ctaPrincipal}</span>
             </MagneticLink>
             <MagneticLink href={site.whatsapp} target="_blank" rel="noopener noreferrer"
-              className="btn-secondary group relative overflow-hidden border-glow"
+              className="btn-secondary group relative overflow-hidden border-glow text-lg"
               onClick={ctaSound}
               aria-label={locale === "pt" ? "Contato via WhatsApp" : "Contact via WhatsApp"}>
-              <MessageCircle className="relative h-4 w-4" aria-hidden />
+              <MessageCircle className="relative h-5 w-5" aria-hidden />
             </MagneticLink>
           </motion.div>
 

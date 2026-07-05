@@ -47,12 +47,12 @@ export function Header() {
       className={cn("fixed inset-x-0 top-0 z-[80]",
         scrolled ? "border-b border-border bg-surface/85 backdrop-blur-xl shadow-sm shadow-black/5" : "bg-transparent")}
       initial={false}
-      animate={{ height: scrolled ? 80 : 100 }}
+      animate={{ height: scrolled ? 90 : 120 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="mx-auto flex h-full max-h-24 min-h-[80px] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
         <Link href="/" aria-label={`${site.shortName} — ${locale === "pt" ? "início" : "home"}`} className="shrink-0">
-          <Logo variant="full" showCredential height={scrolled ? 140 : 200} className="hover:scale-105 transition-transform" />
+          <Logo variant="full" showCredential height={scrolled ? 160 : 240} className="hover:scale-105 transition-transform" />
         </Link>
 
         {/* Navegação Desktop */}
@@ -64,7 +64,7 @@ export function Header() {
             else if (link.href === "#contato") label = navContato;
             return (
             <a key={link.href} href={link.href}
-              className="group relative rounded-md px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted transition-all duration-200 hover:text-foreground xl:px-3.5 touch-target">
+              className="group relative rounded-md px-3 py-2 font-mono text-[12px] uppercase tracking-wider text-muted transition-all duration-200 hover:text-foreground xl:px-3.5 touch-target">
               {label}
               <span className="absolute inset-x-3 bottom-1.5 h-px origin-left scale-x-0 bg-[var(--brand)] transition-transform duration-300 group-hover:scale-x-100" />
             </a>
