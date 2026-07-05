@@ -25,14 +25,14 @@
 }
 
 :root {
-  --brand: #2563eb;
-  --brand-light: #60a5fa;
-  --brand-glow: rgba(37, 99, 235, 0.35);
+  --brand: #0a66c2;
+  --brand-light: #378fe9;
+  --brand-glow: rgba(10, 102, 194, 0.35);
   --accent: #F97316;
   --accent-glow: rgba(249, 115, 22, 0.25);
   --surface: #f0f4f8;
   --surface-elevated: #ffffff;
-  --border: rgba(37, 99, 235, 0.08);
+  --border: rgba(10, 102, 194, 0.08);
   --muted: #64748b;
   --foreground: #1e293b;
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -41,14 +41,14 @@
 }
 
 .dark {
-  --brand: #60a5fa;
-  --brand-light: #93c5fd;
-  --brand-glow: rgba(37, 99, 235, 0.15);
+  --brand: #378fe9;
+  --brand-light: #6aadf0;
+  --brand-glow: rgba(10, 102, 194, 0.2);
   --accent: #F97316;
   --accent-glow: rgba(249, 115, 22, 0.15);
   --surface: #071a3c;
   --surface-elevated: #0c2048;
-  --border: rgba(96, 165, 250, 0.1);
+  --border: rgba(55, 143, 233, 0.12);
   --muted: #94a3b8;
   --foreground: #e4ebf4;
 }
@@ -288,7 +288,7 @@ img, video {
    SURFACE VARIANTS
 ═══════════════════════════════════════════ */
 .surface-hero {
-  background: linear-gradient(160deg, #0a1628 0%, #0c2340 40%, #0e2d50 100%);
+  background: linear-gradient(160deg, #0a1628 0%, #071541 40%, #0a66c2 100%);
 }
 .dark .surface-hero {
   background: linear-gradient(160deg, #030609 0%, #060c18 50%, #080f20 100%);
