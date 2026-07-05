@@ -118,8 +118,6 @@ function NeuronParticles() {
       for (const n of neurons) {
         // Calculate floating wobble
         const wobbleX = Math.sin(now * 0.0003 + n.phase) * 3;
-        const wobbleY = Math.cos(now * 0.0004 + n.phase * 1.3) * 2;
-
         // Calculate pulse — occasional brightness increase
         n.pulsePhase += n.pulseSpeed;
         const pulseFactor =

@@ -1,17 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   ArrowUpRight,
   Mail,
   MapPin,
-  Phone,
   ExternalLink,
   MessageCircle,
   ChevronRight,
 } from "lucide-react";
 import { footerTagline, footerTaglineEn, nav, site, blog } from "@/lib/content";
-import { useT } from "@/lib/i18n";
 import { trackCta } from "@/lib/analytics";
 import { Logo } from "./Logo";
 import { SocialLinksGrouped } from "./SocialLinksGrouped";
@@ -19,7 +17,9 @@ import { useLocale } from "@/lib/i18n";
 
 /* ─── Animation presets ─── */
 
-const containerVariants = {
+const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -27,16 +27,16 @@ const containerVariants = {
   },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.7, ease: easeOutExpo },
   },
 };
 
-const fadeIn = {
+const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -44,7 +44,7 @@ const fadeIn = {
   },
 };
 
-const slideItem = (i: number) => ({
+const slideItem = (i: number): Variants => ({
   hidden: { opacity: 0, x: -14 },
   visible: {
     opacity: 1,
@@ -52,17 +52,17 @@ const slideItem = (i: number) => ({
     transition: {
       delay: i * 0.06 + 0.15,
       duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
+      ease: easeOutExpo,
     },
   },
 });
 
-const scaleIn = {
+const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.92 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: easeOutExpo },
   },
 };
 

@@ -16,7 +16,6 @@ export function CountUp({ value, className }: CountUpProps) {
 
   const numeric = parseInt(value.replace(/\D/g, ""), 10);
   const suffix = value.replace(/[0-9]/g, "");
-  const hasSuffix = suffix.length > 0;
   const isPureNumber = /^\d+$/.test(value);
   const hasNumber = isPureNumber && !Number.isNaN(numeric);
 

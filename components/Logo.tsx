@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/content";
@@ -41,9 +42,12 @@ export function Logo({
       {...fadeUp}
       transition={{ duration: duration.base, ease: easeLuxury }}
     >
-      <img
+      <Image
         src="/logo.png"
         alt={`${site.shortName} — ${site.credential}`}
+        width={700}
+        height={700}
+        priority={variant === "full"}
         className={cn(
           "h-auto w-auto object-contain transition-all duration-500 ease-out",
           iconClassName

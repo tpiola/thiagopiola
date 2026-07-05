@@ -40,7 +40,6 @@ function LinkGrid({
   links: readonly { href: string; label: string }[];
   label: string;
 }) {
-  const { locale } = useLocale();
   return (
     <div>
       <p className="font-mono text-[10px] uppercase tracking-wider text-muted">{label}</p>
@@ -72,6 +71,7 @@ function LinkGrid({
 
 export function SocialLinksGrouped({ className }: SocialLinksGroupedProps) {
   const { locale } = useLocale();
+
   return (
     <div className={cn("space-y-5", className)}>
       <LinkGrid links={socialLinksProfessional} label={locale === "pt" ? "Profissional" : "Professional"} />

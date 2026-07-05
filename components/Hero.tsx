@@ -3,9 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
-import { duration, easeLuxury, spring, easeOutExpo } from "@/lib/motion";
-import { hero, heroEn, site, blog } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { duration, easeLuxury, easeOutExpo } from "@/lib/motion";
+import { hero, heroEn, site } from "@/lib/content";
 import { trackCta } from "@/lib/analytics";
 import { HeroAmbience } from "./motion/HeroAmbience";
 import { MagneticLink } from "./motion/MagneticLink";
@@ -34,6 +33,7 @@ function useReduced() {
 }
 
 export function Hero({ sectionType = "default" }: HeroProps) {
+  void sectionType;
   const { locale } = useLocale();
   const copy = locale === "pt" ? hero : heroEn;
   const reduce = useReduced();
@@ -67,8 +67,10 @@ export function Hero({ sectionType = "default" }: HeroProps) {
           setTypewriterText(typewriterText.slice(0, -1));
         }, 35);
       } else {
-        setWordIndex((i) => (i + 1) % rotatingWords.length);
-        setTypewriterPhase("typing");
+        timeout = setTimeout(() => {
+          setWordIndex((i) => (i + 1) % rotatingWords.length);
+          setTypewriterPhase("typing");
+        }, 35);
       }
     }
 

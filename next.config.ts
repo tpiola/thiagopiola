@@ -8,9 +8,6 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 768, 1080, 1200, 1920],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   headers: async () => [
     {
       source: "/(.*)",

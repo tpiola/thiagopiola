@@ -16,7 +16,7 @@ import { Projetos } from "@/components/Projetos";
 import { PageShell } from "@/components/motion/PageShell";
 import { Reveal } from "@/components/motion/Reveal";
 import { spring } from "@/lib/motion";
-import { projetos, competenciasCards, blog } from "@/lib/content";
+import { competenciasCards } from "@/lib/content";
 import { FloatingCta } from "./FloatingCta";
 import { ScrollToTop } from "./ScrollToTop";
 import { useLocale } from "@/lib/i18n";

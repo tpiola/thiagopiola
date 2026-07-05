@@ -19,7 +19,6 @@ interface BlogThumbnailProps {
 }
 
 // ─── Theme ────────────────────────────────────────────────
-const BRAND = "#00C9A7";
 const BG_DARK = "#0a1628";
 const BG_MID = "#0f1f35";
 const BG_LIGHT = "#152a45";
