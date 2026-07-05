@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { BlogThumbnail } from "@/components/BlogThumbnail";
+import { BlogThumbnail, type Category } from "@/components/BlogThumbnail";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
 import { FloatingPharmaIcons } from "@/components/motion/FloatingPharmaIcons";
@@ -140,7 +140,7 @@ export default function BlogPostShell({ slug }: { slug: string }) {
                   </div>
                 </div>
               ) : (
-                <BlogThumbnail category={post.category as any} />
+                <BlogThumbnail category={post.category as Category} />
               )}
             </motion.div>
           </div>

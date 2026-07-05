@@ -67,8 +67,10 @@ export function Hero({ sectionType = "default" }: HeroProps) {
           setTypewriterText(typewriterText.slice(0, -1));
         }, 35);
       } else {
-        setWordIndex((i) => (i + 1) % rotatingWords.length);
-        setTypewriterPhase("typing");
+        timeout = setTimeout(() => {
+          setWordIndex((i) => (i + 1) % rotatingWords.length);
+          setTypewriterPhase("typing");
+        }, 35);
       }
     }
 

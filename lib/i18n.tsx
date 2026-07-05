@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 
 export type Locale = "pt" | "en";
 
@@ -17,15 +17,12 @@ const I18nContext = createContext<I18nContextType>({
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("pt");
+  const [locale, setLocaleState] = useState<Locale>(() => {
+    if (typeof window === "undefined") return "pt";
 
-  // Load persisted locale on mount
-  useEffect(() => {
     const stored = localStorage.getItem("locale") as Locale | null;
-    if (stored === "pt" || stored === "en") {
-      setLocaleState(stored);
-    }
-  }, []);
+    return stored === "pt" || stored === "en" ? stored : "pt";
+  });
 
   const setLocale = (next: Locale) => {
     setLocaleState(next);
