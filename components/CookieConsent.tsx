@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale } from "@/lib/i18n";
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(() =>
-    typeof window === "undefined" ? false : !localStorage.getItem("cookie-consent"),
-  );
+  const [visible, setVisible] = useState(false);
   const { locale } = useLocale();
+
+  useEffect(() => {
+    if (!localStorage.getItem("cookie-consent")) {
+      setVisible(true);
+    }
+  }, []);
 
   function accept() {
     localStorage.setItem("cookie-consent", "true");
