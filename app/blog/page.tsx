@@ -42,7 +42,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Regulatório": "bg-amber-500/10 text-amber-600 dark:bg-amber-500/15 dark:text-amber-400",
   "Tecnologia": "bg-sky-500/10 text-sky-600 dark:bg-sky-500/15 dark:text-sky-400",
   "Gestão": "bg-violet-500/10 text-violet-600 dark:bg-violet-500/15 dark:text-violet-400",
-  "Liderança": "bg-rose-500/10 text-rose-600 dark:bg-rose-500/15 dark:text-rose-400",
+  "Liderança": "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
   "Automação": "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/15 dark:text-cyan-400",
 };
 
