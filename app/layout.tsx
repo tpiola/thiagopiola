@@ -121,11 +121,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/logo.png",
+    shortcut: "/favicon.svg",
     apple: [
-      { url: "/logo.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "icon", url: "/favicon.svg" },
     ],
   },
   verification: {
