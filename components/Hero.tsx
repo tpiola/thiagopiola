@@ -109,7 +109,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               initial={reduce ? false : { opacity: 0, y: -12, scale: 0.95 }}
               animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.05, duration: 0.5, ease: easeOutExpo }}
-              className="badge w-fit glow-subtle"
+              className="badge w-fit glow-subtle brand-check-0031b4"
             >
               <span className="dot-pulse" />
               <span>{site.credential} &middot; {site.location}</span>
