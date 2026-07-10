@@ -69,5 +69,8 @@
       "permanent": true
     }
   ],
-  "crons": []
+  "crons": [],
+  "build": {
+    "cache": false
+  }
 }
