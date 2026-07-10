@@ -47,7 +47,7 @@ const ICONS: Record<Category, IconDef> = {
       "M2 12h20",
       "M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z",
     ],
-    gradient: ["#7C3AED", "#5B21B6"],
+    gradient: ["#378FE9", "#0A66C2"],
     label: "Atom",
   },
   Tecnologia: {

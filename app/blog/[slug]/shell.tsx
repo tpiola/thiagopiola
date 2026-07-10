@@ -21,7 +21,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Farmácia Clínica": "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400",
   Regulatório: "bg-amber-500/10 text-amber-600 dark:bg-amber-500/15 dark:text-amber-400",
   Tecnologia: "bg-sky-500/10 text-sky-600 dark:bg-sky-500/15 dark:text-sky-400",
-  Gestão: "bg-violet-500/10 text-violet-600 dark:bg-violet-500/15 dark:text-violet-400",
+  Gestão: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
   Inovação: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
   Indústria: "bg-orange-500/10 text-orange-600 dark:bg-orange-500/15 dark:text-orange-400",
 };

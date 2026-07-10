@@ -288,7 +288,7 @@ img, video {
    SURFACE VARIANTS
 ═══════════════════════════════════════════ */
 .surface-hero {
-  background: linear-gradient(160deg, #0a1628 0%, #071541 40%, #0a66c2 100%);
+  background: linear-gradient(160deg, #0a1628 0%, #0a2d5e 40%, #0a66c2 100%);
 }
 .dark .surface-hero {
   background: linear-gradient(160deg, #030609 0%, #060c18 50%, #080f20 100%);
@@ -304,13 +304,13 @@ img, video {
   background-clip: text;
 }
 .dark .text-gradient-brand {
-  background: linear-gradient(135deg, #90c0ff 0%, #f99a4a 100%);
+  background: linear-gradient(135deg, #6aadf0 0%, #0a66c2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .text-gradient-light {
-  background: linear-gradient(135deg, #f0f6ff 0%, #c8deff 60%, #9bbfff 100%);
+  background: linear-gradient(135deg, #f0f6ff 0%, #c8deff 60%, #378fe9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -334,9 +334,9 @@ img, video {
   border-radius: 100px;
 }
 .dark .badge {
-  background: rgba(91, 155, 213, 0.08);
-  border-color: rgba(91, 155, 213, 0.2);
-  color: #7eb3e8;
+  background: rgba(10, 102, 194, 0.08);
+  border-color: rgba(10, 102, 194, 0.2);
+  color: #378fe9;
 }
 
 /* ═══════════════════════════════════════════
@@ -397,10 +397,10 @@ img, video {
 .dark .text-gradient-animated {
   background: linear-gradient(
     135deg,
-    #90c0ff 0%,
-    #5b9bd5 30%,
-    #7eb3e8 60%,
-    #b8d6f5 100%
+    #0a66c2 0%,
+    #1a7ad4 30%,
+    #378fe9 60%,
+    #6aadf0 100%
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
