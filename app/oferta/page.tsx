@@ -175,7 +175,7 @@ export default function OfertaPage() {
 
       {/* FAQ */}
       <section className="py-16 md:py-20">
-        <div className="mx-auto max-3xl px-6">
+        <div className="mx-auto max-w-3xl px-6">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.03em] mb-4">Dúvidas frequentes</h2>
           </div>
@@ -201,6 +201,16 @@ export default function OfertaPage() {
           <h2 className="text-2xl font-bold tracking-[-0.03em] mb-4">Vamos começar?</h2>
           <p className="text-sm text-white/50 mb-8">Chama no WhatsApp que em 15 minutos entendemos seu negócio e te mostro o que faz sentido.</p>
           <a href="https://wa.me/5516999999999" className="inline-flex items-center gap-2 bg-[#FF6B35] text-[#0A0A0A] px-8 py-4 rounded-full text-sm font-semibold hover:bg-[#E85A2A] transition-all">FALAR NO WHATSAPP →</a>
+        </div>
+      </section>
+
+      {/* DIAGNÓSTICO GRATUITO */}
+      <section className="py-16 border-t border-white/[0.06] bg-[#141414]">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <span className="inline-block mb-4 border border-[#FF6B35]/30 text-[#FF6B35] rounded-full px-4 py-1 text-xs font-medium uppercase tracking-[0.15em]">GRÁTIS</span>
+          <h2 className="text-2xl font-bold tracking-[-0.03em] mb-4">Quer saber quanto seu site atual está te custando?</h2>
+          <p className="text-sm text-white/50 mb-6">Preencha o diagnóstico rápido e receba uma análise gratuita do seu funil digital.</p>
+          <a href="/diagnostico" className="inline-flex items-center gap-2 border border-white/[0.12] text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-white/5 transition-all">FAZER DIAGNÓSTICO GRATUITO →</a>
         </div>
       </section>
     </main>
