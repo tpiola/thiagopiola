@@ -14,6 +14,7 @@ import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
 import { useLocale } from "@/lib/i18n";
+import { Floating3DShapes, Floating3DShapesLazy } from "./effects/Floating3DShapes";
 
 interface HeroProps {
   sectionType?: "default" | "unified";
@@ -88,6 +89,8 @@ export function Hero({ sectionType = "default" }: HeroProps) {
       aria-label={locale === "pt" ? "Hero principal" : "Main hero"}
     >
       <HeroAmbience />
+      <Floating3DShapes />
+      <Floating3DShapesLazy />
 
       {/* Gradiente de luz no topo */}
       <div

@@ -21,6 +21,7 @@ import { FloatingCta } from "./FloatingCta";
 import { ScrollToTop } from "./ScrollToTop";
 import { useLocale } from "@/lib/i18n";
 import { NewsletterForm } from "./NewsletterForm";
+import { Card3DTilt } from "./effects/Card3DTilt";
 
 
 export function UnifiedPortfolio() {
@@ -63,22 +64,23 @@ export function UnifiedPortfolio() {
                 { icon: "GraduationCap", title: locale === "pt" ? "Treinamento & Desenvolvimento" : "Training & Development", desc: locale === "pt" ? "Metodologia proprietária de treinamento comercial e técnico para equipes farmacêuticas — comunicação clara, protocolos de atendimento, indicadores de performance e conversão." : "Proprietary commercial and technical training methodology for pharmaceutical teams — clear communication, service protocols, performance indicators and conversion." },
                 { icon: "Store", title: locale === "pt" ? "Operação & Execução Comercial" : "Operations & Commercial Execution", desc: locale === "pt" ? "Gestão de rotina de drogaria, indicadores operacionais, vendas consultivas, relacionamento com pacientes e médicos, e liderança de equipe em ambiente de alta demanda." : "Drugstore routine management, operational KPIs, consultative sales, patient and physician relationships, and team leadership in high-demand environments." },
               ].map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ delay: i * 0.08, ...spring.soft }}
-                  className="group rounded-2xl border border-border bg-surface-elevated p-6 md:p-8 hover:border-[var(--brand)]/30 hover:shadow-md transition-all duration-300"
-                >
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] group-hover:bg-[var(--brand)] group-hover:text-white transition-colors duration-300">
-                    {i === 0 && <ShieldCheck className="h-5 w-5" />}
-                    {i === 1 && <GraduationCap className="h-5 w-5" />}
-                    {i === 2 && <Store className="h-5 w-5" />}
-                  </div>
-                  <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
-                </motion.div>
+                <Card3DTilt key={item.title} className="relative" maxTilt={4} scale={1.005} lift={8}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ delay: i * 0.08, ...spring.soft }}
+                    className="group rounded-2xl border border-border bg-surface-elevated p-6 md:p-8 hover:border-[var(--brand)]/30 hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] group-hover:bg-[var(--brand)] group-hover:text-white transition-colors duration-300">
+                      {i === 0 && <ShieldCheck className="h-5 w-5" />}
+                      {i === 1 && <GraduationCap className="h-5 w-5" />}
+                      {i === 2 && <Store className="h-5 w-5" />}
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                </Card3DTilt>
               ))}
             </div>
           </div>
@@ -108,24 +110,25 @@ export function UnifiedPortfolio() {
                 const icons = [Store, ShieldCheck, Cpu, GraduationCap];
                 const Icon = icons[i];
                 return (
-                  <motion.div
-                    key={card.titulo}
-                    initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-                    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ delay: i * 0.08, ...spring.soft }}
-                    className="group rounded-2xl border border-border bg-surface-elevated p-6 md:p-8 hover:border-[var(--brand)]/30 hover:shadow-md transition-all duration-300"
-                  >
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] group-hover:bg-[var(--brand)] group-hover:text-white transition-colors duration-300">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-base font-semibold text-foreground mb-2">
-                      {locale === "pt" ? card.titulo : card.tituloEn}
-                    </h3>
-                    <p className="text-sm text-muted leading-relaxed">
-                      {locale === "pt" ? card.desc : card.descEn}
-                    </p>
-                  </motion.div>
+                  <Card3DTilt key={card.titulo} className="relative" maxTilt={5} scale={1.005} lift={10}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
+                      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{ delay: i * 0.08, ...spring.soft }}
+                      className="group rounded-2xl border border-border bg-surface-elevated p-6 md:p-8 hover:border-[var(--brand)]/30 hover:shadow-md transition-all duration-300"
+                    >
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)] group-hover:bg-[var(--brand)] group-hover:text-white transition-colors duration-300">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-base font-semibold text-foreground mb-2">
+                        {locale === "pt" ? card.titulo : card.tituloEn}
+                      </h3>
+                      <p className="text-sm text-muted leading-relaxed">
+                        {locale === "pt" ? card.desc : card.descEn}
+                      </p>
+                    </motion.div>
+                  </Card3DTilt>
                 );
               })}
             </div>
