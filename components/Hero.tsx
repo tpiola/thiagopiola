@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
 import { duration, easeLuxury, easeOutExpo } from "@/lib/motion";
@@ -13,12 +13,12 @@ import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
 import { useLocale } from "@/lib/i18n";
+import { Floating3DShapes, Floating3DShapesLazy } from "./effects/Floating3DShapes";
 
 interface HeroProps {
   sectionType?: "default" | "unified";
 }
 
-/* Palavras que alternam (resultados, não motivação) */
 const rotatingWords = [
   "Resultado",
   "Performance",
@@ -27,7 +27,6 @@ const rotatingWords = [
   "Inovação",
 ];
 
-/** Partículas CSS animadas (perfomáticas, sem canvas em mobile) */
 function useReduced() {
   return useReducedMotion();
 }
@@ -45,11 +44,11 @@ export function Hero({ sectionType = "default" }: HeroProps) {
   const [typewriterText, setTypewriterText] = useState("");
   const [typewriterPhase, setTypewriterPhase] = useState<"typing" | "pause" | "deleting">("typing");
 
-  /* Typewriter effect for rotating words */
   useEffect(() => {
     if (reduce) return;
+
     const currentWord = rotatingWords[wordIndex];
-    let timeout: ReturnType<typeof setTimeout>;
+    let timeout: ReturnType<typeof setTimeout> | undefined;
 
     if (typewriterPhase === "typing") {
       if (typewriterText.length < currentWord.length) {
@@ -61,27 +60,26 @@ export function Hero({ sectionType = "default" }: HeroProps) {
       }
     } else if (typewriterPhase === "pause") {
       timeout = setTimeout(() => setTypewriterPhase("deleting"), 200);
-    } else if (typewriterPhase === "deleting") {
-      if (typewriterText.length > 0) {
-        timeout = setTimeout(() => {
-          setTypewriterText(typewriterText.slice(0, -1));
-        }, 35);
-      } else {
-        timeout = setTimeout(() => {
-          setWordIndex((i) => (i + 1) % rotatingWords.length);
-          setTypewriterPhase("typing");
-        }, 35);
-      }
+    } else if (typewriterText.length > 0) {
+      timeout = setTimeout(() => {
+        setTypewriterText(typewriterText.slice(0, -1));
+      }, 35);
+    } else {
+      timeout = setTimeout(() => {
+        setWordIndex((index) => (index + 1) % rotatingWords.length);
+        setTypewriterPhase("typing");
+      }, 35);
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
   }, [reduce, wordIndex, typewriterText, typewriterPhase]);
 
   const ctaSound = useCallback(() => {
     trackCta("cta_whatsapp_click");
   }, []);
 
-  /* Parallax sutil para a foto de perfil */
   const portraitY = useTransform(scrollY, [0, 400], [0, -20]);
 
   return (
@@ -90,8 +88,9 @@ export function Hero({ sectionType = "default" }: HeroProps) {
       aria-label={locale === "pt" ? "Hero principal" : "Main hero"}
     >
       <HeroAmbience />
+      <Floating3DShapes />
+      <Floating3DShapesLazy />
 
-      {/* Gradiente de luz no topo */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[60vh] opacity-30 dark:opacity-20"
         style={{
@@ -105,13 +104,12 @@ export function Hero({ sectionType = "default" }: HeroProps) {
         className="relative mx-auto grid min-h-[100dvh] max-w-6xl items-center gap-10 px-5 pb-24 pt-16 lg:grid-cols-[1fr_minmax(220px,280px)] lg:gap-12 md:px-8 md:pt-16"
       >
         <div className="flex flex-col justify-center pt-6 sm:pt-0 hero-content hero-gap-mobile">
-          {/* Badge de credibilidade */}
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <motion.div
               initial={reduce ? false : { opacity: 0, y: -12, scale: 0.95 }}
               animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.05, duration: 0.5, ease: easeOutExpo }}
-              className="badge w-fit glow-subtle"
+              className="badge w-fit glow-subtle brand-check-0031b4"
             >
               <span className="dot-pulse" />
               <span>{site.credential} &middot; {site.location}</span>
@@ -133,7 +131,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.span>
           </motion.h1>
 
-          {/* Subtítulo com selo de autoridade */}
           <motion.div
             className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2"
             initial={reduce ? false : { opacity: 0, y: 20 }}
@@ -151,7 +148,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </span>
           </motion.div>
 
-          {/* DESCRIÇÃO PRINCIPAL — card vitrine com destaque */}
           <motion.div
             className="relative mt-6 max-w-2xl overflow-hidden rounded-r-xl border-l-2 border-[var(--brand)]/40 bg-[color-mix(in_srgb,var(--brand)_3%,transparent)] pl-5 pr-6 py-4"
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -164,7 +160,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </p>
           </motion.div>
 
-          {/* PALAVRA ROTATIVA TYPEWRITER — prende atenção */}
           {!reduce && (
             <motion.div
               className="mt-5 flex items-center gap-2"
@@ -183,7 +178,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </motion.div>
           )}
 
-          {/* CTAs — LinkedIn (principal) + WhatsApp (ícone) */}
           <motion.div
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -204,7 +198,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             </MagneticLink>
           </motion.div>
 
-          {/* Micro-cópia persuasiva (escassez + reciprocidade) */}
           <motion.p
             className="mt-3 text-[11px] text-muted/60 font-mono tracking-wider"
             initial={reduce ? false : { opacity: 0 }}
@@ -214,12 +207,10 @@ export function Hero({ sectionType = "default" }: HeroProps) {
             {copy.microCta}
           </motion.p>
 
-          {/* Social Proof */}
           <Reveal delay={0.6} variant="fade">
             <SocialLinks className="mt-8" />
           </Reveal>
 
-          {/* Founder tag */}
           <Reveal delay={0.65} variant="fade">
             <div className="mt-6 inline-flex flex-wrap items-center gap-2 rounded-lg border border-[var(--brand)]/20 bg-[color-mix(in_srgb,var(--brand)_5%,transparent)] px-4 py-2.5">
               <span className="inline-flex items-center gap-2">
@@ -245,7 +236,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
           </Reveal>
         </div>
 
-        {/* Portrait com parallax sutil */}
         <motion.div
           className="hidden lg:block"
           style={reduce ? undefined : { y: portraitY }}
@@ -255,7 +245,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
           </div>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:flex flex-col items-center gap-2 lg:left-[40%]"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
