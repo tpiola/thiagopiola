@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
-import { BlogThumbnail } from "@/components/BlogThumbnail";
+import { BlogThumbnail, type Category } from "@/components/BlogThumbnail";
 import { Header } from "@/components/Header";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
@@ -13,8 +13,6 @@ import { blog } from "@/lib/content";
 import { useLocale } from "@/lib/i18n";
 import { blogPosts } from "@/lib/blog-data";
 
-/* ─── Mapeia blogPosts para o formato usado na UI (apenas PT) ─── */
-
 type Post = {
   slug: string;
   date: string;
@@ -22,7 +20,7 @@ type Post = {
   category: string;
   title: string;
   summary: string;
-  image: string;
+  image?: string;
 };
 
 const POSTS: Post[] = blogPosts.map((p) => ({
@@ -35,15 +33,13 @@ const POSTS: Post[] = blogPosts.map((p) => ({
   image: p.image,
 }));
 
-/* ─── Componentes auxiliares ─── */
-
 const CATEGORY_COLORS: Record<string, string> = {
   "Farmácia Clínica": "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400",
-  "Regulatório": "bg-amber-500/10 text-amber-600 dark:bg-amber-500/15 dark:text-amber-400",
-  "Tecnologia": "bg-sky-500/10 text-sky-600 dark:bg-sky-500/15 dark:text-sky-400",
-  "Gestão": "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
-  "Liderança": "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
-  "Automação": "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/15 dark:text-cyan-400",
+  Regulatório: "bg-amber-500/10 text-amber-600 dark:bg-amber-500/15 dark:text-amber-400",
+  Tecnologia: "bg-sky-500/10 text-sky-600 dark:bg-sky-500/15 dark:text-sky-400",
+  Gestão: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
+  Liderança: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
+  Automação: "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/15 dark:text-cyan-400",
 };
 
 function PostCard({ post, index }: { post: Post; index: number }) {
@@ -58,7 +54,6 @@ function PostCard({ post, index }: { post: Post; index: number }) {
       transition={reduce ? undefined : { delay: index * 0.08, ...spring.soft }}
       className="group relative flex flex-col rounded-2xl border border-border bg-surface-elevated p-6 transition-all duration-300 hover:shadow-[var(--shadow-medium)] hover:border-[var(--brand)]/20 hover:-translate-y-0.5"
     >
-      {/* Meta row */}
       <div className="flex items-center gap-3 mb-3">
         <span
           className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider ${CATEGORY_COLORS[post.category] || "bg-[color-mix(in_srgb,var(--brand)_8%,transparent)] text-[var(--brand)]"}`}
@@ -76,20 +71,16 @@ function PostCard({ post, index }: { post: Post; index: number }) {
         </span>
       </div>
 
-      {/* Thumbnail */}
-      <BlogThumbnail src={post.image} alt={post.title} />
+      <BlogThumbnail category={post.category as Category} title={post.title} />
 
-      {/* Title */}
       <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground group-hover:text-[var(--brand)] transition-colors duration-200">
         {post.title}
       </h3>
 
-      {/* Summary */}
       <p className="mt-2 text-sm leading-relaxed text-muted flex-1">
         {post.summary}
       </p>
 
-      {/* Read more */}
       <Link
         href={`/blog/${post.slug}`}
         className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--brand)] transition-all group-hover:gap-2.5"
@@ -98,7 +89,6 @@ function PostCard({ post, index }: { post: Post; index: number }) {
         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
       </Link>
 
-      {/* Accent line on hover */}
       <span
         className="absolute inset-x-6 bottom-0 h-px origin-left scale-x-0 rounded-full transition-transform duration-300 group-hover:scale-x-100"
         style={{ background: "linear-gradient(90deg, var(--brand), transparent)" }}
@@ -108,10 +98,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
   );
 }
 
-/* ─── Página principal ─── */
-
 export default function BlogPage() {
-  const reduce = useReducedMotion();
   const { locale } = useLocale();
 
   return (
@@ -119,9 +106,7 @@ export default function BlogPage() {
       <main className="min-h-screen bg-surface text-foreground">
         <Header />
 
-        {/* HERO */}
         <section className="relative border-b border-border pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden">
-          {/* Ambient bg */}
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.03]"
             style={{ background: "radial-gradient(ellipse at 50% 30%, var(--brand), transparent 60%)" }}
@@ -152,7 +137,6 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* GRID DE POSTS */}
         <section className="py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-5 md:px-8">
             <Reveal variant="left">
@@ -174,7 +158,6 @@ export default function BlogPage() {
               ))}
             </div>
 
-            {/* Footer note */}
             <Reveal variant="fade" delay={0.3}>
               <div className="mt-16 text-center">
                 <p className="text-sm text-muted">
@@ -185,7 +168,6 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* CTA FINAL */}
         <section className="border-t border-border py-20 md:py-24">
           <div className="mx-auto max-w-2xl px-5 md:px-8 text-center">
             <Reveal variant="up">
