@@ -45,7 +45,10 @@ export function Trajetoria() {
               </h3>
               <Stagger className="mt-8 space-y-0" stagger={0.08}>
                 {trajetoria.career.map((job) => {
-                  const impacts = locale === "pt" ? job.impacts : (job as typeof job & { impactsEn: readonly string[] }).impactsEn || job.impacts;
+                  const impacts: readonly string[] =
+                    locale === "pt"
+                      ? job.impacts
+                      : (job as typeof job & { impactsEn: readonly string[] }).impactsEn || job.impacts;
                   return (
                   <StaggerItem key={job.company}>
                     <div className="timeline-item relative border-l border-border py-4 pl-6 last:pb-0">

@@ -8,7 +8,10 @@
     "start": "next start",
     "preview": "next build && next start",
     "lint": "eslint",
-    "format": "prettier -w ."
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run lint && npm run typecheck && npm run build",
+    "format": "prettier -w .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -29,7 +32,7 @@
     "@types/node": "^25.9.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19",
-    "eslint": "^10.4.1",
+    "eslint": "9.39.4",
     "eslint-config-next": "^16.2.7",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.3",

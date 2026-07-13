@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
 export type Locale = "pt" | "en";
 
@@ -19,19 +19,20 @@ const I18nContext = createContext<I18nContextType>({
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("pt");
 
-  // Load persisted locale on mount
   useEffect(() => {
-    const stored = localStorage.getItem("locale") as Locale | null;
-    if (stored === "pt" || stored === "en") {
-      setLocaleState(stored);
-    }
+    const timeout = window.setTimeout(() => {
+      const stored = localStorage.getItem("locale");
+      if (stored === "pt" || stored === "en") {
+        setLocaleState(stored);
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
   }, []);
 
   const setLocale = (next: Locale) => {
     setLocaleState(next);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("locale", next);
-    }
+    localStorage.setItem("locale", next);
   };
 
   const t = (pt: string, en: string) => (locale === "pt" ? pt : en);
@@ -47,10 +48,6 @@ export function useLocale() {
   return useContext(I18nContext);
 }
 
-/**
- * Hook para textos condicionais por locale.
- * Uso: const greeting = useT("Olá", "Hello");
- */
 export function useT() {
   const { locale } = useLocale();
   return (pt: string, en: string) => (locale === "pt" ? pt : en);

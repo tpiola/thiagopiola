@@ -5,6 +5,16 @@ import { trustBar } from "@/lib/content";
 import { Reveal } from "./motion/Reveal";
 import { useLocale } from "@/lib/i18n";
 
+type TrustBarItem = {
+  label: string;
+  labelEn: string;
+  detail: string;
+  detailEn: string;
+  href?: string;
+};
+
+const trustBarItems: readonly TrustBarItem[] = trustBar;
+
 /** Prova social verificável — cards com hover premium */
 export function TrustBar() {
   const { locale } = useLocale();
@@ -17,7 +27,7 @@ export function TrustBar() {
       <div className="mx-auto max-w-6xl px-5 py-6 md:px-8 md:py-8">
         <Reveal variant="fade">
           <ul className="grid gap-4 sm:grid-cols-3">
-            {trustBar.map((item: any) => {
+            {trustBarItems.map((item) => {
               const label = locale === "pt" ? item.label : item.labelEn || item.label;
               const detail = locale === "pt" ? item.detail : item.detailEn || item.detail;
               return (

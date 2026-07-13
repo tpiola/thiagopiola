@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface PharmaItem {
   emoji: string;
@@ -22,18 +22,16 @@ const items: Omit<PharmaItem, 'x' | 'y'>[] = [
   { emoji: "🏥", label: "Farmácia", size: 30, duration: 14, delay: 0.8 },
 ];
 
-export function FloatingPharmaIcons() {
-  const [positions, setPositions] = useState<PharmaItem[]>([]);
+function createPositions() {
+  return items.map((item) => ({
+    ...item,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+  }));
+}
 
-  useEffect(() => {
-    setPositions(
-      items.map((item) => ({
-        ...item,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-      }))
-    );
-  }, []);
+export function FloatingPharmaIcons() {
+  const [positions] = useState<PharmaItem[]>(createPositions);
 
   return (
     <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
