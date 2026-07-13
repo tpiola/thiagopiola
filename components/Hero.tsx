@@ -3,9 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle, TrendingUp, Sparkles, ShieldCheck } from "lucide-react";
-import { duration, easeLuxury, spring, easeOutExpo } from "@/lib/motion";
-import { hero, heroEn, site, blog } from "@/lib/content";
-import { cn } from "@/lib/utils";
+import { duration, easeLuxury, easeOutExpo } from "@/lib/motion";
+import { hero, heroEn, site } from "@/lib/content";
 import { trackCta } from "@/lib/analytics";
 import { HeroAmbience } from "./motion/HeroAmbience";
 import { MagneticLink } from "./motion/MagneticLink";
@@ -14,7 +13,6 @@ import { ProfilePortrait } from "./ProfilePortrait";
 import { SocialLinks } from "./SocialLinks";
 import { LinkedinIcon } from "./SocialIcons";
 import { useLocale } from "@/lib/i18n";
-import { Floating3DShapes, Floating3DShapesLazy } from "./effects/Floating3DShapes";
 
 interface HeroProps {
   sectionType?: "default" | "unified";
@@ -35,6 +33,7 @@ function useReduced() {
 }
 
 export function Hero({ sectionType = "default" }: HeroProps) {
+  void sectionType;
   const { locale } = useLocale();
   const copy = locale === "pt" ? hero : heroEn;
   const reduce = useReduced();
@@ -68,8 +67,10 @@ export function Hero({ sectionType = "default" }: HeroProps) {
           setTypewriterText(typewriterText.slice(0, -1));
         }, 35);
       } else {
-        setWordIndex((i) => (i + 1) % rotatingWords.length);
-        setTypewriterPhase("typing");
+        timeout = setTimeout(() => {
+          setWordIndex((i) => (i + 1) % rotatingWords.length);
+          setTypewriterPhase("typing");
+        }, 35);
       }
     }
 
@@ -89,8 +90,6 @@ export function Hero({ sectionType = "default" }: HeroProps) {
       aria-label={locale === "pt" ? "Hero principal" : "Main hero"}
     >
       <HeroAmbience />
-      <Floating3DShapes />
-      <Floating3DShapesLazy />
 
       {/* Gradiente de luz no topo */}
       <div
@@ -112,7 +111,7 @@ export function Hero({ sectionType = "default" }: HeroProps) {
               initial={reduce ? false : { opacity: 0, y: -12, scale: 0.95 }}
               animate={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.05, duration: 0.5, ease: easeOutExpo }}
-              className="badge w-fit glow-subtle brand-check-0031b4"
+              className="badge w-fit glow-subtle"
             >
               <span className="dot-pulse" />
               <span>{site.credential} &middot; {site.location}</span>

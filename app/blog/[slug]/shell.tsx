@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { BlogThumbnail } from "@/components/BlogThumbnail";
+import { BlogThumbnail, type Category } from "@/components/BlogThumbnail";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageShell } from "@/components/motion/PageShell";
 import { FloatingPharmaIcons } from "@/components/motion/FloatingPharmaIcons";
@@ -21,7 +21,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "Farmácia Clínica": "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400",
   Regulatório: "bg-amber-500/10 text-amber-600 dark:bg-amber-500/15 dark:text-amber-400",
   Tecnologia: "bg-sky-500/10 text-sky-600 dark:bg-sky-500/15 dark:text-sky-400",
-  Gestão: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
+  Gestão: "bg-violet-500/10 text-violet-600 dark:bg-violet-500/15 dark:text-violet-400",
   Inovação: "bg-blue-500/10 text-blue-600 dark:bg-blue-500/15 dark:text-blue-400",
   Indústria: "bg-orange-500/10 text-orange-600 dark:bg-orange-500/15 dark:text-orange-400",
 };
@@ -140,7 +140,7 @@ export default function BlogPostShell({ slug }: { slug: string }) {
                   </div>
                 </div>
               ) : (
-                <BlogThumbnail category={post.category as any} />
+                <BlogThumbnail category={post.category as Category} />
               )}
             </motion.div>
           </div>
