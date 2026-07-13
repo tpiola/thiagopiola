@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { nav, site } from "@/lib/content";
 import { trackCta } from "@/lib/analytics";
@@ -58,7 +58,7 @@ export function Header() {
         {/* Navegação Desktop */}
         <nav className="hidden items-center gap-1 lg:flex" aria-label={t("Principal", "Main navigation")}>
           {nav.map((link) => {
-            let label = link.label;
+            let label: string = link.label;
             if (link.href === "#trajetoria") label = navLabel;
             else if (link.href === "/blog") label = navBlog;
             else if (link.href === "#contato") label = navContato;
@@ -117,7 +117,7 @@ export function Header() {
 
             {/* Links do menu com stagger */}
             {nav.map((link, i) => {
-              let label = link.label;
+              let label: string = link.label;
               if (link.href === "#trajetoria") label = navLabel;
               else if (link.href === "/blog") label = navBlog;
               else if (link.href === "#contato") label = navContato;
