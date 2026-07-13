@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { site } from "@/lib/content";
+import { useEffect, useState } from "react";
 import { useLocale } from "@/lib/i18n";
 
 export function CookieConsent() {
@@ -9,8 +8,11 @@ export function CookieConsent() {
   const { locale } = useLocale();
 
   useEffect(() => {
-    const accepted = localStorage.getItem("cookie-consent");
-    if (!accepted) setVisible(true);
+    const timeout = window.setTimeout(() => {
+      setVisible(!localStorage.getItem("cookie-consent"));
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
   }, []);
 
   function accept() {
