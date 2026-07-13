@@ -8,7 +8,10 @@
     "start": "next start",
     "preview": "next build && next start",
     "lint": "eslint",
-    "format": "prettier -w ."
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run lint && npm run typecheck && npm run build",
+    "format": "prettier -w .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
