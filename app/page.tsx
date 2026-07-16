@@ -1,7 +1,5 @@
-import { UnifiedPortfolio } from "@/components/UnifiedPortfolio";
+import { SentinelaLanding } from "@/components/SentinelaLanding";
 
 export default function Home() {
-  return (
-    <UnifiedPortfolio />
-  );
+  return <SentinelaLanding />;
 }

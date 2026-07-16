@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { I18nProvider } from "@/lib/i18n";
-import { site } from "@/lib/content";
+import { sentinela } from "@/lib/content";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,54 +23,34 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Farmacêutico com atuação técnico-comercial em saúde — operação farmacêutica, hospitalar, treinamento, vendas consultivas e tecnologia.";
+  "Sentinela Saúde Ambiental — controle integrado de pragas, dedetização ecológica, análise ambiental e diagnóstico premium em Franca/SP e região.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(sentinela.url),
   title: {
-    default: "Thiago Piola | Farmacêutico CRF/SP 58.519 — Atuação técnico-comercial em saúde",
-    template: "%s | Thiago Piola — Farmacêutico CRF/SP 58.519",
+    default: "Sentinela Saúde Ambiental | Dedetização e Diagnóstico Ambiental em Franca/SP",
+    template: "%s | Sentinela Saúde Ambiental",
   },
   description,
-  authors: [{ name: "Thiago Biasoli Garcia Piola", url: site.url }],
-  creator: "Thiago Piola",
-  publisher: "Thiago Biasoli Garcia Piola",
+  authors: [{ name: sentinela.name, url: sentinela.url }],
+  creator: sentinela.name,
+  publisher: sentinela.name,
   keywords: [
-    "Thiago Piola",
-    "Thiago Biasoli Garcia Piola",
-    "farmacêutico CRF SP",
-    "CRF-SP 58.519",
-    "farmacêutico técnico-comercial",
-    "atuação em saúde",
-    "vendas consultivas saúde",
-    "treinamento equipes farmácia",
-    "treinamento de equipes farmácia",
-    "operação farmacêutica",
-    "farmácia hospitalar",
-    "vendas consultivas",
-    "inteligência artificial farmácia",
-    "automação farmácia",
-    "n8n automação",
-    "Google GEAR",
-    "agentes IA",
-    "MBA gestão farmacêutica",
-    "visão de negócio farma",
-    "Droga Raia",
-    "RD Saúde",
-    "franca sp",
-    "farmacêutico digital",
-    "farmacêutico empreendedor",
-    "comunicação técnica",
-    "relacionamento profissional",
-    "gestão de indicadores",
-    "pharmaceutical sales",
-    "pharma operations",
-    "pharmaceutical executive",
-    "pharma business development",
-    "healthtech",
-    "digital health Brazil",
-    "Rei das Vendas",
-    "liderança farmacêutica",
+    "Sentinela Saúde Ambiental",
+    "dedetização Franca SP",
+    "controle de pragas Franca",
+    "dedetização ecológica",
+    "escorpião Franca SP",
+    "baratas Franca SP",
+    "cupim Franca SP",
+    "controle de ratos",
+    "saúde ambiental",
+    "análise da qualidade do ar",
+    "análise de água potável",
+    "laudo técnico ANVISA",
+    "controle integrado de pragas",
+    "dedetizadora em Franca",
+    "diagnóstico ambiental",
   ],
   robots: {
     index: true,
@@ -84,39 +64,34 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: site.url,
+    canonical: sentinela.url,
     languages: {
-      "pt-BR": site.url,
-      en: site.url,
+      "pt-BR": sentinela.url,
     },
   },
   openGraph: {
-    type: "profile",
+    type: "website",
     locale: "pt_BR",
-    url: site.url,
-    siteName: "Thiago Piola — Farmacêutico CRF/SP 58.519",
-    title: "Thiago Piola | Farmacêutico CRF/SP 58.519 — Atuação técnico-comercial em saúde",
+    url: sentinela.url,
+    siteName: sentinela.name,
+    title: "Sentinela Saúde Ambiental | Dedetização e Diagnóstico Ambiental em Franca/SP",
     description,
     countryName: "Brasil",
-    firstName: "Thiago",
-    lastName: "Piola",
-    username: "ThiagoPiola07",
-    gender: "male",
     images: [
       {
         url: "/images/og-card.webp",
         width: 1200,
         height: 630,
-        alt: "Thiago Piola — Farmacêutico CRF/SP 58.519 — Atuação técnico-comercial em saúde",
+        alt: "Sentinela Saúde Ambiental — controle de pragas e diagnóstico ambiental em Franca/SP",
         type: "image/webp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thiago Piola | Farmacêutico CRF/SP 58.519 — Atuação técnico-comercial em saúde",
+    title: "Sentinela Saúde Ambiental | Dedetização em Franca/SP",
     description,
-    creator: "@ThiagoPiola07",
+    creator: "@sentinelasaudeambiental",
     images: ["/images/og-card.webp"],
   },
   icons: {
@@ -126,18 +101,14 @@ export const metadata: Metadata = {
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
     shortcut: "/favicon.svg",
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "icon", url: "/favicon.svg" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    other: [{ rel: "icon", url: "/favicon.svg" }],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
   },
-  category: "healthcare technology",
-  classification: "Business, Technology, Healthcare",
+  category: "environmental health",
+  classification: "Local Business, Environmental Health, Pest Control",
   other: {
     "geo.region": "BR-SP",
     "geo.placename": "Franca",
@@ -167,15 +138,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `.trim(),
           }}
         />
-        {(process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
+        {
+          (process.env.NEXT_PUBLIC_GA_ID && (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
@@ -183,10 +155,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     page_path: window.location.pathname,
                   });
                 `.trim(),
-              }}
-            />
-          </>
-        )) as unknown as React.ReactNode}
+                }}
+              />
+            </>
+          )) as unknown as React.ReactNode
+        }
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-surface font-sans text-foreground antialiased`}
