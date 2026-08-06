@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-/* BUILDHASH: 3 — blue typography system */
+/* BUILDHASH: 4 — strict blue palette */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
@@ -29,12 +29,12 @@
   --brand: #0031b4;
   --brand-light: #378fe9;
   --brand-glow: rgba(10, 102, 194, 0.35);
-  --accent: #F97316;
-  --accent-glow: rgba(249, 115, 22, 0.25);
+  --accent: #0A66C2;
+  --accent-glow: rgba(10, 102, 194, 0.25);
   --surface: #f0f4f8;
   --surface-elevated: #ffffff;
   --border: rgba(10, 102, 194, 0.08);
-  --muted: #64748b;
+  --muted: #4f6795;
   --foreground: #0031b4;
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-medium: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.05);
@@ -45,13 +45,13 @@
   --brand: #378fe9;
   --brand-light: #6aadf0;
   --brand-glow: rgba(10, 102, 194, 0.2);
-  --accent: #F97316;
-  --accent-glow: rgba(249, 115, 22, 0.15);
+  --accent: #6aadf0;
+  --accent-glow: rgba(106, 173, 240, 0.18);
   --surface: #071a3c;
   --surface-elevated: #0c2048;
   --border: rgba(55, 143, 233, 0.12);
-  --muted: #94a3b8;
-  --foreground: #e4ebf4;
+  --muted: #8fb8e0;
+  --foreground: #6aadf0;
 }
 
 /* ─── Base ─── */
