@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-/* BUILDHASH: 4 — strict blue palette */
+/* BUILDHASH: 5 — sovereign blue palette, zero pink */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
@@ -26,32 +26,32 @@
 }
 
 :root {
-  --brand: #0031b4;
-  --brand-light: #378fe9;
-  --brand-glow: rgba(10, 102, 194, 0.35);
-  --accent: #0A66C2;
-  --accent-glow: rgba(10, 102, 194, 0.25);
-  --surface: #f0f4f8;
+  --brand: #0757d9;
+  --brand-light: #4f8cff;
+  --brand-glow: rgba(7, 87, 217, 0.32);
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.22);
+  --surface: #f5f8ff;
   --surface-elevated: #ffffff;
-  --border: rgba(10, 102, 194, 0.08);
-  --muted: #4f6795;
-  --foreground: #0031b4;
+  --border: rgba(7, 87, 217, 0.10);
+  --muted: #4b638f;
+  --foreground: #10234a;
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-medium: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.05);
   --shadow-strong: 0 16px 64px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .dark {
-  --brand: #378fe9;
-  --brand-light: #6aadf0;
-  --brand-glow: rgba(10, 102, 194, 0.2);
-  --accent: #6aadf0;
-  --accent-glow: rgba(106, 173, 240, 0.18);
-  --surface: #071a3c;
-  --surface-elevated: #0c2048;
-  --border: rgba(55, 143, 233, 0.12);
-  --muted: #8fb8e0;
-  --foreground: #6aadf0;
+  --brand: #6aa3ff;
+  --brand-light: #93bcff;
+  --brand-glow: rgba(37, 99, 235, 0.24);
+  --accent: #7eb0ff;
+  --accent-glow: rgba(126, 176, 255, 0.20);
+  --surface: #050b18;
+  --surface-elevated: #0b1730;
+  --border: rgba(106, 163, 255, 0.16);
+  --muted: #9bb5dc;
+  --foreground: #eef5ff;
 }
 
 /* ─── Base ─── */
