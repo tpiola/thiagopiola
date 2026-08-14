@@ -19,7 +19,7 @@ interface BlogThumbnailProps {
 }
 
 // ─── Theme ────────────────────────────────────────────────
-const BRAND = "#00C9A7";
+const BRAND = "#2563EB";
 const BG_DARK = "#0a1628";
 const BG_MID = "#0f1f35";
 const BG_LIGHT = "#152a45";
@@ -38,7 +38,7 @@ const ICONS: Record<Category, IconDef> = {
       "M10.5 20.5l10-10a4.95 4.95 0 10-7-7l-10 10a4.95 4.95 0 107 7Z",
       "M8.5 8.5l7 7",
     ],
-    gradient: ["#00C9A7", "#009B7D"],
+    gradient: ["#4F8CFF", "#0757D9"],
     label: "Pill",
   },
   Inovação: {
@@ -47,7 +47,7 @@ const ICONS: Record<Category, IconDef> = {
       "M2 12h20",
       "M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z",
     ],
-    gradient: ["#378FE9", "#0A66C2"],
+    gradient: ["#6AA3FF", "#2563EB"],
     label: "Atom",
   },
   Tecnologia: {
@@ -67,21 +67,21 @@ const ICONS: Record<Category, IconDef> = {
       "M15 16V8",
       "M19 16v-2",
     ],
-    gradient: ["#F59E0B", "#D97706"],
+    gradient: ["#60A5FA", "#2563EB"],
     label: "Chart",
   },
   Regulatório: {
     paths: [
       "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
     ],
-    gradient: ["#EF4444", "#B91C1C"],
+    gradient: ["#3B82F6", "#1D4ED8"],
     label: "Shield",
   },
   Liderança: {
     paths: [
       "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z",
     ],
-    gradient: ["#F97316", "#EA580C"],
+    gradient: ["#7EB0FF", "#0757D9"],
     label: "Star",
   },
   Automação: {
@@ -89,7 +89,7 @@ const ICONS: Record<Category, IconDef> = {
       "M12 9a3 3 0 100 6 3 3 0 000-6z",
       "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42",
     ],
-    gradient: ["#14B8A6", "#0D9488"],
+    gradient: ["#93BCFF", "#2563EB"],
     label: "Gear",
   },
 };
