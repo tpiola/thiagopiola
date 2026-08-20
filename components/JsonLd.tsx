@@ -22,9 +22,7 @@ export function JsonLd() {
       {
         "@type": "BreadcrumbList",
         "@id": breadcrumbId,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Início", item: site.url },
-        ],
+        itemListElement: [{ "@type": "ListItem", position: 1, name: "Início", item: site.url }],
       },
       {
         "@type": ["Person", "ProfessionalService"],
@@ -58,8 +56,7 @@ export function JsonLd() {
             "@type": "Organization",
             name: "Droga Raia — Filial Franca, SP",
             url: "https://www.drogaraia.com.br",
-            description:
-              "Farmacêutico Responsável Técnico pela filial de Franca, SP.",
+            description: "Farmacêutico Responsável Técnico pela filial de Franca, SP.",
           },
           {
             "@type": "Organization",

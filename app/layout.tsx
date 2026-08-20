@@ -126,12 +126,8 @@ export const metadata: Metadata = {
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
     shortcut: "/favicon.svg",
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "icon", url: "/favicon.svg" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    other: [{ rel: "icon", url: "/favicon.svg" }],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
@@ -167,15 +163,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `.trim(),
           }}
         />
-        {(process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
+        {
+          (process.env.NEXT_PUBLIC_GA_ID && (
+            <>
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
@@ -183,10 +180,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     page_path: window.location.pathname,
                   });
                 `.trim(),
-              }}
-            />
-          </>
-        )) as unknown as React.ReactNode}
+                }}
+              />
+            </>
+          )) as unknown as React.ReactNode
+        }
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-surface font-sans text-foreground antialiased`}
