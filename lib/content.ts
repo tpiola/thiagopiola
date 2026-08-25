@@ -1,4 +1,4 @@
-/** Conteúdo centralizado — thiagopiola.com.br
+/** Conteúdo centralizado — perfil profissional
  *  Copy profissional com posicionamento técnico-comercial em saúde.
  *  Tom: factual, direto, baseado em resultados e competências verificáveis.
  *
@@ -36,10 +36,10 @@ export const site = {
     "Farmacêutico com atuação técnico-comercial em saúde — operação farmacêutica, hospitalar, treinamento, vendas consultivas e tecnologia.",
   descriptionEn:
     "Pharmacist with technical-commercial expertise in healthcare — pharmaceutical and hospital operations, training, consultative sales and technology.",
-  url: "https://thiagopiola.com.br",
-  reidasvendas: "https://www.reidasvendas.com.br",
-  saudegpt: "https://www.saudegpt.com",
-  thiagolab: "https://www.thiagolab.com",
+  url: "https://thiagopiola-site.vercel.app",
+  reidasvendas: "https://reidasvendas.com.br",
+  saudegpt: "https://saudegpt.vercel.app",
+  thiagolab: "https://thiago-lab.vercel.app",
   facebook: "https://www.facebook.com/thiagoopiolaoficial",
   instagram: "https://www.instagram.com/othiagopiolaoficial",
   github: "https://github.com/tpiola",
@@ -166,7 +166,7 @@ export const projetos = {
   items: [
     { title: "Automação de qualificação B2B", titleEn: "B2B Qualification Automation", problem: "Leads sem triagem consistente entre canais.", problemEn: "Leads without consistent screening across channels.", result: "Fluxos n8n + CRM com LLM — triagem automática, zero retrabalho.", resultEn: "n8n + CRM with LLM flows — automatic screening, zero rework.", stack: ["n8n", "LLM", "CRM"], href: "https://thiagopiola.notion.site/" },
     { title: "Agentes inteligentes (GEAR/Google)", titleEn: "Intelligent Agents (GEAR/Google)", problem: "Operação repetitiva consumindo tempo de gestão.", problemEn: "Repetitive operations consuming management time.", result: "Arquitetura Sprint/Scrum — atendimento escalável com IA.", resultEn: "Sprint/Scrum architecture — scalable AI-powered service.", stack: ["Google AI", "Agents", "Scrum"], href: "https://me.developers.google.com/u/105476544026751993130" },
-    { title: "Rei das Vendas", titleEn: "Rei das Vendas", problem: "Equipes sem método de conversão estruturado.", problemEn: "Teams without a structured conversion method.", result: "Plataforma de treinamento comercial para o setor farmacêutico.", resultEn: "Sales training platform for the pharmaceutical sector.", stack: ["Training", "Sales", "Pharma"], href: "https://www.reidasvendas.com.br" },
+    { title: "Rei das Vendas", titleEn: "Rei das Vendas", problem: "Equipes sem método de conversão estruturado.", problemEn: "Teams without a structured conversion method.", result: "Plataforma de treinamento comercial para o setor farmacêutico.", resultEn: "Sales training platform for the pharmaceutical sector.", stack: ["Training", "Sales", "Pharma"], href: "https://reidasvendas.com.br" },
   ],
 } as const;
 
