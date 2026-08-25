@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "Política de privacidade e proteção de dados pessoais conforme a LGPD.",
   },
   alternates: {
-    canonical: "https://www.thiagopiola.com.br/privacidade",
+    canonical: "https://thiagopiola-site.vercel.app/privacidade",
   },
   robots: {
     index: true,
