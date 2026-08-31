@@ -50,7 +50,7 @@ export function Logo({
         )}
         style={{
           height: `${height}px`,
-          maxWidth: "clamp(280px, 55vw, 700px)",
+          maxWidth: "none",
         }}
       />
     </motion.div>

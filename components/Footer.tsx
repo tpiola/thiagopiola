@@ -230,7 +230,7 @@ export function Footer() {
         >
           {/* ── Brand column ── */}
           <motion.div variants={fadeUp} className="lg:col-span-5">
-            <Logo variant="full" showCredential height={160} />
+            <Logo variant="full" showCredential height={72} />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
               {locale === "pt" ? footerTagline : footerTaglineEn}
             </p>
