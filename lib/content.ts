@@ -36,7 +36,7 @@ export const site = {
     "Farmacêutico com atuação técnico-comercial em saúde — operação farmacêutica, hospitalar, treinamento, vendas consultivas e tecnologia.",
   descriptionEn:
     "Pharmacist with technical-commercial expertise in healthcare — pharmaceutical and hospital operations, training, consultative sales and technology.",
-  url: "https://thiagopiola-site.vercel.app",
+  url: "https://thiagopiola.com.br",
   reidasvendas: "https://reidasvendas.com.br",
   saudegpt: "https://saudegpt.vercel.app",
   thiagolab: "https://thiago-lab.vercel.app",

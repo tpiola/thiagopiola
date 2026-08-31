@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Política de Privacidade — Thiago Piola",
     description:
       "Política de privacidade e proteção de dados pessoais conforme a LGPD.",
-    url: "https://thiagopiola-site.vercel.app/privacidade",
+    url: "https://thiagopiola.com.br/privacidade",
     locale: "pt_BR",
   },
   twitter: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "Política de privacidade e proteção de dados pessoais conforme a LGPD.",
   },
   alternates: {
-    canonical: "https://thiagopiola-site.vercel.app/privacidade",
+    canonical: "https://thiagopiola.com.br/privacidade",
   },
   robots: {
     index: true,
@@ -277,7 +277,7 @@ export default function PrivacidadePage() {
               <li>
                 <strong>Site:</strong>{" "}
                 <a
-                  href="https://thiagopiola-site.vercel.app"
+                  href="https://thiagopiola.com.br"
                   className="text-[var(--brand)] underline underline-offset-2 hover:opacity-80 transition-opacity"
                 >
                   thiagopiola.com.br

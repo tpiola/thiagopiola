@@ -47,7 +47,7 @@ function post(
   enContent: string,
   imageUrl?: string,
 ): BlogPost {
-  const url = `https://thiagopiola-site.vercel.app/blog/${slug}`;
+  const url = `https://thiagopiola.com.br/blog/${slug}`;
   // Extract source from end of content (last **Source:** or **Fonte:** line)
   const ptSourceMatch = ptContent.match(/\*\*[^*]+\*\*$/);
   const enSourceMatch = enContent.match(/\*\*[^*]+\*\*$/);
