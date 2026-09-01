@@ -33,6 +33,14 @@ const nextConfig: NextConfig = {
       ],
     },
     {
+      // Assets estáticos na raiz de /public (logo, favicon, manifest, ícones PWA)
+      // — antes servidos com max-age=0 e revalidados a cada visita.
+      source: "/(logo.png|favicon.svg|manifest.json|apple-touch-icon.png|icon-192.png|icon-512.png|icon-192-maskable.png|icon-512-maskable.png)",
+      headers: [
+        { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+      ],
+    },
+    {
       source: "/fonts/(.*)",
       headers: [
         { key: "Cache-Control", value: "public, max-age=31536000, immutable" },

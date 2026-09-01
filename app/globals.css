@@ -16,14 +16,9 @@
   --color-accent: var(--brand);
 }
 
-/* ─── Clash Display via @font-face (self-hosted fallback) ─── */
-@font-face {
-  font-family: 'Clash Display';
-  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
-  font-weight: 200 700;
-  font-display: swap;
-  font-style: normal;
-}
+/* ─── Fonte display: Geist via next/font (self-hosted, preloaded) ─── */
+/* Nota: @font-face 'Clash Display' removido — o arquivo /fonts/ClashDisplay-Variable.woff2
+   não existe no repositório (404 em produção); o fallback serif já era usado. */
 
 :root {
   --brand: #0757d9;
