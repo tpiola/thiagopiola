@@ -1,40 +1,5 @@
-# Checklist: Vercel ↔ repositório `tpiola/thiagopiola`
+# Produção
 
-## Status (verificado)
+Projeto thiagopiola, ID prj_jxFRkFQJJ2Vzpyl3p9vSMBpvazaw. Equipe team_X4bKucsxm1xNovRCzLleI3JC. GitHub https://github.com/tpiola/thiagopiola, main. Domínios thiagopiola.com.br e www.thiagopiola.com.br. Commit anterior: 0987c50b2e615a7b1225c324d1e870b97a7d2833.
 
-| Item                      | Status                                         |
-| ------------------------- | ---------------------------------------------- |
-| Repositório Git           | `tpiola/thiagopiola`                           |
-| Branch de produção        | `main`                                         |
-| Projeto Vercel            | `v0-thiagopiola` (time **thiagoso**)           |
-| Domínios                  | `thiagopiola.com.br`, `www.thiagopiola.com.br` |
-| Framework                 | Next.js (Turbopack)                            |
-| Deploy automático em push | Ativo                                          |
-
-Último deploy de produção referencia o commit `348b499` na `main`.
-
-## Revisão manual (opcional)
-
-- [ ] Abrir https://www.thiagopiola.com.br após cada alteração importante
-- [ ] Validar âncoras: `#competencias`, `#tecnologia`, `#trajetoria`, `#contato`
-- [ ] Testar telefone/e-mail e links de redes sociais
-- [ ] Conferir favicon e metadados (title, description, Open Graph)
-
-## Configuração de referência
-
-Se precisar reconectar ou criar outro projeto:
-
-1. [Vercel Dashboard](https://vercel.com) → projeto do domínio
-2. **Settings → Git** → `tpiola/thiagopiola`, branch `main`
-3. **Framework Preset:** Next.js
-4. **Root Directory:** `.`
-5. **Build Command:** `npm run build`
-6. **Install Command:** `npm install`
-
-## Fluxo contínuo
-
-```
-Editar no GitHub / Cursor Agent → git push → Vercel deploy automático → site atualizado
-```
-
-Não é necessário clonar o repositório no computador local para publicar alterações.
+Usar o Git integrado ou API com estes identificadores. Nunca criar um projeto substituto. Verificar build, commit e aliases após publicar. Configurar integrações diretamente no dashboard, sem compartilhar chaves no chat.

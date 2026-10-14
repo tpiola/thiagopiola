@@ -1,14 +1,1 @@
-import { NextResponse } from "next/server";
-
-export const runtime = "edge";
-
-export async function GET() {
-  return NextResponse.json(
-    {
-      status: "ok",
-      timestamp: new Date().toISOString(),
-      site: "thiagopiola",
-    },
-    { status: 200 },
-  );
-}
+import {NextResponse} from 'next/server';export const dynamic='force-dynamic';export async function GET(){return NextResponse.json({status:'ok',version:'4.0.0',integrations:{sanity:!!(process.env.NEXT_PUBLIC_SANITY_PROJECT_ID&&process.env.NEXT_PUBLIC_SANITY_DATASET),contact:!!(process.env.RESEND_API_KEY&&process.env.RESEND_FROM_EMAIL),newsletter:!!(process.env.RESEND_API_KEY&&process.env.RESEND_FROM_EMAIL&&(process.env.RESEND_AUDIENCE_ID||process.env.MAKE_NEWSLETTER_WEBHOOK||process.env.NEXT_PUBLIC_MAKE_NEWSLETTER_WEBHOOK)),umami:!!(process.env.NEXT_PUBLIC_UMAMI_URL&&process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID)}},{headers:{'Cache-Control':'no-store'}});}

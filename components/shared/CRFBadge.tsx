@@ -1,0 +1,1 @@
+import {site} from '@/lib/content';export function CRFBadge(){return <span className="crf-badge">{site.credential}</span>;}

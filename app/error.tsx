@@ -1,0 +1,1 @@
+'use client';export default function ErrorPage({reset}:{reset:()=>void}){return <div className="container page-intro"><p className="eyebrow">FALHA TEMPORÁRIA</p><h1>Vamos tentar novamente.</h1><button className="button button-primary" onClick={reset}>Recarregar conteúdo</button></div>;}

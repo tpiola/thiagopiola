@@ -1,11 +1,2 @@
-import { SLUGS } from "@/lib/slugs";
-import BlogPostShell from "./shell";
-
-export function generateStaticParams() {
-  return SLUGS.map((slug) => ({ slug }));
-}
-
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  return <BlogPostShell slug={slug} />;
-}
+import {notFound,permanentRedirect} from 'next/navigation';import {PortableText} from '@portabletext/react';import type {Metadata} from 'next';import {getPost,getPosts} from '@/lib/sanity';import {site} from '@/lib/content';import {PageIntro} from '@/components/shared/PageIntro';import {Checklist} from '@/components/shared/Checklist';import {Newsletter} from '@/components/home/Newsletter';import legacy from '@/docs/legacy-blog-slugs.json';export const revalidate=300;export async function generateStaticParams(){return (await getPosts()).map(p=>({slug:p.slug}));}export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const {slug}=await params,post=await getPost(slug);return {title:post?.title||'Artigo não encontrado',description:post?.excerpt,alternates:{canonical:'/blog/'+slug}};}
+export default async function PostPage({params}:{params:Promise<{slug:string}>}){const {slug}=await params,post=await getPost(slug);if(!post){if(legacy.includes(slug))permanentRedirect('/blog');notFound();}const graph={'@context':'https://schema.org','@type':'Article',headline:post.title,description:post.excerpt,datePublished:post.date,dateModified:post.date,author:{'@type':'Person',name:site.name,url:site.url+'/sobre'},mainEntityOfPage:site.url+'/blog/'+post.slug};return <><PageIntro eyebrow={post.category+' / '+post.readingTime} title={post.title} description={post.excerpt}/><article className="container reading-layout"><div className="reading-content">{post.paragraphs?post.paragraphs.map(s=><section key={s.title}><h2>{s.title}</h2><p>{s.text}</p></section>):post.body?<PortableText value={post.body}/>:null}<aside className="clinical-note">{site.disclaimer}</aside><div className="references"><h2>Referências e revisão</h2>{(post.sources||[]).map(s=><a href={s.url} key={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>)}<p>Revisão editorial: {new Date(post.date).toLocaleDateString('pt-BR',{timeZone:'UTC'})}.</p></div></div><aside className="reading-aside"><span className="eyebrow">AUTORIA</span><strong>{site.name}</strong><p>Farmacêutico • {site.credential}</p></aside></article><div className="container"><Checklist/></div><Newsletter/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(graph).replace(/</g,'\\u003c')}}/></>;}

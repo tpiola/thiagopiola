@@ -1,0 +1,1 @@
+import {newsletter} from '@/lib/content';import {NewsletterForm} from '@/components/shared/NewsletterForm';export function Newsletter(){return <section className="newsletter-section section container"><div><p className="eyebrow">{newsletter.eyebrow}</p><h2>{newsletter.title}</h2><p>{newsletter.description}</p></div><NewsletterForm/></section>;}

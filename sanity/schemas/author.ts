@@ -1,0 +1,1 @@
+import {defineType,defineField} from 'sanity';export const author=defineType({name:'author',title:'Autor',type:'document',fields:[defineField({name:'name',type:'string',validation:r=>r.required()}),defineField({name:'credential',title:'Registro profissional',type:'string',validation:r=>r.required()}),defineField({name:'bio',type:'text'})]});

@@ -1,0 +1,1 @@
+import gsap from 'gsap';import {ScrollTrigger} from 'gsap/ScrollTrigger';export function registerMotion(){gsap.registerPlugin(ScrollTrigger);return {gsap,ScrollTrigger};}

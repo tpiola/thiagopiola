@@ -1,0 +1,1 @@
+export function PageIntro({eyebrow,title,description}:{eyebrow:string;title:string;description?:string}){return <div className="page-intro container"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1>{description?<p>{description}</p>:null}</div>;}
